@@ -14,7 +14,7 @@ import javafx.scene.control.Label;
 
 /**
  *
- * @author Alicia
+ * @author JaneCaliz
  */
 public class CuatroEnRayaController implements Initializable {
     

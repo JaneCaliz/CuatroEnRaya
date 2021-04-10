@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Alicia
+ * @author JaneCaliz
  */
 public class CuatroEnRaya extends Application {
     
