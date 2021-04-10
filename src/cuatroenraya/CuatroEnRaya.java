@@ -11,10 +11,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- *
- * @author JaneCaliz
- */
 public class CuatroEnRaya extends Application {
     
     @Override

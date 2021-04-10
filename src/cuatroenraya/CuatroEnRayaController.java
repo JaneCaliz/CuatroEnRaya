@@ -12,10 +12,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
-/**
- *
- * @author JaneCaliz
- */
 public class CuatroEnRayaController implements Initializable {
     
     @FXML
