@@ -5,16 +5,34 @@
  */
 package controladores;
 
+import DBAccess.Connect4DAOException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import model.Connect4;
 
-/**
- * FXML Controller class
- *
- * @author Alicia
- */
 public class RecordarPasswordController implements Initializable {
+
+    @FXML
+    private TextField usuario;
+    @FXML
+    private TextField correo;
+    @FXML
+    private Button recuperar;
+    @FXML
+    private Text error;
 
     /**
      * Initializes the controller class.
@@ -23,5 +41,38 @@ public class RecordarPasswordController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void recuperar(ActionEvent event) {
+        try {
+            Connect4 base = Connect4.getSingletonConnect4();
+            if(!base.exitsNickName(usuario.getText())){
+                error.setText("Usuario no existente");
+            }
+            else if(!correo.equals(base.getPlayer(usuario.getText()).getEmail())){
+                error.setText("El usuario y el correo no coinciden");
+            }
+            else{
+                error.setText("");
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Codigo.fxml"));
+            
+                Parent root = loader.load();
+
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+
+                stage.setScene(scene);
+                stage.show();
+
+                Stage myStage = (Stage) this.recuperar.getScene().getWindow();
+                myStage.close();
+            }
+        } catch (Connect4DAOException ex) {
+            Logger.getLogger(RecordarPasswordController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(RecordarPasswordController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
     
 }
