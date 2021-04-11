@@ -120,15 +120,13 @@ public class IniciarSesionController implements Initializable {
             
             Parent root = loader.load();
             
-            IniciarSesionController controlador = loader.getController();
-            
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             
             stage.setScene(scene);
             stage.show();
             
-            Stage myStage = (Stage) this.recuerdame.getScene().getWindow();
+            Stage myStage = (Stage) this.iniciar.getScene().getWindow();
             myStage.close();
             
         } catch (IOException ex) {

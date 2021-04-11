@@ -49,7 +49,7 @@ public class RecordarPasswordController implements Initializable {
             if(!base.exitsNickName(usuario.getText())){
                 error.setText("Usuario no existente");
             }
-            else if(!correo.equals(base.getPlayer(usuario.getText()).getEmail())){
+            else if(!correo.getText().equals(base.getPlayer(usuario.getText()).getEmail())){
                 error.setText("El usuario y el correo no coinciden");
             }
             else{
