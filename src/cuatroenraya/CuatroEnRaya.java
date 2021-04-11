@@ -15,7 +15,7 @@ public class CuatroEnRaya extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("CuatroEnRaya.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/FXML/PantallaDeInicio.fxml"));
         
         Scene scene = new Scene(root);
         
