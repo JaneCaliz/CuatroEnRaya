@@ -32,16 +32,7 @@ public class CuatroEnRaya extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        try {
-            launch(args);
-            
-            Connect4 BD = Connect4.getSingletonConnect4();
-            
-            BD.registerPlayer("Ydav", "YdavPacat21@gmail.com", "qwer", LocalDate.MIN, 0);
-        } catch (Connect4DAOException ex) {
-            Logger.getLogger(CuatroEnRaya.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+            launch(args); 
     }
     
 }

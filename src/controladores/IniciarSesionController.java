@@ -8,6 +8,7 @@ package controladores;
 import DBAccess.Connect4DAOException;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -46,27 +47,27 @@ public class IniciarSesionController implements Initializable {
     }    
 
     public void closeWindow() {
-//         try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/IniciarSesion.fxml"));
-//            
-//            Parent root = loader.load();
-//            
-//            IniciarSesionController controlador = loader.getController();
-//            
-//            Scene scene = new Scene(root);
-//            Stage stage = new Stage();
-//            
-//            stage.setOnCloseRequest(e -> controlador.closeWindow());
-//            
-//            Stage myStage = (Stage) this.jugarButt.getScene().getWindow();
-//            myStage.close();
-//            
-//            
-//            
-//        } catch (IOException ex) {
-//            Logger.getLogger(PantallaDeInicioController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/PantallaDeInicio.fxml"));
+            
+            Parent root = loader.load();
+            
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            
+            stage.setScene(scene);
+            stage.show();
+            
+            Stage myStage = (Stage) this.iniciar.getScene().getWindow();
+            myStage.close();
+            
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(PantallaDeInicioController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         
     }
 
