@@ -5,11 +5,16 @@
  */
 package cuatroenraya;
 
+import DBAccess.Connect4DAOException;
+import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Connect4;
 
 public class CuatroEnRaya extends Application {
     
@@ -27,7 +32,16 @@ public class CuatroEnRaya extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        launch(args);
+        try {
+            launch(args);
+            
+            Connect4 BD = Connect4.getSingletonConnect4();
+            
+            BD.registerPlayer("Ydav", "YdavPacat21@gmail.com", "qwer", LocalDate.MIN, 0);
+        } catch (Connect4DAOException ex) {
+            Logger.getLogger(CuatroEnRaya.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
 }
