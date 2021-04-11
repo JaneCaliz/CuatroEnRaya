@@ -38,8 +38,6 @@ public class IniciarSesionController implements Initializable {
     @FXML
     private PasswordField password;
     @FXML
-    private CheckBox show;
-    @FXML
     private Hyperlink recuerdame;
     @FXML
     private Button iniciar;
@@ -75,10 +73,6 @@ public class IniciarSesionController implements Initializable {
 //        }
 //        
         
-    }
-
-    @FXML
-    private void check(ActionEvent event) {
     }
 
     @FXML
