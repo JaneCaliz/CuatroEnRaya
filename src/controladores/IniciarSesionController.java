@@ -26,11 +26,6 @@ import javafx.stage.Stage;
 import model.Connect4;
 import model.Player;
 
-/**
- * FXML Controller class
- *
- * @author ydavpacat
- */
 public class IniciarSesionController implements Initializable {
 
     @FXML
@@ -77,6 +72,7 @@ public class IniciarSesionController implements Initializable {
 
     @FXML
     private void inicio(ActionEvent event) {
+<<<<<<< HEAD
         
         try {
             Connect4 BD = Connect4.getSingletonConnect4();
@@ -114,4 +110,50 @@ public class IniciarSesionController implements Initializable {
         }
         
     }   
+=======
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
+            
+            Parent root = loader.load();
+            
+            IniciarSesionController controlador = loader.getController();
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            
+            stage.setScene(scene);
+            stage.show();
+            
+            Stage myStage = (Stage) this.iniciar.getScene().getWindow();
+            myStage.close();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(PantallaDeInicioController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void recordar(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/RecordarPassword.fxml"));
+            
+            Parent root = loader.load();
+            
+            IniciarSesionController controlador = loader.getController();
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            
+            stage.setScene(scene);
+            stage.show();
+            
+            Stage myStage = (Stage) this.recuerdame.getScene().getWindow();
+            myStage.close();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(PantallaDeInicioController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+>>>>>>> 2f761dc2015769bbd2104b2045fc466a52996c64
 }
