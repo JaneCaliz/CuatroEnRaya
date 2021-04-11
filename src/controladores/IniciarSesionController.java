@@ -23,11 +23,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author ydavpacat
- */
 public class IniciarSesionController implements Initializable {
 
     @FXML
@@ -74,6 +69,48 @@ public class IniciarSesionController implements Initializable {
 
     @FXML
     private void inicio(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
+            
+            Parent root = loader.load();
+            
+            IniciarSesionController controlador = loader.getController();
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            
+            stage.setScene(scene);
+            stage.show();
+            
+            Stage myStage = (Stage) this.iniciar.getScene().getWindow();
+            myStage.close();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(PantallaDeInicioController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void recordar(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/RecordarPassword.fxml"));
+            
+            Parent root = loader.load();
+            
+            IniciarSesionController controlador = loader.getController();
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            
+            stage.setScene(scene);
+            stage.show();
+            
+            Stage myStage = (Stage) this.recuerdame.getScene().getWindow();
+            myStage.close();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(PantallaDeInicioController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
