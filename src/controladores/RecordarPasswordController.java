@@ -33,6 +33,8 @@ public class RecordarPasswordController implements Initializable {
     private Button recuperar;
     @FXML
     private Text error;
+    @FXML
+    private Button cancelar;
 
     /**
      * Initializes the controller class.
@@ -54,7 +56,7 @@ public class RecordarPasswordController implements Initializable {
             }
             else{
                 error.setText("");
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Codigo.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/IntroducirCodigo.fxml"));
             
                 Parent root = loader.load();
 
@@ -66,6 +68,16 @@ public class RecordarPasswordController implements Initializable {
 
                 Stage myStage = (Stage) this.recuperar.getScene().getWindow();
                 myStage.close();
+                
+                FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/FXML/Codigo.fxml"));
+                
+                Parent root2 = loader2.load();
+
+                Scene scene2 = new Scene(root2);
+                Stage stage2 = new Stage();
+
+                stage2.setScene(scene2);
+                stage2.show();
             }
         } catch (Connect4DAOException ex) {
             Logger.getLogger(RecordarPasswordController.class.getName()).log(Level.SEVERE, null, ex);
@@ -74,5 +86,20 @@ public class RecordarPasswordController implements Initializable {
         }
         
     }
-    
+
+    @FXML
+    private void cancelar(ActionEvent event) throws IOException {
+        Stage myStage = (Stage) this.cancelar.getScene().getWindow();
+        myStage.close();
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/IniciarSesion.fxml"));
+            
+        Parent root = loader.load();
+
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+
+        stage.setScene(scene);
+        stage.show();
+    }
 }

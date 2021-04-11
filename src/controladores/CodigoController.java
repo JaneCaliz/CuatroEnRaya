@@ -7,9 +7,16 @@ package controladores;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 public class CodigoController implements Initializable {
+
+    @FXML
+    private Button cerrar;
 
     /**
      * Initializes the controller class.
@@ -18,5 +25,11 @@ public class CodigoController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void close(ActionEvent event) {
+        Stage myStage = (Stage) this.cerrar.getScene().getWindow();
+        myStage.close();
+    }
     
 }

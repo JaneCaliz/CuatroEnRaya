@@ -19,11 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author ydavpacat
- */
+
 public class PantallaDeInicioController implements Initializable {
 
     @FXML
