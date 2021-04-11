@@ -37,13 +37,13 @@
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:  " textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:  " GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="1">
+            <TextField fx:id="usuario" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="1">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </TextField>
-            <PasswordField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <CheckBox alignment="CENTER" mnemonicParsing="false" text="Mostrar contraseña" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <PasswordField fx:id="password" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <CheckBox fx:id="show" alignment="CENTER" mnemonicParsing="false" onAction="#check" text="Mostrar contraseña" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="5.0" />
                </GridPane.margin>
@@ -60,13 +60,13 @@
                   <Insets top="5.0" />
                </HBox.margin>
             </Text>
-            <Hyperlink alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Recuérdame" textAlignment="CENTER" />
+            <Hyperlink fx:id="recuerdame" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Recuérdame" textAlignment="CENTER" />
          </children>
          <VBox.margin>
             <Insets bottom="20.0" />
          </VBox.margin>
       </HBox>
-      <Button mnemonicParsing="false" text="Iniciar sesión" />
+      <Button fx:id="iniciar" mnemonicParsing="false" onAction="#inicio" text="Iniciar sesión" />
       <HBox alignment="CENTER" prefHeight="24.0" prefWidth="600.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="¿No tienes cuenta? " textAlignment="CENTER" />
