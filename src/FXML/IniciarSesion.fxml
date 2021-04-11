@@ -37,7 +37,7 @@
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:  " textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:  " GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <TextField alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="1">
+            <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" GridPane.columnIndex="1">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
