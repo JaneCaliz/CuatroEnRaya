@@ -28,28 +28,32 @@ public class PasswordController implements Initializable {
     private Text password;
     @FXML
     private Button cerrar;
+    
+    public Player p;
+    @FXML
+    private Button mostrar;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("RecordarPassword.fxml"));
-            Connect4 DB = Connect4.getSingletonConnect4();
-            RecordarPasswordController user = (RecordarPasswordController) loader.getController();
-            Player p = DB.getPlayer(user.usuario.getText());
-            password.setText(p.getPassword());
-        } 
-        catch (Connect4DAOException ex) {
-            Logger.getLogger(PasswordController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
     }    
+    
+    public void initPlayer(Player p){
+        this.p = p;
+    }
 
     @FXML
     private void cerrar(ActionEvent event) {
         Stage myStage = (Stage) this.cerrar.getScene().getWindow();
         myStage.close();
+    }
+
+    @FXML
+    private void mostarPass(ActionEvent event) {
+        password.setText(p.getPassword());
     }
     
 }

@@ -20,8 +20,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Connect4;
+import model.Player;
 
 public class RecordarPasswordController implements Initializable {
 
@@ -35,7 +37,7 @@ public class RecordarPasswordController implements Initializable {
     private Text error;
     @FXML
     private Button cancelar;
-
+    
     /**
      * Initializes the controller class.
      */
@@ -43,7 +45,7 @@ public class RecordarPasswordController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
+    
     @FXML
     private void recuperar(ActionEvent event) {
         try {
@@ -59,10 +61,18 @@ public class RecordarPasswordController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/IntroducirCodigo.fxml"));
             
                 Parent root = loader.load();
+                
+                Connect4 DB = Connect4.getSingletonConnect4();
+                
+                Player player = DB.getPlayer(usuario.getText());
+                
+                IntroducirCodigoController controlador = loader.getController();
+                controlador.initPlayer(player);
+                
 
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
-
+                
                 stage.setScene(scene);
                 stage.show();
 

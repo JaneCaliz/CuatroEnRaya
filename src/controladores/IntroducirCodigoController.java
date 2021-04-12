@@ -19,7 +19,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.Player;
 
 
 public class IntroducirCodigoController implements Initializable {
@@ -32,6 +34,8 @@ public class IntroducirCodigoController implements Initializable {
     private Button obtener;
     @FXML
     private Text text;
+    
+    public Player p;
 
     /**
      * Initializes the controller class.
@@ -39,7 +43,11 @@ public class IntroducirCodigoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }  
+    
+    public void initPlayer(Player p){
+        this.p = p;
+    }
 
     @FXML
     private void cancelar(ActionEvent event) throws IOException {
@@ -67,12 +75,18 @@ public class IntroducirCodigoController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Password.fxml"));
 
             Parent root = loader.load();
+                
+
+            PasswordController controlador = loader.getController();
+            controlador.initPlayer(p);
+
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
-
+            
             stage.setScene(scene);
-            stage.show();
+            stage.showAndWait();
+                      
         }
         else{
             text.setText("Código incorrecto");
