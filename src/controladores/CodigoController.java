@@ -11,20 +11,40 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class CodigoController implements Initializable {
 
     @FXML
     private Button cerrar;
-
+    @FXML
+    private Text text;
+    
+    public static String valor = Integer.toString((int) (Math.random()*10000));
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        switch(valor.length()){
+            case 1:
+                text.setText("000" + valor);
+                break;
+            case 2:
+                text.setText("00" + valor);
+                break;
+            case 3:
+                text.setText("0" + valor);
+                break;
+            default:
+                text.setText(valor);
+        }
     }    
+    
+    public static String valor(){
+        return valor;
+    }
 
     @FXML
     private void close(ActionEvent event) {
@@ -32,4 +52,8 @@ public class CodigoController implements Initializable {
         myStage.close();
     }
     
+//    public void cerrar(){ 
+//        ActionEvent e = new ActionEvent();
+//        close(e);
+//    }
 }

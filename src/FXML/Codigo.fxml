@@ -19,7 +19,7 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
+            <Text fx:id="text" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
                <font>
                   <Font size="25.0" />
                </font>
