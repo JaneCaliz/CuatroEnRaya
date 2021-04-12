@@ -76,8 +76,8 @@ public class RecordarPasswordController implements Initializable {
                 stage.setScene(scene);
                 stage.show();
 
-                //Stage myStage = (Stage) this.recuperar.getScene().getWindow();
-                //myStage.close();
+                Stage myStage = (Stage) this.recuperar.getScene().getWindow();
+                myStage.close();
                 
                 FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/FXML/Codigo.fxml"));
                 
@@ -111,9 +111,5 @@ public class RecordarPasswordController implements Initializable {
 
         stage.setScene(scene);
         stage.show();
-    }
-    
-    public String getUsuario(){
-        return usuario.getText();
     }
 }

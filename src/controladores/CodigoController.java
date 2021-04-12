@@ -22,6 +22,7 @@ public class CodigoController implements Initializable {
     private Text text;
     
     public static String valor = Integer.toString((int) (Math.random()*10000));
+    private static String value = "";
     /**
      * Initializes the controller class.
      */
@@ -29,21 +30,25 @@ public class CodigoController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         switch(valor.length()){
             case 1:
-                text.setText("000" + valor);
+                value = "000" + valor;
+                text.setText(value);
                 break;
             case 2:
-                text.setText("00" + valor);
+                value = "00" + valor;
+                text.setText(value);
                 break;
             case 3:
-                text.setText("0" + valor);
+                value = "0" + valor;
+                text.setText(value);
                 break;
             default:
-                text.setText(valor);
+                value = valor;
+                text.setText(value);
         }
     }    
     
     public static String valor(){
-        return valor;
+        return value;
     }
 
     @FXML
@@ -52,8 +57,4 @@ public class CodigoController implements Initializable {
         myStage.close();
     }
     
-//    public void cerrar(){ 
-//        ActionEvent e = new ActionEvent();
-//        close(e);
-//    }
 }
