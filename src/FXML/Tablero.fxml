@@ -48,27 +48,27 @@
             <Insets left="10.0" right="10.0" />
          </VBox.margin>
          <children>
-            <Circle fx:id="Circle_0_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" />
-            <Circle fx:id="Circle_0_4" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <Circle fx:id="Circle_0_3" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <Circle fx:id="Circle_0_2" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Circle fx:id="Circle_0_1" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Circle fx:id="Circle_0_5" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <Circle fx:id="Circle_0_6" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-            <Circle fx:id="Circle_1_6" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+            <Circle fx:id="Circle_0_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" />
+            <Circle fx:id="Circle_0_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <Circle fx:id="Circle_0_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Circle fx:id="Circle_0_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Circle fx:id="Circle_0_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Circle fx:id="Circle_0_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <Circle fx:id="Circle_0_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+            <Circle fx:id="Circle_1_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
             <Circle fx:id="Circle_1_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-            <Circle fx:id="Circle_2_4" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <Circle fx:id="Circle_2_3" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <Circle fx:id="Circle_2_2" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Circle fx:id="Circle_2_1" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Circle fx:id="Circle_2_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-            <Circle fx:id="Circle_1_5" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <Circle fx:id="Circle_1_4" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <Circle fx:id="Circle_1_3" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <Circle fx:id="Circle_1_2" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Circle fx:id="Circle_1_1" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Circle fx:id="Circle_2_5" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <Circle fx:id="Circle_4_1" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Circle fx:id="Circle_2_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <Circle fx:id="Circle_2_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Circle fx:id="Circle_2_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Circle fx:id="Circle_2_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Circle fx:id="Circle_2_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+            <Circle fx:id="Circle_1_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <Circle fx:id="Circle_1_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <Circle fx:id="Circle_1_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Circle fx:id="Circle_1_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Circle fx:id="Circle_1_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Circle fx:id="Circle_2_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <Circle fx:id="Circle_4_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
             <Circle fx:id="Circle_4_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
             <Circle fx:id="Circle_3_6" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
             <Circle fx:id="Circle_3_5" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
