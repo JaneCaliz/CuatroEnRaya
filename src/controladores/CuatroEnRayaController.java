@@ -13,11 +13,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-/**
- * FXML Controller class
- *
- * @author ydavpacat
- */
 public class CuatroEnRayaController implements Initializable {
 
     @FXML
