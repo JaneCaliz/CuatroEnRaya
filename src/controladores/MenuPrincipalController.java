@@ -17,12 +17,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class MenuPrincipalController implements Initializable {
 
     @FXML
     private Button jugarIA;
+    @FXML
+    private ImageView profile;
+    @FXML
+    private Button jugarF;
 
     /**
      * Initializes the controller class.
@@ -54,6 +59,10 @@ public class MenuPrincipalController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void jugarF(ActionEvent event) {
     }
     
 }
