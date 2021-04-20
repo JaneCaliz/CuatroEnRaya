@@ -9,6 +9,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
@@ -131,6 +134,10 @@ public class TableroController implements Initializable {
     private Circle Circle_7_5;
     @FXML
     private Circle Circle_7_6;
+    
+    public Conecta4 con;
+    @FXML
+    private GridPane gPane;
 
     /**
      * Initializes the controller class.
@@ -139,8 +146,28 @@ public class TableroController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         cambiarColor(3,4,"RED");
         cambiarColor(4,6,"YELLOW");
+        con = new Conecta4();
         // TODO
-    }    
+    } 
+    
+    private Node getNodeFromGridPane(GridPane gridPane, int col, int row) {
+        for (Node node : gridPane.getChildren()) {
+            if (GridPane.getColumnIndex(node) == col && GridPane.getRowIndex(node) == row) {
+                return node;
+            }
+        }
+        return null;
+    }
+    
+    @FXML
+    private void colocarFicha(MouseEvent event) {
+        
+        int fila = gPane.getRowIndex(((Circle)event.getSource()));
+        int columna = gPane.getColumnIndex(((Circle)event.getSource()));
+    
+    }
+    
+    
     
     public void cambiarColor (int x, int y, String color){
     
@@ -348,5 +375,7 @@ public class TableroController implements Initializable {
         }
     
     }
+
+    
     
 }
