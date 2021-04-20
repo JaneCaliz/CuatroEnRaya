@@ -162,10 +162,16 @@ public class TableroController implements Initializable {
     @FXML
     private void colocarFicha(MouseEvent event) {
         
-        int fila = gPane.getRowIndex(((Circle)event.getSource()));
-        int columna = gPane.getColumnIndex(((Circle)event.getSource()));
-    
+//        int fila = gPane.getRowIndex(((Circle)event.getSource()));
+        int columna = GridPane.getColumnIndex(((Circle)event.getSource()));
+        
+        int filaColocado = con.ponFicha(columna);
+        
+        cambiarColor(columna,filaColocado,"RED");
+        
     }
+    
+  
     
     
     
