@@ -82,9 +82,9 @@ public class MenuPrincipalController implements Initializable {
         }
     }
     
-    public static Player primero(){
-        return jugador();
-    }
+//    public static Player primero(){
+//        return jugador();
+//    }
     
     public static boolean getSegundo(){
         return segundo;
