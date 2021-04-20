@@ -5,15 +5,21 @@
  */
 package controladores;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 
 
 public class TableroController implements Initializable {
@@ -134,6 +140,8 @@ public class TableroController implements Initializable {
     public Conecta4 con;
     @FXML
     private GridPane gPane;
+    @FXML
+    private ImageView exit;
 
     /**
      * Initializes the controller class.
@@ -379,7 +387,19 @@ public class TableroController implements Initializable {
     }
 
     @FXML
-    private void exit(MouseEvent event) {
+    private void exit(MouseEvent event) throws IOException {
+        Stage myStage = (Stage) this.exit.getScene().getWindow();
+        myStage.close();
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
+            
+        Parent root = loader.load();
+
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+
+        stage.setScene(scene);
+        stage.show();
     }
 
     

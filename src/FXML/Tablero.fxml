@@ -29,7 +29,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <ImageView fitHeight="39.0" fitWidth="28.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="exit" fitHeight="39.0" fitWidth="28.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Img/Exit.png" />
                      </image>

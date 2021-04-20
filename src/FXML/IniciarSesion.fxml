@@ -35,17 +35,25 @@
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario:  " textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:  " GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <TextField fx:id="usuario" maxHeight="-Infinity" maxWidth="-Infinity" GridPane.columnIndex="1">
+            <TextField fx:id="usuario" maxHeight="-Infinity" maxWidth="-Infinity" onKeyTyped="#click" GridPane.columnIndex="1">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </TextField>
-            <PasswordField fx:id="password" maxHeight="-Infinity" maxWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <PasswordField fx:id="password" maxHeight="-Infinity" maxWidth="-Infinity" onKeyTyped="#click" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
          <VBox.margin>
             <Insets bottom="3.0" top="15.0" />
          </VBox.margin>
       </GridPane>
+      <Text fx:id="error" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font size="1.0" />
+         </font>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Text>
       <HBox alignment="CENTER" prefHeight="30.0" prefWidth="600.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="¿Olvidó su contraseña? " textAlignment="CENTER" />
@@ -61,9 +69,12 @@
             <Hyperlink text="Regístrate" textAlignment="CENTER" />
          </children>
          <VBox.margin>
-            <Insets bottom="20.0" />
+            <Insets bottom="5.0" />
          </VBox.margin>
       </HBox>
-      <Button fx:id="iniciar" mnemonicParsing="false" onAction="#inicio" text="Iniciar sesión" />
+      <Button fx:id="iniciar" mnemonicParsing="false" onAction="#inicio" text="Iniciar sesión">
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin></Button>
    </children>
 </VBox>

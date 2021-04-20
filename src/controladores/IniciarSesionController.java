@@ -23,6 +23,8 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Connect4;
 import model.Player;
@@ -37,6 +39,10 @@ public class IniciarSesionController implements Initializable {
     private Hyperlink recuerdame;
     @FXML
     private Button iniciar;
+    @FXML
+    private Text title;
+    @FXML
+    private Text error;
 
     /**
      * Initializes the controller class.
@@ -84,7 +90,8 @@ public class IniciarSesionController implements Initializable {
             Player p = BD.loginPlayer(usu,pass);
             
             if(p == null){
-                System.out.println("Usuario o contraseña incorectos");
+                error.setStyle("-fx-font: 15 SansSerif");
+                error.setText("Usuario o contraseña incorectos");
                 System.out.println(BD.getConnect4DAO());
             } else{
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
@@ -128,6 +135,12 @@ public class IniciarSesionController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(PantallaDeInicioController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void click(KeyEvent event) {
+        error.setStyle("-fx-font: 1 SansSerif");
+        error.setText("");
     }
     
 }

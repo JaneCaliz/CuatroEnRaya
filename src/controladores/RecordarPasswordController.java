@@ -19,6 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -51,9 +52,11 @@ public class RecordarPasswordController implements Initializable {
         try {
             Connect4 base = Connect4.getSingletonConnect4();
             if(!base.exitsNickName(usuario.getText())){
+                error.setStyle("-fx-font: 15 SansSerif");
                 error.setText("Usuario no existente");
             }
             else if(!correo.getText().equals(base.getPlayer(usuario.getText()).getEmail())){
+                error.setStyle("-fx-font: 15 SansSerif");
                 error.setText("El usuario y el correo no coinciden");
             }
             else{
@@ -111,5 +114,11 @@ public class RecordarPasswordController implements Initializable {
 
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    private void click(KeyEvent event) {
+        error.setStyle("-fx-font: 1 SansSerif");
+        error.setText("");
     }
 }
