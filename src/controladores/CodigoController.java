@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -20,8 +21,9 @@ public class CodigoController implements Initializable {
     private Button cerrar;
     @FXML
     private Text text;
-    
+            
     public static String valor = Integer.toString((int) (Math.random()*10000));
+    
     private static String value = "";
     /**
      * Initializes the controller class.
