@@ -45,8 +45,6 @@ public class IniciarSesionController implements Initializable {
     private Text error;
     
     private static Player p1, p2;
-    
-    private static String pl1, pl2;
 
     /**
      * Initializes the controller class.
@@ -106,11 +104,9 @@ public class IniciarSesionController implements Initializable {
             
             if(MenuPrincipalController.getSegundo()){
                 p2 = BD.loginPlayer(usu,pass);
-                pl2 = usu;
             }
             else{
                 p1 = BD.loginPlayer(usu,pass);
-                pl1 = usu;
             }
             
             if(MenuPrincipalController.getSegundo() && p2 == MenuPrincipalController.player()){
