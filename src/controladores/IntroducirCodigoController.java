@@ -9,6 +9,8 @@ import static controladores.CodigoController.valor;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -36,13 +39,27 @@ public class IntroducirCodigoController implements Initializable {
     private Text text;
     
     public Player p;
-
+    @FXML
+    private Text pass;
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+//        try {
+//            FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/FXML/Codigo.fxml"));
+//            
+//            Parent root2 = loader2.load();
+//            
+//            Scene scene2 = new Scene(root2);
+//            Stage stage2 = new Stage();
+//            
+//            stage2.setScene(scene2);
+//            stage2.show();
+//        } catch (IOException ex) {
+//            Logger.getLogger(IntroducirCodigoController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }  
     
     public void initPlayer(Player p){
@@ -51,6 +68,7 @@ public class IntroducirCodigoController implements Initializable {
 
     @FXML
     private void cancelar(ActionEvent event) throws IOException {
+       
         Stage myStage = (Stage) this.cancelar.getScene().getWindow();
         myStage.close();
         
@@ -64,28 +82,12 @@ public class IntroducirCodigoController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
+    
     @FXML
     private void obtener(ActionEvent event) throws IOException {
         if(valor().equals(code.getText())){
             text.setText("");
-            Stage myStage = (Stage) this.obtener.getScene().getWindow();
-            myStage.close();
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Password.fxml"));
-
-            Parent root = loader.load();
-                
-
-            PasswordController controlador = loader.getController();
-            controlador.initPlayer(p);
-
-
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            
-            stage.setScene(scene);
-            stage.showAndWait();
+            pass.setText("Tu contraseña es: " + p.getPassword());
                       
         }
         else{
