@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import model.Player;
 
 public class MenuPrincipalController implements Initializable {
 
@@ -30,6 +31,8 @@ public class MenuPrincipalController implements Initializable {
     private Button jugarF;
 
     public static boolean segundo = false;
+    
+    private static Player p1;
     /**
      * Initializes the controller class.
      */
@@ -77,6 +80,10 @@ public class MenuPrincipalController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public static Player primero(){
+        return jugador();
     }
     
     public static boolean getSegundo(){

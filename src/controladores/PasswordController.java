@@ -16,9 +16,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import model.Connect4;
-import controladores.RecordarPasswordController;
-import javafx.fxml.FXMLLoader;
 import model.Player;
 
 

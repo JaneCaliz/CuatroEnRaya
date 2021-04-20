@@ -43,6 +43,10 @@ public class IniciarSesionController implements Initializable {
     private Text title;
     @FXML
     private Text error;
+    
+    private Player p1;
+    
+    private Player p2;
 
     /**
      * Initializes the controller class.
@@ -94,20 +98,32 @@ public class IniciarSesionController implements Initializable {
 
     @FXML
     private void inicio(ActionEvent event) {
-
-        
         try {
             Connect4 BD = Connect4.getSingletonConnect4();
             
             String usu = usuario.getText();
             String pass = password.getText();
             
-            Player p = BD.loginPlayer(usu,pass);
+            if(MenuPrincipalController.getSegundo()){
+                p2 = BD.loginPlayer(usu,pass);
+            }
+            else{
+                p1 = BD.loginPlayer(usu,pass);
+            }
             
-            if(p == null){
+            if(MenuPrincipalController.getSegundo() && p2 == p1){
+                error.setStyle("-fx-font: 15 SansSerif");
+                error.setText("Usuario repetido");
+            }
+            
+            else if(!MenuPrincipalController.getSegundo() && p1 == null){
                 error.setStyle("-fx-font: 15 SansSerif");
                 error.setText("Usuario o contraseña incorectos");
-                System.out.println(BD.getConnect4DAO());
+            }
+//                System.out.println(BD.getConnect4DAO());
+            else if(MenuPrincipalController.getSegundo() && p2 == null){
+                error.setStyle("-fx-font: 15 SansSerif");
+                error.setText("Usuario o contraseña incorectos");
             } else{
                 if(MenuPrincipalController.getSegundo()){
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tablero.fxml"));
@@ -172,4 +188,10 @@ public class IniciarSesionController implements Initializable {
         error.setText("");
     }
     
+    public Player jugador(){
+        if(!MenuPrincipalController.getSegundo()){
+            return p1;
+        }
+        return p2;
+    }
 }
