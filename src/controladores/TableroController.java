@@ -15,11 +15,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
-/**
- * FXML Controller class
- *
- * @author ydavpacat
- */
+
 public class TableroController implements Initializable {
 
     @FXML
@@ -380,6 +376,10 @@ public class TableroController implements Initializable {
             break;
         }
     
+    }
+
+    @FXML
+    private void exit(MouseEvent event) {
     }
 
     

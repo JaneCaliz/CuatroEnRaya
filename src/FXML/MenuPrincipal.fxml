@@ -11,7 +11,7 @@
 
 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #d6ffe1;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.MenuPrincipalController">
    <children>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #6bdb88; -fx-border-color: #000000;">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #6bdb88;">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="92.0">
                <children>
