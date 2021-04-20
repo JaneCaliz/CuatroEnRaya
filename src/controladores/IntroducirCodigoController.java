@@ -21,6 +21,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -47,19 +48,7 @@ public class IntroducirCodigoController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        try {
-//            FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/FXML/Codigo.fxml"));
-//            
-//            Parent root2 = loader2.load();
-//            
-//            Scene scene2 = new Scene(root2);
-//            Stage stage2 = new Stage();
-//            
-//            stage2.setScene(scene2);
-//            stage2.show();
-//        } catch (IOException ex) {
-//            Logger.getLogger(IntroducirCodigoController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+
     }  
     
     public void initPlayer(Player p){
@@ -87,10 +76,13 @@ public class IntroducirCodigoController implements Initializable {
     private void obtener(ActionEvent event) throws IOException {
         if(valor().equals(code.getText())){
             text.setText("");
+            pass.setStyle("-fx-font: 20 SansSerif");
+            pass.setFill(Color.BLUE);
             pass.setText("Tu contraseña es: " + p.getPassword());
                       
         }
         else{
+            text.setStyle("-fx-font: 15 SansSerif");
             text.setText("Código incorrecto");
         }
     }
@@ -98,5 +90,6 @@ public class IntroducirCodigoController implements Initializable {
     @FXML
     private void borrar(KeyEvent event) {
         text.setText("");
+        text.setStyle("-fx-font: 1 SansSerif");
     }
 }

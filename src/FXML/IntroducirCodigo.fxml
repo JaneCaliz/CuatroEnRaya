@@ -21,7 +21,7 @@
             <Insets />
          </VBox.margin>
          <font>
-            <Font name="SansSerif Regular" size="15.0" />
+            <Font name="SansSerif Regular" size="1.0" />
          </font>
       </Text>
       <HBox alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="350.0">
@@ -40,8 +40,11 @@
       </HBox>
       <Text fx:id="pass" strokeType="OUTSIDE" strokeWidth="0.0">
          <VBox.margin>
-            <Insets bottom="-10.0" top="5.0" />
+            <Insets bottom="-10.0" top="10.0" />
          </VBox.margin>
+         <font>
+            <Font name="SansSerif Regular" size="1.0" />
+         </font>
       </Text>
    </children>
 </VBox>
