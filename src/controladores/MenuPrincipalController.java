@@ -29,6 +29,7 @@ public class MenuPrincipalController implements Initializable {
     @FXML
     private Button jugarF;
 
+    public static boolean segundo = false;
     /**
      * Initializes the controller class.
      */
@@ -44,16 +45,12 @@ public class MenuPrincipalController implements Initializable {
             
             Parent root = loader.load();
             
-            
-            
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             
             stage.setScene(scene);
             stage.show();
-            
-            
-            
+
             Stage myStage = (Stage) this.jugarIA.getScene().getWindow();
             myStage.close();
         } catch (IOException ex) {
@@ -63,6 +60,26 @@ public class MenuPrincipalController implements Initializable {
 
     @FXML
     private void jugarF(ActionEvent event) {
+        segundo = true;
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/IniciarSesion.fxml"));
+            
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            
+            stage.setScene(scene);
+            stage.show();
+
+            Stage myStage = (Stage) this.jugarIA.getScene().getWindow();
+            myStage.close();
+        } catch (IOException ex) {
+            Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
+    public static boolean getSegundo(){
+        return segundo;
+    }
 }

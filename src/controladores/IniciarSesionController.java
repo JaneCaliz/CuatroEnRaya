@@ -49,32 +49,47 @@ public class IniciarSesionController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        if(MenuPrincipalController.getSegundo()){
+            title.setText("Iniciar sesión segundo jugador");
+        }
+        
         // TODO
     }    
 
     public void closeWindow() {
          try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/PantallaDeInicio.fxml"));
-            
-            Parent root = loader.load();
-            
-            
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            
-            stage.setScene(scene);
-            stage.show();
-            
-            Stage myStage = (Stage) this.iniciar.getScene().getWindow();
-            myStage.close();
-            
-            
-            
+            if(MenuPrincipalController.getSegundo()){
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
+                
+                Parent root = loader.load();
+
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+
+                stage.setScene(scene);
+                stage.show();
+
+                Stage myStage = (Stage) this.iniciar.getScene().getWindow();
+                myStage.close();
+            }
+            else{
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/PantallaDeInicio.fxml"));
+                
+                Parent root = loader.load();
+
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+
+                stage.setScene(scene);
+                stage.show();
+
+                Stage myStage = (Stage) this.iniciar.getScene().getWindow();
+                myStage.close();
+            }
+  
         } catch (IOException ex) {
             Logger.getLogger(PantallaDeInicioController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
+        }  
     }
 
     @FXML
@@ -94,18 +109,32 @@ public class IniciarSesionController implements Initializable {
                 error.setText("Usuario o contraseña incorectos");
                 System.out.println(BD.getConnect4DAO());
             } else{
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
-            
-                Parent root = loader.load();
+                if(MenuPrincipalController.getSegundo()){
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tablero.fxml"));
+                    Parent root = loader.load();
 
-                Scene scene = new Scene(root);
-                Stage stage = new Stage();
+                    Scene scene = new Scene(root);
+                    Stage stage = new Stage();
 
-                stage.setScene(scene);
-                stage.show();
+                    stage.setScene(scene);
+                    stage.show();
 
-                Stage myStage = (Stage) this.iniciar.getScene().getWindow();
-                myStage.close();
+                    Stage myStage = (Stage) this.iniciar.getScene().getWindow();
+                    myStage.close();
+                }
+                else{
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
+                    Parent root = loader.load();
+
+                    Scene scene = new Scene(root);
+                    Stage stage = new Stage();
+
+                    stage.setScene(scene);
+                    stage.show();
+
+                    Stage myStage = (Stage) this.iniciar.getScene().getWindow();
+                    myStage.close();
+                }
             }
         } catch (Connect4DAOException ex) {
             Logger.getLogger(IniciarSesionController.class.getName()).log(Level.SEVERE, null, ex);
