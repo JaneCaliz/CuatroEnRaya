@@ -44,9 +44,9 @@ public class IniciarSesionController implements Initializable {
     @FXML
     private Text error;
     
-    private Player p1;
+    private static Player p1, p2;
     
-    private Player p2;
+    private static String pl1, pl2;
 
     /**
      * Initializes the controller class.
@@ -106,12 +106,14 @@ public class IniciarSesionController implements Initializable {
             
             if(MenuPrincipalController.getSegundo()){
                 p2 = BD.loginPlayer(usu,pass);
+                pl2 = usu;
             }
             else{
                 p1 = BD.loginPlayer(usu,pass);
+                pl1 = usu;
             }
             
-            if(MenuPrincipalController.getSegundo() && p2 == p1){
+            if(MenuPrincipalController.getSegundo() && p2 == MenuPrincipalController.player()){
                 error.setStyle("-fx-font: 15 SansSerif");
                 error.setText("Usuario repetido");
             }
@@ -127,6 +129,7 @@ public class IniciarSesionController implements Initializable {
             } else{
                 if(MenuPrincipalController.getSegundo()){
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tablero.fxml"));
+
                     Parent root = loader.load();
 
                     Scene scene = new Scene(root);
@@ -188,7 +191,7 @@ public class IniciarSesionController implements Initializable {
         error.setText("");
     }
     
-    public Player jugador(){
+    public static Player jugador(){
         if(!MenuPrincipalController.getSegundo()){
             return p1;
         }

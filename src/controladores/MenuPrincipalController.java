@@ -32,13 +32,14 @@ public class MenuPrincipalController implements Initializable {
 
     public static boolean segundo = false;
     
-    private static Player p1;
+    private static Player player1;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        player1 = IniciarSesionController.jugador();
     }    
 
     @FXML
@@ -82,9 +83,9 @@ public class MenuPrincipalController implements Initializable {
         }
     }
     
-//    public static Player primero(){
-//        return jugador();
-//    }
+    public static Player player(){
+        return player1;
+    }
     
     public static boolean getSegundo(){
         return segundo;
