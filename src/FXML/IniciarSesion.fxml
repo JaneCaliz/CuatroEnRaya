@@ -72,7 +72,7 @@
             <Insets bottom="5.0" />
          </VBox.margin>
       </HBox>
-      <Button fx:id="iniciar" mnemonicParsing="false" onAction="#inicio" text="Iniciar sesión">
+      <Button fx:id="iniciar" defaultButton="true" mnemonicParsing="false" onAction="#inicio" text="Iniciar sesión">
          <VBox.margin>
             <Insets top="5.0" />
          </VBox.margin></Button>

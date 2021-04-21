@@ -8,7 +8,6 @@ package controladores;
 import DBAccess.Connect4DAOException;
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,10 +18,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import static javafx.scene.input.KeyCode.ENTER;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -54,8 +53,7 @@ public class IniciarSesionController implements Initializable {
         if(MenuPrincipalController.getSegundo()){
             title.setText("Iniciar sesión segundo jugador");
         }
-        
-        // TODO
+        iniciar.setDefaultButton(true);
     }    
 
     public void closeWindow() {
@@ -113,7 +111,10 @@ public class IniciarSesionController implements Initializable {
                 error.setStyle("-fx-font: 15 SansSerif");
                 error.setText("Usuario repetido");
             }
-            
+            else if(usu.length() == 0 || pass.length() == 0){
+                error.setStyle("-fx-font: 15 SansSerif");
+                error.setText("Usuario o contraseña vacío");
+            }
             else if(!MenuPrincipalController.getSegundo() && p1 == null){
                 error.setStyle("-fx-font: 15 SansSerif");
                 error.setText("Usuario o contraseña incorectos");
@@ -122,7 +123,8 @@ public class IniciarSesionController implements Initializable {
             else if(MenuPrincipalController.getSegundo() && p2 == null){
                 error.setStyle("-fx-font: 15 SansSerif");
                 error.setText("Usuario o contraseña incorectos");
-            } else{
+            }
+            else{
                 if(MenuPrincipalController.getSegundo()){
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tablero.fxml"));
 
@@ -183,8 +185,11 @@ public class IniciarSesionController implements Initializable {
 
     @FXML
     private void click(KeyEvent event) {
-        error.setStyle("-fx-font: 1 SansSerif");
-        error.setText("");
+//        if(event.getCode() != ENTER){
+//            error.setStyle("-fx-font: 1 SansSerif");
+//            error.setText("");
+//        }
+        System.out.println(event.getCode());
     }
     
     public static Player jugador(){
@@ -193,4 +198,5 @@ public class IniciarSesionController implements Initializable {
         }
         return p2;
     }
+
 }

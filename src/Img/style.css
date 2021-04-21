@@ -1,0 +1,10 @@
+.body{
+    
+    
+    -fx-background-image: url(Logo.png); 
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;  
+    
+    
+}
