@@ -42,12 +42,12 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="46.0" prefWidth="448.0">
          <children>
-            <Button fx:id="salir" mnemonicParsing="false" prefHeight="31.0" prefWidth="65.0" text="Salir">
+            <Button fx:id="salir" cancelButton="true" mnemonicParsing="false" onAction="#salir" prefHeight="31.0" prefWidth="65.0" text="Salir">
                <HBox.margin>
                   <Insets left="40.0" right="30.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="replay" mnemonicParsing="false" prefHeight="31.0" prefWidth="112.0" text="Volver a jugar">
+            <Button fx:id="replay" defaultButton="true" mnemonicParsing="false" onAction="#replay" prefHeight="31.0" prefWidth="112.0" text="Volver a jugar">
                <HBox.margin>
                   <Insets left="30.0" right="40.0" />
                </HBox.margin>
