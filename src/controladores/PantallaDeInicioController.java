@@ -25,12 +25,12 @@ public class PantallaDeInicioController implements Initializable {
     @FXML
     private Button jugarButt;
 
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
     }    
 
     @FXML
@@ -52,8 +52,6 @@ public class PantallaDeInicioController implements Initializable {
             
             Stage myStage = (Stage) this.jugarButt.getScene().getWindow();
             myStage.close();
-            
-            
             
         } catch (IOException ex) {
             Logger.getLogger(PantallaDeInicioController.class.getName()).log(Level.SEVERE, null, ex);

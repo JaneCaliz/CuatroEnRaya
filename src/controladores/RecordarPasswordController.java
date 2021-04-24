@@ -19,9 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Connect4;
 import model.Player;
@@ -92,9 +90,7 @@ public class RecordarPasswordController implements Initializable {
                 stage2.setScene(scene2);
                 stage2.show();
             }
-        } catch (Connect4DAOException ex) {
-            Logger.getLogger(RecordarPasswordController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        } catch (Connect4DAOException | IOException ex) {
             Logger.getLogger(RecordarPasswordController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -114,11 +110,5 @@ public class RecordarPasswordController implements Initializable {
 
         stage.setScene(scene);
         stage.show();
-    }
-
-    @FXML
-    private void click(KeyEvent event) {
-        error.setStyle("-fx-font: 1 SansSerif");
-        error.setText("");
     }
 }

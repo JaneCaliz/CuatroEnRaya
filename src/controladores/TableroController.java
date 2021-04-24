@@ -20,6 +20,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
@@ -145,6 +146,10 @@ public class TableroController implements Initializable {
     private ImageView exit;
     
     private int victoria;
+    @FXML
+    private Text p1;
+    @FXML
+    private Text p2;
 
     /**
      * Initializes the controller class.

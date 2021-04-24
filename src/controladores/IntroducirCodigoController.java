@@ -9,8 +9,6 @@ import static controladores.CodigoController.valor;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,11 +17,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Player;
 
@@ -85,11 +80,5 @@ public class IntroducirCodigoController implements Initializable {
             text.setStyle("-fx-font: 15 SansSerif");
             text.setText("Código incorrecto");
         }
-    }
-
-    @FXML
-    private void borrar(KeyEvent event) {
-        text.setText("");
-        text.setStyle("-fx-font: 1 SansSerif");
     }
 }
