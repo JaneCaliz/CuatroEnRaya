@@ -7,6 +7,7 @@ package controladores;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -152,6 +153,7 @@ public class TableroController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         tablero = new Conecta4();
         victoria = 0;
+        colocarFichaIA();
         // TODO
     } 
     
@@ -168,7 +170,7 @@ public class TableroController implements Initializable {
     private void colocarFicha(MouseEvent event) {
         
 //        int fila = gPane.getRowIndex(((Circle)event.getSource()));
-
+        System.out.println("Colocando ficha");
         if (victoria == 0){
             int columna = 0;
             try{
@@ -178,19 +180,38 @@ public class TableroController implements Initializable {
     //        Colocar la ficha y la muestra en la interfaz 
             int filaColocado = tablero.ponFicha(columna);
             if (tablero.jugador == 1)
-                cambiarColor(columna,filaColocado,"RED");
+                cambiarColor(columna, filaColocado,"RED");
             else if(tablero.jugador == 2)
-                cambiarColor(columna,filaColocado,"YELLOW");
+                cambiarColor(columna, filaColocado,"YELLOW");
 
             victoria = tablero.victoria(filaColocado, columna);
 
             if (victoria == 1){
                 System.out.println("Ha ganado el jugador: " + tablero.jugador);
+            }else{
+                colocarFichaIA();
+                System.out.println("Turno IA");
             }
         }
         
     }
     
+    public void colocarFichaIA(){
+        Random rand = new Random();
+        int randomColum = rand.nextInt(8 + 1);
+        int filaColocado = tablero.ponFicha(randomColum );
+            if (tablero.jugador == 1)
+                cambiarColor(randomColum , filaColocado,"RED");
+            else if(tablero.jugador == 2)
+                cambiarColor(randomColum , filaColocado,"YELLOW");
+        victoria = tablero.victoria(filaColocado, randomColum );
+
+        if (victoria == 1){
+                System.out.println("Has perdido");
+        }
+        
+        
+    }
   
     
     
