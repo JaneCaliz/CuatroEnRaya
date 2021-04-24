@@ -53,9 +53,6 @@ public class IniciarSesionController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
-         
-
         iniciar.setDefaultButton(true);
     }    
 
@@ -128,13 +125,18 @@ public class IniciarSesionController implements Initializable {
                 error.setText("Usuario o contraseña incorectos");
             }
             else{
-                if(MenuPrincipalController.getSegundo()){
+                if(RegistrarP2){
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tablero.fxml"));
 
                     Parent root = loader.load();
 
                     Scene scene = new Scene(root);
                     Stage stage = new Stage();
+                    
+                    TableroController controlador = loader.getController();
+                    controlador.initializeP2(p2);
+                    controlador.initializeP2(p1);
+                    controlador.initializeIA(false);
 
                     stage.setScene(scene);
                     stage.show();

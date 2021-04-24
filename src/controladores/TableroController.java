@@ -22,6 +22,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.Player;
 
 
 public class TableroController implements Initializable {
@@ -152,6 +153,8 @@ public class TableroController implements Initializable {
     private Text p2;
     
     private boolean IA;
+    
+    private Player player2, player1;
 
     /**
      * Initializes the controller class.
@@ -161,13 +164,24 @@ public class TableroController implements Initializable {
         tablero = new Conecta4();
         victoria = 0;
         
-        if(IA)
+        if(IA){
             colocarFichaIA();
+            
+        }else 
+            System.out.println("Jugador 1:" + player1.getNickName() + "Jugador 2:" + player2.getNickName());
         // TODO
     }
     
     public void initializeIA(boolean IA){
         this.IA = IA;
+    }
+    
+    public void initializeP2(Player p){
+        this.player2 = p ;
+    }
+    
+    public void initializeP1(Player p){
+        this.player1 = p ;
     }
     
     private Node getNodeFromGridPane(GridPane gridPane, int col, int row) {
