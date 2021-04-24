@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
@@ -15,10 +16,10 @@
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="444.0" minWidth="520.0" prefHeight="444.0" prefWidth="519.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.TableroController">
    <children>
-      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="606.0" spacing="100.0" style="-fx-background-color: #6bdb88;">
+      <HBox fx:id="barra" alignment="CENTER" maxHeight="100.0" prefHeight="50.0" prefWidth="606.0" spacing="100.0" style="-fx-background-color: #6bdb88;" VBox.vgrow="ALWAYS">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" />
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="P1vsP2">
                      <font>
@@ -26,7 +27,7 @@
                      </font></Text>
                </children>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
                   <ImageView fx:id="exit" fitHeight="39.0" fitWidth="28.0" onMouseClicked="#exit" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -43,11 +44,12 @@
             </HBox>
          </children>
       </HBox>
+      <Pane maxHeight="100.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
       <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="47.0" prefWidth="504.0" spacing="100.0">
          <children>
-            <HBox alignment="CENTER_LEFT" maxWidth="490.0" prefHeight="47.0" prefWidth="197.0" HBox.hgrow="ALWAYS">
+            <HBox alignment="CENTER_LEFT" maxWidth="380.0" prefHeight="47.0" prefWidth="197.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Circle fill="#ff1f1f" radius="5.0" stroke="BLACK" strokeType="INSIDE" HBox.hgrow="ALWAYS">
+                  <Circle fx:id="circler" fill="#ff1f1f" radius="5.0" stroke="BLACK" strokeType="INSIDE" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="30.0" />
                      </HBox.margin>
@@ -59,14 +61,14 @@
                   </Text>
                </children>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" maxWidth="490.0" minWidth="-Infinity" prefHeight="47.0" prefWidth="217.0" HBox.hgrow="ALWAYS">
+            <HBox alignment="CENTER_RIGHT" maxWidth="380.0" minWidth="-Infinity" prefHeight="47.0" prefWidth="217.0" HBox.hgrow="ALWAYS">
                <children>
                   <Text fx:id="p2" strokeType="OUTSIDE" strokeWidth="0.0" text="Player2" textAlignment="RIGHT" wrappingWidth="213.13000106811523">
                      <HBox.margin>
                         <Insets right="5.0" />
                      </HBox.margin>
                   </Text>
-                  <Circle fill="#ffe321" radius="5.0" stroke="BLACK" strokeType="INSIDE" HBox.hgrow="ALWAYS">
+                  <Circle fx:id="circley" fill="#ffe321" radius="5.0" stroke="BLACK" strokeType="INSIDE" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets right="30.0" />
                      </HBox.margin>
@@ -75,10 +77,11 @@
             </HBox>
          </children>
          <VBox.margin>
-            <Insets bottom="10.0" top="5.0" />
+            <Insets />
          </VBox.margin>
       </HBox>
-      <GridPane fx:id="gPane" alignment="CENTER" maxHeight="1000.0" maxWidth="1000.0" minHeight="320.0" minWidth="500.0" prefHeight="320.0" prefWidth="586.0" style="-fx-background-color: blue; -fx-background-radius: 10;" VBox.vgrow="ALWAYS">
+      <Pane maxHeight="100.0" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+      <GridPane fx:id="gPane" alignment="CENTER" maxHeight="800.0" maxWidth="800.0" minHeight="320.0" minWidth="500.0" prefHeight="320.0" prefWidth="586.0" style="-fx-background-color: blue; -fx-background-radius: 10;" VBox.vgrow="ALWAYS">
         <columnConstraints>
             <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
@@ -99,13 +102,14 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="ALWAYS" />
         </rowConstraints>
          <VBox.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" />
+            <Insets left="10.0" right="10.0" />
          </VBox.margin>
          <children>
             <Circle fx:id="Circle_0_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />
-               </cursor></Circle>
+               </cursor>
+            </Circle>
             <Circle fx:id="Circle_0_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />
@@ -328,5 +332,6 @@
                </cursor></Circle>
          </children>
       </GridPane>
+      <Pane maxHeight="100.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
    </children>
 </VBox>
