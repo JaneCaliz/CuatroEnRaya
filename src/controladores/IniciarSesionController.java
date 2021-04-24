@@ -44,6 +44,8 @@ public class IniciarSesionController implements Initializable {
     private Text error;
     
     private static Player p1, p2;
+    @FXML
+    private Button cancelar;
 
     /**
      * Initializes the controller class.
@@ -183,20 +185,17 @@ public class IniciarSesionController implements Initializable {
         }
     }
 
-    @FXML
-    private void click(KeyEvent event) {
-//        if(event.getCode() != ENTER){
-//            error.setStyle("-fx-font: 1 SansSerif");
-//            error.setText("");
-//        }
-        System.out.println(event.getCode());
-    }
     
     public static Player jugador(){
         if(!MenuPrincipalController.getSegundo()){
             return p1;
         }
         return p2;
+    }
+
+    @FXML
+    private void cancelar(ActionEvent event) {
+        closeWindow();
     }
 
 }

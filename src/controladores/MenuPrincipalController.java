@@ -83,6 +83,21 @@ public class MenuPrincipalController implements Initializable {
         }
     }
     
+    public void closeWindow() throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/PantallaDeInicio.fxml"));
+                
+        Parent root = loader.load();
+
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+
+        stage.setScene(scene);
+        stage.show();
+
+        Stage myStage = (Stage) this.iniciar.getScene().getWindow();
+        myStage.close();
+    }
+    
     public static Player player(){
         return player1;
     }
