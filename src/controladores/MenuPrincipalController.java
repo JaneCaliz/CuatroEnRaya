@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import model.Player;
 
 public class MenuPrincipalController implements Initializable {
@@ -33,6 +34,8 @@ public class MenuPrincipalController implements Initializable {
     public static boolean segundo = false;
     
     private static Player player1;
+    
+    private WindowEvent cerrar;
     /**
      * Initializes the controller class.
      */
@@ -83,19 +86,23 @@ public class MenuPrincipalController implements Initializable {
         }
     }
     
-    public void closeWindow() throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/PantallaDeInicio.fxml"));
-                
-        Parent root = loader.load();
+    public void closeWindow(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/PantallaDeInicio.fxml"));
+            
+            Parent root = loader.load();
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            
+            stage.setScene(scene);
+            stage.show();
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-
-        stage.setScene(scene);
-        stage.show();
-
-        Stage myStage = (Stage) this.iniciar.getScene().getWindow();
-        myStage.close();
     }
     
     public static Player player(){
