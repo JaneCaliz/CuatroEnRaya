@@ -145,6 +145,8 @@ public class TableroController implements Initializable {
     private ImageView exit;
     
     private int victoria;
+    
+    private boolean IA;
 
     /**
      * Initializes the controller class.
@@ -153,9 +155,15 @@ public class TableroController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         tablero = new Conecta4();
         victoria = 0;
-        colocarFichaIA();
+        
+        if(IA)
+            colocarFichaIA();
         // TODO
-    } 
+    }
+    
+    public void initializeIA(boolean IA){
+        this.IA = IA;
+    }
     
     private Node getNodeFromGridPane(GridPane gridPane, int col, int row) {
         for (Node node : gridPane.getChildren()) {
@@ -188,7 +196,7 @@ public class TableroController implements Initializable {
 
             if (victoria == 1){
                 System.out.println("Ha ganado el jugador: " + tablero.jugador);
-            }else{
+            }else if(IA){
                 colocarFichaIA();
                 System.out.println("Turno IA");
             }
