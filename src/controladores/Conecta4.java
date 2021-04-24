@@ -97,7 +97,7 @@ public class Conecta4 {
                 tablero[f][c] = Casilla.LIBRE;
     }
     
-    public int victoria(int c, int f){
+    public int victoria(int f, int c){
         if (!columnaValida(c))
             return -1;
         if (!filaValida(f))

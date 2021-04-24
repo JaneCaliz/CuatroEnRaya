@@ -137,20 +137,21 @@ public class TableroController implements Initializable {
     @FXML
     private Circle Circle_7_6;
     
-    public Conecta4 con;
+    public Conecta4 tablero;
     @FXML
     private GridPane gPane;
     @FXML
     private ImageView exit;
+    
+    private int victoria;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        cambiarColor(3,4,"RED");
-        cambiarColor(4,6,"YELLOW");
-        con = new Conecta4();
+        tablero = new Conecta4();
+        victoria = 0;
         // TODO
     } 
     
@@ -167,11 +168,26 @@ public class TableroController implements Initializable {
     private void colocarFicha(MouseEvent event) {
         
 //        int fila = gPane.getRowIndex(((Circle)event.getSource()));
-        int columna = GridPane.getColumnIndex(((Circle)event.getSource()));
-        
-        int filaColocado = con.ponFicha(columna);
-        
-        cambiarColor(columna,filaColocado,"RED");
+
+        if (victoria == 0){
+            int columna = 0;
+            try{
+             columna = GridPane.getColumnIndex(((Circle)event.getSource()));
+            }catch(Exception e){}
+
+    //        Colocar la ficha y la muestra en la interfaz 
+            int filaColocado = tablero.ponFicha(columna);
+            if (tablero.jugador == 1)
+                cambiarColor(columna,filaColocado,"RED");
+            else if(tablero.jugador == 2)
+                cambiarColor(columna,filaColocado,"YELOW");
+
+            victoria = tablero.victoria(filaColocado, columna);
+
+            if (victoria == 1){
+                System.out.println("Ha ganado el jugador: " + tablero.jugador);
+            }
+        }
         
     }
     
