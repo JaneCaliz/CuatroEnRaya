@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -34,6 +35,9 @@
                      <HBox.margin>
                         <Insets bottom="5.0" right="15.0" top="5.0" />
                      </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                </children>
             </HBox>
@@ -98,62 +102,230 @@
             <Insets left="10.0" right="10.0" />
          </VBox.margin>
          <children>
-            <Circle fx:id="Circle_0_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" />
-            <Circle fx:id="Circle_0_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <Circle fx:id="Circle_0_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <Circle fx:id="Circle_0_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Circle fx:id="Circle_0_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Circle fx:id="Circle_0_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <Circle fx:id="Circle_0_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-            <Circle fx:id="Circle_1_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-            <Circle fx:id="Circle_1_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-            <Circle fx:id="Circle_2_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <Circle fx:id="Circle_2_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <Circle fx:id="Circle_2_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Circle fx:id="Circle_2_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Circle fx:id="Circle_2_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-            <Circle fx:id="Circle_1_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <Circle fx:id="Circle_1_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <Circle fx:id="Circle_1_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <Circle fx:id="Circle_1_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Circle fx:id="Circle_1_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Circle fx:id="Circle_2_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <Circle fx:id="Circle_4_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Circle fx:id="Circle_4_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
-            <Circle fx:id="Circle_3_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-            <Circle fx:id="Circle_3_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <Circle fx:id="Circle_3_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <Circle fx:id="Circle_3_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <Circle fx:id="Circle_3_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Circle fx:id="Circle_3_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Circle fx:id="Circle_3_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
-            <Circle fx:id="Circle_2_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-            <Circle fx:id="Circle_6_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Circle fx:id="Circle_6_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Circle fx:id="Circle_6_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" />
-            <Circle fx:id="Circle_5_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-            <Circle fx:id="Circle_5_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <Circle fx:id="Circle_5_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <Circle fx:id="Circle_5_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Circle fx:id="Circle_5_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" />
-            <Circle fx:id="Circle_4_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-            <Circle fx:id="Circle_4_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <Circle fx:id="Circle_4_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <Circle fx:id="Circle_4_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <Circle fx:id="Circle_4_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Circle fx:id="Circle_5_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <Circle fx:id="Circle_5_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Circle fx:id="Circle_7_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Circle fx:id="Circle_7_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Circle fx:id="Circle_7_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" />
-            <Circle fx:id="Circle_6_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-            <Circle fx:id="Circle_6_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <Circle fx:id="Circle_6_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <Circle fx:id="Circle_6_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <Circle fx:id="Circle_7_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <Circle fx:id="Circle_7_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <Circle fx:id="Circle_7_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <Circle fx:id="Circle_7_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+            <Circle fx:id="Circle_0_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_0_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_0_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_0_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_0_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_0_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_0_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_1_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_1_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_2_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_2_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_2_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_2_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_2_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_1_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_1_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_1_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_1_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_1_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_2_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_4_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_4_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_3_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_3_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_3_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_3_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_3_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_3_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_3_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_2_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_6_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_6_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_6_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_5_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_5_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_5_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_5_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_5_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_4_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_4_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_4_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_4_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_4_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_5_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_5_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_7_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_7_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_7_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_6_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_6_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_6_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_6_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_7_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_7_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_7_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
+            <Circle fx:id="Circle_7_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></Circle>
          </children>
       </GridPane>
    </children>
