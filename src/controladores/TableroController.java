@@ -180,7 +180,7 @@ public class TableroController implements Initializable {
             if (tablero.jugador == 1)
                 cambiarColor(columna,filaColocado,"RED");
             else if(tablero.jugador == 2)
-                cambiarColor(columna,filaColocado,"YELOW");
+                cambiarColor(columna,filaColocado,"YELLOW");
 
             victoria = tablero.victoria(filaColocado, columna);
 
