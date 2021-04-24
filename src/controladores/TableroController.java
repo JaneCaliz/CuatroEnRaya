@@ -164,11 +164,11 @@ public class TableroController implements Initializable {
         tablero = new Conecta4();
         victoria = 0;
         
-        if(IA){
+        if(IA)
             colocarFichaIA();
             
-        }else 
-            System.out.println("Jugador 1:" + player1.getNickName() + "Jugador 2:" + player2.getNickName());
+       
+            
         // TODO
     }
     
@@ -198,6 +198,7 @@ public class TableroController implements Initializable {
         
 //        int fila = gPane.getRowIndex(((Circle)event.getSource()));
         System.out.println("Colocando ficha");
+        System.out.println("Jugador 1:" + player1.getNickName() + "Jugador 2:" + player2.getNickName());
         if (victoria == 0){
             int columna = 0;
             try{

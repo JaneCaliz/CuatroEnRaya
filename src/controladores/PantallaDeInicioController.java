@@ -41,12 +41,15 @@ public class PantallaDeInicioController implements Initializable {
             Parent root = loader.load();
             
             IniciarSesionController controlador = loader.getController();
+            controlador.initit2Player(false);
             
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             
+            
             stage.setScene(scene);
             stage.show();
+            
             
             stage.setOnCloseRequest(e -> controlador.closeWindow());
             

@@ -31,9 +31,8 @@ public class MenuPrincipalController implements Initializable {
     @FXML
     private Button jugarF;
 
-    public static boolean segundo = false;
     
-    private static Player player1;
+    private Player player1;
     
     private WindowEvent cerrar;
     /**
@@ -42,9 +41,12 @@ public class MenuPrincipalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        player1 = IniciarSesionController.jugador();
     }    
-
+    
+    public void initPlayer(Player p){
+        this.player1 = p;
+    }
+    
     @FXML
     private void jugarIA(ActionEvent event) {
         try {
@@ -70,7 +72,6 @@ public class MenuPrincipalController implements Initializable {
 
     @FXML
     private void jugarF(ActionEvent event) {
-        segundo = true;
         try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/IniciarSesion.fxml"));
             
@@ -81,6 +82,7 @@ public class MenuPrincipalController implements Initializable {
             
             IniciarSesionController controlador = loader.getController();
             controlador.initit2Player(true);
+            controlador.inititPlayer1(player1);
             
             stage.setScene(scene);
             stage.show();
@@ -111,11 +113,4 @@ public class MenuPrincipalController implements Initializable {
 
     }
     
-    public static Player player(){
-        return player1;
-    }
-    
-    public static boolean getSegundo(){
-        return segundo;
-    }
 }

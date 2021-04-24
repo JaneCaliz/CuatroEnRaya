@@ -41,7 +41,7 @@ public class IniciarSesionController implements Initializable {
     @FXML
     private Text error;
     
-    private static Player p1, p2;
+    private Player p1, p2;
     
     private boolean RegistrarP2;
     
@@ -100,14 +100,14 @@ public class IniciarSesionController implements Initializable {
             String usu = usuario.getText();
             String pass = password.getText();
             
-            if(MenuPrincipalController.getSegundo()){
+            if(RegistrarP2){
                 p2 = BD.loginPlayer(usu,pass);
             }
             else{
                 p1 = BD.loginPlayer(usu,pass);
             }
             
-            if(MenuPrincipalController.getSegundo() && p2 == MenuPrincipalController.player()){
+            if(RegistrarP2 && p2 == p1){
                 error.setStyle("-fx-font: 15 SansSerif");
                 error.setText("Usuario repetido");
             }
@@ -115,12 +115,12 @@ public class IniciarSesionController implements Initializable {
                 error.setStyle("-fx-font: 15 SansSerif");
                 error.setText("Usuario o contraseña vacío");
             }
-            else if(!MenuPrincipalController.getSegundo() && p1 == null){
+            else if(!RegistrarP2 && p1 == null){
                 error.setStyle("-fx-font: 15 SansSerif");
                 error.setText("Usuario o contraseña incorectos");
             }
 //                System.out.println(BD.getConnect4DAO());
-            else if(MenuPrincipalController.getSegundo() && p2 == null){
+            else if(RegistrarP2 && p2 == null){
                 error.setStyle("-fx-font: 15 SansSerif");
                 error.setText("Usuario o contraseña incorectos");
             }
@@ -135,7 +135,7 @@ public class IniciarSesionController implements Initializable {
                     
                     TableroController controlador = loader.getController();
                     controlador.initializeP2(p2);
-                    controlador.initializeP2(p1);
+                    controlador.initializeP1(p1);
                     controlador.initializeIA(false);
 
                     stage.setScene(scene);
@@ -150,6 +150,9 @@ public class IniciarSesionController implements Initializable {
 
                     Scene scene = new Scene(root);
                     Stage stage = new Stage();
+                    
+                    MenuPrincipalController controlador = loader.getController();
+                    controlador.initPlayer(p1);
 
                     stage.setScene(scene);
                     stage.show();
@@ -188,19 +191,16 @@ public class IniciarSesionController implements Initializable {
         }
     }
 
-    
-    public static Player jugador(){
-        if(!MenuPrincipalController.getSegundo()){
-            return p1;
-        }
-        return p2;
-    }
 
     @FXML
     private void cancelar(ActionEvent event) {
         closeWindow();
     }
-
+    
+    void inititPlayer1(Player p){
+       this.p1 = p;
+    }
+    
     void initit2Player(boolean b) {
        if (b)
               title.setText("Iniciar sesión segundo jugador");
