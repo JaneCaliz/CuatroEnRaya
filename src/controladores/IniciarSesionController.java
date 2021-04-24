@@ -200,6 +200,8 @@ public class IniciarSesionController implements Initializable {
     }
 
     void initit2Player(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       if (b)
+              title.setText("Iniciar sesión segundo jugador");
+       RegistrarP2 = b;
     }
 }
