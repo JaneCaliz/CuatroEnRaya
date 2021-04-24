@@ -55,6 +55,9 @@ public class MenuPrincipalController implements Initializable {
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             
+            TableroController controlador = loader.getController();
+            controlador.initializeIA(true);
+            
             stage.setScene(scene);
             stage.show();
 
@@ -75,6 +78,9 @@ public class MenuPrincipalController implements Initializable {
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
+            
+            IniciarSesionController controlador = loader.getController();
+            controlador.initit2Player(true);
             
             stage.setScene(scene);
             stage.show();

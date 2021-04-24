@@ -42,6 +42,9 @@ public class IniciarSesionController implements Initializable {
     private Text error;
     
     private static Player p1, p2;
+    
+    private boolean RegistrarP2;
+    
     @FXML
     private Button cancelar;
 
@@ -50,15 +53,15 @@ public class IniciarSesionController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        if(MenuPrincipalController.getSegundo()){
-            title.setText("Iniciar sesión segundo jugador");
-        }
+
+         
+
         iniciar.setDefaultButton(true);
     }    
 
     public void closeWindow() {
          try {
-            if(MenuPrincipalController.getSegundo()){
+            if(RegistrarP2){
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
                 
                 Parent root = loader.load();
@@ -194,5 +197,9 @@ public class IniciarSesionController implements Initializable {
     @FXML
     private void cancelar(ActionEvent event) {
         closeWindow();
+    }
+
+    void initit2Player(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
