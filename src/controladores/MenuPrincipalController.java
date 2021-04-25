@@ -60,6 +60,8 @@ public class MenuPrincipalController implements Initializable {
 
             TableroController controlador = loader.getController();
             controlador.initializeIA(true);
+            controlador.initializeP1(player1);
+            controlador.colocarFichaIA();
             
             stage.setScene(scene);
             stage.show();

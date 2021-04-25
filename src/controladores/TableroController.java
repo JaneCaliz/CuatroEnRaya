@@ -176,10 +176,7 @@ public class TableroController implements Initializable {
         tablero = new Conecta4();
         victoria = 0;
         
-        binding();
-        
-        if(IA)
-            colocarFichaIA();
+        binding();   
     }
     
     public void initializeIA(boolean IA){
@@ -209,9 +206,9 @@ public class TableroController implements Initializable {
     private void colocarFicha(MouseEvent event) {
         
 //        int fila = gPane.getRowIndex(((Circle)event.getSource()));
-        System.out.println("Colocando ficha");
-        System.out.println("Jugador 1:" + player1.getNickName() + "Jugador 2:" + player2.getNickName());
+        
         if (victoria == 0){
+            System.out.println("Colocando ficha");
             int columna = 0;
             try{
              columna = GridPane.getColumnIndex(((Circle)event.getSource()));
@@ -239,7 +236,6 @@ public class TableroController implements Initializable {
                 System.out.println("Ha ganado el jugador: " + tablero.jugador);
             }else if(IA){
                 colocarFichaIA();
-                System.out.println("Turno IA");
             }
         }
     }
@@ -247,6 +243,7 @@ public class TableroController implements Initializable {
     public void colocarFichaIA(){
         Random rand = new Random();
         int randomColum = rand.nextInt(8 + 1);
+        System.out.println("Ficha IA");
         int filaColocado = tablero.ponFicha(randomColum );
             if (tablero.jugador == 1)
                 cambiarColor(randomColum , filaColocado,"RED");
