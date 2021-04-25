@@ -8,3 +8,21 @@
     
     
 }
+
+.exit{
+    
+    -fx-background-image: url(Exit.png); 
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;  
+    
+}
+
+.confirmacion{
+    
+    -fx-background-image: url(Confirmacion.png); 
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    
+}

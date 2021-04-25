@@ -25,11 +25,12 @@ import model.Player;
 public class ConfirmarController implements Initializable {
 
     @FXML
-    private Text texto;
-    @FXML
     private Button cancelar;
     @FXML
     private Button cerrar;
+    @FXML
+    private Text warning;
+    
     private Player player2;
     /**
      * Initializes the controller class.

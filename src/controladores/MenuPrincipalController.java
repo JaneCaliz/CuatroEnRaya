@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 import model.Player;
 
@@ -56,7 +57,7 @@ public class MenuPrincipalController implements Initializable {
             
             Scene scene = new Scene(root);
             Stage stage = new Stage();
-            
+
             TableroController controlador = loader.getController();
             controlador.initializeIA(true);
             

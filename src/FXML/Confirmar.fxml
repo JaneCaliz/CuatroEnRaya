@@ -3,33 +3,52 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ConfirmarController">
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="185.0" prefWidth="537.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ConfirmarController">
    <children>
-      <Text fx:id="texto" lineSpacing="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Está seguro que quiere cerrar la sesión de " textAlignment="CENTER" wrappingWidth="359.29638671875">
-         <font>
-            <Font name="SansSerif Regular" size="25.0" />
-         </font>
-      </Text>
-      <HBox alignment="CENTER" prefHeight="31.0" prefWidth="400.0">
+      <VBox prefHeight="185.0" prefWidth="165.0">
          <children>
-            <Button fx:id="cancelar" cancelButton="true" mnemonicParsing="false" onAction="#cancelar" text="Cancelar">
-               <HBox.margin>
-                  <Insets right="30.0" />
-               </HBox.margin>
-            </Button>
-            <Button fx:id="cerrar" defaultButton="true" mnemonicParsing="false" onAction="#cerrar" text="Cerrar sesión">
-               <HBox.margin>
-                  <Insets left="30.0" />
-               </HBox.margin>
-            </Button>
+            <Pane prefHeight="200.0" prefWidth="83.0" styleClass="confirmacion" stylesheets="@../Img/style.css" />
+            <Pane prefHeight="96.0" prefWidth="100.0" />
          </children>
-         <VBox.margin>
-            <Insets top="25.0" />
-         </VBox.margin>
-      </HBox>
+      </VBox>
+      <VBox alignment="CENTER_LEFT" prefHeight="400.0" prefWidth="464.0">
+         <children>
+            <Text lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Está seguro de querer abandonar la partida actual?" wrappingWidth="429.607421875">
+               <font>
+                  <Font name="SansSerif Regular" size="25.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="warning" strokeType="OUTSIDE" strokeWidth="0.0" text="Se perderá todo el progreso de la partida actual ">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" />
+               </VBox.margin>
+            </Text>
+            <HBox alignment="CENTER" prefHeight="39.0" prefWidth="464.0">
+               <children>
+                  <Button fx:id="cancelar" cancelButton="true" mnemonicParsing="false" onAction="#cancelar" text="Cancelar">
+                     <HBox.margin>
+                        <Insets right="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="cerrar" defaultButton="true" mnemonicParsing="false" onAction="#cerrar" text="Abandonar">
+                     <HBox.margin>
+                        <Insets left="40.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <HBox.margin>
+            <Insets left="10.0" />
+         </HBox.margin>
+      </VBox>
    </children>
-</VBox>
+</HBox>

@@ -20,8 +20,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Player;
@@ -146,7 +149,7 @@ public class TableroController implements Initializable {
     @FXML
     private GridPane gPane;
     @FXML
-    private ImageView exit;
+    private Pane exit;
     
     private int victoria;
     @FXML
@@ -173,84 +176,24 @@ public class TableroController implements Initializable {
         tablero = new Conecta4();
         victoria = 0;
         
-        Circle_0_0.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_0_1.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_0_2.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_0_3.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_0_4.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_0_5.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_0_6.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_1_0.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_1_1.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_1_2.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_1_3.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_1_4.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_1_5.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_1_6.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_2_0.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_2_1.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_2_2.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_2_3.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_2_4.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_2_5.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_2_6.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_3_0.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_3_1.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_3_2.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_3_3.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_3_4.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_3_5.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_3_6.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_4_0.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_4_1.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_4_2.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_4_3.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_4_4.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_4_5.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_4_6.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_5_0.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_5_1.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_5_2.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_5_3.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_5_4.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_5_5.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_5_6.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_6_0.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_6_1.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_6_2.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_6_3.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_6_4.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_6_5.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_6_6.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_7_0.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_7_1.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_7_2.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_7_3.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_7_4.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_7_5.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        Circle_7_6.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
-        
-        circler.radiusProperty().bind(Circle_0_0.radiusProperty().divide(5));
-        circley.radiusProperty().bind(Circle_0_0.radiusProperty().divide(5));
+        binding();
         
         if(IA)
             colocarFichaIA();
-            
-       
-            
-        // TODO
     }
     
     public void initializeIA(boolean IA){
         this.IA = IA;
     }
     
-    public void initializeP2(Player p){
-        this.player2 = p ;
-    }
-    
     public void initializeP1(Player p){
         this.player1 = p ;
+        p1.setText(player1.getNickName());
+    }
+    
+    public void initializeP2(Player p){
+        this.player2 = p ;
+        p2.setText(player2.getNickName());
     }
     
     private Node getNodeFromGridPane(GridPane gridPane, int col, int row) {
@@ -273,13 +216,22 @@ public class TableroController implements Initializable {
             try{
              columna = GridPane.getColumnIndex(((Circle)event.getSource()));
             }catch(Exception e){}
-
+            
+            double size = gPane.widthProperty().add(gPane.heightProperty()).divide(50).getValue();
+            
     //        Colocar la ficha y la muestra en la interfaz 
             int filaColocado = tablero.ponFicha(columna);
-            if (tablero.jugador == 1)
-                cambiarColor(columna, filaColocado,"RED");
-            else if(tablero.jugador == 2)
+            if (tablero.jugador == 1){
+                cambiarColor(columna, filaColocado,"RED"); 
+                p1.setFont(Font.font("SansSerif", FontWeight.SEMI_BOLD, size));
+                p2.setFont(Font.font("SansSerif", FontWeight.BLACK, size));
+                
+            }
+            else if(tablero.jugador == 2){
                 cambiarColor(columna, filaColocado,"YELLOW");
+                p2.setFont(Font.font("SansSerif", FontWeight.SEMI_BOLD, size));
+                p1.setFont(Font.font("SansSerif", FontWeight.BLACK, size));
+            }
 
             victoria = tablero.victoria(filaColocado, columna);
 
@@ -290,7 +242,6 @@ public class TableroController implements Initializable {
                 System.out.println("Turno IA");
             }
         }
-        
     }
     
     public void colocarFichaIA(){
@@ -547,8 +498,72 @@ public class TableroController implements Initializable {
 
 //        Stage myStage = (Stage) this.exit.getScene().getWindow();
 //        myStage.close();
+    }    
+    
+    private void binding(){
+        Circle_0_0.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_0_1.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_0_2.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_0_3.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_0_4.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_0_5.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_0_6.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_1_0.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_1_1.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_1_2.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_1_3.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_1_4.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_1_5.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_1_6.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_2_0.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_2_1.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_2_2.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_2_3.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_2_4.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_2_5.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_2_6.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_3_0.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_3_1.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_3_2.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_3_3.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_3_4.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_3_5.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_3_6.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_4_0.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_4_1.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_4_2.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_4_3.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_4_4.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_4_5.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_4_6.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_5_0.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_5_1.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_5_2.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_5_3.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_5_4.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_5_5.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_5_6.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_6_0.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_6_1.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_6_2.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_6_3.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_6_4.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_6_5.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_6_6.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_7_0.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_7_1.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_7_2.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_7_3.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_7_4.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_7_5.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        Circle_7_6.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
+        
+        circler.radiusProperty().bind(Circle_0_0.radiusProperty().divide(5));
+        circley.radiusProperty().bind(Circle_0_0.radiusProperty().divide(5));
+        
+        p1.styleProperty().bind(Bindings.concat("-fx-font-size: ", gPane.widthProperty().add(gPane.heightProperty()).divide(50).asString(), ";","-fx-base: rgb(100,100,",50,");"));
+        p2.styleProperty().bind(Bindings.concat("-fx-font-size: ", gPane.widthProperty().add(gPane.heightProperty()).divide(50).asString(), ";","-fx-base: rgb(100,100,",50,");"));
+        
+        exit.prefHeightProperty().bind(barra.heightProperty());
     }
-
-    
-    
 }
