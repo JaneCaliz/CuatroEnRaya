@@ -181,6 +181,9 @@ public class TableroController implements Initializable {
     
     public void initializeIA(boolean IA){
         this.IA = IA;
+        if (IA){
+            p2.setText("IA");
+        }
     }
     
     public void initializeP1(Player p){
