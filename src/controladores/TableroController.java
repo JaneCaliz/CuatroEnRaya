@@ -522,11 +522,21 @@ public class TableroController implements Initializable {
 
     @FXML
     private void exit(MouseEvent event) throws IOException {
-        Stage myStage = (Stage) this.exit.getScene().getWindow();
-        myStage.close();
-        
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
-            
+//        Stage myStage = (Stage) this.exit.getScene().getWindow();
+//        myStage.close();
+//        
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
+//            
+//        Parent root = loader.load();
+//
+//        Scene scene = new Scene(root);
+//        Stage stage = new Stage();
+//
+//        stage.setScene(scene);
+//        stage.show();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Confirmar.fxml"));
+                
         Parent root = loader.load();
 
         Scene scene = new Scene(root);
@@ -534,6 +544,9 @@ public class TableroController implements Initializable {
 
         stage.setScene(scene);
         stage.show();
+
+//        Stage myStage = (Stage) this.exit.getScene().getWindow();
+//        myStage.close();
     }
 
     

@@ -206,4 +206,8 @@ public class IniciarSesionController implements Initializable {
               title.setText("Iniciar sesión segundo jugador");
        RegistrarP2 = b;
     }
+    
+    public boolean getRegistrarP2(){
+        return RegistrarP2;
+    }
 }
