@@ -7,6 +7,7 @@ package controladores;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;
@@ -16,7 +17,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -473,31 +476,30 @@ public class TableroController implements Initializable {
 
     @FXML
     private void exit(MouseEvent event) throws IOException {
-//        Stage myStage = (Stage) this.exit.getScene().getWindow();
-//        myStage.close();
-//        
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
-//            
-//        Parent root = loader.load();
-//
-//        Scene scene = new Scene(root);
-//        Stage stage = new Stage();
-//
-//        stage.setScene(scene);
-//        stage.show();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Confirmar.fxml"));
-                
-        Parent root = loader.load();
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Abandonar partida");
+        alert.setHeaderText("¿Está seguro de querer abandonar la partida actual?");
+        alert.setContentText("Se perderá todo el progreso de la partida actual");      
+        Optional<ButtonType> result = alert.showAndWait();
+        
+        if (result.isPresent() && result.get() == ButtonType.OK){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
 
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
+            Parent root = loader.load();
 
-        stage.setScene(scene);
-        stage.show();
+            MenuPrincipalController controlador = loader.getController();
+            controlador.initPlayer(player1);
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
 
-//        Stage myStage = (Stage) this.exit.getScene().getWindow();
-//        myStage.close();
+            stage.setScene(scene);
+            stage.show();
+            
+            Stage myStage = (Stage) this.exit.getScene().getWindow();
+            myStage.close();
+}
     }    
     
     private void binding(){

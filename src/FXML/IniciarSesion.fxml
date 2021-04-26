@@ -73,7 +73,7 @@
       <HBox alignment="CENTER" prefHeight="24.0" prefWidth="600.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="¿No tienes cuenta? " textAlignment="CENTER" />
-            <Hyperlink text="Regístrate" textAlignment="CENTER" />
+            <Hyperlink disable="true" text="Regístrate" textAlignment="CENTER" />
          </children>
          <VBox.margin>
             <Insets bottom="5.0" />
