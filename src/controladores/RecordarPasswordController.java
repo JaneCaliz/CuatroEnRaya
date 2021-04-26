@@ -8,6 +8,7 @@ package controladores;
 import DBAccess.Connect4DAOException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,8 +18,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Connect4;
@@ -80,15 +84,15 @@ public class RecordarPasswordController implements Initializable {
                 Stage myStage = (Stage) this.recuperar.getScene().getWindow();
                 myStage.close();
                 
-                FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/FXML/Codigo.fxml"));
-                
-                Parent root2 = loader2.load();
-
-                Scene scene2 = new Scene(root2);
-                Stage stage2 = new Stage();
-
-                stage2.setScene(scene2);
-                stage2.show();
+//                FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/FXML/Codigo.fxml"));
+//                
+//                Parent root2 = loader2.load();
+//
+//                Scene scene2 = new Scene(root2);
+//                Stage stage2 = new Stage();
+//
+//                stage2.setScene(scene2);
+//                stage2.show();   
             }
         } catch (Connect4DAOException | IOException ex) {
             Logger.getLogger(RecordarPasswordController.class.getName()).log(Level.SEVERE, null, ex);

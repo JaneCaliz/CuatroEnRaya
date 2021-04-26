@@ -8,6 +8,7 @@ package controladores;
 import DBAccess.Connect4DAOException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Connect4;
@@ -171,7 +173,7 @@ public class IniciarSesionController implements Initializable {
 
 
     @FXML
-    private void recordar(ActionEvent event) {
+    private void recordar(ActionEvent event) {     
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/RecordarPassword.fxml"));
             
