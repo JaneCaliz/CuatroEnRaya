@@ -17,12 +17,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import model.Player;
 
 public class MenuPrincipalController implements Initializable {
@@ -32,17 +30,16 @@ public class MenuPrincipalController implements Initializable {
     @FXML
     private ImageView profile;
     @FXML
-    private Button jugarF;
-
-    private Player player1;
-    
-    private WindowEvent cerrar;
-    @FXML
-    private Menu logout;
+    private Button jugarF;    
     @FXML
     private MenuItem play1;
     @FXML
     private MenuItem play2;
+    @FXML
+    private MenuButton button;
+    
+    private Player player1;
+//    private WindowEvent cerrar;
     /**
      * Initializes the controller class.
      */
@@ -122,12 +119,7 @@ public class MenuPrincipalController implements Initializable {
         }
 
     }
-
-    @FXML
-    private void profile(MouseEvent event) {
-        
-    }
-
+    
     @FXML
     private void play1(ActionEvent event) {
     }
@@ -135,5 +127,5 @@ public class MenuPrincipalController implements Initializable {
     @FXML
     private void play2(ActionEvent event) {
     }
-    
+
 }
