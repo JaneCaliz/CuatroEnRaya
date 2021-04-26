@@ -499,7 +499,7 @@ public class TableroController implements Initializable {
             
             Stage myStage = (Stage) this.exit.getScene().getWindow();
             myStage.close();
-}
+        }
     }    
     
     private void binding(){
