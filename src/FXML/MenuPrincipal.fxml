@@ -15,10 +15,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="375.0" minWidth="468.0" prefHeight="375.0" prefWidth="468.0" style="-fx-background-color: #d6ffe1;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.MenuPrincipalController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="375.0" minWidth="468.0" prefHeight="391.0" prefWidth="468.0" style="-fx-background-color: #d6ffe1;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.MenuPrincipalController">
    <children>
-      <GridPane alignment="CENTER" maxHeight="120.0" minHeight="75.0" prefHeight="70.0" style="-fx-background-color: #6bdb88;" VBox.vgrow="ALWAYS">
+      <GridPane fx:id="barra" alignment="CENTER" maxHeight="120.0" minHeight="75.0" prefHeight="75.0" style="-fx-background-color: #6bdb88;" VBox.vgrow="ALWAYS">
         <columnConstraints>
           <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="300.0" prefWidth="300.0" />
@@ -28,23 +29,43 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <HBox alignment="CENTER" maxHeight="120.0" maxWidth="115.0" prefHeight="75.0" prefWidth="95.0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+            <HBox alignment="CENTER" maxHeight="120.0" maxWidth="115.0" prefHeight="75.0" prefWidth="95.0" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
-                     <graphic>
-                        <ImageView fitHeight="55.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Img/Trophy.png" />
-                           </image>
+                  <Pane minWidth="0.0" prefHeight="78.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                  <VBox alignment="CENTER" maxHeight="120.0" minHeight="75.0" prefHeight="63.0" prefWidth="80.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="trophy" maxHeight="100.0" mnemonicParsing="false" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                           <graphic>
+                              <ImageView fitHeight="55.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Img/Trophy.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </graphic>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
-                        </ImageView>
-                     </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Pane maxHeight="10.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                        <Text fx:id="points" fill="#fcdc29" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-stroke: #917c00; -fx-stroke-width: 0.4; -fx-stroke-type: outside;" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="-10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
                </children>
             </HBox>
             <HBox alignment="CENTER" maxHeight="120.0" prefHeight="75.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
@@ -54,7 +75,7 @@
             </HBox>
             <HBox alignment="CENTER" maxHeight="120.0" maxWidth="115.0" prefHeight="75.0" prefWidth="95.0" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <children>
-                  <MenuButton fx:id="button" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: #6bdb88;">
+                  <MenuButton fx:id="button" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-arrows-visible: false;">
                      <graphic>
                         <ImageView fx:id="profile" fitHeight="55.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <cursor>
