@@ -241,10 +241,15 @@ public class TableroController implements Initializable {
             victoria = tablero.victoria(filaColocado, columna);
 
             if (victoria == 1){
-                if(tablero.jugador == 1)
-                    resultado("P1");
-                else 
+                if(tablero.jugador == 1){
+                    if(!IA){
+                        resultado("P1");
+                    }else{
+                        resultado("P1 IA");
+                    }
+                }else {
                     resultado("P2");
+                }
             }else if(IA){
                 colocarFichaIA();
             }
@@ -264,6 +269,7 @@ public class TableroController implements Initializable {
             controlador.initPlayer(player1);
             controlador.initPlayer2(player2);
             controlador.initRes(resultado);
+            controlador.initIA(IA);
                         
             stage.setScene(scene);
             stage.show();
@@ -279,7 +285,7 @@ public class TableroController implements Initializable {
     public void colocarFichaIA(){
         Random rand = new Random();
         int randomColum = rand.nextInt(8 + 1);
-        System.out.println("Ficha IA");
+        
         int filaColocado = tablero.ponFicha(randomColum );
             if (tablero.jugador == 1)
                 cambiarColor(randomColum , filaColocado,"RED");
@@ -520,7 +526,8 @@ public class TableroController implements Initializable {
 
             MenuPrincipalController controlador = loader.getController();
             controlador.initPlayer(player1);
-            controlador.initPlayer2(player2);
+            if (player2 != null)
+                controlador.initPlayer2(player2);
             
             Scene scene = new Scene(root);
             Stage stage = new Stage();

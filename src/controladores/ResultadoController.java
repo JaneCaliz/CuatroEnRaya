@@ -38,6 +38,8 @@ public class ResultadoController implements Initializable {
     private String res;
     
     private Player player1, player2;
+    
+    private boolean IA;
 
     /**
      * Initializes the controller class.
@@ -66,6 +68,13 @@ public class ResultadoController implements Initializable {
           resultado.setText("¡Perdedor!");
           point.setText("Puntuación: 0pts");
         }
+        else if(res == "P1 IA"){
+          resultado.setText("¡Ganador!");
+          ganador.setStyle("-fx-font: 25 SansSerif");
+          ganador.setFill(Color.GOLD);
+          ganador.setText(player1.getNickName());
+          point.setText("Puntuación: 5pts");
+        }
         else if(res == "P1"){
             resultado.setText("¡Ganador!");
             ganador.setStyle("-fx-font: 25 SansSerif");
@@ -90,7 +99,8 @@ public class ResultadoController implements Initializable {
 
             MenuPrincipalController controlador = loader.getController();
             controlador.initPlayer(player1);
-            controlador.initPlayer2(player2);
+            if(player2 != null)
+                controlador.initPlayer2(player2);
             
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -111,18 +121,27 @@ public class ResultadoController implements Initializable {
             
         Parent root = loader.load();
 
-        IniciarSesionController controlador = loader.getController();
+        TableroController controlador = loader.getController();
+        controlador.initializeP1(player1);
+        if (player2 != null)
+            controlador.initializeP2(player2);
+        controlador.initializeIA(IA);
 
         Scene scene = new Scene(root);
         Stage stage = new Stage();
+        
 
         stage.setScene(scene);
         stage.show();
 
-        stage.setOnCloseRequest(e -> controlador.closeWindow());
+        // stage.setOnCloseRequest(e -> controlador.closeWindow());
 
         Stage myStage = (Stage) this.replay.getScene().getWindow();
         myStage.close();
+    }
+
+    void initIA(boolean IA) {
+        this.IA = IA;
     }
     
 }
