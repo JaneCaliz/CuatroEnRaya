@@ -262,6 +262,8 @@ public class TableroController implements Initializable {
             
             ResultadoController controlador = loader.getController();
             controlador.initRes(resultado);
+            controlador.initPlayer(player1);
+            controlador.initPlayer2(player2);
             
             stage.setScene(scene);
             stage.show();
