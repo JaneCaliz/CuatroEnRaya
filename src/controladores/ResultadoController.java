@@ -59,34 +59,39 @@ public class ResultadoController implements Initializable {
     
     public void initRes (String s){
         this.res = s;
-         if(res == "Empate"){
-            resultado.setText("¡Empate!");
-//            ganador.setText("P1 y P2");
-            point.setText("Puntuación: 25pts");
-        }
-        else if(res == "IA"){
-          resultado.setText("¡Perdedor!");
-          point.setText("Puntuación: 0pts");
-        }
-        else if(res == "P1 IA"){
-          resultado.setText("¡Ganador!");
-          ganador.setStyle("-fx-font: 25 SansSerif");
-          ganador.setFill(Color.GOLD);
-          ganador.setText(player1.getNickName());
-          point.setText("Puntuación: 5pts");
-        }
-        else if(res == "P1"){
-            resultado.setText("¡Ganador!");
-            ganador.setStyle("-fx-font: 25 SansSerif");
-            ganador.setFill(Color.GOLD);
-            ganador.setText(player1.getNickName());
-            point.setText("Puntuación: 50pts");
-        }else if(res == "P2"){
-            resultado.setText("¡Ganador!");
-            ganador.setStyle("-fx-font: 25 SansSerif");
-            ganador.setFill(Color.GOLD);
-            ganador.setText(player2.getNickName());
-            point.setText("Puntuación: 50pts");
+         if(null != res)switch (res) {
+            case "Empate":
+                resultado.setText("¡Empate!");
+                //            ganador.setText("P1 y P2");
+                point.setText("Puntuación: 25pts");
+                break;
+            case "IA":
+                resultado.setText("¡Perdedor!");
+                point.setText("Puntuación: 0pts");
+                break;
+            case "P1 IA":
+                resultado.setText("¡Ganador!");
+                ganador.setStyle("-fx-font: 25 SansSerif");
+                ganador.setFill(Color.GOLD);
+                ganador.setText(player1.getNickName());
+                point.setText("Puntuación: 5pts");
+                break;
+            case "P1":
+                resultado.setText("¡Ganador!");
+                ganador.setStyle("-fx-font: 25 SansSerif");
+                ganador.setFill(Color.GOLD);
+                ganador.setText(player1.getNickName());
+                point.setText("Puntuación: 50pts");
+                break;
+            case "P2":
+                resultado.setText("¡Ganador!");
+                ganador.setStyle("-fx-font: 25 SansSerif");
+                ganador.setFill(Color.GOLD);
+                ganador.setText(player2.getNickName());
+                point.setText("Puntuación: 50pts");
+                break;
+            default:
+                break;
         }
     }
 
