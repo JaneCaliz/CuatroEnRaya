@@ -46,6 +46,14 @@ public class ResultadoController implements Initializable {
        
     }    
     
+    public void initPlayer(Player p){
+        this.player1 = p;
+    }
+    
+    public void initPlayer2(Player p){
+        this.player2 = p;
+    }
+    
     public void initRes (String s){
         this.res = s;
          if(res == "Empate"){
@@ -60,17 +68,14 @@ public class ResultadoController implements Initializable {
         else if(res == "P1"){
             resultado.setText("¡Ganador!");
             ganador.setStyle("-fx-font: 25 SansSerif");
-            ganador.setStyle("-fx-text-inner-color: #fcdc29");
-            ganador.setText("P1");
+            ganador.setStyle("-fx-prompt-text-fill: red");
+            ganador.setText(player1.getNickName());
             point.setText("Puntuación: 50pts");
         }else if(res == "P2"){
             resultado.setText("¡Ganador!");
             ganador.setStyle("-fx-font: 25 SansSerif");
-            ganador.setStyle("-fx-text-inner-color: #fcdc29"
-                    + ""
-                    + ""
-                    + "xt-fill: #fcdc29");
-            ganador.setText("P2");
+            ganador.setStyle("-fx-text-inner-color: red");
+            ganador.setText(player2.getNickName());
             point.setText("Puntuación: 50pts");
         }
     }
