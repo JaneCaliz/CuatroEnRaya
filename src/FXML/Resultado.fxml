@@ -27,7 +27,7 @@
       </Text>
       <HBox alignment="CENTER_LEFT" prefHeight="7.0" prefWidth="448.0">
          <children>
-            <Text fx:id="point" strokeType="OUTSIDE" strokeWidth="0.0" text="Puntuación: " wrappingWidth="120.6708984375">
+            <Text fx:id="point" strokeType="OUTSIDE" strokeWidth="0.0" text="Puntuación: " wrappingWidth="278.6708984375">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
@@ -42,7 +42,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="46.0" prefWidth="448.0">
          <children>
-            <Button fx:id="salir" cancelButton="true" mnemonicParsing="false" onAction="#salir" prefHeight="31.0" prefWidth="65.0" text="Salir">
+            <Button fx:id="salir" cancelButton="true" mnemonicParsing="false" onAction="#salir" prefHeight="31.0" prefWidth="123.0" text="Volver al menú">
                <HBox.margin>
                   <Insets left="40.0" right="30.0" />
                </HBox.margin>

@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.Player;
 
 public class ResultadoController implements Initializable {
 
@@ -34,6 +35,8 @@ public class ResultadoController implements Initializable {
     private Button replay;
     
     private String res;
+    
+    private Player player1, player2;
 
     /**
      * Initializes the controller class.
@@ -47,19 +50,26 @@ public class ResultadoController implements Initializable {
         this.res = s;
          if(res == "Empate"){
             resultado.setText("¡Empate!");
-            ganador.setText("P1 y P2");
+//            ganador.setText("P1 y P2");
             point.setText("Puntuación: 25pts");
         }
         else if(res == "IA"){
           resultado.setText("¡Perdedor!");
           point.setText("Puntuación: 0pts");
-     }
+        }
         else if(res == "P1"){
             resultado.setText("¡Ganador!");
+            ganador.setStyle("-fx-font: 25 SansSerif");
+            ganador.setStyle("-fx-text-inner-color: #fcdc29");
             ganador.setText("P1");
             point.setText("Puntuación: 50pts");
         }else if(res == "P2"){
             resultado.setText("¡Ganador!");
+            ganador.setStyle("-fx-font: 25 SansSerif");
+            ganador.setStyle("-fx-text-inner-color: #fcdc29"
+                    + ""
+                    + ""
+                    + "xt-fill: #fcdc29");
             ganador.setText("P2");
             point.setText("Puntuación: 50pts");
         }
@@ -69,18 +79,18 @@ public class ResultadoController implements Initializable {
     private void salir(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
-            
+
             Parent root = loader.load();
-            
-            IniciarSesionController controlador = loader.getController();
+
+            MenuPrincipalController controlador = loader.getController();
+            controlador.initPlayer(player1);
+            controlador.initPlayer2(player2);
             
             Scene scene = new Scene(root);
             Stage stage = new Stage();
-            
+
             stage.setScene(scene);
             stage.show();
-            
-            stage.setOnCloseRequest(e -> controlador.closeWindow());
             
             Stage myStage = (Stage) this.salir.getScene().getWindow();
             myStage.close();
