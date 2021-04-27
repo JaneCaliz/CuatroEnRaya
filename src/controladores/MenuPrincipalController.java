@@ -88,7 +88,6 @@ public class MenuPrincipalController implements Initializable {
             TableroController controlador = loader.getController();
             controlador.initializeIA(true);
             controlador.initializeP1(player1);
-            controlador.colocarFichaIA();
             
             stage.setScene(scene);
             stage.show();
@@ -103,22 +102,42 @@ public class MenuPrincipalController implements Initializable {
     @FXML
     private void jugarF(ActionEvent event) {
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/IniciarSesion.fxml"));
-            
-            Parent root = loader.load();
+            if(player2 == null){
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/IniciarSesion.fxml"));
 
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            
-            IniciarSesionController controlador = loader.getController();
-            controlador.initit2Player(true);
-            controlador.inititPlayer1(player1);
-            
-            stage.setScene(scene);
-            stage.show();
+                Parent root = loader.load();
 
-            Stage myStage = (Stage) this.jugarIA.getScene().getWindow();
-            myStage.close();
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+
+                IniciarSesionController controlador = loader.getController();
+                controlador.initit2Player(true);
+                controlador.inititPlayer1(player1);
+
+                stage.setScene(scene);
+                stage.show();
+
+                Stage myStage = (Stage) this.jugarF.getScene().getWindow();
+                myStage.close();
+            }
+            else{
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tablero.fxml"));
+
+                Parent root = loader.load();
+
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+
+                TableroController controlador = loader.getController();
+                controlador.initializeP2(player1);
+                controlador.initializeP2(player2);
+
+                stage.setScene(scene);
+                stage.show();
+
+                Stage myStage = (Stage) this.jugarF.getScene().getWindow();
+                myStage.close();
+            }
         } catch (IOException ex) {
             Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
