@@ -58,7 +58,7 @@ public class IntroducirCodigoController implements Initializable {
             Scene scene2 = new Scene(root2);
             stage2 = new Stage();
             stage2.setAlwaysOnTop(true);
-            
+                            
             stage2.setScene(scene2);   
             stage2.show();
         } catch (IOException ex) {
@@ -82,7 +82,9 @@ public class IntroducirCodigoController implements Initializable {
 
         Scene scene = new Scene(root);
         Stage stage = new Stage();
-
+        
+        stage.setMaximized(myStage.isMaximized());
+            
         stage.setScene(scene);
         stage.show();
     }
@@ -109,7 +111,9 @@ public class IntroducirCodigoController implements Initializable {
 
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
-
+                
+                stage.setMaximized(myStage.isMaximized());
+            
                 stage.setScene(scene);
                 stage.show();
             }

@@ -265,17 +265,18 @@ public class TableroController implements Initializable {
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             
+            Stage myStage = (Stage) this.p1.getScene().getWindow();
+            
             ResultadoController controlador = loader.getController();
             controlador.initPlayer(player1);
             controlador.initPlayer2(player2);
             controlador.initRes(resultado);
             controlador.initIA(IA);
+            stage.setMaximized(myStage.isMaximized());
                         
             stage.setScene(scene);
             stage.show();
             
-            
-            Stage myStage = (Stage) this.p1.getScene().getWindow();
             myStage.close();
         } catch (IOException ex) {
             Logger.getLogger(TableroController.class.getName()).log(Level.SEVERE, null, ex);
@@ -296,13 +297,8 @@ public class TableroController implements Initializable {
 
         if (victoria == 1){
                 resultado ("IA");
-        }
-        
-        
+        }  
     }
-  
-    
-    
     
     public void cambiarColor (int x, int y, String color){
     
@@ -532,11 +528,13 @@ public class TableroController implements Initializable {
             
             Scene scene = new Scene(root);
             Stage stage = new Stage();
+            
+            Stage myStage = (Stage) this.exit.getScene().getWindow();
+            stage.setMaximized(myStage.isMaximized());
 
             stage.setScene(scene);
             stage.show();
             
-            Stage myStage = (Stage) this.exit.getScene().getWindow();
             myStage.close();
         }
     }    

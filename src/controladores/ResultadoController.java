@@ -104,11 +104,13 @@ public class ResultadoController implements Initializable {
             
             Scene scene = new Scene(root);
             Stage stage = new Stage();
+            
+            Stage myStage = (Stage) this.salir.getScene().getWindow();
+            stage.setMaximized(myStage.isMaximized());
 
             stage.setScene(scene);
             stage.show();
             
-            Stage myStage = (Stage) this.salir.getScene().getWindow();
             myStage.close();
         } catch (IOException ex) {
             Logger.getLogger(ResultadoController.class.getName()).log(Level.SEVERE, null, ex);
@@ -130,13 +132,14 @@ public class ResultadoController implements Initializable {
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         
+        Stage myStage = (Stage) this.replay.getScene().getWindow();
+        stage.setMaximized(myStage.isMaximized());
 
         stage.setScene(scene);
         stage.show();
 
         // stage.setOnCloseRequest(e -> controlador.closeWindow());
 
-        Stage myStage = (Stage) this.replay.getScene().getWindow();
         myStage.close();
     }
 

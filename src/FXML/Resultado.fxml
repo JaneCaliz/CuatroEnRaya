@@ -18,9 +18,9 @@
             <Insets bottom="15.0" top="10.0" />
          </VBox.margin>
       </Text>
-      <HBox alignment="CENTER_LEFT" prefHeight="7.0" prefWidth="448.0">
+      <HBox alignment="CENTER" prefHeight="7.0" prefWidth="448.0">
          <children>
-            <Text fx:id="point" strokeType="OUTSIDE" strokeWidth="0.0" text="Puntuación: " wrappingWidth="278.6708984375">
+            <Text fx:id="point" strokeType="OUTSIDE" strokeWidth="0.0" text="Puntuación: " wrappingWidth="407.6708984375">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>

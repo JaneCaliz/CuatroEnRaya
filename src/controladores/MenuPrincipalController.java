@@ -86,14 +86,16 @@ public class MenuPrincipalController implements Initializable {
             Scene scene = new Scene(root);
             Stage stage = new Stage();
 
+            Stage myStage = (Stage) this.jugarIA.getScene().getWindow();
+
             TableroController controlador = loader.getController();
             controlador.initializeIA(true);
             controlador.initializeP1(player1);
+            stage.setMaximized(myStage.isMaximized());
             
             stage.setScene(scene);
             stage.show();
 
-            Stage myStage = (Stage) this.jugarIA.getScene().getWindow();
             myStage.close();
         } catch (IOException ex) {
             Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
@@ -110,15 +112,18 @@ public class MenuPrincipalController implements Initializable {
 
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
+                
+                Stage myStage = (Stage) this.jugarF.getScene().getWindow();
 
                 IniciarSesionController controlador = loader.getController();
                 controlador.initit2Player(true);
                 controlador.inititPlayer1(player1);
+                stage.setMaximized(myStage.isMaximized());
+
 
                 stage.setScene(scene);
                 stage.show();
 
-                Stage myStage = (Stage) this.jugarF.getScene().getWindow();
                 myStage.close();
             }
             else{
@@ -128,15 +133,18 @@ public class MenuPrincipalController implements Initializable {
 
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
+                
+                Stage myStage = (Stage) this.jugarF.getScene().getWindow();
 
                 TableroController controlador = loader.getController();
                 controlador.initializeP2(player1);
                 controlador.initializeP2(player2);
+                stage.setMaximized(myStage.isMaximized());
+
 
                 stage.setScene(scene);
                 stage.show();
 
-                Stage myStage = (Stage) this.jugarF.getScene().getWindow();
                 myStage.close();
             }
         } catch (IOException ex) {
@@ -153,6 +161,9 @@ public class MenuPrincipalController implements Initializable {
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             
+            Stage myStage = (Stage) this.jugarF.getScene().getWindow();
+            stage.setMaximized(myStage.isMaximized());
+
             stage.setScene(scene);
             stage.show();
             
@@ -176,14 +187,15 @@ public class MenuPrincipalController implements Initializable {
 
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
+                Stage myStage = (Stage) this.jugarF.getScene().getWindow();
 
                 MenuPrincipalController controlador = loader.getController();
                 controlador.initPlayer(player2);
+                stage.setMaximized(myStage.isMaximized());
 
                 stage.setScene(scene);
                 stage.show();
 
-                Stage myStage = (Stage) this.jugarF.getScene().getWindow();
                 myStage.close();
 
                 player2 = null;
@@ -195,11 +207,13 @@ public class MenuPrincipalController implements Initializable {
 
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
+                
+                Stage myStage = (Stage) this.jugarF.getScene().getWindow();
+                stage.setMaximized(myStage.isMaximized());
 
                 stage.setScene(scene);
                 stage.show();
 
-                Stage myStage = (Stage) this.jugarF.getScene().getWindow();
                 myStage.close();
 
                 player1 = null;
@@ -224,14 +238,16 @@ public class MenuPrincipalController implements Initializable {
 
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
+                
+                Stage myStage = (Stage) this.jugarF.getScene().getWindow();
 
                 MenuPrincipalController controlador = loader.getController();
                 controlador.initPlayer(player1);
+                stage.setMaximized(myStage.isMaximized());
 
                 stage.setScene(scene);
                 stage.show();
 
-                Stage myStage = (Stage) this.jugarF.getScene().getWindow();
                 myStage.close();
 
                 player2 = null;

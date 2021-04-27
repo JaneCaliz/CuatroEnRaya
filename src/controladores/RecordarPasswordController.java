@@ -74,21 +74,13 @@ public class RecordarPasswordController implements Initializable {
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
                 
+                Stage myStage = (Stage) this.recuperar.getScene().getWindow();
+                stage.setMaximized(myStage.isMaximized());
+
                 stage.setScene(scene);
                 stage.show();
 
-                Stage myStage = (Stage) this.recuperar.getScene().getWindow();
                 myStage.close();
-                
-//                FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/FXML/Codigo.fxml"));
-//                
-//                Parent root2 = loader2.load();
-//
-//                Scene scene2 = new Scene(root2);
-//                Stage stage2 = new Stage();
-//
-//                stage2.setScene(scene2);
-//                stage2.show();   
             }
         } catch (Connect4DAOException | IOException ex) {
             Logger.getLogger(RecordarPasswordController.class.getName()).log(Level.SEVERE, null, ex);
@@ -107,6 +99,8 @@ public class RecordarPasswordController implements Initializable {
 
         Scene scene = new Scene(root);
         Stage stage = new Stage();
+        
+        stage.setMaximized(myStage.isMaximized());
 
         stage.setScene(scene);
         stage.show();

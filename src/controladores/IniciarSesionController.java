@@ -76,10 +76,13 @@ public class IniciarSesionController implements Initializable {
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
 
+                Stage myStage = (Stage) this.iniciar.getScene().getWindow();
+
+                stage.setMaximized(myStage.isMaximized());
+
                 stage.setScene(scene);
                 stage.show();
 
-                Stage myStage = (Stage) this.iniciar.getScene().getWindow();
                 myStage.close();
             }
             else{
@@ -89,11 +92,14 @@ public class IniciarSesionController implements Initializable {
 
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
+                
+                Stage myStage = (Stage) this.iniciar.getScene().getWindow();
 
+                stage.setMaximized(myStage.isMaximized());
+                
                 stage.setScene(scene);
                 stage.show();
 
-                Stage myStage = (Stage) this.iniciar.getScene().getWindow();
                 myStage.close();
             }
   
@@ -147,11 +153,13 @@ public class IniciarSesionController implements Initializable {
                     controlador.initializeP2(p2);
                     controlador.initializeP1(p1);
                     controlador.initializeIA(false);
+                    Stage myStage = (Stage) this.iniciar.getScene().getWindow();
 
+                    stage.setMaximized(myStage.isMaximized());
+                                        
                     stage.setScene(scene);
                     stage.show();
 
-                    Stage myStage = (Stage) this.iniciar.getScene().getWindow();
                     myStage.close();
                 }
                 else{
@@ -161,13 +169,15 @@ public class IniciarSesionController implements Initializable {
                     Scene scene = new Scene(root);
                     Stage stage = new Stage();
                     
+                    Stage myStage = (Stage) this.iniciar.getScene().getWindow();
+                    
                     MenuPrincipalController controlador = loader.getController();
                     controlador.initPlayer(p1);
-
+                    stage.setMaximized(myStage.isMaximized());
+                    
                     stage.setScene(scene);
                     stage.show();
                     
-                    Stage myStage = (Stage) this.iniciar.getScene().getWindow();
                     myStage.close();
                 }
             }
@@ -190,10 +200,13 @@ public class IniciarSesionController implements Initializable {
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             
+            Stage myStage = (Stage) this.iniciar.getScene().getWindow();
+            
+            stage.setMaximized(myStage.isMaximized());
+            
             stage.setScene(scene);
             stage.show();
             
-            Stage myStage = (Stage) this.iniciar.getScene().getWindow();
             myStage.close();
             
         } catch (IOException ex) {

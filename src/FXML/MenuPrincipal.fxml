@@ -46,7 +46,7 @@
                               </ImageView>
                            </graphic>
                            <cursor>
-                              <Cursor fx:constant="HAND" />
+                              <Cursor fx:constant="DEFAULT" />
                            </cursor>
                            <VBox.margin>
                               <Insets top="10.0" />

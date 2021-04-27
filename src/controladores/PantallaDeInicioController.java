@@ -46,12 +46,14 @@ public class PantallaDeInicioController implements Initializable {
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             
+            Stage myStage = (Stage) this.jugarButt.getScene().getWindow();
+            stage.setMaximized(myStage.isMaximized());
+                        
             stage.setScene(scene);
             stage.show();
             
             stage.setOnCloseRequest(e -> controlador.closeWindow());
             
-            Stage myStage = (Stage) this.jugarButt.getScene().getWindow();
             myStage.close();
             
         } catch (IOException ex) {
