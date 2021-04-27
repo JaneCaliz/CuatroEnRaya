@@ -164,7 +164,27 @@ public class MenuPrincipalController implements Initializable {
     
     @FXML
     private void play1(ActionEvent event) {
-        
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
+            Parent root = loader.load();
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            
+            MenuPrincipalController controlador = loader.getController();
+            controlador.initPlayer(player2);
+            
+            stage.setScene(scene);
+            stage.show();
+            
+            Stage myStage = (Stage) this.jugarF.getScene().getWindow();
+            myStage.close();
+            
+            player2 = null;
+            play1.disableProperty().setValue(Boolean.TRUE);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML

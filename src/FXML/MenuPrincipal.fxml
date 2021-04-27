@@ -29,12 +29,12 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <HBox alignment="CENTER" maxHeight="120.0" maxWidth="115.0" prefHeight="75.0" prefWidth="95.0" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <HBox alignment="CENTER" maxHeight="120.0" maxWidth="115.0" prefHeight="75.0" prefWidth="95.0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <children>
                   <Pane minWidth="0.0" prefHeight="78.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
                   <VBox alignment="CENTER" maxHeight="120.0" minHeight="75.0" prefHeight="63.0" prefWidth="80.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Button fx:id="trophy" maxHeight="100.0" mnemonicParsing="false" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                        <Button fx:id="trophy" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                            <graphic>
                               <ImageView fitHeight="55.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -80,10 +80,7 @@
                         <ImageView fx:id="profile" fitHeight="55.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <image>
-                              <Image url="@../Img/Exit.png" />
-                           </image></ImageView>
+                           </cursor></ImageView>
                      </graphic>
                      <cursor>
                         <Cursor fx:constant="HAND" />
