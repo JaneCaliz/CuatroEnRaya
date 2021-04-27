@@ -8,6 +8,7 @@ package controladores;
 import DBAccess.Connect4DAOException;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,7 +21,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.Connect4;
 import model.Player;
+import model.Round;
 
 public class ResultadoController implements Initializable {
 
@@ -57,11 +60,12 @@ public class ResultadoController implements Initializable {
     
     public void initRes (String s){
         try {
+            Connect4 BD = Connect4.getSingletonConnect4();
             this.res = s;
             if(null != res)switch (res) {
                 case "Empate":
                     resultado.setText("¡Empate!");
-                    point.setText("Puntuación: 0pts");
+                    point.setText("");
                     break;
                 case "IA":
                     resultado.setText("¡Perdedor!");
@@ -76,11 +80,13 @@ public class ResultadoController implements Initializable {
                     resultado.setText("¡" + player1.getNickName() + " ha ganado!");
                     point.setText("Puntuación: 50pts");
                     player1.plusPoints(50);
+                    BD.regiterRound(LocalDateTime.now(), player1, player2);
                     break;
                 case "P2":
                     resultado.setText("¡" + player2.getNickName() + " ha ganado!");
                     point.setText("Puntuación: 50pts");
                     player2.plusPoints(50);
+                    BD.regiterRound(LocalDateTime.now(), player2, player1);
                     break;
                 default:
                     break;
