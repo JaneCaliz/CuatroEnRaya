@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Player;
@@ -68,13 +69,13 @@ public class ResultadoController implements Initializable {
         else if(res == "P1"){
             resultado.setText("¡Ganador!");
             ganador.setStyle("-fx-font: 25 SansSerif");
-            ganador.setStyle("-fx-prompt-text-fill: red");
+            ganador.setFill(Color.GOLD);
             ganador.setText(player1.getNickName());
             point.setText("Puntuación: 50pts");
         }else if(res == "P2"){
             resultado.setText("¡Ganador!");
             ganador.setStyle("-fx-font: 25 SansSerif");
-            ganador.setStyle("-fx-text-inner-color: red");
+            ganador.setFill(Color.GOLD);
             ganador.setText(player2.getNickName());
             point.setText("Puntuación: 50pts");
         }
