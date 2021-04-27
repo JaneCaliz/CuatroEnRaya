@@ -5,6 +5,7 @@
  */
 package controladores;
 
+import DBAccess.Connect4DAOException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -55,30 +56,37 @@ public class ResultadoController implements Initializable {
     }
     
     public void initRes (String s){
-        this.res = s;
-         if(null != res)switch (res) {
-            case "Empate":
-                resultado.setText("¡Empate!");
-                point.setText("Puntuación: 25pts");
-                break;
-            case "IA":
-                resultado.setText("¡Perdedor!");
-                point.setText("Puntuación: 0pts");
-                break;
-            case "P1 IA":
-                resultado.setText("¡" + player1.getNickName() + " ha ganado!");
-                point.setText("Puntuación: 5pts");
-                break;
-            case "P1":
-                resultado.setText("¡" + player1.getNickName() + " ha ganado!");
-                point.setText("Puntuación: 50pts");
-                break;
-            case "P2":
-                resultado.setText("¡" + player2.getNickName() + " ha ganado!");
-                point.setText("Puntuación: 50pts");
-                break;
-            default:
-                break;
+        try {
+            this.res = s;
+            if(null != res)switch (res) {
+                case "Empate":
+                    resultado.setText("¡Empate!");
+                    point.setText("Puntuación: 0pts");
+                    break;
+                case "IA":
+                    resultado.setText("¡Perdedor!");
+                    point.setText("Puntuación: 0pts");
+                    break;
+                case "P1 IA":
+                    resultado.setText("¡Has ganado!");
+                    point.setText("Puntuación: 5pts");
+                    player1.plusPoints(5);
+                    break;
+                case "P1":
+                    resultado.setText("¡" + player1.getNickName() + " ha ganado!");
+                    point.setText("Puntuación: 50pts");
+                    player1.plusPoints(50);
+                    break;
+                case "P2":
+                    resultado.setText("¡" + player2.getNickName() + " ha ganado!");
+                    point.setText("Puntuación: 50pts");
+                    player2.plusPoints(50);
+                    break;
+                default:
+                    break;
+            }
+        } catch (Connect4DAOException ex) {
+            Logger.getLogger(ResultadoController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
