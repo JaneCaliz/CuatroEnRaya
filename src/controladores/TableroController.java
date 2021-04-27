@@ -284,8 +284,9 @@ public class TableroController implements Initializable {
     
     public void colocarFichaIA(){
         Random rand = new Random();
-        int randomColum = rand.nextInt(8 + 1);
-        
+        int randomColum = rand.nextInt(8);
+        p2.setFont(Font.font("SansSerif", FontWeight.SEMI_BOLD, gPane.widthProperty().add(gPane.heightProperty()).divide(50).getValue()));
+        p1.setFont(Font.font("SansSerif", FontWeight.BLACK, gPane.widthProperty().add(gPane.heightProperty()).divide(50).getValue()));
         int filaColocado = tablero.ponFicha(randomColum );
             if (tablero.jugador == 1)
                 cambiarColor(randomColum , filaColocado,"RED");

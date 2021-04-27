@@ -17,7 +17,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Player;
@@ -26,8 +25,6 @@ public class ResultadoController implements Initializable {
 
     @FXML
     private Text resultado;
-    @FXML
-    private Text ganador;
     @FXML
     private Text point;
     @FXML
@@ -62,7 +59,6 @@ public class ResultadoController implements Initializable {
          if(null != res)switch (res) {
             case "Empate":
                 resultado.setText("¡Empate!");
-                //            ganador.setText("P1 y P2");
                 point.setText("Puntuación: 25pts");
                 break;
             case "IA":
@@ -70,24 +66,15 @@ public class ResultadoController implements Initializable {
                 point.setText("Puntuación: 0pts");
                 break;
             case "P1 IA":
-                resultado.setText("¡Ganador!");
-                ganador.setStyle("-fx-font: 25 SansSerif");
-                ganador.setFill(Color.GOLD);
-                ganador.setText(player1.getNickName());
+                resultado.setText("¡" + player1.getNickName() + " ha ganado!");
                 point.setText("Puntuación: 5pts");
                 break;
             case "P1":
-                resultado.setText("¡Ganador!");
-                ganador.setStyle("-fx-font: 25 SansSerif");
-                ganador.setFill(Color.GOLD);
-                ganador.setText(player1.getNickName());
+                resultado.setText("¡" + player1.getNickName() + " ha ganado!");
                 point.setText("Puntuación: 50pts");
                 break;
             case "P2":
-                resultado.setText("¡Ganador!");
-                ganador.setStyle("-fx-font: 25 SansSerif");
-                ganador.setFill(Color.GOLD);
-                ganador.setText(player2.getNickName());
+                resultado.setText("¡" + player2.getNickName() + " ha ganado!");
                 point.setText("Puntuación: 50pts");
                 break;
             default:

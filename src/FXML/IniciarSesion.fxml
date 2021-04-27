@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -20,6 +21,9 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <effect>
+                  <InnerShadow blurType="TWO_PASS_BOX" height="10.0" radius="4.5" width="10.0" />
+               </effect>
             </Button>
          </children>
          <HBox.margin>
@@ -63,7 +67,7 @@
                   <Insets />
                </VBox.margin>
             </Text>
-            <Hyperlink fx:id="recuerdame" alignment="TOP_CENTER" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#recordar" text="Recordar contraseña" textAlignment="CENTER" textFill="#2d9ab5">
+            <Hyperlink fx:id="recuerdame" alignment="TOP_CENTER" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#recordar" text="Recordar contraseña" textAlignment="CENTER" textFill="#156779">
                <VBox.margin>
                   <Insets left="-5.0" top="5.0" />
                </VBox.margin>

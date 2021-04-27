@@ -75,7 +75,7 @@
             </HBox>
             <HBox alignment="CENTER" maxHeight="120.0" maxWidth="115.0" prefHeight="75.0" prefWidth="95.0" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                <children>
-                  <MenuButton fx:id="button" mnemonicParsing="false" style="-fx-background-color: tranparet; -fx-arrows-visible: true; -fx-mark-color: tranparent;" stylesheets="@../Img/style.css">
+                  <MenuButton fx:id="button" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-arrows-visible: true; -fx-mark-color: #147a87;" stylesheets="@../Img/style.css">
                      <graphic>
                         <ImageView fx:id="profile" fitHeight="55.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <cursor>
@@ -93,6 +93,9 @@
                           </items>
                         </Menu>
                      </items>
+                     <HBox.margin>
+                        <Insets right="-40.0" />
+                     </HBox.margin>
                   </MenuButton>
                </children>
             </HBox>
