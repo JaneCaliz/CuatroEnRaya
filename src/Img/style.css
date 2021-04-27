@@ -17,3 +17,12 @@
     -fx-background-repeat: no-repeat;  
     
 }
+
+.arrow{
+    
+    -fx-background-image: url(arrow.png); 
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;  
+    
+}

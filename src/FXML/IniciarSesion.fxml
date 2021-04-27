@@ -6,136 +6,98 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.IniciarSesionController">
-   <center>
-      <HBox alignment="CENTER" prefHeight="326.0" prefWidth="510.0" style="-fx-background-color: b2ebf2;">
+<HBox alignment="CENTER" prefHeight="300.0" prefWidth="430.0" style="-fx-background-color: b2ebf2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.IniciarSesionController">
+   <children>
+      <Pane prefHeight="326.0" prefWidth="110.0" HBox.hgrow="ALWAYS">
          <children>
-            <Pane prefHeight="326.0" prefWidth="150.0" HBox.hgrow="ALWAYS" />
-            <VBox alignment="CENTER_LEFT" prefHeight="326.0" prefWidth="240.0" HBox.hgrow="ALWAYS">
+            <Button fx:id="arrow" alignment="CENTER" focusTraversable="false" layoutX="14.0" layoutY="14.0" maxHeight="90.0" maxWidth="90.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#arrow" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: transparent;" styleClass="arrow" stylesheets="@../Img/style.css">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </Pane>
+      <VBox alignment="CENTER_LEFT" prefHeight="326.0" prefWidth="240.0" HBox.hgrow="ALWAYS">
+         <children>
+            <Pane fx:id="idk" prefHeight="170.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+            <Text fx:id="title" focusTraversable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Inicia sesión" textAlignment="CENTER">
+               <font>
+                  <Font name="SansSerif Bold" size="25.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="15.0" top="15.0" />
+               </VBox.margin>
+            </Text>
+            <Pane maxHeight="20.0" prefHeight="30.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+            <VBox alignment="CENTER_LEFT" prefHeight="76.0" prefWidth="600.0" spacing="8.0">
                <children>
-                  <Pane prefHeight="180.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                  <Text fx:id="title" focusTraversable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Inicia sesión" textAlignment="CENTER">
-                     <font>
-                        <Font name="SansSerif Bold" size="25.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="15.0" top="15.0" />
-                     </VBox.margin>
-                  </Text>
-                  <Pane maxHeight="20.0" prefHeight="30.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                  <VBox alignment="CENTER_LEFT" prefHeight="76.0" prefWidth="600.0" spacing="8.0">
-                     <children>
-                        <TextField fx:id="usuario" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="33.0" prefWidth="230.0" promptText="Usuario" style="-fx-background-color: #edf8ff; -fx-border-color: black;">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <cursor>
-                              <Cursor fx:constant="TEXT" />
-                           </cursor>
-                        </TextField>
-                        <PasswordField fx:id="password" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="230.0" promptText="Contraseña" style="-fx-background-color: #edf8ff; -fx-border-color: black;">
-                           <cursor>
-                              <Cursor fx:constant="TEXT" />
-                           </cursor>
-                        </PasswordField>
-                     </children>
-                  </VBox>
-                  <Text fx:id="error" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
-                     <font>
-                        <Font size="1.0" />
-                     </font>
-                     <VBox.margin>
+                  <TextField fx:id="usuario" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="33.0" prefWidth="230.0" promptText="Usuario" style="-fx-background-color: #edf8ff; -fx-border-color: black;">
+                     <opaqueInsets>
                         <Insets />
-                     </VBox.margin>
-                  </Text>
-                  <Hyperlink fx:id="recuerdame" alignment="TOP_CENTER" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#recordar" text="Recordar contraseña" textAlignment="CENTER" textFill="#2d9ab5">
-                     <VBox.margin>
-                        <Insets left="-5.0" top="5.0" />
-                     </VBox.margin>
-                  </Hyperlink>
-                  <Pane maxHeight="20.0" prefHeight="80.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                  <HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="37.0" prefWidth="600.0">
-                     <children>
-                        <Button fx:id="registrar" focusTraversable="false" mnemonicParsing="false" onAction="#registrar" style="-fx-border-color: #2e7780; -fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: #52cad9;" text="Regístrate">
-                           <HBox.margin>
-                              <Insets right="15.0" />
-                           </HBox.margin>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Button fx:id="iniciar" defaultButton="true" mnemonicParsing="false" onAction="#inicio" style="-fx-border-color: #2e7780; -fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: #52cad9;" text="Iniciar sesión">
-                           <HBox.margin>
-                              <Insets left="15.0" />
-                           </HBox.margin>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                     </children>
-                     <VBox.margin>
-                        <Insets top="5.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <Pane prefHeight="180.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TextField>
+                  <PasswordField fx:id="password" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="230.0" promptText="Contraseña" style="-fx-background-color: #edf8ff; -fx-border-color: black;">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </PasswordField>
                </children>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
             </VBox>
-            <Pane prefHeight="326.0" prefWidth="150.0" />
+            <Text fx:id="error" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+               <font>
+                  <Font size="1.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Text>
+            <Hyperlink fx:id="recuerdame" alignment="TOP_CENTER" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#recordar" text="Recordar contraseña" textAlignment="CENTER" textFill="#2d9ab5">
+               <VBox.margin>
+                  <Insets left="-5.0" top="5.0" />
+               </VBox.margin>
+            </Hyperlink>
+            <Pane maxHeight="20.0" prefHeight="80.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+            <HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="37.0" prefWidth="600.0">
+               <children>
+                  <Button fx:id="registrar" disable="true" focusTraversable="false" mnemonicParsing="false" onAction="#registrar" style="-fx-border-color: #2e7780; -fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: #52cad9;" text="Regístrate">
+                     <HBox.margin>
+                        <Insets right="15.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="iniciar" defaultButton="true" mnemonicParsing="false" onAction="#inicio" style="-fx-border-color: #2e7780; -fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: #52cad9;" text="Iniciar sesión">
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <Pane prefHeight="170.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
          </children>
-      </HBox>
-   </center>
-   <top>
-      <HBox alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="510.0" style="-fx-background-color: #1f97a6; -fx-border-color: #147a87;" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="minimize" maxHeight="35.0" maxWidth="40.0" minHeight="35.0" minWidth="40.0" mnemonicParsing="false" onAction="#minimize" prefHeight="35.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-border-color: #095963;">
-               <graphic>
-                  <ImageView fitHeight="35.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Img/minus.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="maximize" maxHeight="35.0" maxWidth="40.0" minHeight="35.0" minWidth="40.0" mnemonicParsing="false" onAction="#maximize" prefHeight="35.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-border-color: #095963;">
-               <graphic>
-                  <ImageView fx:id="change" fitHeight="28.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Img/maximize.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="cerrar" maxHeight="35.0" maxWidth="40.0" minHeight="35.0" minWidth="40.0" mnemonicParsing="false" onAction="#cerrar" prefHeight="35.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-border-color: #095963;">
-               <graphic>
-                  <ImageView fitHeight="35.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Img/x.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-         </children>
-      </HBox>
-   </top>
-</BorderPane>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </VBox>
+      <Pane prefHeight="326.0" prefWidth="100.0" />
+   </children>
+</HBox>

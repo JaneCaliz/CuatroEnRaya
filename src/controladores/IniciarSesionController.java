@@ -6,12 +6,12 @@
 package controladores;
 
 import DBAccess.Connect4DAOException;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,8 +22,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Connect4;
@@ -51,13 +51,10 @@ public class IniciarSesionController implements Initializable {
     @FXML
     private Button registrar;
     @FXML
-    private Button cerrar;
+    private Button arrow;
     @FXML
-    private Button minimize;
-    @FXML
-    private Button maximize;
-    @FXML
-    private ImageView change;
+    private Pane idk;
+
     
 //    private Stage stage0;
     /**
@@ -66,6 +63,8 @@ public class IniciarSesionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         iniciar.setDefaultButton(true);
+        arrow.prefHeightProperty().bind(Bindings.min(idk.heightProperty().divide(5), idk.widthProperty().divide(3)));
+        arrow.prefWidthProperty().bind(Bindings.min(idk.heightProperty().divide(5), idk.widthProperty().divide(3)));
     }    
 
     public void closeWindow() {
@@ -168,7 +167,7 @@ public class IniciarSesionController implements Initializable {
 
                     stage.setScene(scene);
                     stage.show();
-
+                    
                     Stage myStage = (Stage) this.iniciar.getScene().getWindow();
                     myStage.close();
                 }
@@ -208,8 +207,6 @@ public class IniciarSesionController implements Initializable {
     }
     
     void initit2Player(boolean b) {
-       if (b)
-              title.setText("Iniciar sesión segundo jugador");
        RegistrarP2 = b;
     }
     
@@ -222,30 +219,7 @@ public class IniciarSesionController implements Initializable {
     }
 
     @FXML
-    private void minimize(ActionEvent event) {
-        Stage stage = (Stage) minimize.getScene().getWindow();
-        stage.setIconified(true);
-    }
-
-    @FXML
-    private void maximize(ActionEvent event) {
-        Stage stage = (Stage) minimize.getScene().getWindow();
-        if(stage.isMaximized()){
-            stage.setMaximized(false);
-            File file = new File("src/Img/maximize.png");
-            Image image = new Image(file.toURI().toString());
-            change.setImage(image);
-        }
-        else{
-            stage.setMaximized(true);
-            File file = new File("src/Img/maximize2.png");
-            Image image = new Image(file.toURI().toString());
-            change.setImage(image);
-        }
-    }
-
-    @FXML
-    private void cerrar(ActionEvent event) {
+    private void arrow(ActionEvent event) {
         closeWindow();
     }
 }

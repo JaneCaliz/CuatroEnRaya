@@ -18,7 +18,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 
 public class PantallaDeInicioController implements Initializable {
@@ -47,7 +46,6 @@ public class PantallaDeInicioController implements Initializable {
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             
-            stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(scene);
             stage.show();
             

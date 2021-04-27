@@ -7,6 +7,7 @@ package controladores;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,7 +18,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
@@ -54,8 +57,6 @@ public class MenuPrincipalController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        points.minHeight(25);
-        points.maxHeight(30);
         points.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(60), 20).asString(), ";","-fx-base: rgb(100,100,",50,");"));
     }    
     
@@ -165,23 +166,45 @@ public class MenuPrincipalController implements Initializable {
     @FXML
     private void play1(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
-            Parent root = loader.load();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Cerrar sesión");
+            alert.setHeaderText("¿Está seguro de querer cerrar la sesión de " + player1.getNickName() + "?");    
+            Optional<ButtonType> result = alert.showAndWait();
+            if(player2 != null && result.get() == ButtonType.OK){
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
+                Parent root = loader.load();
+
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+
+                MenuPrincipalController controlador = loader.getController();
+                controlador.initPlayer(player2);
+
+                stage.setScene(scene);
+                stage.show();
+
+                Stage myStage = (Stage) this.jugarF.getScene().getWindow();
+                myStage.close();
+
+                player2 = null;
+                play1.disableProperty().setValue(Boolean.TRUE);
+            }
+            else if(result.get() == ButtonType.OK){
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/PantallaDeInicio.fxml"));
+                Parent root = loader.load();
+
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+
+                stage.setScene(scene);
+                stage.show();
+
+                Stage myStage = (Stage) this.jugarF.getScene().getWindow();
+                myStage.close();
+
+                player1 = null;
+            }
             
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            
-            MenuPrincipalController controlador = loader.getController();
-            controlador.initPlayer(player2);
-            
-            stage.setScene(scene);
-            stage.show();
-            
-            Stage myStage = (Stage) this.jugarF.getScene().getWindow();
-            myStage.close();
-            
-            player2 = null;
-            play1.disableProperty().setValue(Boolean.TRUE);
         } catch (IOException ex) {
             Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -190,23 +213,30 @@ public class MenuPrincipalController implements Initializable {
     @FXML
     private void play2(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
-            Parent root = loader.load();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Cerrar sesión");
+            alert.setHeaderText("¿Está seguro de querer cerrar la sesión de " + player2.getNickName() + "?");    
+            Optional<ButtonType> result = alert.showAndWait();
             
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            
-            MenuPrincipalController controlador = loader.getController();
-            controlador.initPlayer(player1);
-            
-            stage.setScene(scene);
-            stage.show();
-            
-            Stage myStage = (Stage) this.jugarF.getScene().getWindow();
-            myStage.close();
-            
-            player2 = null;
-            play1.disableProperty().setValue(Boolean.TRUE);
+            if(result.get() == ButtonType.OK){
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
+                Parent root = loader.load();
+
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+
+                MenuPrincipalController controlador = loader.getController();
+                controlador.initPlayer(player1);
+
+                stage.setScene(scene);
+                stage.show();
+
+                Stage myStage = (Stage) this.jugarF.getScene().getWindow();
+                myStage.close();
+
+                player2 = null;
+                play1.disableProperty().setValue(Boolean.TRUE);
+            }
         } catch (IOException ex) {
             Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
