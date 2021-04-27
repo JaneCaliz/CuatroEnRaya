@@ -10,6 +10,8 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -239,10 +241,36 @@ public class TableroController implements Initializable {
             victoria = tablero.victoria(filaColocado, columna);
 
             if (victoria == 1){
-                System.out.println("Ha ganado el jugador: " + tablero.jugador);
+                if(tablero.jugador == 1)
+                    resultado("P1");
+                else 
+                    resultado("P2");
             }else if(IA){
                 colocarFichaIA();
             }
+        }
+    }
+    
+    private void resultado (String resultado){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Resultado.fxml"));
+            
+            Parent root = loader.load();
+           
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            
+            ResultadoController controlador = loader.getController();
+            controlador.initRes(resultado);
+            
+            stage.setScene(scene);
+            stage.show();
+            
+            
+            Stage myStage = (Stage) this.p1.getScene().getWindow();
+            myStage.close();
+        } catch (IOException ex) {
+            Logger.getLogger(TableroController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -258,7 +286,7 @@ public class TableroController implements Initializable {
         victoria = tablero.victoria(filaColocado, randomColum );
 
         if (victoria == 1){
-                System.out.println("Has perdido");
+                resultado ("IA");
         }
         
         

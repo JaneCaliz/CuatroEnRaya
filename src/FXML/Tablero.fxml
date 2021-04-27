@@ -51,6 +51,9 @@
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
                   </Text>
                </children>
             </HBox>
@@ -60,9 +63,6 @@
                      <HBox.margin>
                         <Insets right="5.0" />
                      </HBox.margin>
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
                   </Text>
                   <Circle fx:id="circley" fill="#ffe321" radius="5.0" stroke="BLACK" strokeType="INSIDE" HBox.hgrow="ALWAYS">
                      <HBox.margin>

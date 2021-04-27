@@ -19,6 +19,8 @@ public class Conecta4 {
     public Casilla[][] tablero;  // [fila][columna]
     private int numFil, numCol;
     public int jugador; //controla el turno del jugador siguiente
+    
+   
 
     /**
      * Construye un tablero con el n�mero de filas y columnas indicado
@@ -28,7 +30,7 @@ public class Conecta4 {
     public Conecta4() {
         this.numFil = 7;
         this.numCol = 8;
-        this.jugador=1;
+        this.jugador= 2;
         tablero = new Casilla[numFil][numCol];
         // crea las celdas
         for (int f = 0; f < numFil; f++)

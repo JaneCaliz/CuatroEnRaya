@@ -32,27 +32,38 @@ public class ResultadoController implements Initializable {
     private Button salir;
     @FXML
     private Button replay;
+    
+    private String res;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        if(true){
+       
+    }    
+    
+    public void initRes (String s){
+        this.res = s;
+         if(res == "Empate"){
             resultado.setText("¡Empate!");
             ganador.setText("P1 y P2");
             point.setText("Puntuación: 25pts");
         }
-        //else if(contra maquina){
-//          resultado.setText("¡Perdedor!");
-//          point.setText("Puntuación: 0pts");
-//      }
-        else{
+        else if(res == "IA"){
+          resultado.setText("¡Perdedor!");
+          point.setText("Puntuación: 0pts");
+     }
+        else if(res == "P1"){
             resultado.setText("¡Ganador!");
-            ganador.setText("P");
+            ganador.setText("P1");
+            point.setText("Puntuación: 50pts");
+        }else if(res == "P2"){
+            resultado.setText("¡Ganador!");
+            ganador.setText("P2");
             point.setText("Puntuación: 50pts");
         }
-    }    
+    }
 
     @FXML
     private void salir(ActionEvent event) {
