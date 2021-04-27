@@ -12,14 +12,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="444.0" minWidth="520.0" prefHeight="444.0" prefWidth="519.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.TableroController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="444.0" minWidth="520.0" prefHeight="650.0" prefWidth="800.0" style="-fx-background-color: b2ebf2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.TableroController">
    <children>
-      <HBox fx:id="barra" alignment="CENTER" maxHeight="100.0" minHeight="40.0" prefHeight="50.0" prefWidth="606.0" spacing="100.0" style="-fx-background-color: #6bdb88;" VBox.vgrow="ALWAYS">
+      <HBox fx:id="barra" alignment="CENTER" maxHeight="120.0" minHeight="40.0" prefHeight="100.0" prefWidth="606.0" spacing="100.0" style="-fx-background-color: #147a87;" VBox.vgrow="ALWAYS">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Pane maxHeight="90.0" minHeight="30.0" prefHeight="200.0" prefWidth="200.0" styleClass="body" stylesheets="@../Img/title.css" HBox.hgrow="ALWAYS" />
+                  <Pane maxHeight="120.0" minHeight="50.0" prefHeight="73.0" prefWidth="240.0" styleClass="body" stylesheets="@../Img/title.css" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
@@ -37,6 +37,7 @@
             </HBox>
          </children>
       </HBox>
+      <Pane maxHeight="3.0" minHeight="3.0" prefHeight="3.0" prefWidth="200.0" style="-fx-background-color: black;" />
       <Pane maxHeight="100.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
       <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="47.0" prefWidth="504.0" spacing="100.0">
          <children>
@@ -77,7 +78,7 @@
          </VBox.margin>
       </HBox>
       <Pane maxHeight="100.0" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-      <GridPane fx:id="gPane" alignment="CENTER" maxHeight="525.0" maxWidth="850.0" minHeight="197.0" minWidth="320.0" prefHeight="358.0" prefWidth="580.0" style="-fx-background-color: blue; -fx-background-radius: 10;" VBox.vgrow="ALWAYS">
+      <GridPane fx:id="gPane" alignment="CENTER" maxHeight="525.0" maxWidth="850.0" minHeight="197.0" minWidth="320.0" prefHeight="358.0" prefWidth="580.0" style="-fx-background-color: #3d92b3; -fx-background-radius: 10;" VBox.vgrow="ALWAYS">
         <columnConstraints>
             <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
