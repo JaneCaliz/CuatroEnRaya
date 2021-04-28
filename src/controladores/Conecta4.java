@@ -1,32 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package controladores;
 
-/**
- *
- * @author ydavpacat
- */
 enum Casilla {LIBRE,JUGADOR1,JUGADOR2};
 public class Conecta4 {
 
-
-        
-    // tablero
-    // las celda (0,0) es la del v�rtice superior izquierdo)
     public Casilla[][] tablero;  // [fila][columna]
     private int numFil, numCol;
     public int jugador; //controla el turno del jugador siguiente
     
    
 
-    /**
-     * Construye un tablero con el n�mero de filas y columnas indicado
-     * @param numCol n�mero de columnas
-     * @param numFil n�mero de filas
-     */
     public Conecta4() {
         this.numFil = 7;
         this.numCol = 8;
@@ -38,38 +21,19 @@ public class Conecta4 {
                 tablero[f][c] = Casilla.LIBRE;
     }
 
-    /**
-     * N�mero del filas del tablero
-     * @return n�mero de filas del tablero
-     */
     public int getNumFilas() {
         return numFil;
     }
 
-    /**
-     * N�mero de columnas del tablero
-     * @return n�mero de columnas del tablero
-     */
     public int getNumColumnas() {
         return numCol;
     }
     
-    /**
-     * Estado de la casilla seleccionada
-     * @return Estado de la casilla seleccionada (LIBRE, JUGADOR1, JUGADOR2)
-     */
     public Casilla getCasilla(int c, int f) {
         return tablero[f][c];
     }
         
 
-    /**
-     * pone la ficha en la columna seleccinada por el usuario
-     * @param c columna
-     * @param j jugador
-     * @return Retona -1 si es imposible poner la icha en la columna indicada. En caso de que se haya introducido
-     * correctamente, devuelve la fila que ha sido ocupada.
-     */
     public int ponFicha(int c) {
         
         int f=hayEspacio(c);
@@ -90,9 +54,6 @@ public class Conecta4 {
        
     }
     
-    /**
-     * Vacia completamente el tablero de juego, dejando todas las casillas libres
-     */
     public void vacia() {
            for (int f = 0; f < numFil; f++)
             for (int c = 0; c < numCol; c++)
@@ -193,12 +154,6 @@ public class Conecta4 {
         return 0;
     }
     
-    /**
-     * Indica si hay espacio para insertar una ficha en la columna seleccionada
-     * @param c columna
-     * @return Retona -1 si es imposible poner la icha en la columna indicada. En caso de que se haya espacio,
-     * devuelve la fila disponible.
-     */
     public int hayEspacio(int c){
         if (!columnaValida(c))
             return -1;
@@ -213,27 +168,15 @@ public class Conecta4 {
                 return -1;
         }
     }
-    
-    /**
-     * Indica si la fila es v�lida (mayor o igual que 0 y menor el que n�mero de filas)
-     * @param f fila
-     * @return true si es v�lida y false en caso contrario
-     */
+
     private boolean filaValida(int f) {
         return 0 <= f && f < numFil;
     }
 
-    /**
-     * Indica si la columna es v�lida (mayor o igual que 0 y menor el que n�mero de columnas)
-     * @param c columna
-     * @return true si es v�lida y false en caso contrario
-     */
     private boolean columnaValida(int c) {
         return 0 <= c && c < numCol;
     }
   
-    
-    /**Metodo para saber si el tablero esta lleno*/
     public boolean estaLleno()
     {
     	boolean estaLleno=true;

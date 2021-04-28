@@ -292,13 +292,17 @@ public class TableroController implements Initializable {
         p2.setFont(Font.font("SansSerif", FontWeight.SEMI_BOLD, gPane.widthProperty().add(gPane.heightProperty()).divide(50).getValue()));
         p1.setFont(Font.font("SansSerif", FontWeight.BLACK, gPane.widthProperty().add(gPane.heightProperty()).divide(50).getValue()));
         int filaColocado = tablero.ponFicha(randomColum );
-            if (tablero.jugador == 1)
+            if (tablero.jugador == 1 && filaColocado!= -1)
                 cambiarColor(randomColum , filaColocado,"RED");
-            else if(tablero.jugador == 2)
+            else if(tablero.jugador == 2 && filaColocado!= -1)
                 cambiarColor(randomColum , filaColocado,"YELLOW");
-        victoria = tablero.victoria(filaColocado, randomColum );
+            
+        if (filaColocado!= -1)
+            victoria = tablero.victoria(filaColocado, randomColum );
+        else
+            colocarFichaIA();
 
-        if (victoria == 1){
+        if (victoria == 1 && filaColocado!= -1){
                 resultado ("IA");
         }  
     }
