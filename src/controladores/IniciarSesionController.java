@@ -11,7 +11,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -67,7 +66,7 @@ public class IniciarSesionController implements Initializable {
     public void closeWindow() {
          try {
             if(RegistrarP2){
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal3.fxml"));
                 
                 Parent root = loader.load();
 
@@ -75,6 +74,10 @@ public class IniciarSesionController implements Initializable {
                 Stage stage = new Stage();
 
                 Stage myStage = (Stage) this.iniciar.getScene().getWindow();
+
+                MenuPrincipalController3 controlador = loader.getController();
+                controlador.initscene();
+                controlador.initPlayer(p1);
 
                 stage.setMaximized(myStage.isMaximized());
 
@@ -161,7 +164,7 @@ public class IniciarSesionController implements Initializable {
                     myStage.close();
                 }
                 else{
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal3.fxml"));
                     Parent root = loader.load();
 
                     Scene scene = new Scene(root);
@@ -169,7 +172,8 @@ public class IniciarSesionController implements Initializable {
                     
                     Stage myStage = (Stage) this.iniciar.getScene().getWindow();
                     
-                    MenuPrincipalController controlador = loader.getController();
+                    MenuPrincipalController3 controlador = loader.getController();
+                    controlador.initscene();
                     controlador.initPlayer(p1);
                     stage.setMaximized(myStage.isMaximized());
                     

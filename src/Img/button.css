@@ -1,5 +1,23 @@
-.num-button:hover {
--fx-background-color: black,
-white, black;
--fx-text-fill: white;
+.root {
+-fx-background-color: white;
+-fx-font-size: 20px;
+bright-green: rgb(59,223, 86);
+bluish-gray: rgb(189,218,230);
+}
+.num-pad {
+-fx-padding: 15px, 15px, 15px, 15px;
+-fx-hgap: 10px;
+-fx-vgap: 8px;
+}
+.num-button {
+-fx-background-color:  #3196a3;
+-fx-background-radius:  80 0 0 80;
+-fx-text-fill: black;
+-fx-alignment: CENTER_LEFT;
+}
+.hover:hover {
+  -fx-background-color: #147a87;
+  -fx-border-color: none;
+  -fx-cursor: hand;
+  -fx-text-fill: white;
 }

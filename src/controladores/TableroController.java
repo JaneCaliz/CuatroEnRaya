@@ -216,7 +216,6 @@ public class TableroController implements Initializable {
 //        int fila = gPane.getRowIndex(((Circle)event.getSource()));
         
         if (victoria == 0){
-            System.out.println("Colocando ficha");
             int columna = 0;
             try{
              columna = GridPane.getColumnIndex(((Circle)event.getSource()));
@@ -281,7 +280,7 @@ public class TableroController implements Initializable {
             controlador.initPlayer2(player2);
             controlador.initRes(resultado);
             controlador.initIA(IA);
-            stage.setMaximized(myStage.isMaximized());
+            controlador.initMax(myStage.isMaximized());
             
             stage.setOnHiding(e -> this.closeWindow());
                         
@@ -540,12 +539,14 @@ public class TableroController implements Initializable {
         Optional<ButtonType> result = alert.showAndWait();
         
         if (result.isPresent() && result.get() == ButtonType.OK){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal3.fxml"));
 
             Parent root = loader.load();
 
-            MenuPrincipalController controlador = loader.getController();
+            MenuPrincipalController3 controlador = loader.getController();
+            controlador.initscene();
             controlador.initPlayer(player1);
+
             if (player2 != null)
                 controlador.initPlayer2(player2);
             

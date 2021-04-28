@@ -40,7 +40,7 @@ public class ResultadoController implements Initializable {
     
     private Player player1, player2;
     
-    private boolean IA;
+    private boolean IA, bool;
 
     /**
      * Initializes the controller class.
@@ -56,6 +56,10 @@ public class ResultadoController implements Initializable {
     
     public void initPlayer2(Player p){
         this.player2 = p;
+    }
+    
+    public void initMax(Boolean b){
+        bool = b;
     }
     
     public void initRes (String s){
@@ -99,11 +103,12 @@ public class ResultadoController implements Initializable {
     @FXML
     private void salir(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal3.fxml"));
 
             Parent root = loader.load();
 
-            MenuPrincipalController controlador = loader.getController();
+            MenuPrincipalController3 controlador = loader.getController();
+            controlador.initscene();
             controlador.initPlayer(player1);
             if(player2 != null)
                 controlador.initPlayer2(player2);
@@ -112,7 +117,7 @@ public class ResultadoController implements Initializable {
             Stage stage = new Stage();
             
             Stage myStage = (Stage) this.salir.getScene().getWindow();
-            stage.setMaximized(myStage.isMaximized());
+            stage.setMaximized(bool);
 
             stage.setScene(scene);
             stage.show();
@@ -139,7 +144,7 @@ public class ResultadoController implements Initializable {
         Stage stage = new Stage();
         
         Stage myStage = (Stage) this.replay.getScene().getWindow();
-        stage.setMaximized(myStage.isMaximized());
+        stage.setMaximized(bool);
 
         stage.setScene(scene);
         stage.show();
