@@ -62,8 +62,6 @@ public class IniciarSesionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         iniciar.setDefaultButton(true);
-        arrow.prefHeightProperty().bind(Bindings.min(idk.heightProperty().divide(5), idk.widthProperty().divide(3)));
-        arrow.prefWidthProperty().bind(Bindings.min(idk.heightProperty().divide(5), idk.widthProperty().divide(3)));
     }    
 
     public void closeWindow() {

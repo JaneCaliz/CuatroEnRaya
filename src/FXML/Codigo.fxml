@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="262.0" prefWidth="525.0" style="-fx-background-color: #ffe0e0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.CodigoController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="262.0" prefWidth="525.0" style="-fx-background-color: #ffe0e0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.CodigoController">
    <children>
-      <Pane prefHeight="12.0" prefWidth="538.0" />
-      <HBox prefHeight="74.0" prefWidth="548.0">
+      <HBox alignment="CENTER_LEFT" prefHeight="74.0" prefWidth="548.0">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="296.0" style="-fx-background-color: #fa4343; -fx-background-radius: 0 90 90 0;">
                <children>
@@ -33,15 +32,22 @@
                </children>
             </HBox>
          </children>
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
       </HBox>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Aquí tienes el código de seguridad de tu cuenta de Conecta4:" wrappingWidth="490.193359375">
+      <HBox alignment="CENTER_LEFT">
          <VBox.margin>
             <Insets bottom="5.0" left="17.0" top="25.0" />
          </VBox.margin>
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Aquí tienes el código de seguridad de tu cuenta de Conecta4:" wrappingWidth="490.193359375">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
       <HBox alignment="CENTER">
          <children>
             <Text fx:id="text" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
@@ -54,21 +60,31 @@
             </Text>
          </children>
       </HBox>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Úsalo para reestablecer tu contraseña.">
+      <HBox alignment="CENTER_LEFT">
          <VBox.margin>
             <Insets bottom="15.0" left="17.0" />
          </VBox.margin>
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Úsalo para reestablecer tu contraseña.">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
       <HBox alignment="CENTER">
          <children>
             <Button fx:id="cerrar" defaultButton="true" mnemonicParsing="false" onAction="#close" prefHeight="39.0" prefWidth="76.0" style="-fx-background-color: #fa4343; -fx-border-color: black; -fx-background-radius: 5; -fx-border-radius: 5;" text="Cerrar">
                <font>
                   <Font size="16.0" />
-               </font></Button>
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children>
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
       </HBox>
    </children>
 </VBox>

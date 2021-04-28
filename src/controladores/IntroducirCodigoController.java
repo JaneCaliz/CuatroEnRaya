@@ -16,6 +16,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -24,7 +25,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.Player;
 
 
@@ -59,8 +62,16 @@ public class IntroducirCodigoController implements Initializable {
             stage2 = new Stage();
             stage2.setAlwaysOnTop(true);
                             
-            stage2.setScene(scene2);   
+            stage2.setScene(scene2);  
+            stage2.initStyle(StageStyle.UNDECORATED);
             stage2.show();
+            
+            Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
+            double x = bounds.getMinX() + (bounds.getWidth() - scene2.getWidth()) * 1;
+            double y = bounds.getMinY() + (bounds.getHeight() - scene2.getHeight()) * 1;
+            stage2.setX(x);
+            stage2.setY(y);
+            
         } catch (IOException ex) {
             Logger.getLogger(IntroducirCodigoController.class.getName()).log(Level.SEVERE, null, ex);
         }
