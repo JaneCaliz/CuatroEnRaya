@@ -225,19 +225,22 @@ public class TableroController implements Initializable {
             double size = gPane.widthProperty().add(gPane.heightProperty()).divide(50).getValue();
             
     //        Colocar la ficha y la muestra en la interfaz 
+ 
             int filaColocado = tablero.ponFicha(columna);
-            if (tablero.jugador == 1){
+           
+                  
+            if (tablero.jugador == 1 && filaColocado!= -1){
                 cambiarColor(columna, filaColocado,"RED"); 
                 p1.setFont(Font.font("SansSerif", FontWeight.SEMI_BOLD, size));
                 p2.setFont(Font.font("SansSerif", FontWeight.BLACK, size));
                 
             }
-            else if(tablero.jugador == 2){
+            else if(tablero.jugador == 2 && filaColocado!= -1){
                 cambiarColor(columna, filaColocado,"YELLOW");
                 p2.setFont(Font.font("SansSerif", FontWeight.SEMI_BOLD, size));
                 p1.setFont(Font.font("SansSerif", FontWeight.BLACK, size));
             }
-
+            if (filaColocado!= -1)
             victoria = tablero.victoria(filaColocado, columna);
 
             if (victoria == 1){
