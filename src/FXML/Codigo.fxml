@@ -10,14 +10,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="348.0" prefWidth="538.0" style="-fx-background-color: #ffe0e0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.CodigoController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="262.0" prefWidth="525.0" style="-fx-background-color: #ffe0e0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.CodigoController">
    <children>
       <Pane prefHeight="12.0" prefWidth="538.0" />
       <HBox prefHeight="74.0" prefWidth="548.0">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="296.0" style="-fx-background-color: #fa4343; -fx-background-radius: 0 90 90 0;">
                <children>
-                  <ImageView fitHeight="66.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="52.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Img/mail.png" />
                      </image>
@@ -39,14 +39,14 @@
             <Insets bottom="5.0" left="17.0" top="25.0" />
          </VBox.margin>
          <font>
-            <Font size="20.0" />
+            <Font size="18.0" />
          </font>
       </Text>
       <HBox alignment="CENTER">
          <children>
             <Text fx:id="text" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
                <HBox.margin>
                   <Insets bottom="5.0" />
@@ -56,16 +56,11 @@
       </HBox>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Úsalo para reestablecer tu contraseña.">
          <VBox.margin>
-            <Insets bottom="12.0" left="17.0" />
-         </VBox.margin>
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <Text lineSpacing="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Si no has solicitado un código de restablecimiento de contraseña, por favor ignora este mensaje." wrappingWidth="524.9130859375">
-         <VBox.margin>
             <Insets bottom="15.0" left="17.0" />
          </VBox.margin>
+         <font>
+            <Font size="18.0" />
+         </font>
       </Text>
       <HBox alignment="CENTER">
          <children>
