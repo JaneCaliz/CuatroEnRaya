@@ -73,9 +73,9 @@
             </HBox>
             <HBox alignment="CENTER" maxHeight="120.0" maxWidth="115.0" prefHeight="75.0" prefWidth="95.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <children>
-                  <Pane prefHeight="74.0" prefWidth="78.0">
+                  <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="button" alignment="CENTER" mnemonicParsing="false" prefHeight="74.0" prefWidth="78.0" style="-fx-background-color: transparent;">
+                        <Button fx:id="button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="74.0" prefWidth="78.0" style="-fx-background-color: transparent;">
                            <graphic>
                               <ImageView fx:id="profile" fitHeight="55.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                                  <cursor>
@@ -173,7 +173,7 @@
                   </Button>
                   <Button fx:id="play2" alignment="TOP_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="60.0" mnemonicParsing="false" onAction="#play2" prefHeight="54.0" prefWidth="200.0" stylesheets="@../Img/button.css" text="Salir" VBox.vgrow="ALWAYS">
                      <graphic>
-                        <ImageView fx:id="iplay1" fitHeight="41.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="iplay2" fitHeight="41.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                      <styleClass>
                         <String fx:value="hover" />

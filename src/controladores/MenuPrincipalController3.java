@@ -131,7 +131,7 @@ public class MenuPrincipalController3 implements Initializable {
         this.player1 = p;
         points.setText(player1.getPoints() + "");
         profile.setImage(player1.getAvatar());
-        play1.setText("Salir " + player1.getNickName());
+        play1.setText(" Salir " + player1.getNickName());
         play2.disableProperty().setValue(Boolean.TRUE);
         play2.visibleProperty().setValue(Boolean.FALSE);
         iplay1.setImage(player1.getAvatar());
@@ -139,10 +139,10 @@ public class MenuPrincipalController3 implements Initializable {
     
     public void initPlayer2(Player p){
         this.player2 = p;
-        play2.setText("Salir " + player2.getNickName());
+        play2.setText(" Salir " + player2.getNickName());
         play2.disableProperty().setValue(Boolean.FALSE);
         play2.visibleProperty().setValue(Boolean.TRUE);
-        iplay2.setImage(player1.getAvatar());
+        iplay2.setImage(player2.getAvatar());
     }
     
     @FXML
