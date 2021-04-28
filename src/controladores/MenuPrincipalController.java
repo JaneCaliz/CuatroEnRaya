@@ -138,7 +138,7 @@ public class MenuPrincipalController implements Initializable {
                 Stage myStage = (Stage) this.jugarF.getScene().getWindow();
 
                 TableroController controlador = loader.getController();
-                controlador.initializeP2(player1);
+                controlador.initializeP1(player1);
                 controlador.initializeP2(player2);
                 stage.setMaximized(myStage.isMaximized());
 
@@ -180,9 +180,8 @@ public class MenuPrincipalController implements Initializable {
         try {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Cerrar sesión");
-            alert.setHeaderText("¿Está seguro de querer cerrar la sesión de " + player1.getNickName() + "?");  
-            DialogPane dialogPane = alert.getDialogPane();
-            alert.getDialogPane().getStylesheets()
+            alert.setHeaderText("Cerrar sesión");
+            alert.setContentText("¿Está seguro de querer cerrar la sesión de " + player1.getNickName() + "?"); alert.getDialogPane().getStylesheets()
                    .add(getClass().getResource("/Img/alert.css").toExternalForm());
             Optional<ButtonType> result = alert.showAndWait();
             if(player2 != null && result.get() == ButtonType.OK){
@@ -233,7 +232,10 @@ public class MenuPrincipalController implements Initializable {
         try {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Cerrar sesión");
-            alert.setHeaderText("¿Está seguro de querer cerrar la sesión de " + player2.getNickName() + "?");    
+            alert.setHeaderText("Cerrar sesión");
+            alert.setContentText("¿Está seguro de querer cerrar la sesión de " + player2.getNickName() + "?");    
+            alert.getDialogPane().getStylesheets()
+                   .add(getClass().getResource("/Img/alert.css").toExternalForm());
             Optional<ButtonType> result = alert.showAndWait();
             
             if(result.get() == ButtonType.OK){

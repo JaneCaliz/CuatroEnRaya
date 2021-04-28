@@ -240,8 +240,11 @@ public class TableroController implements Initializable {
                 p2.setFont(Font.font("SansSerif", FontWeight.SEMI_BOLD, size));
                 p1.setFont(Font.font("SansSerif", FontWeight.BLACK, size));
             }
-            if (filaColocado!= -1)
-            victoria = tablero.victoria(filaColocado, columna);
+            boolean lleno = false;
+            if (filaColocado!= -1){
+                lleno = tablero.estaLleno();
+                victoria = tablero.victoria(filaColocado, columna);
+            }
 
             if (victoria == 1){
                 if(tablero.jugador == 1){
@@ -250,9 +253,12 @@ public class TableroController implements Initializable {
                     }else{
                         resultado("P1 IA");
                     }
-                }else {
+                }else if (tablero.jugador == 2){
                     resultado("P2");
                 }
+               
+            }else if (lleno){
+                    resultado("Empate");
             }else if(IA){
                 colocarFichaIA();
             }
@@ -276,11 +282,13 @@ public class TableroController implements Initializable {
             controlador.initRes(resultado);
             controlador.initIA(IA);
             stage.setMaximized(myStage.isMaximized());
+            
+            stage.setOnHiding(e -> this.closeWindow());
                         
             stage.setScene(scene);
             stage.show();
             
-            myStage.close();
+            exit.setDisable(true);
         } catch (IOException ex) {
             Logger.getLogger(TableroController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -296,15 +304,23 @@ public class TableroController implements Initializable {
                 cambiarColor(randomColum , filaColocado,"RED");
             else if(tablero.jugador == 2 && filaColocado!= -1)
                 cambiarColor(randomColum , filaColocado,"YELLOW");
-            
-        if (filaColocado!= -1)
+        boolean lleno = false;    
+        if (filaColocado!= -1){
             victoria = tablero.victoria(filaColocado, randomColum );
-        else
+            lleno = tablero.estaLleno();
+        }else
             colocarFichaIA();
 
         if (victoria == 1 && filaColocado!= -1){
                 resultado ("IA");
-        }  
+        }else if (lleno && filaColocado!= -1){
+                    resultado("Empate");  
+        }
+    }
+    
+    public void closeWindow (){
+        Stage stage = (Stage) p1.getScene().getWindow();
+        stage.close();
     }
     
     public void cambiarColor (int x, int y, String color){
