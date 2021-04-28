@@ -21,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
@@ -179,7 +180,10 @@ public class MenuPrincipalController implements Initializable {
         try {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Cerrar sesión");
-            alert.setHeaderText("¿Está seguro de querer cerrar la sesión de " + player1.getNickName() + "?");    
+            alert.setHeaderText("¿Está seguro de querer cerrar la sesión de " + player1.getNickName() + "?");  
+            DialogPane dialogPane = alert.getDialogPane();
+            alert.getDialogPane().getStylesheets()
+                   .add(getClass().getResource("/Img/alert.css").toExternalForm());
             Optional<ButtonType> result = alert.showAndWait();
             if(player2 != null && result.get() == ButtonType.OK){
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
