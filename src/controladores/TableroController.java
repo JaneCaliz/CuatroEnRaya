@@ -538,8 +538,11 @@ public class TableroController implements Initializable {
 
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Abandonar partida");
-        alert.setHeaderText("¿Está seguro de querer abandonar la partida actual?");
+        alert.setHeaderText(" ¿Está seguro de querer abandonar la partida actual?");
         alert.setContentText("Se perderá todo el progreso de la partida actual");      
+        alert.initStyle(StageStyle.UNDECORATED);
+        DialogPane dialogPane = alert.getDialogPane();
+        alert.getDialogPane().getStylesheets().add(getClass().getResource("/Img/alert.css").toExternalForm());
         Optional<ButtonType> result = alert.showAndWait();
         
         if (result.isPresent() && result.get() == ButtonType.OK){
