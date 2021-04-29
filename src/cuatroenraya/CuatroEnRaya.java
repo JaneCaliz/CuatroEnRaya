@@ -20,6 +20,8 @@ public class CuatroEnRaya extends Application {
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
+        stage.setMinHeight(300);
+        stage.setMinWidth(250);
         stage.show();
     }
 
