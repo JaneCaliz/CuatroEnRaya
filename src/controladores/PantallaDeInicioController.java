@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controladores;
 
 import java.io.IOException;
@@ -25,10 +20,6 @@ public class PantallaDeInicioController implements Initializable {
     @FXML
     private Button jugarButt;
 
-
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }    
@@ -48,6 +39,8 @@ public class PantallaDeInicioController implements Initializable {
             
             Stage myStage = (Stage) this.jugarButt.getScene().getWindow();
             stage.setMaximized(myStage.isMaximized());
+            stage.setMinHeight(325);
+            stage.setMinWidth(385);
                         
             stage.setScene(scene);
             stage.show();
@@ -58,8 +51,6 @@ public class PantallaDeInicioController implements Initializable {
             
         } catch (IOException ex) {
             Logger.getLogger(PantallaDeInicioController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
-    
+        }   
+    } 
 }

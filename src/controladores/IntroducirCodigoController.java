@@ -23,6 +23,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
@@ -48,9 +49,6 @@ public class IntroducirCodigoController implements Initializable {
     
     Stage stage2;
     
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -105,30 +103,35 @@ public class IntroducirCodigoController implements Initializable {
         if(valor().equals(code.getText())){
             text.setText("");
             stage2.close();
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Contraseña");
-            alert.setHeaderText("Tu contraseña es:");
-            alert.setContentText(p.getPassword());
-            Optional<ButtonType> result = alert.showAndWait();
+            try{    
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Contraseña");
+                alert.setHeaderText("Tu contraseña es:");  
+                alert.setContentText(p.getPassword());
+                alert.initStyle(StageStyle.UNDECORATED);
+                DialogPane dialogPane = alert.getDialogPane();
+                alert.getDialogPane().getStylesheets().add(getClass().getResource("/Img/alert.css").toExternalForm());
+                Optional<ButtonType> result = alert.showAndWait();
 
-            if(result.get() == ButtonType.OK){
+                if(result.get() == ButtonType.OK){
+                    Stage myStage = (Stage) this.cancelar.getScene().getWindow();
+                    myStage.close();
 
-                Stage myStage = (Stage) this.cancelar.getScene().getWindow();
-                myStage.close();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/IniciarSesion.fxml"));
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/IniciarSesion.fxml"));
+                    Parent root = loader.load();
 
-                Parent root = loader.load();
+                    Scene scene = new Scene(root);
+                    Stage stage = new Stage();
 
-                Scene scene = new Scene(root);
-                Stage stage = new Stage();
-                
-                stage.setMaximized(myStage.isMaximized());
-            
-                stage.setScene(scene);
-                stage.show();
+                    stage.setMaximized(myStage.isMaximized());
+
+                    stage.setScene(scene);
+                    stage.show();
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
             }
-
         }
         else{
             text.setStyle("-fx-font: 15 SansSerif");

@@ -32,12 +32,8 @@ public class RecordarPasswordController implements Initializable {
     @FXML
     private Button cancelar;
     
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }    
     
     @FXML
@@ -71,6 +67,8 @@ public class RecordarPasswordController implements Initializable {
                 
                 Stage myStage = (Stage) this.recuperar.getScene().getWindow();
                 stage.setMaximized(myStage.isMaximized());
+                stage.setMinHeight(200);
+                stage.setMinWidth(360);
 
                 stage.setScene(scene);
                 stage.show();
@@ -96,6 +94,8 @@ public class RecordarPasswordController implements Initializable {
         Stage stage = new Stage();
         
         stage.setMaximized(myStage.isMaximized());
+        stage.setMinHeight(325);
+        stage.setMinWidth(385);
 
         stage.setScene(scene);
         stage.show();

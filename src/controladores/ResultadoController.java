@@ -134,6 +134,8 @@ public class ResultadoController implements Initializable {
         
         Stage myStage = (Stage) this.replay.getScene().getWindow();
         stage.setMaximized(bool);
+        stage.setMinHeight(396);
+        stage.setMinWidth(504);
 
         stage.setScene(scene);
         stage.show();

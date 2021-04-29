@@ -160,6 +160,8 @@ public class MenuPrincipalController implements Initializable {
             controlador.initializeIA(true);
             controlador.initializeP1(player1);
             stage.setMaximized(myStage.isMaximized());
+            stage.setMinHeight(396);
+            stage.setMinWidth(504);
             
             stage.setScene(scene);
             stage.show();
@@ -208,7 +210,8 @@ public class MenuPrincipalController implements Initializable {
                 controlador.initializeP2(player1);
                 controlador.initializeP2(player2);
                 stage.setMaximized(myStage.isMaximized());
-
+                stage.setMinHeight(396);
+                stage.setMinWidth(504);
 
                 stage.setScene(scene);
                 stage.show();
