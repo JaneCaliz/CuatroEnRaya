@@ -73,12 +73,14 @@ public class MenuPrincipalController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         points.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(63), 18).asString(), ";","-fx-base: rgb(100,100,",50,");"));
         profile.resize(button.getHeight(), button.getWidth());
+        play1.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(73), 16).asString(), ";","-fx-base: rgb(100,100,",50,");"));
+        play2.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(73), 18).asString(), ";","-fx-base: rgb(100,100,",50,");"));
     }    
     
     public void initscene(){
         
         vBox.setTranslateX(300);
-        vBox2.setTranslateX(screen.getLayoutX()/2 + 100);
+        vBox2.setTranslateX(screen.getLayoutX()/2 + 120);
         buttonc.setVisible(false);
         play1.prefWidthProperty().bind(vBox.widthProperty());
         play2.prefWidthProperty().bind(vBox.widthProperty());
@@ -189,7 +191,8 @@ public class MenuPrincipalController implements Initializable {
                 controlador.initit2Player(true);
                 controlador.inititPlayer1(player1);
                 stage.setMaximized(myStage.isMaximized());
-
+                stage.setMinHeight(325);
+                stage.setMinWidth(385);
 
                 stage.setScene(scene);
                 stage.show();
@@ -207,7 +210,7 @@ public class MenuPrincipalController implements Initializable {
                 Stage myStage = (Stage) this.jugarF.getScene().getWindow();
 
                 TableroController controlador = loader.getController();
-                controlador.initializeP2(player1);
+                controlador.initializeP1(player1);
                 controlador.initializeP2(player2);
                 stage.setMaximized(myStage.isMaximized());
                 stage.setMinHeight(396);
@@ -267,6 +270,8 @@ public class MenuPrincipalController implements Initializable {
                 controlador.initscene();
                 controlador.initPlayer(player2);
                 stage.setMaximized(myStage.isMaximized());
+                stage.setMinHeight(520);
+                stage.setMinWidth(460);
 
                 stage.setScene(scene);
                 stage.show();
@@ -285,6 +290,8 @@ public class MenuPrincipalController implements Initializable {
                 
                 Stage myStage = (Stage) this.jugarF.getScene().getWindow();
                 stage.setMaximized(myStage.isMaximized());
+                stage.setMinHeight(300);
+                stage.setMinWidth(250);
 
                 stage.setScene(scene);
                 stage.show();
@@ -320,8 +327,11 @@ public class MenuPrincipalController implements Initializable {
                 Stage myStage = (Stage) this.jugarF.getScene().getWindow();
 
                 MenuPrincipalController controlador = loader.getController();
+                controlador.initscene();
                 controlador.initPlayer(player1);
                 stage.setMaximized(myStage.isMaximized());
+                stage.setMinHeight(520);
+                stage.setMinWidth(460);
 
                 stage.setScene(scene);
                 stage.show();

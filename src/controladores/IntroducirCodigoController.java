@@ -110,7 +110,7 @@ public class IntroducirCodigoController implements Initializable {
                 alert.setContentText(p.getPassword());
                 alert.initStyle(StageStyle.UNDECORATED);
                 DialogPane dialogPane = alert.getDialogPane();
-                alert.getDialogPane().getStylesheets().add(getClass().getResource("/Img/alert.css").toExternalForm());
+                alert.getDialogPane().getStylesheets().add(getClass().getResource("/Img/alert2.css").toExternalForm());
                 Optional<ButtonType> result = alert.showAndWait();
 
                 if(result.get() == ButtonType.OK){
@@ -125,6 +125,8 @@ public class IntroducirCodigoController implements Initializable {
                     Stage stage = new Stage();
 
                     stage.setMaximized(myStage.isMaximized());
+                    stage.setMinHeight(325);
+                    stage.setMinWidth(385);
 
                     stage.setScene(scene);
                     stage.show();

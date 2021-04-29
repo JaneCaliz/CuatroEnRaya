@@ -18,6 +18,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Connect4;
 import model.Player;
+import controladores.TableroController.*;
 
 public class ResultadoController implements Initializable {
 
@@ -107,6 +108,8 @@ public class ResultadoController implements Initializable {
             
             Stage myStage = (Stage) this.salir.getScene().getWindow();
             stage.setMaximized(bool);
+            stage.setMinHeight(520);
+            stage.setMinWidth(460);
 
             stage.setScene(scene);
             stage.show();
@@ -118,7 +121,7 @@ public class ResultadoController implements Initializable {
     }
 
     @FXML
-    private void replay(ActionEvent event) throws IOException {
+    private void replay(ActionEvent event) throws IOException {        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tablero.fxml"));
             
         Parent root = loader.load();
