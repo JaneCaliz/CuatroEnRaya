@@ -77,7 +77,7 @@ public class MenuPrincipalController3 implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         points.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(63), 18).asString(), ";","-fx-base: rgb(100,100,",50,");"));
 //        button.resize(pane.getHeight(), pane.getWidth());
-//        profile.resize(pane.getHeight(), pane.getWidth());
+        profile.resize(button.getHeight(), button.getWidth());
     }    
     
     public void initscene(){

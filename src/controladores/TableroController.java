@@ -172,6 +172,8 @@ public class TableroController implements Initializable {
     private Circle circler;
     @FXML
     private Circle circley;
+    @FXML
+    private Pane reset;
 
     /**
      * Initializes the controller class.
@@ -628,5 +630,34 @@ public class TableroController implements Initializable {
         p2.styleProperty().bind(Bindings.concat("-fx-font-size: ", gPane.widthProperty().add(gPane.heightProperty()).divide(50).asString(), ";","-fx-base: rgb(100,100,",50,");"));
         
         exit.prefHeightProperty().bind(barra.heightProperty());
+    }
+
+    @FXML
+    private void reset(MouseEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tablero.fxml"));
+            
+            Parent root = loader.load();
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            Stage myStage = (Stage) this.Circle_0_0.getScene().getWindow();
+
+            TableroController controlador = loader.getController();
+            controlador.initializeIA(IA);
+            controlador.initializeP1(player1);
+            if (!IA)
+                controlador.initializeP2(player2);
+            stage.setMaximized(myStage.isMaximized());
+            
+            stage.setScene(scene);
+            stage.show();
+
+            myStage.close();
+        } catch (IOException ex) {
+            Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 }

@@ -16,7 +16,15 @@
    <children>
       <HBox fx:id="barra" alignment="CENTER" maxHeight="120.0" minHeight="40.0" prefHeight="100.0" prefWidth="606.0" spacing="100.0" style="-fx-background-color: #147a87;" VBox.vgrow="ALWAYS">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Pane fx:id="reset" maxHeight="90.0" maxWidth="60.0" minHeight="20.0" minWidth="20.0" onMouseClicked="#reset" prefHeight="28.0" prefWidth="60.0" styleClass="exit" stylesheets="@../Img/style.css">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Pane>
+                  <Pane maxWidth="10.0" minWidth="0.0" prefHeight="28.0" prefWidth="0.0" />
+               </children></HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
                   <Pane maxHeight="120.0" minHeight="50.0" prefHeight="73.0" prefWidth="240.0" styleClass="body" stylesheets="@../Img/title.css" HBox.hgrow="ALWAYS" />

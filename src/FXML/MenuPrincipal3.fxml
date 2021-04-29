@@ -75,22 +75,33 @@
                <children>
                   <Pane fx:id="pane" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Button fx:id="button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="74.0" prefWidth="78.0" style="-fx-background-color: transparent;">
-                           <graphic>
-                              <ImageView fx:id="profile" fitHeight="55.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ImageView>
-                           </graphic>
+                        <Button fx:id="buttonc" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="74.0" prefWidth="78.0" style="-fx-background-color: transparent;">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="buttonc" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="74.0" prefWidth="78.0" style="-fx-background-color: transparent;">
+                        <Button fx:id="button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="74.0" prefWidth="78.0" style="-fx-background-color: transparent;">
                            <cursor>
                               <Cursor fx:constant="HAND" />
-                           </cursor></Button>
+                           </cursor>
+                           <graphic>
+                              <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" prefHeight="77.0" prefWidth="50.0">
+                                 <children>
+                                    <ImageView fx:id="profile" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                       <cursor>
+                                          <Cursor fx:constant="CLOSED_HAND" />
+                                       </cursor>
+                                       <image>
+                                          <Image url="@../avatars/default.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets top="10.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                           </graphic>
+                        </Button>
                      </children>
                   </Pane>
                </children>
