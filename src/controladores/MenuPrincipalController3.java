@@ -70,6 +70,8 @@ public class MenuPrincipalController3 implements Initializable {
     @FXML
     private VBox screen;
     
+    private int open = 0;
+    
     /**
      * Initializes the controller class.
      */
@@ -88,50 +90,58 @@ public class MenuPrincipalController3 implements Initializable {
         play1.prefWidthProperty().bind(vBox.widthProperty());
         play2.prefWidthProperty().bind(vBox.widthProperty());
         
-        button.setOnMouseClicked(event ->{
-            TranslateTransition slide = new TranslateTransition();
-            slide.setDuration(Duration.seconds(0.4));
-            slide.setNode(vBox);
+        profile.setOnMouseClicked(event -> {
+            if (open ==  0){
+                TranslateTransition slide = new TranslateTransition();
+                slide.setDuration(Duration.seconds(0.4));
+                slide.setNode(vBox);
+
+                TranslateTransition slide2 = new TranslateTransition();
+    //            slide2.setDuration(Duration.seconds(0.4));
+    //            slide2.setNode(vBox2);
+
+                slide.setToX(0);
+                slide.play();
+
+    //            slide2.setToX(-20);
+    //            slide2.play();
+
+                vBox.setTranslateX(300);
+    //            vBox2.setTranslateX(-20);
+
+                slide.setOnFinished((ActionEvent e) ->{
+                    buttonc.setVisible(true);
+                });
+                open = 1;
+            }else if (open == 1){
             
-            TranslateTransition slide2 = new TranslateTransition();
-//            slide2.setDuration(Duration.seconds(0.4));
-//            slide2.setNode(vBox2);
+                TranslateTransition slide = new TranslateTransition();
+                slide.setDuration(Duration.seconds(0.4));
+                slide.setNode(vBox);
+
+                TranslateTransition slide2 = new TranslateTransition();
+    //            slide2.setDuration(Duration.seconds(0.4));
+    //            slide2.setNode(vBox2);
+
+                slide.setToX(300);
+                slide.play();
+
+    //            slide2.setToX(80);
+    //            slide2.play();
+
+                vBox.setTranslateX(0);
+    //            vBox2.setTranslateX(80);
+
+                slide.setOnFinished((ActionEvent e) ->{
+                    buttonc.setVisible(false);
+                });
+                open = 0;
+            }
+                
             
-            slide.setToX(0);
-            slide.play();
-            
-//            slide2.setToX(-20);
-//            slide2.play();
-            
-            vBox.setTranslateX(300);
-//            vBox2.setTranslateX(-20);
-            
-            slide.setOnFinished((ActionEvent e) ->{
-                buttonc.setVisible(true);
-            });
         });
         
-        buttonc.setOnMouseClicked(event ->{
-            TranslateTransition slide = new TranslateTransition();
-            slide.setDuration(Duration.seconds(0.4));
-            slide.setNode(vBox);
-            
-            TranslateTransition slide2 = new TranslateTransition();
-//            slide2.setDuration(Duration.seconds(0.4));
-//            slide2.setNode(vBox2);
-
-            slide.setToX(300);
-            slide.play();
-            
-//            slide2.setToX(80);
-//            slide2.play();
-
-            vBox.setTranslateX(0);
-//            vBox2.setTranslateX(80);
-            
-            slide.setOnFinished((ActionEvent e) ->{
-                buttonc.setVisible(false);
-            });
+        buttonc.setOnMouseClicked(event -> {
         });
     }
     
