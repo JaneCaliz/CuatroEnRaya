@@ -26,3 +26,11 @@
     -fx-background-repeat: no-repeat;  
     
 }
+.reload{
+    
+    -fx-background-image: url(reload.png); 
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    
+}
