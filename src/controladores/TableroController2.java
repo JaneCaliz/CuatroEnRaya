@@ -551,7 +551,7 @@ public class TableroController2 implements Initializable {
 
             Parent root = loader.load();
 
-            MenuPrincipalController3 controlador = loader.getController();
+            MenuPrincipalController controlador = loader.getController();
             controlador.initscene();
             controlador.initPlayer(player1);
 

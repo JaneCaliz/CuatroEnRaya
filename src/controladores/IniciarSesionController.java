@@ -54,7 +54,7 @@ public class IniciarSesionController implements Initializable {
     public void closeWindow() {
          try {
             if(RegistrarP2){
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal3.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
                 
                 Parent root = loader.load();
 
@@ -63,7 +63,7 @@ public class IniciarSesionController implements Initializable {
 
                 Stage myStage = (Stage) this.iniciar.getScene().getWindow();
 
-                MenuPrincipalController3 controlador = loader.getController();
+                MenuPrincipalController controlador = loader.getController();
                 controlador.initscene();
                 controlador.initPlayer(p1);
 
@@ -155,7 +155,7 @@ public class IniciarSesionController implements Initializable {
                     myStage.close();
                 }
                 else{
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal3.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
                     Parent root = loader.load();
 
                     Scene scene = new Scene(root);
@@ -165,7 +165,7 @@ public class IniciarSesionController implements Initializable {
                     stage.setMinHeight(520);
                     stage.setMinWidth(460);
                     
-                    MenuPrincipalController3 controlador = loader.getController();
+                    MenuPrincipalController controlador = loader.getController();
                     controlador.initscene();
                     controlador.initPlayer(p1);
                     stage.setMaximized(myStage.isMaximized());

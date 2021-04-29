@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controladores;
 
 import DBAccess.Connect4DAOException;
@@ -34,16 +29,11 @@ public class ResultadoController implements Initializable {
     private Button salir;
     @FXML
     private Button replay;
-    
     private String res;
-    
     private Player player1, player2;
-    
     private boolean IA, bool;
 
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        
@@ -102,11 +92,11 @@ public class ResultadoController implements Initializable {
     @FXML
     private void salir(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal3.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
 
             Parent root = loader.load();
 
-            MenuPrincipalController3 controlador = loader.getController();
+            MenuPrincipalController controlador = loader.getController();
             controlador.initscene();
             controlador.initPlayer(player1);
             if(player2 != null)
@@ -147,8 +137,6 @@ public class ResultadoController implements Initializable {
 
         stage.setScene(scene);
         stage.show();
-
-        // stage.setOnCloseRequest(e -> controlador.closeWindow());
 
         myStage.close();
     }

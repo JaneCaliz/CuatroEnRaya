@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controladores;
 
 import java.io.IOException;
@@ -11,6 +6,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.TranslateTransition;
 import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,12 +17,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.DialogPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import model.Player;
 
 public class MenuPrincipalController implements Initializable {
@@ -38,11 +37,11 @@ public class MenuPrincipalController implements Initializable {
     @FXML
     private Button jugarF;    
     @FXML
-    private MenuItem play1;
+    private Button play1;
     @FXML
-    private MenuItem play2;
+    private Button play2;
     @FXML
-    private MenuButton button;
+    private Button button;
     
     private Player player1, player2;
     @FXML
@@ -51,29 +50,98 @@ public class MenuPrincipalController implements Initializable {
     private Button trophy;
     @FXML
     private GridPane barra;
-
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private VBox vBox;
+    @FXML
+    private ImageView iplay1;
+    @FXML
+    private ImageView iplay2;
+    
+    private boolean menu;
+    @FXML
+    private Button buttonc;
+    @FXML
+    private VBox vBox2;
+    @FXML
+    private Pane pane;
+    @FXML
+    private VBox screen;
+    
+    private int open = 0;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        points.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(60), 20).asString(), ";","-fx-base: rgb(100,100,",50,");"));
+        points.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(63), 18).asString(), ";","-fx-base: rgb(100,100,",50,");"));
+        profile.resize(button.getHeight(), button.getWidth());
     }    
+    
+    public void initscene(){
+        
+        vBox.setTranslateX(300);
+        vBox2.setTranslateX(screen.getLayoutX()/2 + 100);
+        buttonc.setVisible(false);
+        play1.prefWidthProperty().bind(vBox.widthProperty());
+        play2.prefWidthProperty().bind(vBox.widthProperty());
+        
+        profile.setOnMouseClicked(event -> {
+            if (open ==  0){
+                TranslateTransition slide = new TranslateTransition();
+                slide.setDuration(Duration.seconds(0.4));
+                slide.setNode(vBox);
+
+                TranslateTransition slide2 = new TranslateTransition();
+
+                slide.setToX(0);
+                slide.play();
+
+                vBox.setTranslateX(300);
+
+                slide.setOnFinished((ActionEvent e) ->{
+                    buttonc.setVisible(true);
+                });
+                open = 1;
+            }else if (open == 1){
+            
+                TranslateTransition slide = new TranslateTransition();
+                slide.setDuration(Duration.seconds(0.4));
+                slide.setNode(vBox);
+
+                TranslateTransition slide2 = new TranslateTransition();
+
+                slide.setToX(300);
+                slide.play();
+
+                vBox.setTranslateX(0);
+
+                slide.setOnFinished((ActionEvent e) ->{
+                    buttonc.setVisible(false);
+                });
+                open = 0;
+            }
+                
+            
+        });
+        
+        buttonc.setOnMouseClicked(event -> {
+        });
+    }
     
     public void initPlayer(Player p){
         this.player1 = p;
         points.setText(player1.getPoints() + "");
         profile.setImage(player1.getAvatar());
-        play1.setText(player1.getNickName());
+        play1.setText(" Salir " + player1.getNickName());
         play2.disableProperty().setValue(Boolean.TRUE);
         play2.visibleProperty().setValue(Boolean.FALSE);
+        iplay1.setImage(player1.getAvatar());
     }
     
     public void initPlayer2(Player p){
         this.player2 = p;
-        play2.setText(player2.getNickName());
+        play2.setText(" Salir " + player2.getNickName());
         play2.disableProperty().setValue(Boolean.FALSE);
         play2.visibleProperty().setValue(Boolean.TRUE);
+        iplay2.setImage(player2.getAvatar());
     }
     
     @FXML
@@ -137,7 +205,7 @@ public class MenuPrincipalController implements Initializable {
                 Stage myStage = (Stage) this.jugarF.getScene().getWindow();
 
                 TableroController controlador = loader.getController();
-                controlador.initializeP1(player1);
+                controlador.initializeP2(player1);
                 controlador.initializeP2(player2);
                 stage.setMaximized(myStage.isMaximized());
 
@@ -179,9 +247,10 @@ public class MenuPrincipalController implements Initializable {
         try {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Cerrar sesión");
-            alert.setHeaderText("Cerrar sesión");
-            alert.setContentText("¿Está seguro de querer cerrar la sesión de " + player1.getNickName() + "?"); alert.getDialogPane().getStylesheets()
-                   .add(getClass().getResource("/Img/alert.css").toExternalForm());
+            alert.setHeaderText("¿Está seguro de querer cerrar la sesión de " + player1.getNickName() + "?");  
+            alert.initStyle(StageStyle.UNDECORATED);
+            DialogPane dialogPane = alert.getDialogPane();
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/Img/alert.css").toExternalForm());
             Optional<ButtonType> result = alert.showAndWait();
             if(player2 != null && result.get() == ButtonType.OK){
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
@@ -192,6 +261,7 @@ public class MenuPrincipalController implements Initializable {
                 Stage myStage = (Stage) this.jugarF.getScene().getWindow();
 
                 MenuPrincipalController controlador = loader.getController();
+                controlador.initscene();
                 controlador.initPlayer(player2);
                 stage.setMaximized(myStage.isMaximized());
 
@@ -231,10 +301,10 @@ public class MenuPrincipalController implements Initializable {
         try {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Cerrar sesión");
-            alert.setHeaderText("Cerrar sesión");
-            alert.setContentText("¿Está seguro de querer cerrar la sesión de " + player2.getNickName() + "?");    
-            alert.getDialogPane().getStylesheets()
-                   .add(getClass().getResource("/Img/alert.css").toExternalForm());
+            alert.setHeaderText("¿Está seguro de querer cerrar la sesión de " + player2.getNickName() + "?");    
+            alert.initStyle(StageStyle.UNDECORATED);
+            DialogPane dialogPane = alert.getDialogPane();
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/Img/alert.css").toExternalForm());
             Optional<ButtonType> result = alert.showAndWait();
             
             if(result.get() == ButtonType.OK){
@@ -262,5 +332,5 @@ public class MenuPrincipalController implements Initializable {
             Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
 }

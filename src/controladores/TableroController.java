@@ -547,11 +547,11 @@ public class TableroController implements Initializable {
         Optional<ButtonType> result = alert.showAndWait();
         
         if (result.isPresent() && result.get() == ButtonType.OK){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal3.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
 
             Parent root = loader.load();
 
-            MenuPrincipalController3 controlador = loader.getController();
+            MenuPrincipalController controlador = loader.getController();
             controlador.initscene();
             controlador.initPlayer(player1);
 
