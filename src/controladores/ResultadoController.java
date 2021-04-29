@@ -23,7 +23,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Connect4;
 import model.Player;
-import model.Round;
 
 public class ResultadoController implements Initializable {
 

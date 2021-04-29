@@ -264,8 +264,7 @@ public class MenuPrincipalController3 implements Initializable {
             alert.setTitle("Cerrar sesión");
             alert.setHeaderText("¿Está seguro de querer cerrar la sesión de " + player1.getNickName() + "?");  
             DialogPane dialogPane = alert.getDialogPane();
-            alert.getDialogPane().getStylesheets()
-                   .add(getClass().getResource("/Img/alert.css").toExternalForm());
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/Img/alert.css").toExternalForm());
             Optional<ButtonType> result = alert.showAndWait();
             if(player2 != null && result.get() == ButtonType.OK){
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal3.fxml"));
@@ -317,6 +316,8 @@ public class MenuPrincipalController3 implements Initializable {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Cerrar sesión");
             alert.setHeaderText("¿Está seguro de querer cerrar la sesión de " + player2.getNickName() + "?");    
+            DialogPane dialogPane = alert.getDialogPane();
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/Img/alert.css").toExternalForm());
             Optional<ButtonType> result = alert.showAndWait();
             
             if(result.get() == ButtonType.OK){
