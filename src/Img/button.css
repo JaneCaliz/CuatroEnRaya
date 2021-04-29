@@ -21,3 +21,6 @@ bluish-gray: rgb(189,218,230);
   -fx-cursor: hand;
   -fx-text-fill: white;
 }
+.circle:hover {
+    -fx-background-color:  #147a87;
+}
