@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package controladores;
 
 import java.io.IOException;
@@ -17,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -28,6 +34,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.Player;
 
 
@@ -169,21 +176,7 @@ public class TableroController2 implements Initializable {
     @FXML
     private Circle circley;
     @FXML
-    private VBox vBox0;
-    @FXML
-    private VBox vBox1;
-    @FXML
-    private VBox vBox2;
-    @FXML
-    private VBox vBox3;
-    @FXML
-    private VBox vBox4;
-    @FXML
-    private VBox vBox5;
-    @FXML
-    private VBox vBox6;
-    @FXML
-    private VBox vBox7;
+    private Pane reset;
 
     /**
      * Initializes the controller class.
@@ -213,13 +206,24 @@ public class TableroController2 implements Initializable {
         p2.setText(player2.getNickName());
     }
     
+    private Node getNodeFromGridPane(GridPane gridPane, int col, int row) {
+        for (Node node : gridPane.getChildren()) {
+            if (GridPane.getColumnIndex(node) == col && GridPane.getRowIndex(node) == row) {
+                return node;
+            }
+        }
+        return null;
+    }
+    
     @FXML
     private void colocarFicha(MouseEvent event) {
+        
+//        int fila = gPane.getRowIndex(((Circle)event.getSource()));
         
         if (victoria == 0){
             int columna = 0;
             try{
-                columna = GridPane.getColumnIndex(((VBox)event.getSource()));
+             columna = GridPane.getColumnIndex(((Circle)event.getSource()));
             }catch(Exception e){}
             
             double size = gPane.widthProperty().add(gPane.heightProperty()).divide(50).getValue();
@@ -535,8 +539,11 @@ public class TableroController2 implements Initializable {
 
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Abandonar partida");
-        alert.setHeaderText("¿Está seguro de querer abandonar la partida actual?");
+        alert.setHeaderText(" ¿Está seguro de querer abandonar la partida actual?");
         alert.setContentText("Se perderá todo el progreso de la partida actual");      
+        alert.initStyle(StageStyle.UNDECORATED);
+        DialogPane dialogPane = alert.getDialogPane();
+        alert.getDialogPane().getStylesheets().add(getClass().getResource("/Img/alert.css").toExternalForm());
         Optional<ButtonType> result = alert.showAndWait();
         
         if (result.isPresent() && result.get() == ButtonType.OK){
@@ -622,16 +629,6 @@ public class TableroController2 implements Initializable {
         Circle_7_5.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
         Circle_7_6.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
         
-        vBox0.spacingProperty().bind(Circle_0_0.radiusProperty().divide(8));
-        vBox1.spacingProperty().bind(Circle_1_0.radiusProperty().divide(8));
-        vBox2.spacingProperty().bind(Circle_2_0.radiusProperty().divide(8));
-        vBox3.spacingProperty().bind(Circle_3_0.radiusProperty().divide(8));
-        vBox4.spacingProperty().bind(Circle_4_0.radiusProperty().divide(8));
-        vBox5.spacingProperty().bind(Circle_5_0.radiusProperty().divide(8));
-        vBox6.spacingProperty().bind(Circle_6_0.radiusProperty().divide(8));
-        vBox7.spacingProperty().bind(Circle_7_0
-                .radiusProperty().divide(8));
-        
         circler.radiusProperty().bind(Circle_0_0.radiusProperty().divide(5));
         circley.radiusProperty().bind(Circle_0_0.radiusProperty().divide(5));
         
@@ -639,5 +636,44 @@ public class TableroController2 implements Initializable {
         p2.styleProperty().bind(Bindings.concat("-fx-font-size: ", gPane.widthProperty().add(gPane.heightProperty()).divide(50).asString(), ";","-fx-base: rgb(100,100,",50,");"));
         
         exit.prefHeightProperty().bind(barra.heightProperty());
+    }
+
+    @FXML
+    private void reset(MouseEvent event) {
+        try {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Reiniciar partida");
+            alert.setHeaderText(" ¿Está seguro de querer reiniciar la partida?");  
+            alert.setContentText("Se perderá todo el progreso de la partida actual");   
+            alert.initStyle(StageStyle.UNDECORATED);
+            DialogPane dialogPane = alert.getDialogPane();
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/Img/alert.css").toExternalForm());
+            Optional<ButtonType> result = alert.showAndWait();
+            if(result.get() == ButtonType.OK){
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tablero.fxml"));
+
+                Parent root = loader.load();
+
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+
+                Stage myStage = (Stage) this.Circle_0_0.getScene().getWindow();
+
+                TableroController controlador = loader.getController();
+                controlador.initializeIA(IA);
+                controlador.initializeP1(player1);
+                if (!IA)
+                    controlador.initializeP2(player2);
+                stage.setMaximized(myStage.isMaximized());
+
+                stage.setScene(scene);
+                stage.show();
+
+                myStage.close();
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 }

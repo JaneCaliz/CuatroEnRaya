@@ -166,7 +166,7 @@ public class MenuPrincipalController3 implements Initializable {
     @FXML
     private void jugarIA(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tablero2.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tablero.fxml"));
             
             Parent root = loader.load();
             
@@ -175,7 +175,7 @@ public class MenuPrincipalController3 implements Initializable {
 
             Stage myStage = (Stage) this.jugarIA.getScene().getWindow();
 
-            TableroController2 controlador = loader.getController();
+            TableroController controlador = loader.getController();
             controlador.initializeIA(true);
             controlador.initializeP1(player1);
             stage.setMaximized(myStage.isMaximized());
