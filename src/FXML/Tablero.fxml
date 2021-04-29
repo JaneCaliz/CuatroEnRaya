@@ -16,9 +16,9 @@
    <children>
       <HBox fx:id="barra" alignment="CENTER" maxHeight="120.0" minHeight="40.0" prefHeight="100.0" prefWidth="606.0" spacing="100.0" style="-fx-background-color: #147a87;" VBox.vgrow="ALWAYS">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Pane maxWidth="10.0" minWidth="0.0" prefHeight="28.0" prefWidth="0.0" />
+                  <Pane maxWidth="10.0" minWidth="0.0" prefHeight="28.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
                   <Pane fx:id="reset" maxHeight="90.0" maxWidth="60.0" minHeight="20.0" minWidth="20.0" onMouseClicked="#reset" prefHeight="28.0" prefWidth="60.0" styleClass="reload" stylesheets="@../Img/style.css">
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -147,7 +147,7 @@
                   <Insets />
                </GridPane.margin>
                <cursor>
-                  <Cursor fx:constant="CLOSED_HAND" />
+                  <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </VBox>
             <VBox fx:id="vBox1" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="circle" stylesheets="@../Img/button.css" GridPane.columnIndex="1">
@@ -189,7 +189,7 @@
                   </Circle>
                </children>
                <cursor>
-                  <Cursor fx:constant="CLOSED_HAND" />
+                  <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </VBox>
             <VBox fx:id="vBox2" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="circle" stylesheets="@../Img/button.css" GridPane.columnIndex="2">
@@ -231,7 +231,7 @@
                   </Circle>
                </children>
                <cursor>
-                  <Cursor fx:constant="CLOSED_HAND" />
+                  <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </VBox>
             <VBox fx:id="vBox3" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="circle" stylesheets="@../Img/button.css" GridPane.columnIndex="3">
@@ -273,7 +273,7 @@
                   </Circle>
                </children>
                <cursor>
-                  <Cursor fx:constant="CLOSED_HAND" />
+                  <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </VBox>
             <VBox fx:id="vBox4" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="circle" stylesheets="@../Img/button.css" GridPane.columnIndex="4">
@@ -315,7 +315,7 @@
                   </Circle>
                </children>
                <cursor>
-                  <Cursor fx:constant="CLOSED_HAND" />
+                  <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </VBox>
             <VBox fx:id="vBox5" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="circle" stylesheets="@../Img/button.css" GridPane.columnIndex="5">
@@ -357,7 +357,7 @@
                   </Circle>
                </children>
                <cursor>
-                  <Cursor fx:constant="CLOSED_HAND" />
+                  <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </VBox>
             <VBox fx:id="vBox6" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="circle" stylesheets="@../Img/button.css" GridPane.columnIndex="6">
@@ -399,7 +399,7 @@
                   </Circle>
                </children>
                <cursor>
-                  <Cursor fx:constant="CLOSED_HAND" />
+                  <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </VBox>
             <VBox fx:id="vBox7" alignment="CENTER" onMouseClicked="#colocarFicha" style="-fx-background-radius: 0 10 10 0;" styleClass="circle" stylesheets="@../Img/button.css" GridPane.columnIndex="7">
@@ -441,7 +441,7 @@
                   </Circle>
                </children>
                <cursor>
-                  <Cursor fx:constant="CLOSED_HAND" />
+                  <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </VBox>
          </children>

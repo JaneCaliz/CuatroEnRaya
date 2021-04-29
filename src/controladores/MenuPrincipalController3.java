@@ -24,6 +24,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import model.Player;
 
@@ -68,13 +69,9 @@ public class MenuPrincipalController3 implements Initializable {
     
     private int open = 0;
     
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         points.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(63), 18).asString(), ";","-fx-base: rgb(100,100,",50,");"));
-//        button.resize(pane.getHeight(), pane.getWidth());
         profile.resize(button.getHeight(), button.getWidth());
     }    
     
@@ -93,17 +90,11 @@ public class MenuPrincipalController3 implements Initializable {
                 slide.setNode(vBox);
 
                 TranslateTransition slide2 = new TranslateTransition();
-    //            slide2.setDuration(Duration.seconds(0.4));
-    //            slide2.setNode(vBox2);
 
                 slide.setToX(0);
                 slide.play();
 
-    //            slide2.setToX(-20);
-    //            slide2.play();
-
                 vBox.setTranslateX(300);
-    //            vBox2.setTranslateX(-20);
 
                 slide.setOnFinished((ActionEvent e) ->{
                     buttonc.setVisible(true);
@@ -116,17 +107,11 @@ public class MenuPrincipalController3 implements Initializable {
                 slide.setNode(vBox);
 
                 TranslateTransition slide2 = new TranslateTransition();
-    //            slide2.setDuration(Duration.seconds(0.4));
-    //            slide2.setNode(vBox2);
 
                 slide.setToX(300);
                 slide.play();
 
-    //            slide2.setToX(80);
-    //            slide2.play();
-
                 vBox.setTranslateX(0);
-    //            vBox2.setTranslateX(80);
 
                 slide.setOnFinished((ActionEvent e) ->{
                     buttonc.setVisible(false);
@@ -263,6 +248,7 @@ public class MenuPrincipalController3 implements Initializable {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Cerrar sesión");
             alert.setHeaderText("¿Está seguro de querer cerrar la sesión de " + player1.getNickName() + "?");  
+            alert.initStyle(StageStyle.UNDECORATED);
             DialogPane dialogPane = alert.getDialogPane();
             alert.getDialogPane().getStylesheets().add(getClass().getResource("/Img/alert.css").toExternalForm());
             Optional<ButtonType> result = alert.showAndWait();
@@ -316,6 +302,7 @@ public class MenuPrincipalController3 implements Initializable {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Cerrar sesión");
             alert.setHeaderText("¿Está seguro de querer cerrar la sesión de " + player2.getNickName() + "?");    
+            alert.initStyle(StageStyle.UNDECORATED);
             DialogPane dialogPane = alert.getDialogPane();
             alert.getDialogPane().getStylesheets().add(getClass().getResource("/Img/alert.css").toExternalForm());
             Optional<ButtonType> result = alert.showAndWait();
