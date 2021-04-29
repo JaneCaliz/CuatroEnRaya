@@ -59,14 +59,18 @@
                   </PasswordField>
                </children>
             </VBox>
-            <Text fx:id="error" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
-               <font>
-                  <Font size="1.0" />
-               </font>
+            <HBox alignment="CENTER">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
-            </Text>
+               <children>
+                  <Text fx:id="error" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                     <font>
+                        <Font size="1.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
             <Hyperlink fx:id="recuerdame" alignment="TOP_CENTER" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#recordar" text="Recordar contraseña" textAlignment="CENTER" textFill="#156779">
                <VBox.margin>
                   <Insets left="-5.0" top="5.0" />

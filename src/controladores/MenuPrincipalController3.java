@@ -20,12 +20,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import static javax.swing.text.StyleConstants.Background;
 import model.Player;
 
 public class MenuPrincipalController3 implements Initializable {
@@ -62,6 +65,10 @@ public class MenuPrincipalController3 implements Initializable {
     private Button buttonc;
     @FXML
     private VBox vBox2;
+    @FXML
+    private Pane pane;
+    @FXML
+    private VBox screen;
     
     /**
      * Initializes the controller class.
@@ -69,13 +76,14 @@ public class MenuPrincipalController3 implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         points.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(63), 18).asString(), ";","-fx-base: rgb(100,100,",50,");"));
-        
+//        button.resize(pane.getHeight(), pane.getWidth());
+//        profile.resize(pane.getHeight(), pane.getWidth());
     }    
     
     public void initscene(){
         
         vBox.setTranslateX(300);
-        vBox2.setTranslateX(100);
+        vBox2.setTranslateX(screen.getLayoutX()/2 + 100);
         buttonc.setVisible(false);
         play1.prefWidthProperty().bind(vBox.widthProperty());
         play2.prefWidthProperty().bind(vBox.widthProperty());
@@ -86,17 +94,17 @@ public class MenuPrincipalController3 implements Initializable {
             slide.setNode(vBox);
             
             TranslateTransition slide2 = new TranslateTransition();
-            slide2.setDuration(Duration.seconds(0.4));
-            slide2.setNode(vBox2);
+//            slide2.setDuration(Duration.seconds(0.4));
+//            slide2.setNode(vBox2);
             
             slide.setToX(0);
             slide.play();
             
-            slide2.setToX(-20);
-            slide2.play();
+//            slide2.setToX(-20);
+//            slide2.play();
             
             vBox.setTranslateX(300);
-            vBox2.setTranslateX(-20);
+//            vBox2.setTranslateX(-20);
             
             slide.setOnFinished((ActionEvent e) ->{
                 buttonc.setVisible(true);
@@ -109,17 +117,17 @@ public class MenuPrincipalController3 implements Initializable {
             slide.setNode(vBox);
             
             TranslateTransition slide2 = new TranslateTransition();
-            slide2.setDuration(Duration.seconds(0.4));
-            slide2.setNode(vBox2);
+//            slide2.setDuration(Duration.seconds(0.4));
+//            slide2.setNode(vBox2);
 
             slide.setToX(300);
             slide.play();
             
-            slide2.setToX(80);
-            slide2.play();
+//            slide2.setToX(80);
+//            slide2.play();
 
             vBox.setTranslateX(0);
-            vBox2.setTranslateX(80);
+//            vBox2.setTranslateX(80);
             
             slide.setOnFinished((ActionEvent e) ->{
                 buttonc.setVisible(false);
