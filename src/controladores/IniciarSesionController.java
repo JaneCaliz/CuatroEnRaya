@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controladores;
 
 import DBAccess.Connect4DAOException;
@@ -41,23 +36,16 @@ public class IniciarSesionController implements Initializable {
     private Text title;
     @FXML
     private Text error;
-    
-    private Player p1, p2;
-    
-    private boolean RegistrarP2;
-    
     @FXML
     private Button registrar;
     @FXML
     private Button arrow;
     @FXML
     private Pane idk;
-
     
-//    private Stage stage0;
-    /**
-     * Initializes the controller class.
-     */
+    private Player p1, p2;
+    private boolean RegistrarP2;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         iniciar.setDefaultButton(true);
@@ -80,6 +68,8 @@ public class IniciarSesionController implements Initializable {
                 controlador.initPlayer(p1);
 
                 stage.setMaximized(myStage.isMaximized());
+                stage.setMinHeight(520);
+                stage.setMinWidth(460);
 
                 stage.setScene(scene);
                 stage.show();
@@ -97,6 +87,8 @@ public class IniciarSesionController implements Initializable {
                 Stage myStage = (Stage) this.iniciar.getScene().getWindow();
 
                 stage.setMaximized(myStage.isMaximized());
+                stage.setMinHeight(300);
+                stage.setMinWidth(250);
                 
                 stage.setScene(scene);
                 stage.show();
@@ -136,7 +128,6 @@ public class IniciarSesionController implements Initializable {
                 error.setStyle("-fx-font: 15 SansSerif");
                 error.setText("Usuario o contraseña incorectos");
             }
-//                System.out.println(BD.getConnect4DAO());
             else if(RegistrarP2 && p2 == null){
                 error.setStyle("-fx-font: 15 SansSerif");
                 error.setText("Usuario o contraseña incorectos");
@@ -171,6 +162,8 @@ public class IniciarSesionController implements Initializable {
                     Stage stage = new Stage();
                     
                     Stage myStage = (Stage) this.iniciar.getScene().getWindow();
+                    stage.setMinHeight(520);
+                    stage.setMinWidth(460);
                     
                     MenuPrincipalController3 controlador = loader.getController();
                     controlador.initscene();
@@ -188,7 +181,6 @@ public class IniciarSesionController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(IniciarSesionController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }   
 
 
