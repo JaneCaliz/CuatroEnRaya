@@ -1,17 +1,18 @@
 .dialog-pane{
   -fx-border-color:black;
-  -fx-border-width:2.0px;
-  -fx-background-color:  #b2ebf2;
+  -fx-border-width:1.0px;
+  -fx-background-color: #ffe0e0;
+  -fx-pref-height: 250px;
  }
 
 /**Costumization of The Bar where the buttons are located**/
 .dialog-pane > .button-bar > .container {
-  -fx-background-color:  #147a87;
+  -fx-background-color:  #fa4343;
 }
 
 .dialog-pane > .content.label {
    -fx-padding: 0.5em 0.5em 0.5em 0.5em;
-   -fx-background-color:  #b2ebf2;
+   -fx-background-color: #ffe0e0;
    -fx-text-fill: black;
    -fx-font-size:16.0px;
    -fx-alignment: CENTER_LEFT;
@@ -19,29 +20,32 @@
 
 /**Costumization of DialogPane Header**/
 .dialog-pane:header .header-panel {
-  -fx-background-color: #147a87;
+  -fx-background-color: #fa4343;
 }
 
 .dialog-pane:header .header-panel .label{
-  -fx-background-color: #b2ebf2;
+  -fx-background-color: #ffe0e0;
   -fx-background-radius:10px;
   -fx-text-fill: black;
   -fx-font-size:16.0px;
-  
 }
 
+.alert.confirmation.dialog-pane {
+    -fx-graphic: url("alert.png");
+}
 
 /**Costumization of Buttons**/
 .dialog-pane .button{
-   -fx-background-color:  #52cad9;
+   -fx-background-color: #ffa8a8;
    -fx-text-fill: black;
    -fx-wrap-text: true;
 /*   -fx-effect: dropshadow( three-pass-box, white, 10.0, 0.0, 0.0, 0.0);*/
    -fx-cursor:hand;
+   -fx-pref-width: 100px;
  }
 
 .dialog-pane .button:hover{     
-  -fx-background-color: #b2ebf2;
+  -fx-background-color: #ffa8a8;
   -fx-text-fill: black;
   -fx-font-weight:bold; 
  }

@@ -22,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DialogPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -32,6 +33,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.Player;
 
 
@@ -635,26 +637,36 @@ public class TableroController implements Initializable {
     @FXML
     private void reset(MouseEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tablero.fxml"));
-            
-            Parent root = loader.load();
-            
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Reiniciar partida");
+            alert.setHeaderText(" ¿Está seguro de querer reiniciar la partida?");  
+            alert.setContentText("Se perderá todo el progreso de la partida actual");   
+            alert.initStyle(StageStyle.UNDECORATED);
+            DialogPane dialogPane = alert.getDialogPane();
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/Img/alert.css").toExternalForm());
+            Optional<ButtonType> result = alert.showAndWait();
+            if(result.get() == ButtonType.OK){
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Tablero.fxml"));
 
-            Stage myStage = (Stage) this.Circle_0_0.getScene().getWindow();
+                Parent root = loader.load();
 
-            TableroController controlador = loader.getController();
-            controlador.initializeIA(IA);
-            controlador.initializeP1(player1);
-            if (!IA)
-                controlador.initializeP2(player2);
-            stage.setMaximized(myStage.isMaximized());
-            
-            stage.setScene(scene);
-            stage.show();
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
 
-            myStage.close();
+                Stage myStage = (Stage) this.Circle_0_0.getScene().getWindow();
+
+                TableroController controlador = loader.getController();
+                controlador.initializeIA(IA);
+                controlador.initializeP1(player1);
+                if (!IA)
+                    controlador.initializeP2(player2);
+                stage.setMaximized(myStage.isMaximized());
+
+                stage.setScene(scene);
+                stage.show();
+
+                myStage.close();
+            }
         } catch (IOException ex) {
             Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
