@@ -219,7 +219,7 @@ public class TableroController2 implements Initializable {
         if (victoria == 0){
             int columna = 0;
             try{
-             columna = GridPane.getColumnIndex(((Circle)event.getSource()));
+                columna = GridPane.getColumnIndex(((VBox)event.getSource()));
             }catch(Exception e){}
             
             double size = gPane.widthProperty().add(gPane.heightProperty()).divide(50).getValue();

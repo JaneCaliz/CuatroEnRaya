@@ -98,37 +98,37 @@
          <children>
             <VBox fx:id="vBox0" alignment="CENTER" onMouseClicked="#colocarFicha" style="-fx-background-radius: 10 0 0 10;" styleClass="circle" stylesheets="@../Img/button.css" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <children>
-                  <Circle fx:id="Circle_0_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_0_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_0_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_0_1" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_0_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_0_2" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_0_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_0_3" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_0_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_0_4" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_0_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_0_5" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_0_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_0_6" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
@@ -143,37 +143,37 @@
             </VBox>
             <VBox fx:id="vBox1" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="circle" stylesheets="@../Img/button.css" GridPane.columnIndex="1">
                <children>
-                  <Circle fx:id="Circle_1_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_1_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_1_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_1_1" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_1_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_1_2" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_1_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_1_3" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_1_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_1_4" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_1_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_1_5" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_1_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_1_6" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
@@ -185,37 +185,37 @@
             </VBox>
             <VBox fx:id="vBox2" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="circle" stylesheets="@../Img/button.css" GridPane.columnIndex="2">
                <children>
-                  <Circle fx:id="Circle_2_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_2_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_2_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_2_1" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_2_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_2_2" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_2_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_2_3" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_2_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_2_4" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_2_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_2_5" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_2_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_2_6" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
@@ -227,37 +227,37 @@
             </VBox>
             <VBox fx:id="vBox3" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="circle" stylesheets="@../Img/button.css" GridPane.columnIndex="3">
                <children>
-                  <Circle fx:id="Circle_3_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_3_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_3_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_3_1" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_3_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_3_2" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_3_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_3_3" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_3_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_3_4" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_3_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_3_5" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_3_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_3_6" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
@@ -269,37 +269,37 @@
             </VBox>
             <VBox fx:id="vBox4" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="circle" stylesheets="@../Img/button.css" GridPane.columnIndex="4">
                <children>
-                  <Circle fx:id="Circle_4_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_4_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_4_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_4_1" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_4_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_4_2" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_4_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_4_3" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_4_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_4_4" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_4_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_4_5" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_4_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_4_6" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
@@ -311,37 +311,37 @@
             </VBox>
             <VBox fx:id="vBox5" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="circle" stylesheets="@../Img/button.css" GridPane.columnIndex="5">
                <children>
-                  <Circle fx:id="Circle_5_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_5_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_5_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_5_1" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_5_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_5_2" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_5_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_5_3" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_5_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_5_4" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_5_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_5_5" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_5_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_5_6" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
@@ -353,37 +353,37 @@
             </VBox>
             <VBox fx:id="vBox6" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="circle" stylesheets="@../Img/button.css" GridPane.columnIndex="6">
                <children>
-                  <Circle fx:id="Circle_6_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_6_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_6_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_6_1" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_6_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_6_2" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_6_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_6_3" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_6_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_6_4" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_6_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_6_5" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_6_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_6_6" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
@@ -395,37 +395,37 @@
             </VBox>
             <VBox fx:id="vBox7" alignment="CENTER" onMouseClicked="#colocarFicha" style="-fx-background-radius: 0 10 10 0;" styleClass="circle" stylesheets="@../Img/button.css" GridPane.columnIndex="7">
                <children>
-                  <Circle fx:id="Circle_7_0" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_7_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_7_1" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_7_1" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_7_2" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_7_2" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_7_3" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_7_3" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_7_4" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_7_4" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_7_5" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_7_5" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Circle>
-                  <Circle fx:id="Circle_7_6" fill="WHITE" onMouseClicked="#colocarFicha" radius="18.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="Circle_7_6" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
                         <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
