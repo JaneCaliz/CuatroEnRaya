@@ -56,21 +56,23 @@ public class IntroducirCodigoController implements Initializable {
     
     public void codigo(){
         try {
-//            Stage myStage = (Stage) this.cancelar.getScene().getWindow();
+            
 
             FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/FXML/Codigo.fxml"));
             
             Parent root2 = loader2.load();
-                        
+            Stage myStage = (Stage) this.obtener.getScene().getWindow();
             Scene scene2 = new Scene(root2);
             stage2 = new Stage();
             stage2.setAlwaysOnTop(true);
-                                        
+            
+            CodigoController controlador = loader2.getController();
+            
             stage2.setScene(scene2);  
             stage2.initStyle(StageStyle.UNDECORATED);
             stage2.show();
                         
-//            myStage.setOnCloseRequest(e -> stage2.cerrar());
+            myStage.setOnCloseRequest(e -> controlador.cerrar());
                     
             Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
             double x = bounds.getMinX() + (bounds.getWidth() - scene2.getWidth()) * 1;
@@ -89,7 +91,7 @@ public class IntroducirCodigoController implements Initializable {
 
     @FXML
     private void cancelar(ActionEvent event) throws IOException {
-       cerrar();        
+       cerrar();  
     }
     
     public void cerrar() throws IOException {
@@ -114,6 +116,7 @@ public class IntroducirCodigoController implements Initializable {
         stage.setOnCloseRequest(e -> controlador.closeWindow());
 
         myStage.close();
+        stage2.close();
     }
     
     @FXML

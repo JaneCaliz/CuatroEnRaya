@@ -60,7 +60,7 @@ public class RecordarPasswordController implements Initializable {
                 
                 IntroducirCodigoController controlador = loader.getController();
                 controlador.initPlayer(player);
-                controlador.codigo();
+                
 
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
@@ -72,6 +72,8 @@ public class RecordarPasswordController implements Initializable {
 
                 stage.setScene(scene);
                 stage.show();
+                
+                controlador.codigo();
                 
                 stage.setOnCloseRequest(e -> {
                 try {
