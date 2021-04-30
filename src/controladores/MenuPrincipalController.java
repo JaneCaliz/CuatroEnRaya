@@ -74,7 +74,7 @@ public class MenuPrincipalController implements Initializable {
         points.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(63), 18).asString(), ";","-fx-base: rgb(100,100,",50,");"));
         profile.resize(button.getHeight(), button.getWidth());
         play1.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(73), 16).asString(), ";","-fx-base: rgb(100,100,",50,");"));
-        play2.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(73), 18).asString(), ";","-fx-base: rgb(100,100,",50,");"));
+        play2.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(73), 16).asString(), ";","-fx-base: rgb(100,100,",50,");"));
     }    
     
     public void initscene(){
@@ -159,6 +159,8 @@ public class MenuPrincipalController implements Initializable {
             TableroController controlador = loader.getController();
             controlador.initializeIA(true);
             controlador.initializeP1(player1);
+            if(player2 != null)
+                controlador.initP2(player2);
             stage.setMaximized(myStage.isMaximized());
             stage.setMinHeight(396);
             stage.setMinWidth(504);
@@ -221,6 +223,10 @@ public class MenuPrincipalController implements Initializable {
                 TableroController controlador = loader.getController();
                 controlador.initializeP1(player1);
                 controlador.initializeP2(player2);
+                
+                if(player2 != null)
+                    controlador.initP2(player2);
+          
                 stage.setMaximized(myStage.isMaximized());
                 stage.setMinHeight(396);
                 stage.setMinWidth(504);

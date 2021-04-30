@@ -161,7 +161,7 @@ public class TableroController implements Initializable {
     
     private boolean IA;
     
-    private Player player2, player1;
+    private Player player2, player1, initp2;
     @FXML
     private HBox barra;
     private Circle circle;
@@ -187,6 +187,7 @@ public class TableroController implements Initializable {
     private VBox vBox7;
     @FXML
     private Pane reset;
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -210,6 +211,10 @@ public class TableroController implements Initializable {
     public void initializeP2(Player p){
         this.player2 = p ;
         p2.setText(player2.getNickName());
+    }
+    
+    public void initP2(Player p){
+        this.initp2 = p;
     }
     
     @FXML
@@ -281,6 +286,9 @@ public class TableroController implements Initializable {
             controlador.initRes(resultado);
             controlador.initIA(IA);
             controlador.initMax(myStage.isMaximized());
+            
+            if(initp2 != null)
+                controlador.initPlayer2(initp2);
             
             stage.setOnHiding(e -> this.closeWindow());
             stage.setOnCloseRequest(e -> abrir());
@@ -558,6 +566,9 @@ public class TableroController implements Initializable {
             if (player2 != null)
                 controlador.initPlayer2(player2);
             
+            if(initp2 != null)
+                controlador.initPlayer2(initp2);
+            
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             
@@ -695,6 +706,9 @@ public class TableroController implements Initializable {
             controlador2.initPlayer(player1);
             if (player2 != null)
                 controlador2.initPlayer2(player2);
+            
+            if(initp2 != null)
+                controlador2.initPlayer2(initp2);
 
             Scene scene2 = new Scene(root2);
             Stage stage2 = new Stage();

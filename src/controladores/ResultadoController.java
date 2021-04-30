@@ -30,7 +30,7 @@ public class ResultadoController implements Initializable {
     @FXML
     private Button replay;
     private String res;
-    private Player player1, player2;
+    private Player player1, player2, initp2;
     private boolean IA, bool;
 
 
@@ -45,6 +45,10 @@ public class ResultadoController implements Initializable {
     
     public void initPlayer2(Player p){
         this.player2 = p;
+    }
+     
+    public void initP2(Player p){
+        this.initp2 = p;
     }
     
     public void initMax(Boolean b){
@@ -101,7 +105,10 @@ public class ResultadoController implements Initializable {
             controlador.initPlayer(player1);
             if(player2 != null)
                 controlador.initPlayer2(player2);
-            
+                
+            if(initp2 != null)
+                controlador.initPlayer2(initp2);
+          
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             
@@ -134,6 +141,10 @@ public class ResultadoController implements Initializable {
         if (player2 != null)
             controlador.initializeP2(player2);
         controlador.initializeIA(IA);
+        
+        if(initp2 != null)
+            controlador.initP2(initp2);
+
 
         Scene scene = new Scene(root);
         Stage stage = new Stage();
