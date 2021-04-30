@@ -95,25 +95,47 @@ public class RecordarPasswordController implements Initializable {
     }
     
     public void cerrar() throws IOException {
-        Stage myStage = (Stage) this.cancelar.getScene().getWindow();
-        myStage.close();
-        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/IniciarSesion.fxml"));
-        IniciarSesionController controlador = loader.getController();
+            
         Parent root = loader.load();
+
+        IniciarSesionController controlador = loader.getController();
+        controlador.initit2Player(false);
 
         Scene scene = new Scene(root);
         Stage stage = new Stage();
-        
+
+        Stage myStage = (Stage) this.cancelar.getScene().getWindow();
         stage.setMaximized(myStage.isMaximized());
         stage.setMinHeight(325);
         stage.setMinWidth(385);
 
         stage.setScene(scene);
         stage.show();
+
+        stage.setOnCloseRequest(e -> controlador.closeWindow());
+
+        myStage.close();
         
-        stage.setOnCloseRequest(e -> {
-            controlador.closeWindow();
-        });
+//        Stage myStage = (Stage) this.cancelar.getScene().getWindow();
+//        myStage.close();
+//        
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/IniciarSesion.fxml"));
+//        IniciarSesionController controlador = loader.getController();
+//        Parent root = loader.load();
+//
+//        Scene scene = new Scene(root);
+//        Stage stage = new Stage();
+//        
+//        stage.setMaximized(myStage.isMaximized());
+//        stage.setMinHeight(325);
+//        stage.setMinWidth(385);
+//
+//        stage.setScene(scene);
+//        stage.show();
+//        
+//        stage.setOnCloseRequest(e -> {
+//            controlador.closeWindow();
+//        });
     }
 }

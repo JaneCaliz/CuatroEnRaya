@@ -204,9 +204,7 @@ public class MenuPrincipalController implements Initializable {
                 stage.setScene(scene);
                 stage.show();
                 
-                stage.setOnCloseRequest(e -> {
-                    controlador.closeWindow();
-                });
+                stage.setOnCloseRequest(e -> controlador.closeWindow());
 
                 myStage.close();
             }
