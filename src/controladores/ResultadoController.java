@@ -18,7 +18,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Connect4;
 import model.Player;
-import controladores.TableroController.*;
 
 public class ResultadoController implements Initializable {
 
@@ -113,6 +112,10 @@ public class ResultadoController implements Initializable {
 
             stage.setScene(scene);
             stage.show();
+            stage.setOnCloseRequest(e -> {
+                controlador.closeWindow();
+                e.consume();
+            });
             
             myStage.close();
         } catch (IOException ex) {
@@ -142,6 +145,14 @@ public class ResultadoController implements Initializable {
 
         stage.setScene(scene);
         stage.show();
+        stage.setOnCloseRequest(e -> {
+            try {
+                controlador.salir();
+                e.consume();
+            } catch (IOException ex) {
+                Logger.getLogger(ResultadoController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
 
         myStage.close();
     }

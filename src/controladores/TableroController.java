@@ -188,14 +188,10 @@ public class TableroController implements Initializable {
     @FXML
     private Pane reset;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         tablero = new Conecta4();
         victoria = 0;
-        
         binding();   
     }
     
@@ -537,10 +533,13 @@ public class TableroController implements Initializable {
 
     @FXML
     private void exit(MouseEvent event) throws IOException {
-
+        salir();
+    }    
+    
+    public void salir() throws IOException {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Abandonar partida");
-        alert.setHeaderText(" ¿Está seguro de querer abandonar la partida actual?");
+        alert.setHeaderText(" ¿Está seguro de querer abandonar la partida?");
         alert.setContentText("Se perderá todo el progreso de la partida actual");      
         alert.initStyle(StageStyle.UNDECORATED);
         DialogPane dialogPane = alert.getDialogPane();
@@ -569,10 +568,14 @@ public class TableroController implements Initializable {
 
             stage.setScene(scene);
             stage.show();
+            stage.setOnCloseRequest(e -> {
+                controlador.closeWindow();
+                e.consume();
+            });
             
             myStage.close();
         }
-    }     
+    }
     
     private void binding(){
         Circle_0_0.radiusProperty().bind(Bindings.min(gPane.widthProperty().divide(18), gPane.heightProperty().divide(16)));
@@ -675,6 +678,10 @@ public class TableroController implements Initializable {
             }
         }
         tablero.vacia();
+        
+        double size = gPane.widthProperty().add(gPane.heightProperty()).divide(50).getValue();
+        p2.setFont(Font.font("SansSerif", FontWeight.SEMI_BOLD, size));
+        p1.setFont(Font.font("SansSerif", FontWeight.BLACK, size));
     }
     
     private void abrir(){
@@ -699,6 +706,10 @@ public class TableroController implements Initializable {
 
             stage2.setScene(scene2);
             stage2.show();
+            stage2.setOnCloseRequest(e -> {
+                controlador2.closeWindow();
+                e.consume();
+            });
 
             myStage2.close();
         } catch (IOException ex) {

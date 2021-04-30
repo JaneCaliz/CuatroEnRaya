@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controladores;
 
 import java.net.URL;
@@ -24,9 +19,7 @@ public class CodigoController implements Initializable {
     public static String valor = Integer.toString((int) (Math.random()*10000));
     
     private static String value = "";
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         switch(valor.length()){
@@ -54,6 +47,10 @@ public class CodigoController implements Initializable {
 
     @FXML
     private void close(ActionEvent event) {
+        cerrar();
+    }
+    
+    public void cerrar(){
         Stage myStage = (Stage) this.cerrar.getScene().getWindow();
         myStage.close();
     }

@@ -73,6 +73,11 @@ public class IniciarSesionController implements Initializable {
 
                 stage.setScene(scene);
                 stage.show();
+                
+                stage.setOnCloseRequest(e -> {
+                    controlador.closeWindow();
+                    e.consume();
+                });
 
                 myStage.close();
             }
@@ -153,6 +158,15 @@ public class IniciarSesionController implements Initializable {
                                         
                     stage.setScene(scene);
                     stage.show();
+                    
+                    stage.setOnCloseRequest(e -> {
+                        try {
+                            controlador.salir();
+                            e.consume();
+                        } catch (IOException ex) {
+                            Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    });
 
                     myStage.close();
                 }
@@ -175,6 +189,11 @@ public class IniciarSesionController implements Initializable {
                     stage.setScene(scene);
                     stage.show();
                     
+                    stage.setOnCloseRequest(e -> {
+                        controlador.closeWindow();
+                        e.consume();
+                    });
+                    
                     myStage.close();
                 }
             }
@@ -196,6 +215,7 @@ public class IniciarSesionController implements Initializable {
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             
+            RecordarPasswordController controlador = loader.getController();
             Stage myStage = (Stage) this.iniciar.getScene().getWindow();
             
             stage.setMaximized(myStage.isMaximized());
@@ -204,6 +224,13 @@ public class IniciarSesionController implements Initializable {
             
             stage.setScene(scene);
             stage.show();
+            stage.setOnCloseRequest(e -> {
+                try {
+                    controlador.cerrar();
+                } catch (IOException ex) {
+                    Logger.getLogger(IniciarSesionController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            });
             
             myStage.close();
             

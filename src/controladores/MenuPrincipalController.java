@@ -119,9 +119,7 @@ public class MenuPrincipalController implements Initializable {
                     buttonc.setVisible(false);
                 });
                 open = 0;
-            }
-                
-            
+            }            
         });
         
         buttonc.setOnMouseClicked(event -> {
@@ -167,6 +165,15 @@ public class MenuPrincipalController implements Initializable {
             
             stage.setScene(scene);
             stage.show();
+            
+            stage.setOnCloseRequest(e -> {
+                try {
+                    controlador.salir();
+                    e.consume();
+                } catch (IOException ex) {
+                    Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            });
 
             myStage.close();
         } catch (IOException ex) {
@@ -196,6 +203,10 @@ public class MenuPrincipalController implements Initializable {
 
                 stage.setScene(scene);
                 stage.show();
+                
+                stage.setOnCloseRequest(e -> {
+                    controlador.closeWindow();
+                });
 
                 myStage.close();
             }
@@ -218,6 +229,15 @@ public class MenuPrincipalController implements Initializable {
 
                 stage.setScene(scene);
                 stage.show();
+                
+                stage.setOnCloseRequest(e -> {
+                    try {
+                        controlador.salir();
+                        e.consume();
+                    } catch (IOException ex) {
+                        Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                });
 
                 myStage.close();
             }
@@ -228,24 +248,37 @@ public class MenuPrincipalController implements Initializable {
     
     public void closeWindow(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/PantallaDeInicio.fxml"));
-            
-            Parent root = loader.load();
-            
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            
-            Stage myStage = (Stage) this.jugarF.getScene().getWindow();
-            stage.setMaximized(myStage.isMaximized());
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Salir del juego");
+            alert.setHeaderText("¿Está seguro de querer salir del juego?");  
+            String segundo = "";
+            if(player2 != null){ segundo = " y de " + player2.getNickName();}
+            alert.setContentText("Se cerrará la sesión de " + player1.getNickName() + segundo);
+            alert.initStyle(StageStyle.UNDECORATED);
+            DialogPane dialogPane = alert.getDialogPane();
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/Img/alert.css").toExternalForm());
+            Optional<ButtonType> result = alert.showAndWait();
+            if(result.get() == ButtonType.OK){
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/PantallaDeInicio.fxml"));
 
-            stage.setScene(scene);
-            stage.show();
-            
+                Parent root = loader.load();
+
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+
+                Stage myStage = (Stage) this.jugarF.getScene().getWindow();
+                stage.setMaximized(myStage.isMaximized());
+
+                stage.setScene(scene);
+                stage.show();
+                
+                myStage.close();
+                
+            }   
             
         } catch (IOException ex) {
             Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
     
     @FXML
@@ -275,6 +308,10 @@ public class MenuPrincipalController implements Initializable {
 
                 stage.setScene(scene);
                 stage.show();
+                stage.setOnCloseRequest(e -> {
+                    controlador.closeWindow();
+                    e.consume();
+                });
 
                 myStage.close();
 
@@ -335,6 +372,10 @@ public class MenuPrincipalController implements Initializable {
 
                 stage.setScene(scene);
                 stage.show();
+                stage.setOnCloseRequest(e -> {
+                    controlador.closeWindow();
+                    e.consume();
+                });
 
                 myStage.close();
 

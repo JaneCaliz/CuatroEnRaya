@@ -51,19 +51,23 @@ public class IntroducirCodigoController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+    }  
+    
+    public void codigo(){
         try {
             FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/FXML/Codigo.fxml"));
             
             Parent root2 = loader2.load();
-            
+                        
             Scene scene2 = new Scene(root2);
             stage2 = new Stage();
             stage2.setAlwaysOnTop(true);
-                            
+                                        
             stage2.setScene(scene2);  
             stage2.initStyle(StageStyle.UNDECORATED);
             stage2.show();
-            
+                        
             Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
             double x = bounds.getMinX() + (bounds.getWidth() - scene2.getWidth()) * 1;
             double y = bounds.getMinY() + (bounds.getHeight() - scene2.getHeight()) * 1;
@@ -73,7 +77,7 @@ public class IntroducirCodigoController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(IntroducirCodigoController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }  
+    }
     
     public void initPlayer(Player p){
         this.p = p;
@@ -81,12 +85,20 @@ public class IntroducirCodigoController implements Initializable {
 
     @FXML
     private void cancelar(ActionEvent event) throws IOException {
-       
+       cerrar();        
+    }
+    
+    public void cerrar() throws IOException {
         Stage myStage = (Stage) this.cancelar.getScene().getWindow();
-        myStage.close();
-        
+//        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/FXML/Codigo.fxml"));
+//        CodigoController controlador2 = loader2.getController();
+//        myStage.setOnCloseRequest(e -> {
+//            controlador2.cerrar();
+//        });
+//        myStage.close();
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/IniciarSesion.fxml"));
-            
+        IniciarSesionController controlador = loader.getController();
         Parent root = loader.load();
 
         Scene scene = new Scene(root);
@@ -96,6 +108,9 @@ public class IntroducirCodigoController implements Initializable {
             
         stage.setScene(scene);
         stage.show();
+        stage.setOnCloseRequest(e -> {
+            controlador.closeWindow();
+        });
     }
     
     @FXML
@@ -118,7 +133,8 @@ public class IntroducirCodigoController implements Initializable {
                     myStage.close();
 
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/IniciarSesion.fxml"));
-
+                    IniciarSesionController controlador = loader.getController();
+                    
                     Parent root = loader.load();
 
                     Scene scene = new Scene(root);
@@ -130,6 +146,10 @@ public class IntroducirCodigoController implements Initializable {
 
                     stage.setScene(scene);
                     stage.show();
+                    stage.setOnCloseRequest(e -> {
+                        controlador.closeWindow();
+                        e.consume();
+                    });
                 }
             } catch (IOException ex) {
                 Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);

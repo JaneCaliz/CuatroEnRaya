@@ -60,7 +60,7 @@ public class RecordarPasswordController implements Initializable {
                 
                 IntroducirCodigoController controlador = loader.getController();
                 controlador.initPlayer(player);
-                
+                controlador.codigo();
 
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
@@ -72,6 +72,14 @@ public class RecordarPasswordController implements Initializable {
 
                 stage.setScene(scene);
                 stage.show();
+                
+                stage.setOnCloseRequest(e -> {
+                try {
+                    controlador.cerrar();
+                } catch (IOException ex) {
+                    Logger.getLogger(IniciarSesionController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                });
 
                 myStage.close();
             }
@@ -83,11 +91,15 @@ public class RecordarPasswordController implements Initializable {
 
     @FXML
     private void cancelar(ActionEvent event) throws IOException {
+        cerrar();
+    }
+    
+    public void cerrar() throws IOException {
         Stage myStage = (Stage) this.cancelar.getScene().getWindow();
         myStage.close();
         
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/IniciarSesion.fxml"));
-            
+        IniciarSesionController controlador = loader.getController();
         Parent root = loader.load();
 
         Scene scene = new Scene(root);
@@ -99,5 +111,9 @@ public class RecordarPasswordController implements Initializable {
 
         stage.setScene(scene);
         stage.show();
+        
+        stage.setOnCloseRequest(e -> {
+            controlador.closeWindow();
+        });
     }
 }
