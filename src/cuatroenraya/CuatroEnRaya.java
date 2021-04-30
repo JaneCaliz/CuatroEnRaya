@@ -5,11 +5,15 @@
  */
 package cuatroenraya;
 
+import DBAccess.Connect4DAOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Connect4;
 
 public class CuatroEnRaya extends Application {
     
@@ -29,7 +33,14 @@ public class CuatroEnRaya extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        try {
+            Connect4 bd = Connect4.getSingletonConnect4();
+            bd.removeAllData();
+            bd.createDemoData(3, 5, 5);
             launch(args);                      
+        } catch (Connect4DAOException ex) {
+            Logger.getLogger(CuatroEnRaya.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
