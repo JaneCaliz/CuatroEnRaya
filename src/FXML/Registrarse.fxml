@@ -14,7 +14,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <VBox alignment="CENTER" prefHeight="370.0" prefWidth="600.0" style="-fx-background-color: b2ebf2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.RegistrarseController">
    <children>
       <HBox alignment="CENTER" prefHeight="300.0" prefWidth="650.0" spacing="25.0">
@@ -106,7 +105,7 @@
                            <children>
                               <Button fx:id="avatar1" mnemonicParsing="false" onAction="#avatar1" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: transparent;">
                                  <graphic>
-                                    <ImageView fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="iavatar1" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../avatars/avatar1.png" />
                                        </image>
@@ -118,7 +117,7 @@
                               </Button>
                               <Button fx:id="avatar4" mnemonicParsing="false" onAction="#avatar4" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: transparent;">
                                  <graphic>
-                                    <ImageView fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="iavatar4" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../avatars/avatar4.png" />
                                        </image>
@@ -134,7 +133,7 @@
                            <children>
                               <Button fx:id="avatar2" mnemonicParsing="false" onAction="#avatar2" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: transparent;">
                                  <graphic>
-                                    <ImageView fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="iavatar2" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../avatars/avatar2.png" />
                                        </image>
@@ -146,7 +145,7 @@
                               </Button>
                               <Button fx:id="avatard" mnemonicParsing="false" onAction="#avatard" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: transparent;">
                                  <graphic>
-                                    <ImageView fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="iavatard" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../avatars/default.png" />
                                        </image>
@@ -162,7 +161,7 @@
                            <children>
                               <Button fx:id="avatar3" mnemonicParsing="false" onAction="#avatar3" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: transparent;">
                                  <graphic>
-                                    <ImageView fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="iavatar3" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../avatars/avatar3.png" />
                                        </image>

@@ -1,20 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controladores;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class RegistrarseController implements Initializable {
 
@@ -52,10 +54,18 @@ public class RegistrarseController implements Initializable {
     private Button cancelar;
     @FXML
     private Button registrarse;
+    @FXML
+    private ImageView iavatar1;
+    @FXML
+    private ImageView iavatar4;
+    @FXML
+    private ImageView iavatar2;
+    @FXML
+    private ImageView iavatard;
+    @FXML
+    private ImageView iavatar3;
 
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -63,22 +73,27 @@ public class RegistrarseController implements Initializable {
 
     @FXML
     private void avatar1(ActionEvent event) {
-    }
-
-    @FXML
-    private void avatar4(ActionEvent event) {
+        avatar.setImage(iavatar1.getImage());
     }
 
     @FXML
     private void avatar2(ActionEvent event) {
+        avatar.setImage(iavatar2.getImage());
+    }
+    
+    @FXML
+    private void avatar3(ActionEvent event) {
+        avatar.setImage(iavatar3.getImage());
+    }
+    
+    @FXML
+    private void avatar4(ActionEvent event) {
+        avatar.setImage(iavatar4.getImage());
     }
 
     @FXML
     private void avatard(ActionEvent event) {
-    }
-
-    @FXML
-    private void avatar3(ActionEvent event) {
+        avatar.setImage(iavatard.getImage());
     }
 
     @FXML
@@ -87,6 +102,35 @@ public class RegistrarseController implements Initializable {
 
     @FXML
     private void cancelar(ActionEvent event) {
+        cerrar();
+    }
+    
+    public void cerrar(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/IniciarSesion.fxml"));
+            
+            Parent root = loader.load();
+            
+            IniciarSesionController controlador = loader.getController();
+            controlador.initit2Player(false);
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            
+            Stage myStage = (Stage) this.cancelar.getScene().getWindow();
+            stage.setMaximized(myStage.isMaximized());
+            stage.setMinHeight(325);
+            stage.setMinWidth(385);
+            
+            stage.setScene(scene);
+            stage.show();
+            
+            stage.setOnCloseRequest(e -> controlador.closeWindow());
+            
+            myStage.close();
+        } catch (IOException ex) {
+            Logger.getLogger(RegistrarseController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML

@@ -253,6 +253,29 @@ public class IniciarSesionController implements Initializable {
 
     @FXML
     private void registrar(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Registrarse.fxml"));
+            
+            Parent root = loader.load();
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            
+            RegistrarseController controlador = loader.getController();
+            Stage myStage = (Stage) this.iniciar.getScene().getWindow();
+            stage.setMaximized(myStage.isMaximized());
+            stage.setMinHeight(235);
+            stage.setMinWidth(350);
+            
+            stage.setScene(scene);
+            stage.show();
+            stage.setOnCloseRequest(e -> controlador.cerrar());
+            
+            myStage.close();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(PantallaDeInicioController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
