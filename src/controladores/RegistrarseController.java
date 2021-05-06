@@ -145,6 +145,8 @@ public class RegistrarseController implements Initializable {
     @FXML
     private void registrarse(ActionEvent event) {
         try {
+            boolean usu = false, passw = false, cpass = false, correo = false, age = false;
+            String pass = "";
             Connect4 BD = Connect4.getSingletonConnect4();
             if(!Player.checkNickName(usuario.getText()) || BD.exitsNickName(usuario.getText())){
                 if(!Player.checkNickName(usuario.getText())){
@@ -156,17 +158,28 @@ public class RegistrarseController implements Initializable {
                 if(BD.exitsNickName(usuario.getText())){
                     eusuario.setText("Usuario ya existente");
                 }
+                usu = false;
+            }
+            else if(usuario.getText().length() == 0){
+                eusuario.setText("Campo obligatorio");
+                usu = false;
             }
             else{
                 eusuario.setText("");
+                usu = true;
             }
             if(!Player.checkEmail(email.getText())){
                 eemail.setText("Por favor introduzca un correo existente");
+                correo = false;
+            }
+            else if(email.getText().length() == 0){
+                eemail.setText("Campo obligatorio");
+                correo = false;
             }
             else{
                 eemail.setText("");
+                correo = true;
             }
-            String pass = password.getText();
             if(!Player.checkPassword(password.getText())){
                 if(!Player.checkPassword(password.getText())){
                     epassword.setText("La contraseña debe contener: una mayúscula, una minúscula, un dígito, un carácter espacial (!@#$%&*()-+=) y ningún espacio en blanco");
@@ -174,22 +187,45 @@ public class RegistrarseController implements Initializable {
                 if(password.getText().length() < 8 || password.getText().length() > 20){
                     epassword.setText("La contraseña debe tener entre 6 a 15 caracteres");
                 }
+                passw = false;
+            }
+            else if(password.getText().length() == 0){
+                epassword.setText("Campo obligatorio");
+                passw = false;
             }
             else{
                 epassword.setText("");
+                passw = true;
+                pass = password.getText();
             }
             if(!pass.equals(password.getText()) && Player.checkPassword(password.getText())){
                 ecpassword.setText("Las contraseñas no coinciden");
+                cpass = false;
+            }
+            else if(cpassword.getText().length() == 0){
+                ecpassword.setText("Campo obligatorio");
+                cpass = false;
             }
             else{
                 ecpassword.setText("");
+                cpass = true;
             }
-            if(edad.getValue().toEpochDay() < LocalDate.now().minusYears(12).toEpochDay()){
+            if(edad.getValue().toEpochDay() > LocalDate.now().minusYears(12).toEpochDay()){
                 eage.setText("Debes ser mayor de 12 años para jugar");
+                age = false;
             }
+//            else if(edad.getValue().toEpochDay() == 0){
+//                eage.setText("Campo obligatorio");
+//                age = false;
+//            }
             else{
                 eage.setText("");
+                age = true;
             }
+//            
+//            if(usu && passw && cpass && correo && age){
+//                BD.registerPlayer(usuario.getText(), email.getText(), password.getText(), avatar.getImage(), edad.getValue(), 0);
+//            }
         } catch (Connect4DAOException ex) {
             Logger.getLogger(RegistrarseController.class.getName()).log(Level.SEVERE, null, ex);
         }
