@@ -32,14 +32,14 @@
                   <Pane minWidth="0.0" prefHeight="78.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
                   <VBox alignment="CENTER" maxHeight="120.0" minHeight="75.0" prefHeight="63.0" prefWidth="80.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Button fx:id="trophy" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+                        <Button fx:id="trophy" maxHeight="100.0" maxWidth="100.0" mnemonicParsing="false" onAction="#mostrarRanking" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                            <graphic>
                               <ImageView fitHeight="55.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Img/Trophy.png" />
                                  </image>
                                  <cursor>
-                                    <Cursor fx:constant="HAND" />
+                                    <Cursor fx:constant="CLOSED_HAND" />
                                  </cursor>
                               </ImageView>
                            </graphic>

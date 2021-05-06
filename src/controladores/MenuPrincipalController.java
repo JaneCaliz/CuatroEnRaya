@@ -390,5 +390,34 @@ public class MenuPrincipalController implements Initializable {
             Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @FXML
+    private void mostrarRanking(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Ranking.fxml"));
+            
+            Parent root = loader.load();
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            
+            Stage myStage = (Stage) this.jugarF.getScene().getWindow();
+            
+            
+            stage.setMaximized(myStage.isMaximized());
+            stage.setMinHeight(396);
+            stage.setMinWidth(504);
+            
+            stage.setScene(scene);
+            stage.show();
+            
+            
+            myStage.close();
+        } catch (IOException ex) {
+            Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+        
+    }
     
 }
