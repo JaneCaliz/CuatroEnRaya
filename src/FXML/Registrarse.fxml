@@ -9,16 +9,17 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="370.0" prefWidth="600.0" style="-fx-background-color: b2ebf2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.RegistrarseController">
+<VBox alignment="CENTER" prefHeight="410.0" prefWidth="680.0" style="-fx-background-color: b2ebf2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.RegistrarseController">
    <children>
       <HBox alignment="CENTER" prefHeight="300.0" prefWidth="650.0" spacing="25.0">
          <children>
-            <VBox alignment="CENTER" prefHeight="260.0" prefWidth="250.0">
+            <VBox alignment="CENTER" maxWidth="315.0" prefHeight="260.0" prefWidth="315.0">
                <children>
                   <HBox alignment="BOTTOM_LEFT" prefHeight="34.0" prefWidth="250.0">
                      <children>
@@ -32,7 +33,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <TextField fx:id="usuario" prefWidth="200.0" promptText="Usuario" style="-fx-border-color: black;">
+                  <TextField fx:id="usuario" maxWidth="315.0" prefWidth="315.0" promptText="Usuario" style="-fx-border-color: black;">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
@@ -40,43 +41,38 @@
                         <Insets />
                      </VBox.margin>
                   </TextField>
-                  <Text fx:id="eusuario" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0">
+                  <Text fx:id="eusuario" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
                      <font>
-                        <Font />
-                     </font>
-                  </Text>
-                  <TextField fx:id="email" promptText="Correo electrónico" style="-fx-border-color: black;">
+                        <Font size="13.0" />
+                     </font></Text>
+                  <TextField fx:id="email" maxWidth="315.0" prefWidth="315.0" promptText="Correo electrónico" style="-fx-border-color: black;">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </TextField>
-                  <Text fx:id="eemail" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0">
+                  <Text fx:id="eemail" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
                      <font>
-                        <Font />
-                     </font>
-                  </Text>
-                  <PasswordField promptText="Contraseña" style="-fx-border-color: black;" />
-                  <Text fx:id="epassword" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0">
+                        <Font size="13.0" />
+                     </font></Text>
+                  <PasswordField fx:id="password" maxWidth="315.0" prefWidth="315.0" promptText="Contraseña" style="-fx-border-color: black;" />
+                  <Text fx:id="epassword" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="315.0" VBox.vgrow="ALWAYS">
                      <font>
-                        <Font />
-                     </font>
-                  </Text>
-                  <PasswordField promptText="Confirmar contraseña" style="-fx-border-color: black;" />
-                  <Text fx:id="ecpassword" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0">
+                        <Font size="13.0" />
+                     </font></Text>
+                  <PasswordField fx:id="cpassword" maxWidth="315.0" prefWidth="315.0" promptText="Confirmar contraseña" style="-fx-border-color: black;" />
+                  <Text fx:id="ecpassword" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
                      <font>
-                        <Font />
-                     </font>
-                  </Text>
-                  <DatePicker fx:id="edad" prefWidth="250.0" promptText="Fecha de nacimiento" style="-fx-background-color: #edf8ff; -fx-border-color: black;">
+                        <Font size="13.0" />
+                     </font></Text>
+                  <DatePicker fx:id="edad" maxWidth="315.0" prefWidth="315.0" promptText="Fecha de nacimiento" style="-fx-background-color: #edf8ff; -fx-border-color: black;" VBox.vgrow="ALWAYS">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </DatePicker>
-                  <Text fx:id="eage" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0">
+                  <Text fx:id="eage" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
                      <font>
-                        <Font />
-                     </font>
-                  </Text>
+                        <Font size="13.0" />
+                     </font></Text>
                </children>
                <HBox.margin>
                   <Insets bottom="-7.0" top="10.0" />
@@ -87,12 +83,15 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <ImageView fx:id="avatar" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="avatar" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../avatars/default.png" />
                            </image>
                         </ImageView>
                      </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
                   </HBox>
                   <HBox alignment="BOTTOM_CENTER" prefHeight="21.0" prefWidth="250.0">
                      <children>
@@ -204,10 +203,11 @@
          <children>
             <Button fx:id="cancelar" cancelButton="true" mnemonicParsing="false" onAction="#cancelar" style="-fx-background-color: #52cad9; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #2e7780;" text="Cancelar">
                <HBox.margin>
-                  <Insets left="40.0" />
+                  <Insets />
                </HBox.margin>
             </Button>
             <Button fx:id="registrarse" defaultButton="true" mnemonicParsing="false" onAction="#registrarse" style="-fx-background-color: #52cad9; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #2e7780;" text="Registrarse" />
+            <Pane prefHeight="200.0" prefWidth="224.0" />
          </children>
          <VBox.margin>
             <Insets bottom="10.0" top="20.0" />
