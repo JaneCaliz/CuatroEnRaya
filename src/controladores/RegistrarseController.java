@@ -1,6 +1,10 @@
 package controladores;
 
 import DBAccess.Connect4DAOException;
+import java.awt.AlphaComposite;
+import java.awt.Desktop;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -8,6 +12,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,10 +26,13 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javax.imageio.ImageIO;
 import model.Connect4;
 import model.Player;
 
@@ -79,7 +87,6 @@ public class RegistrarseController implements Initializable {
     @FXML
     private PasswordField cpassword;
 
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -111,7 +118,23 @@ public class RegistrarseController implements Initializable {
     }
 
     @FXML
-    private void upload(ActionEvent event) {
+    private void upload(ActionEvent event) throws IOException {
+        FileChooser file = new FileChooser();
+        
+        FileChooser.ExtensionFilter extFilterJPG = new FileChooser.ExtensionFilter("JPG files (*.JPG)", "*.JPG");
+        FileChooser.ExtensionFilter extFilterjpg = new FileChooser.ExtensionFilter("jpg files (*.jpg)", "*.jpg");
+        FileChooser.ExtensionFilter extFilterPNG = new FileChooser.ExtensionFilter("PNG files (*.PNG)", "*.PNG");
+        FileChooser.ExtensionFilter extFilterpng = new FileChooser.ExtensionFilter("png files (*.png)", "*.png");
+        file.getExtensionFilters().addAll(extFilterJPG, extFilterjpg, extFilterPNG, extFilterpng);
+        
+        file.setTitle("Subir avatar desde PC");
+        Stage stage = (Stage) upload.getScene().getWindow();
+        File image = file.showOpenDialog(stage);
+        
+        if(image != null){
+            Image img = new Image(image.toURI().toString());
+            avatar.setImage(img);
+        }
     }
 
     @FXML
