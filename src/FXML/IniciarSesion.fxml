@@ -59,12 +59,12 @@
                   </PasswordField>
                </children>
             </VBox>
-            <HBox alignment="CENTER">
+            <HBox alignment="CENTER_LEFT">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
                <children>
-                  <Text fx:id="error" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                  <Text fx:id="error" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="1.0" />
                      </font>

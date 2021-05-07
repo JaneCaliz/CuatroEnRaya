@@ -55,7 +55,7 @@ public class RankingController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        
         try {
             Connect4 connect4 = Connect4.getSingletonConnect4();
             ObservableList<Player> observablePlayers;
@@ -139,7 +139,6 @@ public class RankingController implements Initializable {
             return new TableCell<Player, Player>() {
               @Override protected void updateItem(Player item, boolean empty) {
                 super.updateItem(item, empty);
-
                 if (this.getTableRow() != null && item != null) {
                   setText(rank + "");
                   rank = rank + 1;
@@ -152,7 +151,8 @@ public class RankingController implements Initializable {
           }
         });
         rankingC.setSortable(false);
-        
+        String css = this.getClass().getResource("/Img/ranking.css").toExternalForm();
+        tablero.getStylesheets().add(css);
 
     }
 

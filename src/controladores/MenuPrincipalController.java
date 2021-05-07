@@ -408,7 +408,9 @@ public class MenuPrincipalController implements Initializable {
             stage.setMinHeight(396);
             stage.setMinWidth(504);
             
+            
             stage.setScene(scene);
+            
             stage.show();
             
             
