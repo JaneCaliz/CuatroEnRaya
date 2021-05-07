@@ -8,10 +8,10 @@
    <children>
       <TableView fx:id="tablero" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
         <columns>
-          <TableColumn fx:id="ranking" prefWidth="75.0" text="Ranking " />
-            <TableColumn fx:id="puntos" prefWidth="75.0" text="Puntos" />
-          <TableColumn fx:id="nobre" prefWidth="75.0" text="Nombre" />
-            <TableColumn fx:id="avatar" prefWidth="75.0" text="Avatar" />
+          <TableColumn fx:id="rankingC" prefWidth="75.0" text="Ranking " />
+            <TableColumn fx:id="avatarC" prefWidth="75.0" text="Avatar" />
+          <TableColumn fx:id="nombreC" prefWidth="75.0" text="Nombre" />
+            <TableColumn fx:id="puntosC" prefWidth="75.0" text="Puntos" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
