@@ -6,6 +6,7 @@
 package controladores;
 
 import DBAccess.Connect4DAOException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -15,9 +16,14 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
@@ -25,6 +31,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import model.Connect4;
 import model.Player;
@@ -48,11 +55,19 @@ public class RankingController implements Initializable {
     @FXML
     private TableColumn<Player, Image> avatarC;
     
+    private Player player1, player2;
+    
     private static int rank;
-
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private Button volverB;
+    
+    public void initPlayer1(Player p1){
+        this.player1 = p1;
+    }
+    
+    public void initPlayer2(Player p2){
+        this.player2 = p2;
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -154,6 +169,40 @@ public class RankingController implements Initializable {
         String css = this.getClass().getResource("/Img/ranking.css").toExternalForm();
         tablero.getStylesheets().add(css);
 
+    }
+
+    @FXML
+    private void volverMP(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
+            Parent root = loader.load();
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            
+            Stage myStage = (Stage) this.volverB.getScene().getWindow();
+            stage.setMinHeight(520);
+            stage.setMinWidth(460);
+            
+            MenuPrincipalController controlador = loader.getController();
+            controlador.initscene();
+            controlador.initPlayer(player1);
+            if (player2 != null)
+                controlador.initPlayer2(player2);
+            stage.setMaximized(myStage.isMaximized());
+            
+            stage.setScene(scene);
+            stage.show();
+            
+            stage.setOnCloseRequest(e -> {
+                controlador.closeWindow();
+                e.consume();
+            });
+            
+            myStage.close();
+        } catch (IOException ex) {
+            Logger.getLogger(RankingController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

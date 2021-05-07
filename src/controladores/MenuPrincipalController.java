@@ -403,6 +403,10 @@ public class MenuPrincipalController implements Initializable {
             
             Stage myStage = (Stage) this.jugarF.getScene().getWindow();
             
+            RankingController controlador = loader.getController();
+            
+            controlador.initPlayer2(player2);
+            controlador.initPlayer1(player1);
             
             stage.setMaximized(myStage.isMaximized());
             stage.setMinHeight(396);

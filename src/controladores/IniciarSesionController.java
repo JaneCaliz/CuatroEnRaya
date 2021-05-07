@@ -243,6 +243,10 @@ public class IniciarSesionController implements Initializable {
        this.p1 = p;
     }
     
+    void initPlayer2(Player p2){
+       this.p2 = p2; 
+    }
+    
     void initit2Player(boolean b) {
        RegistrarP2 = b;
     }
