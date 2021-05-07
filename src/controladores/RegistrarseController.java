@@ -4,6 +4,7 @@ import DBAccess.Connect4DAOException;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,13 +14,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.Connect4;
 import model.Player;
 
@@ -143,12 +148,16 @@ public class RegistrarseController implements Initializable {
     }
 
     @FXML
-    private void registrarse(ActionEvent event) {
+    private void registrarse(ActionEvent event) throws IOException {
         try {
             boolean usu = false, passw = false, cpass = false, correo = false, age = false;
             String pass = "";
             Connect4 BD = Connect4.getSingletonConnect4();
-            if(!Player.checkNickName(usuario.getText()) || BD.exitsNickName(usuario.getText())){
+            if(usuario.getText().length() == 0){
+                eusuario.setText("Campo obligatorio");
+                usu = false;
+            }
+            else if(!Player.checkNickName(usuario.getText()) || BD.exitsNickName(usuario.getText())){
                 if(!Player.checkNickName(usuario.getText())){
                     eusuario.setText("Caracter inválido. Símbolos válidos: -, _ y alfanuméricos");
                 }
@@ -160,37 +169,33 @@ public class RegistrarseController implements Initializable {
                 }
                 usu = false;
             }
-            else if(usuario.getText().length() == 0){
-                eusuario.setText("Campo obligatorio");
-                usu = false;
-            }
             else{
                 eusuario.setText("");
                 usu = true;
             }
-            if(!Player.checkEmail(email.getText())){
-                eemail.setText("Por favor introduzca un correo existente");
+            if(email.getText().length() == 0){
+                eemail.setText("Campo obligatorio");
                 correo = false;
             }
-            else if(email.getText().length() == 0){
-                eemail.setText("Campo obligatorio");
+            else if(!Player.checkEmail(email.getText())){
+                eemail.setText("Por favor introduzca un correo existente");
                 correo = false;
             }
             else{
                 eemail.setText("");
                 correo = true;
             }
-            if(!Player.checkPassword(password.getText())){
+            if(password.getText().length() == 0){
+                epassword.setText("Campo obligatorio");
+                passw = false;
+            }
+            else if(!Player.checkPassword(password.getText())){
                 if(!Player.checkPassword(password.getText())){
-                    epassword.setText("La contraseña debe contener: una mayúscula, una minúscula, un dígito, un carácter espacial (!@#$%&*()-+=) y ningún espacio en blanco");
+                    epassword.setText("La contraseña debe contener: una mayúscula, una minúscula, un dígito, un carácter especial (!@#$%&*()-+=) y ningún espacio en blanco");
                 }
                 if(password.getText().length() < 8 || password.getText().length() > 20){
                     epassword.setText("La contraseña debe tener entre 6 a 15 caracteres");
                 }
-                passw = false;
-            }
-            else if(password.getText().length() == 0){
-                epassword.setText("Campo obligatorio");
                 passw = false;
             }
             else{
@@ -198,34 +203,67 @@ public class RegistrarseController implements Initializable {
                 passw = true;
                 pass = password.getText();
             }
-            if(!pass.equals(password.getText()) && Player.checkPassword(password.getText())){
-                ecpassword.setText("Las contraseñas no coinciden");
+            if(cpassword.getText().length() == 0){
+                ecpassword.setText("Campo obligatorio");
                 cpass = false;
             }
-            else if(cpassword.getText().length() == 0){
-                ecpassword.setText("Campo obligatorio");
+            else if(!pass.equals(password.getText()) && Player.checkPassword(password.getText())){
+                ecpassword.setText("Las contraseñas no coinciden");
                 cpass = false;
             }
             else{
                 ecpassword.setText("");
                 cpass = true;
             }
-            if(edad.getValue().toEpochDay() > LocalDate.now().minusYears(12).toEpochDay()){
+            if(edad.getValue() != null && edad.getValue().toEpochDay() > LocalDate.now().minusYears(12).toEpochDay()){
                 eage.setText("Debes ser mayor de 12 años para jugar");
                 age = false;
             }
-//            else if(edad.getValue().toEpochDay() == 0){
-//                eage.setText("Campo obligatorio");
-//                age = false;
-//            }
+            else if(edad.getValue() == null){
+                eage.setText("Campo obligatorio");
+                age = false;
+            }
             else{
                 eage.setText("");
                 age = true;
             }
-//            
-//            if(usu && passw && cpass && correo && age){
-//                BD.registerPlayer(usuario.getText(), email.getText(), password.getText(), avatar.getImage(), edad.getValue(), 0);
-//            }
+            
+            if(usu && passw && cpass && correo && age){
+                BD.registerPlayer(usuario.getText(), email.getText(), password.getText(), avatar.getImage(), edad.getValue(), 0);
+                
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Usuario registrado");
+                alert.setHeaderText(" Tu usuario fue registrado con éxito");  
+                alert.setContentText("Ya puedes iniciar sesión con tu nuevo usuario");
+                alert.initStyle(StageStyle.UNDECORATED);
+                DialogPane dialogPane = alert.getDialogPane();
+                alert.getDialogPane().getStylesheets().add(getClass().getResource("/Img/alert3.css").toExternalForm());
+                Optional<ButtonType> result = alert.showAndWait();
+
+                if(result.get() == ButtonType.OK){
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/IniciarSesion.fxml"));
+            
+                    Parent root = loader.load();
+
+                    IniciarSesionController controlador = loader.getController();
+                    controlador.initit2Player(false);
+
+                    Scene scene = new Scene(root);
+                    Stage stage = new Stage();
+
+                    Stage myStage = (Stage) this.cancelar.getScene().getWindow();
+                    stage.setMaximized(myStage.isMaximized());
+                    stage.setMinHeight(325);
+                    stage.setMinWidth(385);
+
+                    stage.setScene(scene);
+                    stage.show();
+
+                    stage.setOnCloseRequest(e -> controlador.closeWindow());
+
+                    myStage.close();
+                }
+            }
         } catch (Connect4DAOException ex) {
             Logger.getLogger(RegistrarseController.class.getName()).log(Level.SEVERE, null, ex);
         }
