@@ -8,6 +8,11 @@ package controladores;
 import DBAccess.Connect4DAOException;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,6 +40,7 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import model.Connect4;
 import model.Player;
+import model.Round;
 
 /**
  * FXML Controller class
@@ -60,6 +66,14 @@ public class RankingController implements Initializable {
     private static int rank;
     @FXML
     private Button volverB;
+    @FXML
+    private TableView<Round> partidasTablero;
+    @FXML
+    private TableColumn<Round, LocalDateTime> FechYHolaC;
+    @FXML
+    private TableColumn<Round, Player> GanadorC;
+    @FXML
+    private TableColumn<Round, Player> PerdedorC;
     
     public void initPlayer1(Player p1){
         this.player1 = p1;
@@ -168,6 +182,7 @@ public class RankingController implements Initializable {
         rankingC.setSortable(false);
         String css = this.getClass().getResource("/Img/ranking.css").toExternalForm();
         tablero.getStylesheets().add(css);
+        
 
     }
 
@@ -205,4 +220,84 @@ public class RankingController implements Initializable {
         }
     }
 
+    @FXML
+    private void mosratPartidasAct(ActionEvent event) {
+        try {
+            Connect4 connect4 = Connect4.getSingletonConnect4();
+            ObservableList<Round> observablRounds;
+            
+            //observablePlayers = FXCollections.observableList(connect4.getConnect4Ranking());
+            
+            ArrayList<Player> listaJugadores = connect4.getConnect4Ranking();
+            ArrayList<Round> listaPartidas = new ArrayList<>();
+            for(Player p : listaJugadores){
+                List <Round> listTwoCopy = new ArrayList<>(connect4.getRoundsPlayer(p));
+                listTwoCopy.removeAll(listaPartidas);
+                listaPartidas.addAll(listTwoCopy);
+            }
+            Collections.sort(listaPartidas);
+            Collections.reverse(listaPartidas);
+            observablRounds = FXCollections.observableList(listaPartidas);
+            partidasTablero.setItems(observablRounds);
+            
+        } catch (Connect4DAOException ex) {
+            Logger.getLogger(RankingController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        GanadorC.setCellValueFactory(new PropertyValueFactory<Round, Player>("winner"));
+        GanadorC.setCellFactory(columna -> {
+            return new TableCell<Round, Player>() {
+                protected void updateItem(Player item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (item == null || empty) {
+                        setText(null);
+                    } else {
+                        setText(item.getNickName());
+                        setAlignment(Pos.CENTER);
+                    }
+                }
+            };
+        });
+        
+        PerdedorC.setCellValueFactory(new PropertyValueFactory<Round, Player>("loser"));
+        PerdedorC.setCellFactory(columna -> {
+            return new TableCell<Round, Player>() {
+                protected void updateItem(Player item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (item == null || empty) {
+                        setText(null);
+                    } else {
+                        setText(item.getNickName());
+                        setAlignment(Pos.CENTER);
+                    }
+                }
+            };
+        });
+        
+        FechYHolaC.setCellValueFactory(new PropertyValueFactory<Round, LocalDateTime>("timeStamp"));
+        FechYHolaC.setCellFactory(columna -> {
+            return new TableCell<Round, LocalDateTime>() {
+                protected void updateItem(LocalDateTime item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (item == null || empty) {
+                        setText(null);
+                    } else {
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                        String formatDateTime = item.format(formatter);
+                        setText(formatDateTime);
+                        setAlignment(Pos.CENTER);
+                    }
+                }
+        
+            };
+        });
+        
+  
+        
+        
+    }
+    
+    
+
 }
+
