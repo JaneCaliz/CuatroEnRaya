@@ -68,6 +68,14 @@ public class MenuPrincipalController implements Initializable {
     private VBox screen;
     
     private int open = 0;
+    @FXML
+    private Button prof1;
+    @FXML
+    private Button prof2;
+    @FXML
+    private ImageView iprof1;
+    @FXML
+    private ImageView iprof2;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -75,6 +83,8 @@ public class MenuPrincipalController implements Initializable {
         profile.resize(button.getHeight(), button.getWidth());
         play1.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(73), 16).asString(), ";","-fx-base: rgb(100,100,",50,");"));
         play2.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(73), 16).asString(), ";","-fx-base: rgb(100,100,",50,");"));
+        prof1.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(73), 16).asString(), ";","-fx-base: rgb(100,100,",50,");"));
+        prof2.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(73), 16).asString(), ";","-fx-base: rgb(100,100,",50,");"));
     }    
     
     public void initscene(){
@@ -134,6 +144,11 @@ public class MenuPrincipalController implements Initializable {
         play2.disableProperty().setValue(Boolean.TRUE);
         play2.visibleProperty().setValue(Boolean.FALSE);
         iplay1.setImage(player1.getAvatar());
+        
+        prof1.setText("Perfil " + player1.getNickName());
+        prof2.disableProperty().setValue(Boolean.TRUE);
+        prof2.visibleProperty().setValue(Boolean.FALSE);
+        iprof1.setImage(player1.getAvatar());
     }
     
     public void initPlayer2(Player p){
@@ -142,6 +157,11 @@ public class MenuPrincipalController implements Initializable {
         play2.disableProperty().setValue(Boolean.FALSE);
         play2.visibleProperty().setValue(Boolean.TRUE);
         iplay2.setImage(player2.getAvatar());
+        
+        prof2.setText("Perfil " + player2.getNickName());
+        prof2.disableProperty().setValue(Boolean.FALSE);
+        prof2.visibleProperty().setValue(Boolean.TRUE);
+        iprof2.setImage(player2.getAvatar());
     }
     
     @FXML
@@ -424,6 +444,14 @@ public class MenuPrincipalController implements Initializable {
         }
             
         
+    }
+
+    @FXML
+    private void prof1(ActionEvent event) {
+    }
+
+    @FXML
+    private void prof2(ActionEvent event) {
     }
     
 }

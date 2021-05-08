@@ -44,7 +44,7 @@
                               </ImageView>
                            </graphic>
                            <cursor>
-                              <Cursor fx:constant="DEFAULT" />
+                              <Cursor fx:constant="HAND" />
                            </cursor>
                            <VBox.margin>
                               <Insets top="15.0" />
@@ -164,30 +164,50 @@
             </VBox>
             <VBox fx:id="vBox" alignment="TOP_CENTER" maxWidth="300.0" minWidth="200.0" prefHeight="313.0" prefWidth="200.0" style="-fx-background-color: #3196a3;" HBox.hgrow="ALWAYS">
                <children>
-                  <Button fx:id="play1" alignment="TOP_LEFT" maxHeight="60.0" mnemonicParsing="false" onAction="#play1" prefHeight="54.0" prefWidth="200.0" stylesheets="@../Img/button.css" text="Salir" VBox.vgrow="ALWAYS">
-                     <graphic>
-                        <ImageView fx:id="iplay1" fitHeight="41.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" />
-                     </graphic>
-                     <styleClass>
-                        <String fx:value="hover" />
-                        <String fx:value="num-button" />
-                     </styleClass>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Button fx:id="play2" alignment="TOP_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="60.0" mnemonicParsing="false" onAction="#play2" prefHeight="54.0" prefWidth="200.0" stylesheets="@../Img/button.css" text="Salir" VBox.vgrow="ALWAYS">
-                     <graphic>
-                        <ImageView fx:id="iplay2" fitHeight="41.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" />
-                     </graphic>
-                     <styleClass>
-                        <String fx:value="hover" />
-                        <String fx:value="num-button" />
-                     </styleClass>
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                  </Button>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Button fx:id="prof1" alignment="TOP_LEFT" maxHeight="60.0" mnemonicParsing="false" onAction="#prof1" prefHeight="54.0" prefWidth="200.0" stylesheets="@../Img/button.css" text="Perfil ">
+                           <graphic>
+                              <ImageView fx:id="iprof1" fitHeight="41.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
+                           <styleClass>
+                              <String fx:value="hover" />
+                              <String fx:value="num-button" />
+                           </styleClass>
+                        </Button>
+                        <Button fx:id="prof2" alignment="TOP_LEFT" maxHeight="60.0" mnemonicParsing="false" onAction="#prof2" prefHeight="54.0" prefWidth="200.0" stylesheets="@../Img/button.css" text="Perfil ">
+                           <graphic>
+                              <ImageView fx:id="iprof2" fitHeight="41.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
+                           <styleClass>
+                              <String fx:value="hover" />
+                              <String fx:value="num-button" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox alignment="BOTTOM_LEFT" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="play2" alignment="TOP_LEFT" maxHeight="60.0" mnemonicParsing="false" onAction="#play2" prefHeight="54.0" prefWidth="200.0" stylesheets="@../Img/button.css" text="Salir">
+                           <graphic>
+                              <ImageView fx:id="iplay2" fitHeight="41.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
+                           <styleClass>
+                              <String fx:value="hover" />
+                              <String fx:value="num-button" />
+                           </styleClass>
+                        </Button>
+                        <Button fx:id="play1" alignment="TOP_LEFT" maxHeight="60.0" mnemonicParsing="false" onAction="#play1" prefHeight="54.0" prefWidth="200.0" stylesheets="@../Img/button.css" text="Salir">
+                           <graphic>
+                              <ImageView fx:id="iplay1" fitHeight="41.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
+                           <styleClass>
+                              <String fx:value="hover" />
+                              <String fx:value="num-button" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </VBox>
                </children>
             </VBox>
          </children>
