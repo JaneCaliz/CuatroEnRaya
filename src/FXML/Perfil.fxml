@@ -3,7 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -53,16 +53,122 @@
          <children>
             <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0">
                <children>
-                  <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                  <VBox alignment="CENTER" prefHeight="350.0" prefWidth="176.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <ImageView fx:id="avatar" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
-                        <HBox alignment="CENTER" maxHeight="100.0" prefHeight="100.0" prefWidth="190.0" VBox.vgrow="ALWAYS">
+                        <ImageView fx:id="avatar" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <VBox.margin>
+                              <Insets top="-5.0" />
+                           </VBox.margin></ImageView>
+                        <HBox alignment="CENTER" maxHeight="100.0" prefHeight="2.0" prefWidth="199.0">
                            <children>
                               <Text fx:id="points" fill="#fcdc29" stroke="#917c00" strokeType="OUTSIDE" strokeWidth="0.4" text="Puntuación" textAlignment="CENTER">
                                  <font>
                                     <Font name="System Bold" size="25.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets top="20.0" />
+                                 </HBox.margin>
                               </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="-10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox fx:id="avatares" alignment="CENTER" prefHeight="109.0" prefWidth="197.0" visible="false">
+                           <VBox.margin>
+                              <Insets bottom="-50.0" top="-15.0" />
+                           </VBox.margin>
+                           <children>
+                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="70.0">
+                                 <children>
+                                    <Button fx:id="avatar1" mnemonicParsing="false" onAction="#avatar1" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: transparent;">
+                                       <graphic>
+                                          <ImageView fx:id="iavatar1" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../avatars/avatar1.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="avatar4" mnemonicParsing="false" onAction="#avatar4" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: transparent;">
+                                       <graphic>
+                                          <ImageView fx:id="iavatar4" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../avatars/avatar4.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="70.0">
+                                 <children>
+                                    <Button fx:id="avatar2" mnemonicParsing="false" onAction="#avatar2" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: transparent;">
+                                       <graphic>
+                                          <ImageView fx:id="iavatar2" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../avatars/avatar2.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="avatard" mnemonicParsing="false" onAction="#avatard" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: transparent;">
+                                       <graphic>
+                                          <ImageView fx:id="iavatard" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../avatars/default.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="70.0">
+                                 <children>
+                                    <Button fx:id="avatar3" mnemonicParsing="false" onAction="#avatar3" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: transparent;">
+                                       <graphic>
+                                          <ImageView fx:id="iavatar3" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../avatars/avatar3.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="upload" mnemonicParsing="false" onAction="#upload" prefHeight="45.0" prefWidth="55.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-background-radius: 5; -fx-border-radius: 5;">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <VBox.margin>
+                                          <Insets top="5.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Img/upload.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </VBox>
                            </children>
                         </HBox>
                      </children>
@@ -72,42 +178,106 @@
                         <HBox alignment="CENTER_RIGHT" maxHeight="30.0" prefHeight="10300.0" prefWidth="380.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario: " />
-                              <TextField fx:id="usuario" prefWidth="230.0" style="-fx-background-color: #edf8ff; -fx-border-color: black;" />
+                              <TextField fx:id="usuario" editable="false" prefWidth="230.0" style="-fx-background-color: #edf8ff; -fx-border-color: black;" />
                            </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" maxHeight="30.0" prefHeight="10300.0" prefWidth="380.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña: " />
-                              <PasswordField fx:id="password" prefWidth="230.0" style="-fx-background-color: #edf8ff; -fx-border-color: black;" />
+                              <TextField fx:id="password" editable="false" prefWidth="230.0" style="-fx-background-color: #edf8ff; -fx-border-color: black;" />
                            </children>
                            <VBox.margin>
-                              <Insets />
+                              <Insets bottom="5.0" />
                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT">
+                           <VBox.margin>
+                              <Insets bottom="-10.0" top="-15.0" />
+                           </VBox.margin>
+                           <children>
+                              <Text fx:id="epassword" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="230.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Text>
+                           </children>
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="110.0" maxHeight="30.0" prefHeight="10300.0" prefWidth="380.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Correo: " />
-                              <TextField fx:id="email" prefWidth="230.0" style="-fx-background-color: #edf8ff; -fx-border-color: black;" />
+                              <TextField fx:id="email" editable="false" prefWidth="230.0" style="-fx-background-color: #edf8ff; -fx-border-color: black;" />
                            </children>
                            <VBox.margin>
-                              <Insets />
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT">
+                           <children>
+                              <Text fx:id="eemail" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="230.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="-10.0" top="-15.0" />
                            </VBox.margin>
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="210.0" maxHeight="30.0" prefHeight="10300.0" prefWidth="380.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de nacimiento: " />
-                              <TextField fx:id="age" prefWidth="230.0" style="-fx-background-color: #edf8ff; -fx-border-color: black;" />
+                              <TextField fx:id="age" editable="false" prefWidth="230.0" style="-fx-background-color: #edf8ff; -fx-border-color: black;" />
                            </children>
                            <VBox.margin>
-                              <Insets />
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox fx:id="datepicker" alignment="CENTER_RIGHT" visible="false">
+                           <children>
+                              <DatePicker fx:id="date" prefWidth="230.0" style="-fx-border-color: black;">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor></DatePicker>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="-43.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT">
+                           <children>
+                              <Text fx:id="eage" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="230.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="-10.0" top="-15.0" />
                            </VBox.margin>
                         </HBox>
                         <HBox alignment="CENTER" maxHeight="33.0" prefHeight="33.0" prefWidth="380.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Button fx:id="modificar" mnemonicParsing="false" onAction="#modificar" style="-fx-background-color: #52cad9; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #2e7780;" text="Modificar perfil">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor></Button>
+                              <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Button fx:id="modificar" mnemonicParsing="false" onAction="#modificar" style="-fx-background-color: #52cad9; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #2e7780;" text="Modificar perfil">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_RIGHT" HBox.hgrow="SOMETIMES">
+                                 <children>
+                                    <Button fx:id="guardar" mnemonicParsing="false" onAction="#guardar" style="-fx-background-color: #52cad9; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #2e7780;" text="Guardar" visible="false">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </HBox>
                            </children>
                            <VBox.margin>
                               <Insets top="20.0" />
