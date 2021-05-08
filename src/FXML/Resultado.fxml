@@ -14,9 +14,6 @@
          <font>
             <Font name="SansSerif Regular" size="50.0" />
          </font>
-         <VBox.margin>
-            <Insets bottom="15.0" top="10.0" />
-         </VBox.margin>
       </Text>
       <HBox alignment="CENTER" prefHeight="7.0" prefWidth="448.0">
          <children>

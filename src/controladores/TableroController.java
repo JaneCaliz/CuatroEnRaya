@@ -294,7 +294,7 @@ public class TableroController implements Initializable {
             stage.setOnCloseRequest(e -> abrir());
             
             stage.setMinHeight(235);
-            stage.setMinWidth(424);
+            stage.setMinWidth(Double.max(424, controlador.width() + 60.0));
 
             stage.setScene(scene);
             stage.show();

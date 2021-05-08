@@ -33,10 +33,9 @@ public class ResultadoController implements Initializable {
     private Player player1, player2, initp2;
     private boolean IA, bool;
 
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
+
     }    
     
     public void initPlayer(Player p){
@@ -91,6 +90,10 @@ public class ResultadoController implements Initializable {
         } catch (Connect4DAOException ex) {
             Logger.getLogger(ResultadoController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public double width(){
+        return resultado.getLayoutBounds().getWidth();
     }
 
     @FXML
