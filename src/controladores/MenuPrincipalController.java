@@ -448,10 +448,71 @@ public class MenuPrincipalController implements Initializable {
 
     @FXML
     private void prof1(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Perfil.fxml"));
+            
+            Parent root = loader.load();
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            
+            Stage myStage = (Stage) this.prof1.getScene().getWindow();
+            
+            PerfilController controlador = loader.getController();
+            if(player2 != null)
+                controlador.initOtro(player2, 2);
+            else
+                controlador.initOtro(player1, 1);
+            controlador.initPlayer(player1);
+            
+            stage.setMaximized(myStage.isMaximized());
+//            stage.setMinHeight(520);
+//            stage.setMinWidth(460);
+            
+            stage.setScene(scene);
+            stage.show();
+            
+            stage.setOnCloseRequest(e -> {
+                controlador.cerrar();
+                e.consume();
+            });
+            myStage.close();
+        } catch (IOException ex) {
+            Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     private void prof2(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Perfil.fxml"));
+            
+            Parent root = loader.load();
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            
+            Stage myStage = (Stage) this.prof2.getScene().getWindow();
+            
+            PerfilController controlador = loader.getController();
+            controlador.initOtro(player1, 1);
+            controlador.initPlayer(player2);
+            
+            stage.setMaximized(myStage.isMaximized());
+//            stage.setMinHeight(520);
+//            stage.setMinWidth(460);
+            
+            stage.setScene(scene);
+            stage.show();
+            
+            stage.setOnCloseRequest(e -> {
+                controlador.cerrar();
+                e.consume();
+            });
+            myStage.close();
+        } catch (IOException ex) {
+            Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
