@@ -278,7 +278,7 @@ public class PerfilController implements Initializable {
             }
             
             if(passw && correo && age){
-                if(play == 2){
+                if(play == 1){
                     if(!player1.getAvatar().equals(avatar)){
                         player1.setAvatar(avatar.getImage());
                     }
@@ -292,7 +292,7 @@ public class PerfilController implements Initializable {
                         player1.setBirthdate(date.getValue());
                     }
                 }
-                if(play == 1){
+                if(play == 2){
                     if(!player2.getAvatar().equals(avatar)){
                         player2.setAvatar(avatar.getImage());
                     }
@@ -325,7 +325,8 @@ public class PerfilController implements Initializable {
                     MenuPrincipalController controlador = loader.getController();
                     controlador.initscene();
                     controlador.initPlayer(player1);
-                    controlador.initPlayer2(player2);
+                    if(player2 != null)
+                        controlador.initPlayer2(player2);
 
                     Scene scene = new Scene(root);
                     Stage stage = new Stage();

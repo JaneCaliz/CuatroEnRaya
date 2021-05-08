@@ -461,8 +461,6 @@ public class MenuPrincipalController implements Initializable {
             PerfilController controlador = loader.getController();
             if(player2 != null)
                 controlador.initOtro(player2, 2);
-            else
-                controlador.initOtro(player1, 1);
             controlador.initPlayer(player1);
             
             stage.setMaximized(myStage.isMaximized());
