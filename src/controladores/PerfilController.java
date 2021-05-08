@@ -103,7 +103,7 @@ public class PerfilController implements Initializable {
     }
     
     public void initPlayer(Player p){
-        if(player1 != null)
+        if(player1 == null)
             player1 = p;
         else
             player2 = p;
@@ -168,6 +168,7 @@ public class PerfilController implements Initializable {
     @FXML
     private void modificar(ActionEvent event) {
         usuario.setStyle("-fx-text-inner-color: #6d6f73;");
+        usuario.setStyle("-fx-control-inner-background: #edf8ff;");
         password.setText(passw);
         password.setEditable(true);
         password.setCursor(Cursor.TEXT);
@@ -179,6 +180,7 @@ public class PerfilController implements Initializable {
         age.setVisible(false);
         datepicker.setVisible(true);
         date.setValue(year);
+        date.setStyle("-fx-control-inner-background: #edf8ff;");
         
         modificar.setVisible(false);
     }
