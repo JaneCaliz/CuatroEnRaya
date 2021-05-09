@@ -102,7 +102,7 @@
             </HBox>
          </children>
       </GridPane>
-      <Pane maxHeight="2.0" minHeight="2.0" prefHeight="2.0" prefWidth="200.0" style="-fx-background-color: black;" />
+      <Pane maxHeight="2.0" minHeight="2.0" prefHeight="2.0" prefWidth="200.0" styleClass="line" stylesheets="@../Img/lightmode.css" />
       <HBox VBox.vgrow="ALWAYS">
          <children>
             <VBox fx:id="vBox2" alignment="CENTER" prefHeight="298.0" prefWidth="560.0" HBox.hgrow="ALWAYS">

@@ -189,8 +189,7 @@ public class TableroController implements Initializable {
     private Pane reset;
     boolean modo;
     @FXML
-    private VBox screen;
-    
+    private VBox screen;    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -222,25 +221,24 @@ public class TableroController implements Initializable {
     
     public void initMode(boolean b){
         modo = b;
-        
+
         if(b){ 
             screen.getStylesheets().remove("/Img/lightmode.css");
             screen.getStylesheets().add("/Img/darkmode.css");
             barra.getStylesheets().remove("/Img/lightmode.css");
             barra.getStylesheets().add("/Img/darkmode.css");
-            
-            p1.setStyle("-fx-fill: #ffffff");
-            p2.setStyle("-fx-fill: #ffffff");
-            System.out.println("Modo oscuro tablero");
+            p1.styleProperty().bind(Bindings.concat("-fx-font-size: ", gPane.widthProperty().add(gPane.heightProperty()).divide(50).asString(), ";","-fx-fill: rgb(255,255,",255,");"));
+            p2.styleProperty().bind(Bindings.concat("-fx-font-size: ", gPane.widthProperty().add(gPane.heightProperty()).divide(50).asString(), ";","-fx-fill: rgb(255,255,",255,");"));
+//            System.out.println("Modo oscuro tablero");
         }
         else{
             screen.getStylesheets().remove("/Img/darkmode.css");
             screen.getStylesheets().add("/Img/lightmode.css");
             barra.getStylesheets().remove("/Img/darkmode.css");
             barra.getStylesheets().add("/Img/lightmode.css");
-            p1.setStyle("-fx-fill: #000000");
-            p2.setStyle("-fx-fill: #000000");
-            System.out.println("Modo claro tablero");
+            p1.styleProperty().bind(Bindings.concat("-fx-font-size: ", gPane.widthProperty().add(gPane.heightProperty()).divide(50).asString(), ";","-fx-fill: rgb(0,0,",0,");"));
+            p2.styleProperty().bind(Bindings.concat("-fx-font-size: ", gPane.widthProperty().add(gPane.heightProperty()).divide(50).asString(), ";","-fx-fill: rgb(0,0,",0,");"));
+//            System.out.println("Modo claro tablero");
         }
     }
     
@@ -262,14 +260,14 @@ public class TableroController implements Initializable {
                   
             if (tablero.jugador == 1 && filaColocado!= -1){
                 cambiarColor(columna, filaColocado,"RED"); 
-                p1.setFont(Font.font("SansSerif", FontWeight.SEMI_BOLD, size));
-                p2.setFont(Font.font("SansSerif", FontWeight.BLACK, size));
+                p1.setFont(Font.font("Style", FontWeight.SEMI_BOLD, size));
+                p2.setFont(Font.font("Style", FontWeight.BLACK, size));
                 
             }
             else if(tablero.jugador == 2 && filaColocado!= -1){
                 cambiarColor(columna, filaColocado,"YELLOW");
-                p2.setFont(Font.font("SansSerif", FontWeight.SEMI_BOLD, size));
-                p1.setFont(Font.font("SansSerif", FontWeight.BLACK, size));
+                p2.setFont(Font.font("Style", FontWeight.SEMI_BOLD, size));
+                p1.setFont(Font.font("Style", FontWeight.BLACK, size));
             }
             boolean lleno = false;
             if (filaColocado!= -1){
@@ -334,8 +332,8 @@ public class TableroController implements Initializable {
     public void colocarFichaIA(){
         Random rand = new Random();
         int randomColum = rand.nextInt(8);
-        p2.setFont(Font.font("SansSerif", FontWeight.SEMI_BOLD, gPane.widthProperty().add(gPane.heightProperty()).divide(50).getValue()));
-        p1.setFont(Font.font("SansSerif", FontWeight.BLACK, gPane.widthProperty().add(gPane.heightProperty()).divide(50).getValue()));
+        p2.setFont(Font.font("Style", FontWeight.SEMI_BOLD, gPane.widthProperty().add(gPane.heightProperty()).divide(50).getValue()));
+        p1.setFont(Font.font("Style", FontWeight.BLACK, gPane.widthProperty().add(gPane.heightProperty()).divide(50).getValue()));
         int filaColocado = tablero.ponFicha(randomColum );
             if (tablero.jugador == 1 && filaColocado!= -1)
                 cambiarColor(randomColum , filaColocado,"RED");
@@ -682,14 +680,13 @@ public class TableroController implements Initializable {
         vBox4.spacingProperty().bind(Circle_4_0.radiusProperty().divide(8));
         vBox5.spacingProperty().bind(Circle_5_0.radiusProperty().divide(8));
         vBox6.spacingProperty().bind(Circle_6_0.radiusProperty().divide(8));
-        vBox7.spacingProperty().bind(Circle_7_0
-                .radiusProperty().divide(8));
+        vBox7.spacingProperty().bind(Circle_7_0.radiusProperty().divide(8));
         
         circler.radiusProperty().bind(Circle_0_0.radiusProperty().divide(5));
         circley.radiusProperty().bind(Circle_0_0.radiusProperty().divide(5));
         
-        p1.styleProperty().bind(Bindings.concat("-fx-font-size: ", gPane.widthProperty().add(gPane.heightProperty()).divide(50).asString(), ";","-fx-base: rgb(100,100,",50,");"));
-        p2.styleProperty().bind(Bindings.concat("-fx-font-size: ", gPane.widthProperty().add(gPane.heightProperty()).divide(50).asString(), ";","-fx-base: rgb(100,100,",50,");"));
+//        p1.styleProperty().bind(Bindings.concat("-fx-font-size: ", gPane.widthProperty().add(gPane.heightProperty()).divide(50).asString(), ";","-fx-fill: rgb(100,100,",50,");"));
+//        p2.styleProperty().bind(Bindings.concat("-fx-font-size: ", gPane.widthProperty().add(gPane.heightProperty()).divide(50).asString(), ";","-fx-fill: rgb(100,100,",50,");"));
         
         exit.prefHeightProperty().bind(barra.heightProperty());
     }
@@ -720,8 +717,8 @@ public class TableroController implements Initializable {
         tablero.vacia();
         
         double size = gPane.widthProperty().add(gPane.heightProperty()).divide(50).getValue();
-        p2.setFont(Font.font("SansSerif", FontWeight.SEMI_BOLD, size));
-        p1.setFont(Font.font("SansSerif", FontWeight.BLACK, size));
+        p2.setFont(Font.font("Style", FontWeight.SEMI_BOLD, size));
+        p1.setFont(Font.font("Style", FontWeight.BLACK, size));
     }
     
     private void abrir(){

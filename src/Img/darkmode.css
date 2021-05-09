@@ -2,7 +2,7 @@
     -fx-background-color: #000000;
 }
 .secondary-color{
-    -fx-background-color: #212121;
+    -fx-background-color: #000000;
 }
 .tertiary-color{
     -fx-background-color: #212121;
@@ -39,11 +39,15 @@
     -fx-text-fill: white;
 }
 .line{
-    -fx-stroke: white;
+    -fx-stroke: #212121;
+    -fx-background-color: #212121;
 }
 .conecta4{
-    -fx-background-color: #3d92b3;
+    -fx-background-color: #212121;
 }
 .conecta4-hover:hover{
-    -fx-background-color:  #147a87;
+    -fx-background-color:  #424242;
+}
+.opacity{
+    -fx-opacity: 0.70;
 }

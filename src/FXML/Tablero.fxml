@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -19,36 +21,60 @@
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
                   <Pane maxWidth="10.0" minWidth="0.0" prefHeight="28.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                  <Pane fx:id="reset" maxHeight="90.0" maxWidth="60.0" minHeight="20.0" minWidth="20.0" onMouseClicked="#reset" prefHeight="28.0" prefWidth="60.0" styleClass="reload" stylesheets="@../Img/style.css">
+                  <Pane fx:id="reset" maxHeight="90.0" maxWidth="60.0" minHeight="20.0" minWidth="20.0" onMouseClicked="#reset" prefHeight="28.0" prefWidth="60.0">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <stylesheets>
+                        <URL value="@../Img/style.css" />
+                        <URL value="@../Img/lightmode.css" />
+                     </stylesheets>
+                     <styleClass>
+                        <String fx:value="reload" />
+                        <String fx:value="opacity" />
+                     </styleClass>
                   </Pane>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Pane maxHeight="120.0" minHeight="50.0" prefHeight="73.0" prefWidth="240.0" styleClass="body" stylesheets="@../Img/title.css" HBox.hgrow="ALWAYS" />
+                  <Pane maxHeight="120.0" minHeight="50.0" prefHeight="73.0" prefWidth="240.0" HBox.hgrow="ALWAYS">
+                     <stylesheets>
+                        <URL value="@../Img/title.css" />
+                        <URL value="@../Img/lightmode.css" />
+                     </stylesheets>
+                     <styleClass>
+                        <String fx:value="body" />
+                        <String fx:value="opacity" />
+                     </styleClass></Pane>
                </children>
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Pane fx:id="exit" maxHeight="90.0" maxWidth="60.0" minHeight="20.0" minWidth="20.0" onMouseClicked="#exit" prefHeight="28.0" prefWidth="60.0" styleClass="exit" stylesheets="@../Img/style.css">
+                  <Pane fx:id="exit" maxHeight="90.0" maxWidth="60.0" minHeight="20.0" minWidth="20.0" onMouseClicked="#exit" prefHeight="28.0" prefWidth="60.0">
                      <HBox.margin>
                         <Insets left="60.0" right="5.0" />
                      </HBox.margin>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <stylesheets>
+                        <URL value="@../Img/style.css" />
+                        <URL value="@../Img/lightmode.css" />
+                     </stylesheets>
+                     <styleClass>
+                        <String fx:value="exit" />
+                        <String fx:value="opacity" />
+                     </styleClass>
                   </Pane>
                   <Pane maxWidth="10.0" minWidth="0.0" prefHeight="28.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
          </children>
       </HBox>
-      <Pane maxHeight="3.0" minHeight="3.0" prefHeight="3.0" prefWidth="200.0" style="-fx-background-color: black;" />
+      <Pane maxHeight="3.0" minHeight="3.0" prefHeight="3.0" prefWidth="200.0" styleClass="line" stylesheets="@../Img/lightmode.css" />
       <Pane maxHeight="100.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-      <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="47.0" prefWidth="504.0" spacing="100.0">
+      <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="47.0" prefWidth="504.0" spacing="100.0" styleClass="opacity" stylesheets="@../Img/lightmode.css">
          <children>
             <HBox alignment="CENTER_LEFT" maxWidth="380.0" prefHeight="47.0" prefWidth="197.0" HBox.hgrow="ALWAYS">
                <children>
@@ -105,7 +131,7 @@
             <Insets left="10.0" right="10.0" />
          </VBox.margin>
          <children>
-            <VBox fx:id="vBox0" alignment="CENTER" onMouseClicked="#colocarFicha" style="-fx-background-radius: 10 0 0 10;" styleClass="conecta4-hover" stylesheets="@../Img/lightmode.css" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <VBox fx:id="vBox0" alignment="CENTER" onMouseClicked="#colocarFicha" style="-fx-background-radius: 10 0 0 10;" stylesheets="@../Img/lightmode.css" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <children>
                   <Circle fx:id="Circle_0_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
@@ -149,8 +175,12 @@
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
+               <styleClass>
+                  <String fx:value="conecta4-hover" />
+                  <String fx:value="opacity" />
+               </styleClass>
             </VBox>
-            <VBox fx:id="vBox1" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="conecta4-hover" stylesheets="@../Img/lightmode.css" GridPane.columnIndex="1">
+            <VBox fx:id="vBox1" alignment="CENTER" onMouseClicked="#colocarFicha" stylesheets="@../Img/lightmode.css" GridPane.columnIndex="1">
                <children>
                   <Circle fx:id="Circle_1_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
@@ -191,8 +221,12 @@
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
+               <styleClass>
+                  <String fx:value="conecta4-hover" />
+                  <String fx:value="opacity" />
+               </styleClass>
             </VBox>
-            <VBox fx:id="vBox2" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="conecta4-hover" stylesheets="@../Img/lightmode.css" GridPane.columnIndex="2">
+            <VBox fx:id="vBox2" alignment="CENTER" onMouseClicked="#colocarFicha" stylesheets="@../Img/lightmode.css" GridPane.columnIndex="2">
                <children>
                   <Circle fx:id="Circle_2_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
@@ -233,8 +267,12 @@
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
+               <styleClass>
+                  <String fx:value="conecta4-hover" />
+                  <String fx:value="opacity" />
+               </styleClass>
             </VBox>
-            <VBox fx:id="vBox3" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="conecta4-hover" stylesheets="@../Img/lightmode.css" GridPane.columnIndex="3">
+            <VBox fx:id="vBox3" alignment="CENTER" onMouseClicked="#colocarFicha" stylesheets="@../Img/lightmode.css" GridPane.columnIndex="3">
                <children>
                   <Circle fx:id="Circle_3_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
@@ -275,8 +313,12 @@
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
+               <styleClass>
+                  <String fx:value="conecta4-hover" />
+                  <String fx:value="opacity" />
+               </styleClass>
             </VBox>
-            <VBox fx:id="vBox4" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="conecta4-hover" stylesheets="@../Img/lightmode.css" GridPane.columnIndex="4">
+            <VBox fx:id="vBox4" alignment="CENTER" onMouseClicked="#colocarFicha" stylesheets="@../Img/lightmode.css" GridPane.columnIndex="4">
                <children>
                   <Circle fx:id="Circle_4_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
@@ -317,8 +359,12 @@
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
+               <styleClass>
+                  <String fx:value="conecta4-hover" />
+                  <String fx:value="opacity" />
+               </styleClass>
             </VBox>
-            <VBox fx:id="vBox5" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="conecta4-hover" stylesheets="@../Img/lightmode.css" GridPane.columnIndex="5">
+            <VBox fx:id="vBox5" alignment="CENTER" onMouseClicked="#colocarFicha" stylesheets="@../Img/lightmode.css" GridPane.columnIndex="5">
                <children>
                   <Circle fx:id="Circle_5_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
@@ -359,8 +405,12 @@
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
+               <styleClass>
+                  <String fx:value="conecta4-hover" />
+                  <String fx:value="opacity" />
+               </styleClass>
             </VBox>
-            <VBox fx:id="vBox6" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="conecta4-hover" stylesheets="@../Img/lightmode.css" GridPane.columnIndex="6">
+            <VBox fx:id="vBox6" alignment="CENTER" onMouseClicked="#colocarFicha" stylesheets="@../Img/lightmode.css" GridPane.columnIndex="6">
                <children>
                   <Circle fx:id="Circle_6_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
@@ -401,8 +451,12 @@
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
+               <styleClass>
+                  <String fx:value="conecta4-hover" />
+                  <String fx:value="opacity" />
+               </styleClass>
             </VBox>
-            <VBox fx:id="vBox7" alignment="CENTER" onMouseClicked="#colocarFicha" style="-fx-background-radius: 0 10 10 0;" styleClass="conecta4-hover" stylesheets="@../Img/lightmode.css" GridPane.columnIndex="7">
+            <VBox fx:id="vBox7" alignment="CENTER" onMouseClicked="#colocarFicha" style="-fx-background-radius: 0 10 10 0;" stylesheets="@../Img/lightmode.css" GridPane.columnIndex="7">
                <children>
                   <Circle fx:id="Circle_7_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
@@ -443,6 +497,10 @@
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
+               <styleClass>
+                  <String fx:value="conecta4-hover" />
+                  <String fx:value="opacity" />
+               </styleClass>
             </VBox>
          </children>
       </GridPane>
