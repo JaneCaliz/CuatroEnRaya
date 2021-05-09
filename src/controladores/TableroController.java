@@ -229,7 +229,17 @@ public class TableroController implements Initializable {
             barra.getStylesheets().add("/Img/darkmode.css");
             p1.styleProperty().bind(Bindings.concat("-fx-font-size: ", gPane.widthProperty().add(gPane.heightProperty()).divide(50).asString(), ";","-fx-fill: rgb(255,255,",255,");"));
             p2.styleProperty().bind(Bindings.concat("-fx-font-size: ", gPane.widthProperty().add(gPane.heightProperty()).divide(50).asString(), ";","-fx-fill: rgb(255,255,",255,");"));
-//            System.out.println("Modo oscuro tablero");
+            
+            double size = gPane.widthProperty().add(gPane.heightProperty()).divide(50).getValue();
+            if (tablero.jugador == 1){
+                p1.setFont(Font.font("Style", FontWeight.SEMI_BOLD, size));
+                p2.setFont(Font.font("Style", FontWeight.BLACK, size));
+                
+            }
+            if(tablero.jugador == 2){
+                p2.setFont(Font.font("Style", FontWeight.SEMI_BOLD, size));
+                p1.setFont(Font.font("Style", FontWeight.BLACK, size));
+            }
         }
         else{
             screen.getStylesheets().remove("/Img/darkmode.css");

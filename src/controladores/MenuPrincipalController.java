@@ -183,7 +183,7 @@ public class MenuPrincipalController implements Initializable {
     
     public void pos(boolean b){
         if(b){
-            mode.setTranslateY(-54);
+            mode.setTranslateY(54);
         }
     }
     
