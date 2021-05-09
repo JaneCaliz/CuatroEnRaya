@@ -6,9 +6,9 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-
 
 <HBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.RankingController">
    <children>
@@ -21,6 +21,7 @@
                         <HBox alignment="CENTER" prefHeight="48.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
                            <children>
                               <Button fx:id="volverB" alignment="CENTER" mnemonicParsing="false" onAction="#volverMP" prefHeight="35.0" prefWidth="64.0" styleClass="arrow" stylesheets="@../Img/style.css" />
+                              <TextField fx:id="nombreTF" />
                            </children>
                         </HBox>
                         <TableView fx:id="tablero" prefHeight="262.0" prefWidth="600.0">

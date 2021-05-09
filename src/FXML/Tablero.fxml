@@ -57,7 +57,7 @@
                         <Insets left="30.0" />
                      </HBox.margin>
                   </Circle>
-                  <Text fx:id="p1" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Player1" wrappingWidth="159.7502851486206">
+                  <Text fx:id="p1" strokeType="OUTSIDE" strokeWidth="0.0" text="Player1" wrappingWidth="159.7502851486206">
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin>
@@ -69,7 +69,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" maxWidth="380.0" minWidth="-Infinity" prefHeight="47.0" prefWidth="217.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Text fx:id="p2" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Player2" textAlignment="RIGHT" wrappingWidth="213.13000106811523">
+                  <Text fx:id="p2" strokeType="OUTSIDE" strokeWidth="0.0" text="Player2" textAlignment="RIGHT" wrappingWidth="213.13000106811523">
                      <HBox.margin>
                         <Insets right="5.0" />
                      </HBox.margin>

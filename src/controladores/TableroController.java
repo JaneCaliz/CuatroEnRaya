@@ -223,21 +223,24 @@ public class TableroController implements Initializable {
     public void initMode(boolean b){
         modo = b;
         
-        if(modo){ 
+        if(b){ 
             screen.getStylesheets().remove("/Img/lightmode.css");
             screen.getStylesheets().add("/Img/darkmode.css");
             barra.getStylesheets().remove("/Img/lightmode.css");
             barra.getStylesheets().add("/Img/darkmode.css");
-//            p1.setStyle("-fx-fill: #ffffff;");
-//            p2.setStyle("-fx-fill: #ffffff;");
+            
+            p1.setStyle("-fx-fill: #ffffff");
+            p2.setStyle("-fx-fill: #ffffff");
+            System.out.println("Modo oscuro tablero");
         }
         else{
             screen.getStylesheets().remove("/Img/darkmode.css");
             screen.getStylesheets().add("/Img/lightmode.css");
             barra.getStylesheets().remove("/Img/darkmode.css");
             barra.getStylesheets().add("/Img/lightmode.css");
-//            p1.setStyle("-fx-fill: #000000;");
-//            p2.setStyle("-fx-fill: #000000;");
+            p1.setStyle("-fx-fill: #000000");
+            p2.setStyle("-fx-fill: #000000");
+            System.out.println("Modo claro tablero");
         }
     }
     

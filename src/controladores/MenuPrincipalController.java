@@ -83,7 +83,7 @@ public class MenuPrincipalController implements Initializable {
     private Button mode;
     @FXML
     private ImageView imodo;
-    boolean modo;
+    boolean modoOscuro;
     Image darkmode = null, lightmode = null;
     @FXML
     private Button partidas;
@@ -96,7 +96,9 @@ public class MenuPrincipalController implements Initializable {
         play2.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(73), 16).asString(), ";","-fx-base: rgb(100,100,",50,");"));
         prof1.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(73), 16).asString(), ";","-fx-base: rgb(100,100,",50,");"));
         prof2.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(73), 16).asString(), ";","-fx-base: rgb(100,100,",50,");"));
-    }    
+        darkmode = new Image(getClass().getResource("/Img/moon.png").toExternalForm());
+        lightmode = new Image(getClass().getResource("/Img/sun.png").toExternalForm());
+    }   
     
     public void initscene() throws FileNotFoundException{
         
@@ -146,8 +148,7 @@ public class MenuPrincipalController implements Initializable {
         buttonc.setOnMouseClicked(event -> {
         });
         
-        darkmode = new Image(getClass().getResource("/Img/moon.png").toExternalForm());
-        lightmode = new Image(getClass().getResource("/Img/sun.png").toExternalForm());
+        
     }
     
     public void initPlayer(Player p){
@@ -199,7 +200,7 @@ public class MenuPrincipalController implements Initializable {
             Stage myStage = (Stage) this.jugarIA.getScene().getWindow();
 
             TableroController controlador = loader.getController();
-            controlador.initMode(modo);
+            
             controlador.initializeIA(true);
             controlador.initializeP1(player1);
             if(player2 != null)
@@ -209,6 +210,7 @@ public class MenuPrincipalController implements Initializable {
             stage.setMinWidth(504);
             
             stage.setScene(scene);
+            controlador.initMode(modoOscuro);
             stage.show();
             
             stage.setOnCloseRequest(e -> {
@@ -240,7 +242,7 @@ public class MenuPrincipalController implements Initializable {
                 Stage myStage = (Stage) this.jugarF.getScene().getWindow();
 
                 IniciarSesionController controlador = loader.getController();
-                controlador.initMode(modo);
+                controlador.initMode(modoOscuro);
                 controlador.initit2Player(true);
                 controlador.inititPlayer1(player1);
                 stage.setMaximized(myStage.isMaximized());
@@ -265,7 +267,7 @@ public class MenuPrincipalController implements Initializable {
                 Stage myStage = (Stage) this.jugarF.getScene().getWindow();
 
                 TableroController controlador = loader.getController();
-                controlador.initMode(modo);
+                controlador.initMode(modoOscuro);
                 controlador.initializeP1(player1);
                 controlador.initializeP2(player2);
                 
@@ -350,7 +352,7 @@ public class MenuPrincipalController implements Initializable {
 
                 MenuPrincipalController controlador = loader.getController();
                 controlador.initscene();
-                controlador.initMode(modo);
+                controlador.initMode(modoOscuro);
                 controlador.initPlayer(player2);
                 stage.setMaximized(myStage.isMaximized());
                 stage.setMinHeight(520);
@@ -416,7 +418,7 @@ public class MenuPrincipalController implements Initializable {
                 MenuPrincipalController controlador = loader.getController();
                 controlador.initscene();
                 controlador.initPlayer(player1);
-                controlador.initMode(modo);
+                controlador.initMode(modoOscuro);
                 stage.setMaximized(myStage.isMaximized());
                 stage.setMinHeight(520);
                 stage.setMinWidth(460);
@@ -487,7 +489,7 @@ public class MenuPrincipalController implements Initializable {
             Stage myStage = (Stage) this.prof1.getScene().getWindow();
             
             PerfilController controlador = loader.getController();
-            controlador.initMode(modo);
+            controlador.initMode(modoOscuro);
             if(player2 != null)
                 controlador.initOtro(player2, 2);
             controlador.initPlayer(player1);
@@ -522,7 +524,7 @@ public class MenuPrincipalController implements Initializable {
             Stage myStage = (Stage) this.prof2.getScene().getWindow();
             
             PerfilController controlador = loader.getController();
-            controlador.initMode(modo);
+            controlador.initMode(modoOscuro);
             controlador.initOtro(player1, 1);
             controlador.initPlayer(player2);
             
@@ -545,12 +547,12 @@ public class MenuPrincipalController implements Initializable {
 
     @FXML
     private void mode(ActionEvent event) {
-        cambiar(modo);
+        cambiar();
     }
     
     public void initMode(boolean b){
-        modo = b;
-        if(modo){ 
+        modoOscuro = b;
+        if(modoOscuro){ 
             imodo.setImage(lightmode);
             mode.setText(" Modo claro");
             
@@ -606,10 +608,12 @@ public class MenuPrincipalController implements Initializable {
         }
     }
     
-    public void cambiar(boolean b){
-        if(modo){ 
+    public void cambiar(){
+        modoOscuro = !modoOscuro;//Ivertir
+        
+        if(modoOscuro){ 
             imodo.setImage(lightmode);
-            modo = !modo;
+            
             mode.setText(" Modo claro");
             
             screen.getStylesheets().remove("/Img/lightmode.css");
@@ -637,7 +641,7 @@ public class MenuPrincipalController implements Initializable {
         }
         else{
             imodo.setImage(darkmode);
-            modo = !modo;
+            
             mode.setText(" Modo oscuro");
             
             screen.getStylesheets().remove("/Img/darkmode.css");
