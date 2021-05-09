@@ -9,68 +9,76 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<TabPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.RankingController">
-   <tabs>
-      <Tab>
-         <content>
-            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
-               <children>
-                  <HBox alignment="CENTER" prefHeight="48.0" prefWidth="600.0">
+
+<HBox alignment="CENTER" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.RankingController">
+   <children>
+      <TabPane HBox.hgrow="ALWAYS">
+         <tabs>
+            <Tab closable="false">
+               <content>
+                  <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0">
                      <children>
-                        <Button fx:id="volverB" alignment="CENTER" mnemonicParsing="false" onAction="#volverMP" prefHeight="35.0" prefWidth="64.0" styleClass="arrow" stylesheets="@../Img/style.css" />
+                        <HBox alignment="CENTER" prefHeight="48.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Button fx:id="volverB" alignment="CENTER" mnemonicParsing="false" onAction="#volverMP" prefHeight="35.0" prefWidth="64.0" styleClass="arrow" stylesheets="@../Img/style.css" />
+                           </children>
+                        </HBox>
+                        <TableView fx:id="tablero" prefHeight="262.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn fx:id="rankingC" prefWidth="75.0" text="Ranking " />
+                              <TableColumn fx:id="avatarC" prefWidth="75.0" text="Avatar" />
+                            <TableColumn fx:id="nombreC" prefWidth="75.0" text="Nombre" />
+                              <TableColumn fx:id="puntosC" prefWidth="75.0" text="Puntos" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Button mnemonicParsing="false" text="Ver pardidas">
+                                 <HBox.margin>
+                                    <Insets right="30.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" text="Buscar jugardor">
+                                 <HBox.margin>
+                                    <Insets left="30.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <opaqueInsets>
+                              <Insets right="10.0" />
+                           </opaqueInsets>
+                        </HBox>
                      </children>
-                  </HBox>
-                  <TableView fx:id="tablero" prefHeight="262.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
-                    <columns>
-                      <TableColumn fx:id="rankingC" prefWidth="75.0" text="Ranking " />
-                        <TableColumn fx:id="avatarC" prefWidth="75.0" text="Avatar" />
-                      <TableColumn fx:id="nombreC" prefWidth="75.0" text="Nombre" />
-                        <TableColumn fx:id="puntosC" prefWidth="75.0" text="Puntos" />
-                    </columns>
-                     <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy>
-                  </TableView>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                  </VBox>
+               </content>
+            </Tab>
+            <Tab closable="false" text="Untitled Tab">
+               <content>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Ver pardidas">
-                           <HBox.margin>
-                              <Insets right="30.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" text="Buscar jugardor">
-                           <HBox.margin>
-                              <Insets left="30.0" />
-                           </HBox.margin>
-                        </Button>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#mosratPartidasAct" text="Mostrar Partidas" />
+                           </children>
+                        </HBox>
+                        <TableView fx:id="partidasTablero" prefHeight="294.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn fx:id="FechYHolaC" editable="false" prefWidth="134.0" sortable="false" text="Fecha y hora " />
+                              <TableColumn fx:id="GanadorC" prefWidth="111.0" text="Ganador" />
+                              <TableColumn fx:id="PerdedorC" prefWidth="137.0" text="Perdedor " />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
                      </children>
-                     <opaqueInsets>
-                        <Insets right="10.0" />
-                     </opaqueInsets>
-                  </HBox>
-               </children>
-            </VBox>
-         </content>
-      </Tab>
-      <Tab text="Untitled Tab">
-         <content>
-            <VBox prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#mosratPartidasAct" text="Mostrar Partidas" />
-                     </children>
-                  </HBox>
-                  <TableView fx:id="partidasTablero" prefHeight="294.0" prefWidth="600.0">
-                    <columns>
-                      <TableColumn fx:id="FechYHolaC" editable="false" prefWidth="134.0" sortable="false" text="Fecha y hora " />
-                        <TableColumn fx:id="GanadorC" prefWidth="111.0" text="Ganador" />
-                        <TableColumn fx:id="PerdedorC" prefWidth="137.0" text="Perdedor " />
-                    </columns>
-                  </TableView>
-               </children>
-            </VBox>
-         </content>
-      </Tab>
-   </tabs>
-</TabPane>
+                  </VBox>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</HBox>

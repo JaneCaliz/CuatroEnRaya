@@ -162,6 +162,7 @@ public class RankingController implements Initializable {
               return new ReadOnlyObjectWrapper(p.getValue());
             }
         });
+        
         rank = 0;
         rankingC.setCellFactory(new Callback<TableColumn<Player, Player>, TableCell<Player, Player>>() {
           @Override public TableCell<Player, Player> call(TableColumn<Player, Player> param) {
@@ -169,11 +170,11 @@ public class RankingController implements Initializable {
               @Override protected void updateItem(Player item, boolean empty) {
                 super.updateItem(item, empty);
                 if (this.getTableRow() != null && item != null) {
-                  setText(rank + "");
-                  rank = rank + 1;
-                    setAlignment(Pos.CENTER);
+                        setText(this.getTableRow().getIndex()+1+"");
+                        setAlignment(Pos.CENTER);
+
                 } else {
-                  setText("");
+                    setText("");
                 }
               }
             };
@@ -282,7 +283,7 @@ public class RankingController implements Initializable {
                     if (item == null || empty) {
                         setText(null);
                     } else {
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
                         String formatDateTime = item.format(formatter);
                         setText(formatDateTime);
                         setAlignment(Pos.CENTER);
