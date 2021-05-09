@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -45,6 +46,8 @@ public class IniciarSesionController implements Initializable {
     
     private Player p1, p2;
     private boolean RegistrarP2, modo;
+    @FXML
+    private HBox screen;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -53,6 +56,37 @@ public class IniciarSesionController implements Initializable {
 
     public void initMode(boolean b){
         modo = b;
+        
+        if(modo){ 
+            screen.getStylesheets().remove("/Img/lightmode.css");
+            screen.getStylesheets().add("/Img/darkmode.css");
+            usuario.getStylesheets().remove("/Img/lightmode.css");
+            usuario.getStylesheets().add("/Img/darkmode.css");
+            password.getStylesheets().remove("/Img/lightmode.css");
+            password.getStylesheets().add("/Img/darkmode.css");
+            recuerdame.getStylesheets().remove("/Img/lightmode.css");
+            recuerdame.getStylesheets().add("/Img/darkmode.css");
+            iniciar.getStylesheets().remove("/Img/lightmode.css");
+            iniciar.getStylesheets().add("/Img/darkmode.css");
+            registrar.getStylesheets().remove("/Img/lightmode.css");
+            registrar.getStylesheets().add("/Img/darkmode.css");
+            title.setStyle("-fx-fill: #ffffff;");
+        }
+        else{
+            screen.getStylesheets().remove("/Img/darkmode.css");
+            screen.getStylesheets().add("/Img/lightmode.css");
+            usuario.getStylesheets().remove("/Img/darkmode.css");
+            usuario.getStylesheets().add("/Img/lightmode.css");
+            password.getStylesheets().remove("/Img/darkmode.css");
+            password.getStylesheets().add("/Img/lightmode.css");
+            recuerdame.getStylesheets().remove("/Img/darkmode.css");
+            recuerdame.getStylesheets().add("/Img/lightmode.css");
+            iniciar.getStylesheets().remove("/Img/darkmode.css");
+            iniciar.getStylesheets().add("/Img/lightmode.css");
+            registrar.getStylesheets().remove("/Img/darkmode.css");
+            registrar.getStylesheets().add("/Img/lightmode.css");
+            title.setStyle("-fx-fill: #000000;");
+        }
     }
     
     public void closeWindow() {

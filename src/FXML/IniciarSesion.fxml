@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox alignment="CENTER" prefHeight="300.0" prefWidth="430.0" styleClass="primary-color" stylesheets="@../Img/lightmode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.IniciarSesionController">
+<HBox fx:id="screen" alignment="CENTER" prefHeight="300.0" prefWidth="430.0" styleClass="primary-color" stylesheets="@../Img/lightmode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.IniciarSesionController">
    <children>
       <Pane prefHeight="326.0" prefWidth="110.0" HBox.hgrow="ALWAYS">
          <children>

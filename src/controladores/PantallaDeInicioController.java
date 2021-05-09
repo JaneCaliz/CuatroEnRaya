@@ -33,6 +33,7 @@ public class PantallaDeInicioController implements Initializable {
             
             IniciarSesionController controlador = loader.getController();
             controlador.initit2Player(false);
+            controlador.initMode(false);
             
             Scene scene = new Scene(root);
             Stage stage = new Stage();

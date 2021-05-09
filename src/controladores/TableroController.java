@@ -188,6 +188,8 @@ public class TableroController implements Initializable {
     @FXML
     private Pane reset;
     boolean modo;
+    @FXML
+    private VBox screen;
     
 
     @Override
@@ -220,6 +222,23 @@ public class TableroController implements Initializable {
     
     public void initMode(boolean b){
         modo = b;
+        
+        if(modo){ 
+            screen.getStylesheets().remove("/Img/lightmode.css");
+            screen.getStylesheets().add("/Img/darkmode.css");
+            barra.getStylesheets().remove("/Img/lightmode.css");
+            barra.getStylesheets().add("/Img/darkmode.css");
+//            p1.setStyle("-fx-fill: #ffffff;");
+//            p2.setStyle("-fx-fill: #ffffff;");
+        }
+        else{
+            screen.getStylesheets().remove("/Img/darkmode.css");
+            screen.getStylesheets().add("/Img/lightmode.css");
+            barra.getStylesheets().remove("/Img/darkmode.css");
+            barra.getStylesheets().add("/Img/lightmode.css");
+//            p1.setStyle("-fx-fill: #000000;");
+//            p2.setStyle("-fx-fill: #000000;");
+        }
     }
     
     @FXML

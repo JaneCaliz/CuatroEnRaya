@@ -177,11 +177,10 @@ public class MenuPrincipalController implements Initializable {
         prof2.visibleProperty().setValue(Boolean.TRUE);
         iprof2.setImage(player2.getAvatar());
         
-        initMode(true);
+        pos(true);
     }
     
-    public void initMode(boolean b){
-        modo = b;
+    public void pos(boolean b){
         if(b){
             mode.setTranslateY(-54);
         }
@@ -546,7 +545,69 @@ public class MenuPrincipalController implements Initializable {
 
     @FXML
     private void mode(ActionEvent event) {
-        if(!modo){ 
+        cambiar(modo);
+    }
+    
+    public void initMode(boolean b){
+        modo = b;
+        if(modo){ 
+            imodo.setImage(lightmode);
+            mode.setText(" Modo claro");
+            
+            screen.getStylesheets().remove("/Img/lightmode.css");
+            screen.getStylesheets().add("/Img/darkmode.css");
+            barra.getStylesheets().remove("/Img/lightmode.css");
+            barra.getStylesheets().add("/Img/darkmode.css");
+            vBox.getStylesheets().remove("/Img/lightmode.css");
+            vBox.getStylesheets().add("/Img/darkmode.css");
+            jugarF.getStylesheets().remove("/Img/lightmode.css");
+            jugarF.getStylesheets().add("/Img/darkmode.css");
+            jugarIA.getStylesheets().remove("/Img/lightmode.css");
+            jugarIA.getStylesheets().add("/Img/darkmode.css");
+            partidas.getStylesheets().remove("/Img/lightmode.css");
+            partidas.getStylesheets().add("/Img/darkmode.css");
+            mode.getStylesheets().remove("/Img/lightmode.css");
+            mode.getStylesheets().add("/Img/darkmode.css");
+            prof1.getStylesheets().remove("/Img/lightmode.css");
+            prof1.getStylesheets().add("/Img/darkmode.css");
+            prof2.getStylesheets().remove("/Img/lightmode.css");
+            prof2.getStylesheets().add("/Img/darkmode.css");      
+            play1.getStylesheets().remove("/Img/lightmode.css");
+            play1.getStylesheets().add("/Img/darkmode.css");
+            play2.getStylesheets().remove("/Img/lightmode.css");
+            play2.getStylesheets().add("/Img/darkmode.css");
+        }
+        else{
+            imodo.setImage(darkmode);
+            mode.setText(" Modo oscuro");
+            
+            screen.getStylesheets().remove("/Img/darkmode.css");
+            screen.getStylesheets().add("/Img/lightmode.css");
+            barra.getStylesheets().remove("/Img/darkmode.css");
+            barra.getStylesheets().add("/Img/lightmode.css");
+            vBox.getStylesheets().remove("/Img/darkmode.css");
+            vBox.getStylesheets().add("/Img/lightmode.css");
+            jugarF.getStylesheets().remove("/Img/darkmode.css");
+            jugarF.getStylesheets().add("/Img/lightmode.css");
+            jugarIA.getStylesheets().remove("/Img/darkmode.css");
+            jugarIA.getStylesheets().add("/Img/lightmode.css");
+            partidas.getStylesheets().remove("/Img/darkmode.css");
+            partidas.getStylesheets().add("/Img/lightmode.css");
+            mode.getStylesheets().remove("/Img/darkmode.css");
+            mode.getStylesheets().add("/Img/lightmode.css");
+            prof1.getStylesheets().remove("/Img/darkmode.css");
+            prof1.getStylesheets().add("/Img/lightmode.css");
+            prof2.getStylesheets().remove("/Img/darkmode.css");
+            prof2.getStylesheets().add("/Img/lightmode.css");
+            play1.getStylesheets().remove("/Img/darkmode.css");
+            play1.getStylesheets().add("/Img/lightmode.css");
+            play2.getStylesheets().remove("/Img/darkmode.css");
+            play2.getStylesheets().add("/Img/lightmode.css");
+        }
+    }
+    
+    public void cambiar(boolean b){
+        if(modo){ 
             imodo.setImage(lightmode);
             modo = !modo;
             mode.setText(" Modo claro");
@@ -602,6 +663,5 @@ public class MenuPrincipalController implements Initializable {
             play2.getStylesheets().remove("/Img/darkmode.css");
             play2.getStylesheets().add("/Img/lightmode.css");
         }
-        
     }
 }
