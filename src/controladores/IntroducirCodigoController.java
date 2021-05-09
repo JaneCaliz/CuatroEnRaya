@@ -46,6 +46,7 @@ public class IntroducirCodigoController implements Initializable {
     public Player p;
     @FXML
     private Text pass;
+    boolean modo;
     
     Stage stage2;
     
@@ -53,6 +54,10 @@ public class IntroducirCodigoController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
     }  
+    
+    public void initMode(boolean b){
+        modo = b;
+    }
     
     public void codigo(){
         try {
@@ -73,7 +78,7 @@ public class IntroducirCodigoController implements Initializable {
             stage2.show();
                         
             myStage.setOnCloseRequest(e -> controlador.cerrar());
-                    
+            
             Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
             double x = bounds.getMinX() + (bounds.getWidth() - scene2.getWidth()) * 1;
             double y = bounds.getMinY() + (bounds.getHeight() - scene2.getHeight()) * 1;
@@ -100,6 +105,7 @@ public class IntroducirCodigoController implements Initializable {
         Parent root = loader.load();
 
         IniciarSesionController controlador = loader.getController();
+        controlador.initMode(modo);
         controlador.initit2Player(false);
 
         Scene scene = new Scene(root);
@@ -140,6 +146,7 @@ public class IntroducirCodigoController implements Initializable {
                     Parent root = loader.load();
 
                     IniciarSesionController controlador = loader.getController();
+                    controlador.initMode(modo);
                     controlador.initit2Player(false);
 
                     Scene scene = new Scene(root);

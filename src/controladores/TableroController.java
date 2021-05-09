@@ -187,6 +187,7 @@ public class TableroController implements Initializable {
     private VBox vBox7;
     @FXML
     private Pane reset;
+    boolean modo;
     
 
     @Override
@@ -215,6 +216,10 @@ public class TableroController implements Initializable {
     
     public void initP2(Player p){
         this.initp2 = p;
+    }
+    
+    public void initMode(boolean b){
+        modo = b;
     }
     
     @FXML
@@ -281,6 +286,7 @@ public class TableroController implements Initializable {
             Stage myStage = (Stage) this.p1.getScene().getWindow();
             
             ResultadoController controlador = loader.getController();
+            controlador.initMode(modo);
             controlador.initPlayer(player1);
             controlador.initPlayer2(player2);
             controlador.initRes(resultado);
@@ -560,6 +566,7 @@ public class TableroController implements Initializable {
             Parent root = loader.load();
 
             MenuPrincipalController controlador = loader.getController();
+            controlador.initMode(modo);
             controlador.initscene();
             controlador.initPlayer(player1);
 
@@ -702,6 +709,7 @@ public class TableroController implements Initializable {
             Parent root2 = loader2.load();
 
             MenuPrincipalController controlador2 = loader2.getController();
+            controlador2.initMode(modo);
             controlador2.initscene();
             controlador2.initPlayer(player1);
             if (player2 != null)

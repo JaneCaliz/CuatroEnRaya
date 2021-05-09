@@ -21,7 +21,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.DialogPane;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -91,6 +90,7 @@ public class PerfilController implements Initializable {
     String passw;
     LocalDate year;
     int play;
+    boolean modo;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -130,6 +130,10 @@ public class PerfilController implements Initializable {
             player2 = p;
     }
     
+    public void initMode(boolean b){
+        modo = b;
+    }
+    
     public void cerrar(){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
@@ -142,6 +146,7 @@ public class PerfilController implements Initializable {
             Stage myStage = (Stage) this.volver.getScene().getWindow();
             
             MenuPrincipalController controlador = loader.getController();
+            controlador.initMode(modo);
             controlador.initscene();
             controlador.initPlayer(player1);
             if(player2 != null)
@@ -325,6 +330,7 @@ public class PerfilController implements Initializable {
                     Parent root = loader.load();
 
                     MenuPrincipalController controlador = loader.getController();
+                    controlador.initMode(modo);
                     controlador.initscene();
                     controlador.initPlayer(player1);
                     if(player2 != null)

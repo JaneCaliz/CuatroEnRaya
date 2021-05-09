@@ -15,9 +15,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="screen" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="375.0" minWidth="468.0" prefHeight="470.0" prefWidth="698.0" style="-fx-background-color: b2ebf2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.MenuPrincipalController">
+<VBox fx:id="screen" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="375.0" minWidth="468.0" prefHeight="470.0" prefWidth="698.0" styleClass="primary-color" stylesheets="@../Img/lightmode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.MenuPrincipalController">
    <children>
-      <GridPane fx:id="barra" alignment="CENTER" maxHeight="120.0" minHeight="0.0" prefHeight="0.0" prefWidth="666.0" style="-fx-background-color: #147a87;" VBox.vgrow="ALWAYS">
+      <GridPane fx:id="barra" alignment="CENTER" maxHeight="120.0" minHeight="0.0" prefHeight="0.0" prefWidth="666.0" styleClass="secondary-color" stylesheets="@../Img/lightmode.css" VBox.vgrow="ALWAYS">
         <columnConstraints>
           <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="80.0" minWidth="80.0" prefWidth="80.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="300.0" prefWidth="300.0" />
@@ -109,7 +109,7 @@
                <children>
                   <HBox alignment="CENTER" maxHeight="100.0" minHeight="70.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button fx:id="jugarF" maxHeight="100.0" maxWidth="250.0" minHeight="70.0" mnemonicParsing="false" onAction="#jugarF" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #52cad9; -fx-border-color: #2e7780; -fx-background-radius: 10; -fx-border-radius: 10;" text="Jugar con amigo" wrapText="true">
+                        <Button fx:id="jugarF" maxHeight="100.0" maxWidth="250.0" minHeight="70.0" mnemonicParsing="false" onAction="#jugarF" prefHeight="70.0" prefWidth="230.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" stylesheets="@../Img/lightmode.css" text="Jugar con amigo" wrapText="true">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -119,6 +119,10 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
+                           <styleClass>
+                              <String fx:value="button-color" />
+                              <String fx:value="button-border-color" />
+                           </styleClass>
                         </Button>
                      </children>
                      <VBox.margin>
@@ -128,7 +132,7 @@
                   <Pane maxHeight="40.0" minHeight="20.0" prefHeight="150.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                   <HBox alignment="CENTER" maxHeight="100.0" minHeight="70.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button fx:id="jugarIA" maxHeight="100.0" maxWidth="250.0" minHeight="70.0" mnemonicParsing="false" onAction="#jugarIA" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #52cad9; -fx-border-color: #2e7780; -fx-background-radius: 10; -fx-border-radius: 10;" text="Jugar contra máquina">
+                        <Button fx:id="jugarIA" maxHeight="100.0" maxWidth="250.0" minHeight="70.0" mnemonicParsing="false" onAction="#jugarIA" prefHeight="70.0" prefWidth="230.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" stylesheets="@../Img/lightmode.css" text="Jugar contra máquina">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -138,6 +142,10 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
+                           <styleClass>
+                              <String fx:value="button-color" />
+                              <String fx:value="button-border-color" />
+                           </styleClass>
                         </Button>
                      </children>
                      <VBox.margin>
@@ -147,13 +155,17 @@
                   <Pane maxHeight="40.0" minHeight="20.0" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                   <HBox alignment="CENTER" maxHeight="100.0" minHeight="70.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button disable="true" maxHeight="100.0" maxWidth="250.0" minHeight="70.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #52cad9; -fx-border-color: #2e7780; -fx-background-radius: 10; -fx-border-radius: 10;" text="Partidas">
+                        <Button fx:id="partidas" disable="true" maxHeight="100.0" maxWidth="250.0" minHeight="70.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" stylesheets="@../Img/lightmode.css" text="Partidas">
                            <font>
                               <Font size="20.0" />
                            </font>
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
+                           <styleClass>
+                              <String fx:value="button-color" />
+                              <String fx:value="button-border-color" />
+                           </styleClass>
                         </Button>
                      </children>
                      <VBox.margin>
@@ -162,50 +174,65 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox fx:id="vBox" alignment="TOP_CENTER" maxWidth="300.0" minWidth="200.0" prefHeight="313.0" prefWidth="200.0" style="-fx-background-color: #3196a3;" HBox.hgrow="ALWAYS">
+            <VBox fx:id="vBox" alignment="TOP_CENTER" maxWidth="300.0" minWidth="200.0" prefHeight="313.0" prefWidth="200.0" styleClass="tertiary-color" stylesheets="@../Img/lightmode.css" HBox.hgrow="ALWAYS">
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Button fx:id="prof1" alignment="TOP_LEFT" maxHeight="60.0" mnemonicParsing="false" onAction="#prof1" prefHeight="54.0" prefWidth="200.0" stylesheets="@../Img/button.css" text="Perfil ">
+                        <Button fx:id="prof1" alignment="TOP_LEFT" maxHeight="60.0" mnemonicParsing="false" onAction="#prof1" prefHeight="54.0" prefWidth="200.0" stylesheets="@../Img/lightmode.css" text="Perfil ">
                            <graphic>
                               <ImageView fx:id="iprof1" fitHeight="41.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
                            <styleClass>
-                              <String fx:value="hover" />
+                              <String fx:value="button-hover" />
                               <String fx:value="num-button" />
                            </styleClass>
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button fx:id="prof2" alignment="TOP_LEFT" maxHeight="60.0" mnemonicParsing="false" onAction="#prof2" prefHeight="54.0" prefWidth="200.0" stylesheets="@../Img/button.css" text="Perfil ">
+                        <Button fx:id="prof2" alignment="TOP_LEFT" maxHeight="60.0" mnemonicParsing="false" onAction="#prof2" prefHeight="54.0" prefWidth="200.0" stylesheets="@../Img/lightmode.css" text="Perfil ">
                            <graphic>
                               <ImageView fx:id="iprof2" fitHeight="41.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
                            <styleClass>
-                              <String fx:value="hover" />
+                              <String fx:value="button-hover" />
                               <String fx:value="num-button" />
                            </styleClass>
+                        </Button>
+                        <Button fx:id="mode" alignment="TOP_LEFT" layoutX="10.0" layoutY="69.0" maxHeight="60.0" mnemonicParsing="false" onAction="#mode" prefHeight="54.0" prefWidth="200.0" stylesheets="@../Img/lightmode.css" text=" Modo oscuro">
+                           <graphic>
+                              <ImageView fx:id="imodo" fitHeight="30.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Img/moon.png" />
+                                 </image></ImageView>
+                           </graphic>
+                           <styleClass>
+                              <String fx:value="button-hover" />
+                              <String fx:value="num-button" />
+                           </styleClass>
+                           <VBox.margin>
+                              <Insets top="-54.0" />
+                           </VBox.margin>
                         </Button>
                      </children>
                   </VBox>
                   <VBox alignment="BOTTOM_LEFT" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button fx:id="play2" alignment="TOP_LEFT" maxHeight="60.0" mnemonicParsing="false" onAction="#play2" prefHeight="54.0" prefWidth="200.0" stylesheets="@../Img/button.css" text="Salir">
+                        <Button fx:id="play2" alignment="TOP_LEFT" maxHeight="60.0" mnemonicParsing="false" onAction="#play2" prefHeight="54.0" prefWidth="200.0" stylesheets="@../Img/lightmode.css" text="Salir">
                            <graphic>
                               <ImageView fx:id="iplay2" fitHeight="41.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
                            <styleClass>
-                              <String fx:value="hover" />
+                              <String fx:value="button-hover" />
                               <String fx:value="num-button" />
                            </styleClass>
                         </Button>
-                        <Button fx:id="play1" alignment="TOP_LEFT" maxHeight="60.0" mnemonicParsing="false" onAction="#play1" prefHeight="54.0" prefWidth="200.0" stylesheets="@../Img/button.css" text="Salir">
+                        <Button fx:id="play1" alignment="TOP_LEFT" maxHeight="60.0" mnemonicParsing="false" onAction="#play1" prefHeight="54.0" prefWidth="200.0" stylesheets="@../Img/lightmode.css" text="Salir">
                            <graphic>
                               <ImageView fx:id="iplay1" fitHeight="41.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
                            <styleClass>
-                              <String fx:value="hover" />
+                              <String fx:value="button-hover" />
                               <String fx:value="num-button" />
                            </styleClass>
                         </Button>

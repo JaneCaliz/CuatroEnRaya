@@ -32,6 +32,7 @@ public class ResultadoController implements Initializable {
     private String res;
     private Player player1, player2, initp2;
     private boolean IA, bool;
+    boolean modo;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -52,6 +53,10 @@ public class ResultadoController implements Initializable {
     
     public void initMax(Boolean b){
         bool = b;
+    }
+    
+    public void initMode(boolean b){
+        modo = b;
     }
     
     public void initRes (String s){
@@ -104,6 +109,7 @@ public class ResultadoController implements Initializable {
             Parent root = loader.load();
 
             MenuPrincipalController controlador = loader.getController();
+            controlador.initMode(modo);
             controlador.initscene();
             controlador.initPlayer(player1);
             if(player2 != null)
@@ -140,6 +146,7 @@ public class ResultadoController implements Initializable {
         Parent root = loader.load();
 
         TableroController controlador = loader.getController();
+        controlador.initMode(modo);
         controlador.initializeP1(player1);
         if (player2 != null)
             controlador.initializeP2(player2);

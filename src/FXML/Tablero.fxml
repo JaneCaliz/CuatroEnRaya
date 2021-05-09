@@ -12,9 +12,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="444.0" minWidth="520.0" prefHeight="650.0" prefWidth="800.0" style="-fx-background-color: b2ebf2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.TableroController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="444.0" minWidth="520.0" prefHeight="650.0" prefWidth="800.0" styleClass="primary-color" stylesheets="@../Img/lightmode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.TableroController">
    <children>
-      <HBox fx:id="barra" alignment="CENTER" maxHeight="120.0" minHeight="40.0" prefHeight="100.0" prefWidth="606.0" spacing="100.0" style="-fx-background-color: #147a87;" VBox.vgrow="ALWAYS">
+      <HBox fx:id="barra" alignment="CENTER" maxHeight="120.0" minHeight="40.0" prefHeight="100.0" prefWidth="606.0" spacing="100.0" styleClass="secondary-color" stylesheets="@../Img/lightmode.css" VBox.vgrow="ALWAYS">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
@@ -57,7 +57,7 @@
                         <Insets left="30.0" />
                      </HBox.margin>
                   </Circle>
-                  <Text fx:id="p1" strokeType="OUTSIDE" strokeWidth="0.0" text="Player1" wrappingWidth="159.7502851486206">
+                  <Text fx:id="p1" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Player1" wrappingWidth="159.7502851486206">
                      <HBox.margin>
                         <Insets left="5.0" />
                      </HBox.margin>
@@ -69,7 +69,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" maxWidth="380.0" minWidth="-Infinity" prefHeight="47.0" prefWidth="217.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Text fx:id="p2" strokeType="OUTSIDE" strokeWidth="0.0" text="Player2" textAlignment="RIGHT" wrappingWidth="213.13000106811523">
+                  <Text fx:id="p2" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Player2" textAlignment="RIGHT" wrappingWidth="213.13000106811523">
                      <HBox.margin>
                         <Insets right="5.0" />
                      </HBox.margin>
@@ -87,7 +87,7 @@
          </VBox.margin>
       </HBox>
       <Pane maxHeight="100.0" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-      <GridPane fx:id="gPane" alignment="CENTER" maxHeight="525.0" maxWidth="850.0" minHeight="197.0" minWidth="320.0" prefHeight="358.0" prefWidth="580.0" style="-fx-background-color: #3d92b3; -fx-background-radius: 10;" VBox.vgrow="ALWAYS">
+      <GridPane fx:id="gPane" alignment="CENTER" maxHeight="525.0" maxWidth="850.0" minHeight="197.0" minWidth="320.0" prefHeight="358.0" prefWidth="580.0" style="-fx-background-radius: 10;" styleClass="conecta4" stylesheets="@../Img/lightmode.css" VBox.vgrow="ALWAYS">
         <columnConstraints>
             <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
@@ -105,7 +105,7 @@
             <Insets left="10.0" right="10.0" />
          </VBox.margin>
          <children>
-            <VBox fx:id="vBox0" alignment="CENTER" onMouseClicked="#colocarFicha" style="-fx-background-radius: 10 0 0 10;" styleClass="circle" stylesheets="@../Img/button.css" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <VBox fx:id="vBox0" alignment="CENTER" onMouseClicked="#colocarFicha" style="-fx-background-radius: 10 0 0 10;" styleClass="conecta4-hover" stylesheets="@../Img/lightmode.css" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <children>
                   <Circle fx:id="Circle_0_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
@@ -150,7 +150,7 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </VBox>
-            <VBox fx:id="vBox1" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="circle" stylesheets="@../Img/button.css" GridPane.columnIndex="1">
+            <VBox fx:id="vBox1" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="conecta4-hover" stylesheets="@../Img/lightmode.css" GridPane.columnIndex="1">
                <children>
                   <Circle fx:id="Circle_1_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
@@ -192,7 +192,7 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </VBox>
-            <VBox fx:id="vBox2" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="circle" stylesheets="@../Img/button.css" GridPane.columnIndex="2">
+            <VBox fx:id="vBox2" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="conecta4-hover" stylesheets="@../Img/lightmode.css" GridPane.columnIndex="2">
                <children>
                   <Circle fx:id="Circle_2_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
@@ -234,7 +234,7 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </VBox>
-            <VBox fx:id="vBox3" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="circle" stylesheets="@../Img/button.css" GridPane.columnIndex="3">
+            <VBox fx:id="vBox3" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="conecta4-hover" stylesheets="@../Img/lightmode.css" GridPane.columnIndex="3">
                <children>
                   <Circle fx:id="Circle_3_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
@@ -276,7 +276,7 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </VBox>
-            <VBox fx:id="vBox4" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="circle" stylesheets="@../Img/button.css" GridPane.columnIndex="4">
+            <VBox fx:id="vBox4" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="conecta4-hover" stylesheets="@../Img/lightmode.css" GridPane.columnIndex="4">
                <children>
                   <Circle fx:id="Circle_4_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
@@ -318,7 +318,7 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </VBox>
-            <VBox fx:id="vBox5" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="circle" stylesheets="@../Img/button.css" GridPane.columnIndex="5">
+            <VBox fx:id="vBox5" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="conecta4-hover" stylesheets="@../Img/lightmode.css" GridPane.columnIndex="5">
                <children>
                   <Circle fx:id="Circle_5_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
@@ -360,7 +360,7 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </VBox>
-            <VBox fx:id="vBox6" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="circle" stylesheets="@../Img/button.css" GridPane.columnIndex="6">
+            <VBox fx:id="vBox6" alignment="CENTER" onMouseClicked="#colocarFicha" styleClass="conecta4-hover" stylesheets="@../Img/lightmode.css" GridPane.columnIndex="6">
                <children>
                   <Circle fx:id="Circle_6_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>
@@ -402,7 +402,7 @@
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor>
             </VBox>
-            <VBox fx:id="vBox7" alignment="CENTER" onMouseClicked="#colocarFicha" style="-fx-background-radius: 0 10 10 0;" styleClass="circle" stylesheets="@../Img/button.css" GridPane.columnIndex="7">
+            <VBox fx:id="vBox7" alignment="CENTER" onMouseClicked="#colocarFicha" style="-fx-background-radius: 0 10 10 0;" styleClass="conecta4-hover" stylesheets="@../Img/lightmode.css" GridPane.columnIndex="7">
                <children>
                   <Circle fx:id="Circle_7_0" fill="WHITE" radius="18.0" stroke="BLACK" strokeType="INSIDE">
                      <cursor>

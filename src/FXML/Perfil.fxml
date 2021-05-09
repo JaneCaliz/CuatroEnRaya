@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -13,9 +14,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="452.0" prefWidth="620.0" style="-fx-background-color: b2ebf2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.PerfilController">
+<VBox prefHeight="452.0" prefWidth="620.0" styleClass="primary-color" stylesheets="@../Img/lightmode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.PerfilController">
    <children>
-      <HBox alignment="CENTER" maxHeight="120.0" prefHeight="80.0" prefWidth="620.0" style="-fx-background-color: #147a87;" VBox.vgrow="ALWAYS">
+      <HBox alignment="CENTER" maxHeight="120.0" prefHeight="80.0" prefWidth="620.0" styleClass="secondary-color" stylesheets="@../Img/lightmode.css" VBox.vgrow="ALWAYS">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
@@ -177,8 +178,8 @@
                      <children>
                         <HBox alignment="CENTER_RIGHT" maxHeight="30.0" prefHeight="10300.0" prefWidth="380.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Usuario: " />
-                              <TextField fx:id="usuario" editable="false" prefWidth="230.0" style="-fx-background-color: #edf8ff; -fx-border-color: black;">
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Usuario: " />
+                              <TextField fx:id="usuario" editable="false" prefWidth="230.0" styleClass="text-field" stylesheets="@../Img/lightmode.css">
                                  <cursor>
                                     <Cursor fx:constant="DEFAULT" />
                                  </cursor></TextField>
@@ -189,8 +190,8 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" maxHeight="30.0" prefHeight="10300.0" prefWidth="380.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña: " />
-                              <TextField fx:id="password" editable="false" prefWidth="230.0" style="-fx-background-color: #edf8ff; -fx-border-color: black;">
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Contraseña: " />
+                              <TextField fx:id="password" editable="false" prefWidth="230.0" styleClass="text-field" stylesheets="@../Img/lightmode.css">
                                  <cursor>
                                     <Cursor fx:constant="DEFAULT" />
                                  </cursor></TextField>
@@ -213,8 +214,8 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="110.0" maxHeight="30.0" prefHeight="10300.0" prefWidth="380.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Correo: " />
-                              <TextField fx:id="email" editable="false" prefWidth="230.0" style="-fx-background-color: #edf8ff; -fx-border-color: black;">
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Correo: " />
+                              <TextField fx:id="email" editable="false" prefWidth="230.0" styleClass="text-field" stylesheets="@../Img/lightmode.css">
                                  <cursor>
                                     <Cursor fx:constant="DEFAULT" />
                                  </cursor></TextField>
@@ -237,8 +238,8 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="210.0" maxHeight="30.0" prefHeight="10300.0" prefWidth="380.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de nacimiento: " />
-                              <TextField fx:id="age" editable="false" prefWidth="230.0" style="-fx-background-color: #edf8ff; -fx-border-color: black;">
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Fecha de nacimiento: " />
+                              <TextField fx:id="age" editable="false" prefWidth="230.0" styleClass="text-field" stylesheets="@../Img/lightmode.css">
                                  <cursor>
                                     <Cursor fx:constant="DEFAULT" />
                                  </cursor></TextField>
@@ -274,19 +275,27 @@
                            <children>
                               <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Button fx:id="modificar" mnemonicParsing="false" onAction="#modificar" style="-fx-background-color: #52cad9; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #2e7780;" text="Modificar perfil">
+                                    <Button fx:id="modificar" mnemonicParsing="false" onAction="#modificar" style="-fx-background-radius: 5; -fx-border-radius: 5;" stylesheets="@../Img/lightmode.css" text="Modificar perfil">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
+                                       <styleClass>
+                                          <String fx:value="button-border-color" />
+                                          <String fx:value="button-color" />
+                                       </styleClass>
                                     </Button>
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" HBox.hgrow="SOMETIMES">
                                  <children>
-                                    <Button fx:id="guardar" mnemonicParsing="false" onAction="#guardar" style="-fx-background-color: #52cad9; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #2e7780;" text="Guardar" visible="false">
+                                    <Button fx:id="guardar" mnemonicParsing="false" onAction="#guardar" style="-fx-background-radius: 5; -fx-border-radius: 5;" stylesheets="@../Img/lightmode.css" text="Guardar" visible="false">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
+                                       <styleClass>
+                                          <String fx:value="button-border-color" />
+                                          <String fx:value="button-color" />
+                                       </styleClass>
                                     </Button>
                                  </children>
                               </HBox>

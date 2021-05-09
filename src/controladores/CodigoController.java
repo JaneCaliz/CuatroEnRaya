@@ -39,8 +39,8 @@ public class CodigoController implements Initializable {
                 value = valor;
                 text.setText(value);
         }
-    }    
-    
+    }  
+      
     public static String valor(){
         return value;
     }

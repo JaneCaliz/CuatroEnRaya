@@ -31,10 +31,15 @@ public class RecordarPasswordController implements Initializable {
     private Text error;
     @FXML
     private Button cancelar;
+    boolean modo;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }    
+    
+    public void initMode(boolean b){
+        modo = b;
+    }
     
     @FXML
     private void recuperar(ActionEvent event) {
@@ -59,8 +64,8 @@ public class RecordarPasswordController implements Initializable {
                 Player player = DB.getPlayer(usuario.getText());
                 
                 IntroducirCodigoController controlador = loader.getController();
+                controlador.initMode(modo);
                 controlador.initPlayer(player);
-                
 
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
@@ -102,6 +107,7 @@ public class RecordarPasswordController implements Initializable {
         Parent root = loader.load();
 
         IniciarSesionController controlador = loader.getController();
+        controlador.initMode(modo);
         controlador.initit2Player(false);
 
         Scene scene = new Scene(root);

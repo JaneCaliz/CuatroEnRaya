@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -9,11 +10,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="350.0" style="-fx-background-color: b2ebf2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.IntroducirCodigoController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="350.0" styleClass="primary-color" stylesheets="@../Img/lightmode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.IntroducirCodigoController">
    <children>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="350.0">
          <children>
-            <TextField fx:id="code" focusTraversable="false" prefHeight="33.0" prefWidth="290.0" promptText="Ingresa aquí el código" style="-fx-background-color: #edf8ff; -fx-border-color: black;">
+            <TextField fx:id="code" focusTraversable="false" prefHeight="33.0" prefWidth="290.0" promptText="Ingresa aquí el código" styleClass="text-field" stylesheets="@../Img/lightmode.css">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
@@ -30,21 +31,29 @@
       </Text>
       <HBox alignment="CENTER" prefHeight="44.0" prefWidth="350.0">
          <children>
-            <Button fx:id="cancelar" cancelButton="true" mnemonicParsing="false" onAction="#cancelar" style="-fx-border-color: #2e7780; -fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: #52cad9;" text="Cancelar">
+            <Button fx:id="cancelar" cancelButton="true" mnemonicParsing="false" onAction="#cancelar" style="-fx-background-radius: 5; -fx-border-radius: 5;" stylesheets="@../Img/lightmode.css" text="Cancelar">
                <HBox.margin>
                   <Insets left="25.0" right="30.0" />
                </HBox.margin>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <styleClass>
+                  <String fx:value="button-border-color" />
+                  <String fx:value="button-color" />
+               </styleClass>
             </Button>
-            <Button fx:id="obtener" defaultButton="true" mnemonicParsing="false" onAction="#obtener" style="-fx-border-color: #2e7780; -fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: #52cad9;" text="Obtener contraseña">
+            <Button fx:id="obtener" defaultButton="true" mnemonicParsing="false" onAction="#obtener" style="-fx-background-radius: 5; -fx-border-radius: 5;" stylesheets="@../Img/lightmode.css" text="Obtener contraseña">
                <HBox.margin>
                   <Insets left="30.0" right="25.0" />
                </HBox.margin>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <styleClass>
+                  <String fx:value="button-border-color" />
+                  <String fx:value="button-color" />
+               </styleClass>
             </Button>
          </children>
          <VBox.margin>

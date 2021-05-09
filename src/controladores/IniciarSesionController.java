@@ -44,13 +44,17 @@ public class IniciarSesionController implements Initializable {
     private Pane idk;
     
     private Player p1, p2;
-    private boolean RegistrarP2;
+    private boolean RegistrarP2, modo;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         iniciar.setDefaultButton(true);
     }    
 
+    public void initMode(boolean b){
+        modo = b;
+    }
+    
     public void closeWindow() {
          try {
             if(RegistrarP2){
@@ -64,6 +68,7 @@ public class IniciarSesionController implements Initializable {
                 Stage myStage = (Stage) this.iniciar.getScene().getWindow();
 
                 MenuPrincipalController controlador = loader.getController();
+                controlador.initMode(modo);
                 controlador.initscene();
                 controlador.initPlayer(p1);
 
@@ -147,6 +152,7 @@ public class IniciarSesionController implements Initializable {
                     Stage stage = new Stage();
                     
                     TableroController controlador = loader.getController();
+                    controlador.initMode(modo);
                     controlador.initializeP2(p2);
                     controlador.initializeP1(p1);
                     controlador.initializeIA(false);
@@ -182,6 +188,7 @@ public class IniciarSesionController implements Initializable {
                     stage.setMinWidth(460);
                     
                     MenuPrincipalController controlador = loader.getController();
+                    controlador.initMode(modo);
                     controlador.initscene();
                     controlador.initPlayer(p1);
                     stage.setMaximized(myStage.isMaximized());
@@ -217,6 +224,7 @@ public class IniciarSesionController implements Initializable {
             
             RecordarPasswordController controlador = loader.getController();
             Stage myStage = (Stage) this.iniciar.getScene().getWindow();
+            controlador.initMode(modo);
             
             stage.setMaximized(myStage.isMaximized());
             stage.setMinHeight(235);
@@ -270,6 +278,8 @@ public class IniciarSesionController implements Initializable {
             stage.setMaximized(myStage.isMaximized());
             stage.setMinHeight(235);
             stage.setMinWidth(350);
+            
+            controlador.initMode(modo);
             
             stage.setScene(scene);
             stage.show();

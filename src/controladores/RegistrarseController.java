@@ -86,11 +86,16 @@ public class RegistrarseController implements Initializable {
     private PasswordField password;
     @FXML
     private PasswordField cpassword;
+    boolean modo;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
+    public void initMode(boolean b){
+        modo = b;
+    }
 
     @FXML
     private void avatar1(ActionEvent event) {
@@ -149,6 +154,7 @@ public class RegistrarseController implements Initializable {
             Parent root = loader.load();
             
             IniciarSesionController controlador = loader.getController();
+            controlador.initMode(modo);
             controlador.initit2Player(false);
             
             Scene scene = new Scene(root);
@@ -269,6 +275,7 @@ public class RegistrarseController implements Initializable {
                     Parent root = loader.load();
 
                     IniciarSesionController controlador = loader.getController();
+                    controlador.initMode(modo);
                     controlador.initit2Player(false);
 
                     Scene scene = new Scene(root);

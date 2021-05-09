@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox alignment="CENTER" prefHeight="300.0" prefWidth="430.0" style="-fx-background-color: b2ebf2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.IniciarSesionController">
+<HBox alignment="CENTER" prefHeight="300.0" prefWidth="430.0" styleClass="primary-color" stylesheets="@../Img/lightmode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.IniciarSesionController">
    <children>
       <Pane prefHeight="326.0" prefWidth="110.0" HBox.hgrow="ALWAYS">
          <children>
@@ -33,7 +34,7 @@
       <VBox alignment="CENTER_LEFT" prefHeight="326.0" prefWidth="240.0" HBox.hgrow="ALWAYS">
          <children>
             <Pane fx:id="idk" prefHeight="170.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-            <Text fx:id="title" focusTraversable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Inicia sesión" textAlignment="CENTER">
+            <Text fx:id="title" focusTraversable="true" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Inicia sesión" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
@@ -44,7 +45,7 @@
             <Pane maxHeight="20.0" prefHeight="30.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
             <VBox alignment="CENTER_LEFT" prefHeight="76.0" prefWidth="600.0" spacing="8.0">
                <children>
-                  <TextField fx:id="usuario" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="33.0" prefWidth="230.0" promptText="Usuario" style="-fx-background-color: #edf8ff; -fx-border-color: black;">
+                  <TextField fx:id="usuario" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="33.0" prefWidth="230.0" promptText="Usuario" styleClass="text-field" stylesheets="@../Img/lightmode.css">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -52,7 +53,7 @@
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </TextField>
-                  <PasswordField fx:id="password" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="230.0" promptText="Contraseña" style="-fx-background-color: #edf8ff; -fx-border-color: black;">
+                  <PasswordField fx:id="password" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="230.0" promptText="Contraseña" styleClass="text-field" stylesheets="@../Img/lightmode.css">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
@@ -71,7 +72,7 @@
                   </Text>
                </children>
             </HBox>
-            <Hyperlink fx:id="recuerdame" alignment="TOP_CENTER" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#recordar" text="Recordar contraseña" textAlignment="CENTER" textFill="#156779">
+            <Hyperlink fx:id="recuerdame" alignment="TOP_CENTER" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#recordar" styleClass="hyper" stylesheets="@../Img/lightmode.css" text="Recordar contraseña" textAlignment="CENTER" textFill="#156779">
                <VBox.margin>
                   <Insets left="-5.0" top="5.0" />
                </VBox.margin>
@@ -79,21 +80,29 @@
             <Pane maxHeight="20.0" prefHeight="80.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
             <HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="37.0" prefWidth="600.0">
                <children>
-                  <Button fx:id="registrar" focusTraversable="false" mnemonicParsing="false" onAction="#registrar" style="-fx-border-color: #2e7780; -fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: #52cad9;" text="Regístrate">
+                  <Button fx:id="registrar" focusTraversable="false" mnemonicParsing="false" onAction="#registrar" style="-fx-border-radius: 5; -fx-background-radius: 5;" stylesheets="@../Img/lightmode.css" text="Regístrate">
                      <HBox.margin>
                         <Insets right="15.0" />
                      </HBox.margin>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <styleClass>
+                        <String fx:value="button-border-color" />
+                        <String fx:value="button-color" />
+                     </styleClass>
                   </Button>
-                  <Button fx:id="iniciar" defaultButton="true" mnemonicParsing="false" onAction="#inicio" style="-fx-border-color: #2e7780; -fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: #52cad9;" text="Iniciar sesión">
+                  <Button fx:id="iniciar" defaultButton="true" mnemonicParsing="false" onAction="#inicio" style="-fx-background-radius: 5; -fx-border-radius: 5;" stylesheets="@../Img/lightmode.css" text="Iniciar sesión">
                      <HBox.margin>
                         <Insets left="15.0" />
                      </HBox.margin>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
+                     <styleClass>
+                        <String fx:value="button-border-color" />
+                        <String fx:value="button-color" />
+                     </styleClass>
                   </Button>
                </children>
                <VBox.margin>

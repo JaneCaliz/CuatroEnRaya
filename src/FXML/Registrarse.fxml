@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -15,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="410.0" prefWidth="680.0" style="-fx-background-color: b2ebf2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.RegistrarseController">
+<VBox alignment="CENTER" prefHeight="410.0" prefWidth="680.0" styleClass="primary-color" stylesheets="@../Img/lightmode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.RegistrarseController">
    <children>
       <HBox alignment="CENTER" prefHeight="300.0" prefWidth="650.0" spacing="25.0">
          <children>
@@ -23,7 +24,7 @@
                <children>
                   <HBox alignment="BOTTOM_LEFT" prefHeight="34.0" prefWidth="250.0">
                      <children>
-                        <Text focusTraversable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Regístrate">
+                        <Text focusTraversable="true" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Regístrate">
                            <font>
                               <Font name="System Bold" size="25.0" />
                            </font>
@@ -33,7 +34,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <TextField fx:id="usuario" maxWidth="315.0" prefWidth="315.0" promptText="Usuario" style="-fx-border-color: black;">
+                  <TextField fx:id="usuario" maxWidth="315.0" prefWidth="315.0" promptText="Usuario" styleClass="text-field" stylesheets="@../Img/lightmode.css">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
@@ -45,7 +46,7 @@
                      <font>
                         <Font size="13.0" />
                      </font></Text>
-                  <TextField fx:id="email" maxWidth="315.0" prefWidth="315.0" promptText="Correo electrónico" style="-fx-border-color: black;">
+                  <TextField fx:id="email" maxWidth="315.0" prefWidth="315.0" promptText="Correo electrónico" styleClass="text-field" stylesheets="@../Img/lightmode.css">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
@@ -54,17 +55,17 @@
                      <font>
                         <Font size="13.0" />
                      </font></Text>
-                  <PasswordField fx:id="password" maxWidth="315.0" prefWidth="315.0" promptText="Contraseña" style="-fx-border-color: black;" />
+                  <PasswordField fx:id="password" maxWidth="315.0" prefWidth="315.0" promptText="Contraseña" styleClass="text-field" stylesheets="@../Img/lightmode.css" />
                   <Text fx:id="epassword" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="315.0" VBox.vgrow="ALWAYS">
                      <font>
                         <Font size="13.0" />
                      </font></Text>
-                  <PasswordField fx:id="cpassword" maxWidth="315.0" prefWidth="315.0" promptText="Confirmar contraseña" style="-fx-border-color: black;" />
+                  <PasswordField fx:id="cpassword" maxWidth="315.0" prefWidth="315.0" promptText="Confirmar contraseña" style="-fx-border-color: black;" stylesheets="@../Img/lightmode.css" />
                   <Text fx:id="ecpassword" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
                      <font>
                         <Font size="13.0" />
                      </font></Text>
-                  <DatePicker fx:id="edad" maxWidth="315.0" prefWidth="315.0" promptText="Fecha de nacimiento" style="-fx-background-color: #edf8ff; -fx-border-color: black;" VBox.vgrow="ALWAYS">
+                  <DatePicker fx:id="edad" maxWidth="315.0" prefWidth="315.0" promptText="Fecha de nacimiento" stylesheets="@../Img/lightmode.css" VBox.vgrow="ALWAYS">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
@@ -78,7 +79,7 @@
                   <Insets bottom="-7.0" top="10.0" />
                </HBox.margin>
             </VBox>
-            <Line endX="-100.0" startX="-100.0" startY="-300.0" style="-fx-fill: #2e7780;" />
+            <Line endX="-100.0" startX="-100.0" startY="-300.0" styleClass="line" />
             <VBox alignment="CENTER" prefHeight="260.0" prefWidth="224.0" spacing="7.0">
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -95,7 +96,7 @@
                   </HBox>
                   <HBox alignment="BOTTOM_CENTER" prefHeight="21.0" prefWidth="250.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cambia tu avatar (opcional):" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-field" text="Cambia tu avatar (opcional):" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="224.0">
@@ -201,12 +202,20 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="34.0" prefWidth="500.0" spacing="55.0">
          <children>
-            <Button fx:id="cancelar" cancelButton="true" mnemonicParsing="false" onAction="#cancelar" style="-fx-background-color: #52cad9; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #2e7780;" text="Cancelar">
+            <Button fx:id="cancelar" cancelButton="true" mnemonicParsing="false" onAction="#cancelar" style="-fx-background-radius: 5; -fx-border-radius: 5;" stylesheets="@../Img/lightmode.css" text="Cancelar">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
+               <styleClass>
+                  <String fx:value="button-border-color" />
+                  <String fx:value="button-color" />
+               </styleClass>
             </Button>
-            <Button fx:id="registrarse" defaultButton="true" mnemonicParsing="false" onAction="#registrarse" style="-fx-background-color: #52cad9; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #2e7780;" text="Registrarse" />
+            <Button fx:id="registrarse" defaultButton="true" mnemonicParsing="false" onAction="#registrarse" style="-fx-background-radius: 5; -fx-border-radius: 5;" stylesheets="@../Img/lightmode.css" text="Registrarse">
+               <styleClass>
+                  <String fx:value="button-border-color" />
+                  <String fx:value="button-color" />
+               </styleClass></Button>
             <Pane prefHeight="200.0" prefWidth="224.0" />
          </children>
          <VBox.margin>

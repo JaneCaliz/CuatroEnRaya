@@ -1,0 +1,49 @@
+.primary-color{
+    -fx-background-color: #000000;
+}
+.secondary-color{
+    -fx-background-color: #212121;
+}
+.tertiary-color{
+    -fx-background-color: #212121;
+}
+.button-color{
+    -fx-background-color: #424242;
+    -fx-text-fill: white;
+}
+.button-border-color{
+    -fx-border-color: #000000;
+}
+.button-hover:hover {
+  -fx-background-color: #121212;
+  -fx-border-color: none;
+  -fx-cursor: hand;
+  -fx-text-fill: white;
+}
+.num-button {
+-fx-background-color: #212121;
+-fx-background-radius:  80 0 0 80;
+-fx-text-fill: white;
+-fx-alignment: CENTER_LEFT;
+}
+.text-field{
+    -fx-background-color: #757575;
+    -fx-border-color: black;
+    -fx-prompt-text-fill: gray;
+    -fx-text-fill: white;
+}
+.text{
+    -fx-text-fill: white;
+}
+.hyper{
+    -fx-text-fill: white;
+}
+.line{
+    -fx-stroke: white;
+}
+.conecta4{
+    -fx-background-color: #3d92b3;
+}
+.conecta4-hover:hover{
+    -fx-background-color:  #147a87;
+}

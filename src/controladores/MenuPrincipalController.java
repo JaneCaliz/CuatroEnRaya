@@ -1,5 +1,7 @@
 package controladores;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
@@ -18,6 +20,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -76,6 +79,14 @@ public class MenuPrincipalController implements Initializable {
     private ImageView iprof1;
     @FXML
     private ImageView iprof2;
+    @FXML
+    private Button mode;
+    @FXML
+    private ImageView imodo;
+    boolean modo;
+    Image darkmode = null, lightmode = null;
+    @FXML
+    private Button partidas;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -87,7 +98,7 @@ public class MenuPrincipalController implements Initializable {
         prof2.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(73), 16).asString(), ";","-fx-base: rgb(100,100,",50,");"));
     }    
     
-    public void initscene(){
+    public void initscene() throws FileNotFoundException{
         
         vBox.setTranslateX(300);
         vBox2.setTranslateX(screen.getLayoutX()/2 + 120);
@@ -134,6 +145,9 @@ public class MenuPrincipalController implements Initializable {
         
         buttonc.setOnMouseClicked(event -> {
         });
+        
+        darkmode = new Image(getClass().getResource("/Img/moon.png").toExternalForm());
+        lightmode = new Image(getClass().getResource("/Img/sun.png").toExternalForm());
     }
     
     public void initPlayer(Player p){
@@ -162,6 +176,15 @@ public class MenuPrincipalController implements Initializable {
         prof2.disableProperty().setValue(Boolean.FALSE);
         prof2.visibleProperty().setValue(Boolean.TRUE);
         iprof2.setImage(player2.getAvatar());
+        
+        initMode(true);
+    }
+    
+    public void initMode(boolean b){
+        modo = b;
+        if(b){
+            mode.setTranslateY(-54);
+        }
     }
     
     @FXML
@@ -177,6 +200,7 @@ public class MenuPrincipalController implements Initializable {
             Stage myStage = (Stage) this.jugarIA.getScene().getWindow();
 
             TableroController controlador = loader.getController();
+            controlador.initMode(modo);
             controlador.initializeIA(true);
             controlador.initializeP1(player1);
             if(player2 != null)
@@ -217,6 +241,7 @@ public class MenuPrincipalController implements Initializable {
                 Stage myStage = (Stage) this.jugarF.getScene().getWindow();
 
                 IniciarSesionController controlador = loader.getController();
+                controlador.initMode(modo);
                 controlador.initit2Player(true);
                 controlador.inititPlayer1(player1);
                 stage.setMaximized(myStage.isMaximized());
@@ -241,6 +266,7 @@ public class MenuPrincipalController implements Initializable {
                 Stage myStage = (Stage) this.jugarF.getScene().getWindow();
 
                 TableroController controlador = loader.getController();
+                controlador.initMode(modo);
                 controlador.initializeP1(player1);
                 controlador.initializeP2(player2);
                 
@@ -325,6 +351,7 @@ public class MenuPrincipalController implements Initializable {
 
                 MenuPrincipalController controlador = loader.getController();
                 controlador.initscene();
+                controlador.initMode(modo);
                 controlador.initPlayer(player2);
                 stage.setMaximized(myStage.isMaximized());
                 stage.setMinHeight(520);
@@ -390,6 +417,7 @@ public class MenuPrincipalController implements Initializable {
                 MenuPrincipalController controlador = loader.getController();
                 controlador.initscene();
                 controlador.initPlayer(player1);
+                controlador.initMode(modo);
                 stage.setMaximized(myStage.isMaximized());
                 stage.setMinHeight(520);
                 stage.setMinWidth(460);
@@ -425,6 +453,7 @@ public class MenuPrincipalController implements Initializable {
             
             RankingController controlador = loader.getController();
             
+//            controlador.initMode(modo);
             controlador.initPlayer2(player2);
             controlador.initPlayer1(player1);
             
@@ -459,6 +488,7 @@ public class MenuPrincipalController implements Initializable {
             Stage myStage = (Stage) this.prof1.getScene().getWindow();
             
             PerfilController controlador = loader.getController();
+            controlador.initMode(modo);
             if(player2 != null)
                 controlador.initOtro(player2, 2);
             controlador.initPlayer(player1);
@@ -493,6 +523,7 @@ public class MenuPrincipalController implements Initializable {
             Stage myStage = (Stage) this.prof2.getScene().getWindow();
             
             PerfilController controlador = loader.getController();
+            controlador.initMode(modo);
             controlador.initOtro(player1, 1);
             controlador.initPlayer(player2);
             
@@ -512,5 +543,65 @@ public class MenuPrincipalController implements Initializable {
             Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    @FXML
+    private void mode(ActionEvent event) {
+        if(!modo){ 
+            imodo.setImage(lightmode);
+            modo = !modo;
+            mode.setText(" Modo claro");
+            
+            screen.getStylesheets().remove("/Img/lightmode.css");
+            screen.getStylesheets().add("/Img/darkmode.css");
+            barra.getStylesheets().remove("/Img/lightmode.css");
+            barra.getStylesheets().add("/Img/darkmode.css");
+            vBox.getStylesheets().remove("/Img/lightmode.css");
+            vBox.getStylesheets().add("/Img/darkmode.css");
+            jugarF.getStylesheets().remove("/Img/lightmode.css");
+            jugarF.getStylesheets().add("/Img/darkmode.css");
+            jugarIA.getStylesheets().remove("/Img/lightmode.css");
+            jugarIA.getStylesheets().add("/Img/darkmode.css");
+            partidas.getStylesheets().remove("/Img/lightmode.css");
+            partidas.getStylesheets().add("/Img/darkmode.css");
+            mode.getStylesheets().remove("/Img/lightmode.css");
+            mode.getStylesheets().add("/Img/darkmode.css");
+            prof1.getStylesheets().remove("/Img/lightmode.css");
+            prof1.getStylesheets().add("/Img/darkmode.css");
+            prof2.getStylesheets().remove("/Img/lightmode.css");
+            prof2.getStylesheets().add("/Img/darkmode.css");      
+            play1.getStylesheets().remove("/Img/lightmode.css");
+            play1.getStylesheets().add("/Img/darkmode.css");
+            play2.getStylesheets().remove("/Img/lightmode.css");
+            play2.getStylesheets().add("/Img/darkmode.css");
+        }
+        else{
+            imodo.setImage(darkmode);
+            modo = !modo;
+            mode.setText(" Modo oscuro");
+            
+            screen.getStylesheets().remove("/Img/darkmode.css");
+            screen.getStylesheets().add("/Img/lightmode.css");
+            barra.getStylesheets().remove("/Img/darkmode.css");
+            barra.getStylesheets().add("/Img/lightmode.css");
+            vBox.getStylesheets().remove("/Img/darkmode.css");
+            vBox.getStylesheets().add("/Img/lightmode.css");
+            jugarF.getStylesheets().remove("/Img/darkmode.css");
+            jugarF.getStylesheets().add("/Img/lightmode.css");
+            jugarIA.getStylesheets().remove("/Img/darkmode.css");
+            jugarIA.getStylesheets().add("/Img/lightmode.css");
+            partidas.getStylesheets().remove("/Img/darkmode.css");
+            partidas.getStylesheets().add("/Img/lightmode.css");
+            mode.getStylesheets().remove("/Img/darkmode.css");
+            mode.getStylesheets().add("/Img/lightmode.css");
+            prof1.getStylesheets().remove("/Img/darkmode.css");
+            prof1.getStylesheets().add("/Img/lightmode.css");
+            prof2.getStylesheets().remove("/Img/darkmode.css");
+            prof2.getStylesheets().add("/Img/lightmode.css");
+            play1.getStylesheets().remove("/Img/darkmode.css");
+            play1.getStylesheets().add("/Img/lightmode.css");
+            play2.getStylesheets().remove("/Img/darkmode.css");
+            play2.getStylesheets().add("/Img/lightmode.css");
+        }
+        
+    }
 }
