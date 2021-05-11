@@ -21,6 +21,8 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,6 +35,7 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -74,6 +77,8 @@ public class RankingController implements Initializable {
     private TableColumn<Round, Player> GanadorC;
     @FXML
     private TableColumn<Round, Player> PerdedorC;
+    @FXML
+    private TextField nombreTF;
     
     public void initPlayer1(Player p1){
         this.player1 = p1;
@@ -88,9 +93,34 @@ public class RankingController implements Initializable {
         try {
             Connect4 connect4 = Connect4.getSingletonConnect4();
             ObservableList<Player> observablePlayers;
-
             observablePlayers = FXCollections.observableList(connect4.getConnect4Ranking());
-            tablero.setItems(observablePlayers);
+            FilteredList<Player> filteredData = new FilteredList<>(observablePlayers, b -> true);
+		
+		// 2. Set the filter Predicate whenever the filter changes.
+		nombreTF.textProperty().addListener((observable, oldValue, newValue) -> {
+			filteredData.setPredicate(employee -> {
+				// If filter text is empty, display all persons.
+								
+				if (newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				
+				// Compare first name and last name of every person with filter text.
+				String lowerCaseFilter = newValue.toLowerCase();
+				
+				if (employee.getNickName().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; // Filter matches first name.
+				} else   
+				    	 return false; // Does not match.
+			});
+		});
+                
+            SortedList<Player> sortedData = new SortedList<>(filteredData);
+            
+            sortedData.comparatorProperty().bind(tablero.comparatorProperty());
+
+            
+            tablero.setItems(sortedData);
         } catch (Connect4DAOException ex) {
             Logger.getLogger(RankingController.class.getName()).log(Level.SEVERE, null, ex);
         }
