@@ -36,8 +36,6 @@ public class IniciarSesionController implements Initializable {
     @FXML
     private Text title;
     @FXML
-    private Text error;
-    @FXML
     private Button registrar;
     @FXML
     private Button arrow;
@@ -48,6 +46,10 @@ public class IniciarSesionController implements Initializable {
     private boolean RegistrarP2, modo;
     @FXML
     private HBox screen;
+    @FXML
+    private Text uerror;
+    @FXML
+    private Text perror;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -161,20 +163,32 @@ public class IniciarSesionController implements Initializable {
             }
             
             if(RegistrarP2 && p2 == p1){
-                error.setStyle("-fx-font: 15 SansSerif");
-                error.setText("Usuario repetido");
+                uerror.setStyle("-fx-font: 15 Style");
+                uerror.setText("Usuario repetido");
             }
-            else if(usu.length() == 0 || pass.length() == 0){
-                error.setStyle("-fx-font: 15 SansSerif");
-                error.setText("Usuario o contraseña vacío");
+            else if(usu.length() == 0){
+                uerror.setStyle("-fx-font: 15 Style");
+                uerror.setText("Usuario vacío");
             }
-            else if(!RegistrarP2 && p1 == null){
-                error.setStyle("-fx-font: 15 SansSerif");
-                error.setText("Usuario o contraseña incorectos");
+            else if(pass.length() == 0){
+                perror.setStyle("-fx-font: 15 Style");
+                perror.setText("Contraseña vacía");
             }
-            else if(RegistrarP2 && p2 == null){
-                error.setStyle("-fx-font: 15 SansSerif");
-                error.setText("Usuario o contraseña incorectos");
+            else if(!RegistrarP2 && p1 == null && BD.exitsNickName(usuario.getText())){
+                uerror.setStyle("-fx-font: 15 Style");
+                uerror.setText("Usuario no existente");
+            }
+            else if(!RegistrarP2 && p1 == null && p2.checkCredentials(usuario.getText(), password.getText())){
+                perror.setStyle("-fx-font: 15 Style");
+                perror.setText("Contraseña incorrecta");
+            }
+            else if(RegistrarP2 && p2 == null && BD.exitsNickName(usuario.getText())){
+                uerror.setStyle("-fx-font: 15 Style");
+                uerror.setText("Usuario no existente");
+            }
+            else if(RegistrarP2 && p2 == null && p1.checkCredentials(usuario.getText(), password.getText())){
+                perror.setStyle("-fx-font: 15 Style");
+                perror.setText("Contraseña incorrecta");
             }
             else{
                 if(RegistrarP2){
@@ -259,6 +273,7 @@ public class IniciarSesionController implements Initializable {
             RecordarPasswordController controlador = loader.getController();
             Stage myStage = (Stage) this.iniciar.getScene().getWindow();
             controlador.initMode(modo);
+            controlador.initit2Player(RegistrarP2);
             if(p1 != null)
                 controlador.initPlayer(p1);
             

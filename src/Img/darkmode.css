@@ -27,7 +27,7 @@
 -fx-alignment: CENTER_LEFT;
 }
 .text-field{
-    -fx-background-color: #757575;
+    -fx-background-color: #616161;
     -fx-border-color: black;
     -fx-prompt-text-fill: gray;
     -fx-text-fill: white;
@@ -36,7 +36,7 @@
     -fx-text-fill: white;
 }
 .hyper{
-    -fx-text-fill: white;
+    -fx-text-fill: #E0E0E0;
 }
 .line{
     -fx-stroke: #212121;
