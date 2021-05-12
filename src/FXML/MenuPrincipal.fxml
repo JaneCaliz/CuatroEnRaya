@@ -176,9 +176,9 @@
             </VBox>
             <VBox fx:id="vBox" alignment="TOP_CENTER" maxWidth="300.0" minWidth="200.0" prefHeight="313.0" prefWidth="200.0" styleClass="tertiary-color" stylesheets="@../Img/lightmode.css" HBox.hgrow="ALWAYS">
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button fx:id="prof1" alignment="TOP_LEFT" maxHeight="60.0" mnemonicParsing="false" onAction="#prof1" prefHeight="54.0" prefWidth="200.0" stylesheets="@../Img/lightmode.css" text="Perfil ">
+                        <Button fx:id="prof1" alignment="TOP_LEFT" maxHeight="54.0" mnemonicParsing="false" onAction="#prof1" prefHeight="54.0" prefWidth="200.0" stylesheets="@../Img/lightmode.css" text="Perfil ">
                            <graphic>
                               <ImageView fx:id="iprof1" fitHeight="41.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
@@ -190,7 +190,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button fx:id="prof2" alignment="TOP_LEFT" maxHeight="60.0" mnemonicParsing="false" onAction="#prof2" prefHeight="54.0" prefWidth="200.0" stylesheets="@../Img/lightmode.css" text="Perfil ">
+                        <Button fx:id="prof2" alignment="TOP_LEFT" maxHeight="54.0" mnemonicParsing="false" onAction="#prof2" prefHeight="54.0" prefWidth="200.0" stylesheets="@../Img/lightmode.css" text="Perfil ">
                            <graphic>
                               <ImageView fx:id="iprof2" fitHeight="41.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
@@ -199,7 +199,7 @@
                               <String fx:value="num-button" />
                            </styleClass>
                         </Button>
-                        <Button fx:id="mode" alignment="TOP_LEFT" layoutX="10.0" layoutY="69.0" maxHeight="60.0" mnemonicParsing="false" onAction="#mode" prefHeight="54.0" prefWidth="200.0" stylesheets="@../Img/lightmode.css" text=" Modo oscuro">
+                        <Button fx:id="mode" alignment="TOP_LEFT" maxHeight="54.0" mnemonicParsing="false" onAction="#mode" prefHeight="54.0" prefWidth="200.0" stylesheets="@../Img/lightmode.css" text=" Modo oscuro">
                            <graphic>
                               <ImageView fx:id="imodo" fitHeight="30.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

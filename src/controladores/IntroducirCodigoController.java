@@ -47,6 +47,7 @@ public class IntroducirCodigoController implements Initializable {
     @FXML
     private Text pass;
     boolean modo;
+    Player player1;
     
     Stage stage2;
     
@@ -57,6 +58,10 @@ public class IntroducirCodigoController implements Initializable {
     
     public void initMode(boolean b){
         modo = b;
+    }
+    
+    void initOldPlayer(Player p){
+        player1 = p;
     }
     
     public void codigo(){
@@ -107,6 +112,8 @@ public class IntroducirCodigoController implements Initializable {
         IniciarSesionController controlador = loader.getController();
         controlador.initMode(modo);
         controlador.initit2Player(false);
+        if(player1 != null)
+            controlador.inititPlayer1(player1);
 
         Scene scene = new Scene(root);
         Stage stage = new Stage();
@@ -148,6 +155,8 @@ public class IntroducirCodigoController implements Initializable {
                     IniciarSesionController controlador = loader.getController();
                     controlador.initMode(modo);
                     controlador.initit2Player(false);
+                    if(player1 != null)
+                        controlador.inititPlayer1(player1);
 
                     Scene scene = new Scene(root);
                     Stage stage = new Stage();

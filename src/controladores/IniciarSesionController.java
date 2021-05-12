@@ -259,6 +259,8 @@ public class IniciarSesionController implements Initializable {
             RecordarPasswordController controlador = loader.getController();
             Stage myStage = (Stage) this.iniciar.getScene().getWindow();
             controlador.initMode(modo);
+            if(p1 != null)
+                controlador.initPlayer(p1);
             
             stage.setMaximized(myStage.isMaximized());
             stage.setMinHeight(235);
@@ -314,6 +316,9 @@ public class IniciarSesionController implements Initializable {
             stage.setMinWidth(350);
             
             controlador.initMode(modo);
+            controlador.initit2Player(RegistrarP2);
+            if(p1 != null)
+                controlador.initPlayer(p1);
             
             stage.setScene(scene);
             stage.show();

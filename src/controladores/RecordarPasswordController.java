@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Connect4;
@@ -31,14 +32,46 @@ public class RecordarPasswordController implements Initializable {
     private Text error;
     @FXML
     private Button cancelar;
-    boolean modo;
+    boolean modo, registrarP2;
+    @FXML
+    private VBox screen;
+    @FXML
+    private Text title;
+    Player player1;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }    
     
+    public void initPlayer(Player p){
+        player1 = p;
+    }
+    
+    void initit2Player(boolean b) {
+       registrarP2 = b;
+    }
+    
     public void initMode(boolean b){
         modo = b;
+        
+        if(b){
+            screen.getStylesheets().remove("/Img/lightmode.css");
+            screen.getStylesheets().add("/Img/darkmode.css");
+            cancelar.getStylesheets().remove("/Img/lightmode.css");
+            cancelar.getStylesheets().add("/Img/darkmode.css");
+            recuperar.getStylesheets().remove("/Img/lightmode.css");
+            recuperar.getStylesheets().add("/Img/darkmode.css");
+            title.setStyle("-fx-fill: white;");
+        }
+        else{
+            screen.getStylesheets().remove("/Img/darkmode.css");
+            screen.getStylesheets().add("/Img/lightmode.css");
+            cancelar.getStylesheets().remove("/Img/darkmode.css");
+            cancelar.getStylesheets().add("/Img/lightmode.css");
+            recuperar.getStylesheets().remove("/Img/darkmode.css");
+            recuperar.getStylesheets().add("/Img/lightmode.css");
+            title.setStyle("-fx-fill: black;");
+        }
     }
     
     @FXML
@@ -66,6 +99,8 @@ public class RecordarPasswordController implements Initializable {
                 IntroducirCodigoController controlador = loader.getController();
                 controlador.initMode(modo);
                 controlador.initPlayer(player);
+                if(player1 != null)
+                    controlador.initOldPlayer(player1);
 
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
@@ -109,6 +144,9 @@ public class RecordarPasswordController implements Initializable {
         IniciarSesionController controlador = loader.getController();
         controlador.initMode(modo);
         controlador.initit2Player(false);
+        controlador.initit2Player(registrarP2);
+        if(player1 != null)
+            controlador.inititPlayer1(player1);
 
         Scene scene = new Scene(root);
         Stage stage = new Stage();
@@ -124,26 +162,5 @@ public class RecordarPasswordController implements Initializable {
         stage.setOnCloseRequest(e -> controlador.closeWindow());
 
         myStage.close();
-        
-//        Stage myStage = (Stage) this.cancelar.getScene().getWindow();
-//        myStage.close();
-//        
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/IniciarSesion.fxml"));
-//        IniciarSesionController controlador = loader.getController();
-//        Parent root = loader.load();
-//
-//        Scene scene = new Scene(root);
-//        Stage stage = new Stage();
-//        
-//        stage.setMaximized(myStage.isMaximized());
-//        stage.setMinHeight(325);
-//        stage.setMinWidth(385);
-//
-//        stage.setScene(scene);
-//        stage.show();
-//        
-//        stage.setOnCloseRequest(e -> {
-//            controlador.closeWindow();
-//        });
     }
 }

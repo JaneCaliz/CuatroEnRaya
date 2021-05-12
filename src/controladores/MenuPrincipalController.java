@@ -92,10 +92,11 @@ public class MenuPrincipalController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         points.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(63), 18).asString(), ";","-fx-base: rgb(100,100,",50,");"));
         profile.resize(button.getHeight(), button.getWidth());
-        play1.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(73), 16).asString(), ";","-fx-base: rgb(100,100,",50,");"));
-        play2.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(73), 16).asString(), ";","-fx-base: rgb(100,100,",50,");"));
-        prof1.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(73), 16).asString(), ";","-fx-base: rgb(100,100,",50,");"));
-        prof2.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(73), 16).asString(), ";","-fx-base: rgb(100,100,",50,");"));
+        play1.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(88), 16).asString(), ";","-fx-base: rgb(100,100,",50,");"));
+        play2.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(88), 16).asString(), ";","-fx-base: rgb(100,100,",50,");"));
+        prof1.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(88), 16).asString(), ";","-fx-base: rgb(100,100,",50,");"));
+        prof2.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(88), 16).asString(), ";","-fx-base: rgb(100,100,",50,");"));
+        mode.styleProperty().bind(Bindings.concat("-fx-font-size: ", Bindings.max(barra.widthProperty().add(barra.heightProperty()).divide(88), 16).asString(), ";","-fx-base: rgb(100,100,",50,");"));
         darkmode = new Image(getClass().getResource("/Img/moon.png").toExternalForm());
         lightmode = new Image(getClass().getResource("/Img/sun.png").toExternalForm());
     }   
@@ -107,6 +108,9 @@ public class MenuPrincipalController implements Initializable {
         buttonc.setVisible(false);
         play1.prefWidthProperty().bind(vBox.widthProperty());
         play2.prefWidthProperty().bind(vBox.widthProperty());
+        prof1.prefWidthProperty().bind(vBox.widthProperty());
+        prof2.prefWidthProperty().bind(vBox.widthProperty());
+        mode.prefWidthProperty().bind(vBox.widthProperty());
         
         profile.setOnMouseClicked(event -> {
             if (open ==  0){
