@@ -174,19 +174,19 @@ public class IniciarSesionController implements Initializable {
                 perror.setStyle("-fx-font: 15 Style");
                 perror.setText("Contraseña vacía");
             }
-            else if(!RegistrarP2 && p1 == null && BD.exitsNickName(usuario.getText())){
+            else if(!RegistrarP2 && !BD.exitsNickName(usuario.getText())){
                 uerror.setStyle("-fx-font: 15 Style");
                 uerror.setText("Usuario no existente");
             }
-            else if(!RegistrarP2 && p1 == null && p2.checkCredentials(usuario.getText(), password.getText())){
+            else if(!RegistrarP2 && p1 == null &&  BD.getPlayer(usu).getPassword() != pass){
                 perror.setStyle("-fx-font: 15 Style");
                 perror.setText("Contraseña incorrecta");
             }
-            else if(RegistrarP2 && p2 == null && BD.exitsNickName(usuario.getText())){
+            else if(RegistrarP2  && !BD.exitsNickName(usuario.getText())){
                 uerror.setStyle("-fx-font: 15 Style");
                 uerror.setText("Usuario no existente");
             }
-            else if(RegistrarP2 && p2 == null && p1.checkCredentials(usuario.getText(), password.getText())){
+            else if(RegistrarP2  && BD.getPlayer(usu).getPassword() != pass){
                 perror.setStyle("-fx-font: 15 Style");
                 perror.setText("Contraseña incorrecta");
             }
