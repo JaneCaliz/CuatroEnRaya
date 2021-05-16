@@ -6,6 +6,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -54,6 +56,16 @@ public class IniciarSesionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         iniciar.setDefaultButton(true);
+        usuario.textProperty().addListener(new ChangeListener<String>(){
+           public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+               uerror.setText("");
+           }
+        });
+        password.textProperty().addListener(new ChangeListener<String>(){
+           public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+               perror.setText("");
+           }
+        });
     }    
 
     public void initMode(boolean b){
