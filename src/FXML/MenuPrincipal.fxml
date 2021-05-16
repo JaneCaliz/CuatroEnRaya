@@ -155,7 +155,7 @@
                   <Pane maxHeight="40.0" minHeight="20.0" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                   <HBox alignment="CENTER" maxHeight="100.0" minHeight="70.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button fx:id="partidas" disable="true" maxHeight="100.0" maxWidth="250.0" minHeight="70.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" stylesheets="@../Img/lightmode.css" text="Partidas">
+                        <Button fx:id="partidas" maxHeight="100.0" maxWidth="250.0" minHeight="70.0" mnemonicParsing="false" onAction="#verPartidasAction" prefHeight="70.0" prefWidth="230.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" stylesheets="@../Img/lightmode.css" text="Partidas">
                            <font>
                               <Font size="20.0" />
                            </font>

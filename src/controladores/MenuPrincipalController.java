@@ -1,5 +1,6 @@
 package controladores;
 
+import DBAccess.Connect4DAOException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -670,6 +671,41 @@ public class MenuPrincipalController implements Initializable {
             play1.getStylesheets().add("/Img/lightmode.css");
             play2.getStylesheets().remove("/Img/darkmode.css");
             play2.getStylesheets().add("/Img/lightmode.css");
+        }
+    }
+
+    @FXML
+    private void verPartidasAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Partidas.fxml"));
+            
+            Parent root = loader.load();
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            
+            Stage myStage = (Stage) this.jugarF.getScene().getWindow();
+            
+            PartidasController controlador = loader.getController();
+            
+//            controlador.initMode(modo);
+            controlador.initPlayer2(player2);
+            controlador.initPlayer1(player1);
+           
+            
+            stage.setMaximized(myStage.isMaximized());
+            stage.setMinHeight(396);
+            stage.setMinWidth(504);
+            
+            
+            stage.setScene(scene);
+            
+            stage.show();
+            
+            
+            myStage.close();
+        } catch (IOException ex) {
+            Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

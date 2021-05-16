@@ -36,7 +36,7 @@
             <Insets />
          </HBox.margin>
       </Pane>
-      <VBox alignment="CENTER_LEFT" prefHeight="326.0" prefWidth="240.0" HBox.hgrow="ALWAYS">
+      <VBox alignment="CENTER" prefHeight="326.0" prefWidth="240.0" HBox.hgrow="ALWAYS">
          <children>
             <Pane fx:id="idk" prefHeight="170.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
             <Text fx:id="title" focusTraversable="true" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Inicia sesión" textAlignment="CENTER">
@@ -44,11 +44,11 @@
                   <Font name="System Bold" size="25.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="15.0" top="15.0" />
+                  <Insets bottom="15.0" right="50.0" top="15.0" />
                </VBox.margin>
             </Text>
             <Pane maxHeight="20.0" prefHeight="30.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-            <VBox alignment="CENTER" prefHeight="76.0" prefWidth="600.0">
+            <VBox alignment="CENTER" prefHeight="76.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
                <children>
                   <TextField fx:id="usuario" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="33.0" prefWidth="230.0" promptText="Usuario" styleClass="text-field" stylesheets="@../Img/lightmode.css">
                      <opaqueInsets>
@@ -83,7 +83,7 @@
                </VBox.margin>
             </Hyperlink>
             <Pane maxHeight="20.0" prefHeight="80.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-            <HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="37.0" prefWidth="600.0">
+            <HBox alignment="CENTER" fillHeight="false" prefHeight="37.0" prefWidth="600.0">
                <children>
                   <Button fx:id="registrar" focusTraversable="false" mnemonicParsing="false" onAction="#registrar" style="-fx-border-radius: 5; -fx-background-radius: 5;" stylesheets="@../Img/lightmode.css" text="Regístrate">
                      <HBox.margin>
@@ -120,6 +120,6 @@
             <Insets />
          </HBox.margin>
       </VBox>
-      <Pane prefHeight="326.0" prefWidth="100.0" />
+      <Pane prefHeight="326.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
    </children>
 </HBox>

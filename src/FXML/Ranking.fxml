@@ -56,29 +56,6 @@
                   </VBox>
                </content>
             </Tab>
-            <Tab closable="false" text="Untitled Tab">
-               <content>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Button mnemonicParsing="false" onAction="#mosratPartidasAct" text="Mostrar Partidas" />
-                           </children>
-                        </HBox>
-                        <TableView fx:id="partidasTablero" prefHeight="294.0" prefWidth="600.0">
-                          <columns>
-                            <TableColumn fx:id="FechYHolaC" editable="false" prefWidth="134.0" sortable="false" text="Fecha y hora " />
-                              <TableColumn fx:id="GanadorC" prefWidth="111.0" text="Ganador" />
-                              <TableColumn fx:id="PerdedorC" prefWidth="137.0" text="Perdedor " />
-                          </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
-                        </TableView>
-                     </children>
-                  </VBox>
-               </content>
-            </Tab>
          </tabs>
       </TabPane>
    </children>
