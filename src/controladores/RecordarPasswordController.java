@@ -6,6 +6,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -42,6 +44,18 @@ public class RecordarPasswordController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        usuario.textProperty().addListener(new ChangeListener<String>(){
+           public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+               error.setText("");
+               error.setStyle("-fx-font: 1 Style");
+           }
+        });
+        correo.textProperty().addListener(new ChangeListener<String>(){
+           public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+               error.setText("");
+               error.setStyle("-fx-font: 1 Style");
+           }
+        });
     }    
     
     public void initPlayer(Player p){

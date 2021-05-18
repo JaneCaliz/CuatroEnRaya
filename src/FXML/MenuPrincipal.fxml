@@ -166,6 +166,9 @@
                               <String fx:value="button-color" />
                               <String fx:value="button-border-color" />
                            </styleClass>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                      </children>
                      <VBox.margin>

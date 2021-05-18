@@ -9,6 +9,8 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -93,7 +95,36 @@ public class RegistrarseController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        usuario.textProperty().addListener(new ChangeListener<String>(){
+           public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+               eusuario.setText("");
+               eusuario.setStyle("-fx-font: 10 Style");
+           }
+        });
+        email.textProperty().addListener(new ChangeListener<String>(){
+           public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+               eemail.setText("");
+               eemail.setStyle("-fx-font: 1 Style");
+           }
+        });
+        password.textProperty().addListener(new ChangeListener<String>(){
+           public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+               epassword.setText("");
+               epassword.setStyle("-fx-font: 1 Style");
+           }
+        });
+        cpassword.textProperty().addListener(new ChangeListener<String>(){
+           public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+               ecpassword.setText("");
+               ecpassword.setStyle("-fx-font: 10 Style");
+           }
+        });
+        edad.textProperty().addListener(new ChangeListener<String>(){
+           public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+               eage.setText("");
+               eage.setStyle("-fx-font: 1 Style");
+           }
+        });
     }    
     
     void initPlayer(Player p){

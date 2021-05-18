@@ -12,6 +12,8 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -57,7 +59,12 @@ public class IntroducirCodigoController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        code.textProperty().addListener(new ChangeListener<String>(){
+           public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+               text.setText("");
+               text.setStyle("-fx-font: 10 Style");
+           }
+        });
     }  
     
     public void initMode(boolean b){
