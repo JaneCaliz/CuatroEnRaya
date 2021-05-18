@@ -9,6 +9,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.InvalidationListener;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -119,7 +120,7 @@ public class RegistrarseController implements Initializable {
                ecpassword.setStyle("-fx-font: 10 Style");
            }
         });
-        edad.textProperty().addListener(new ChangeListener<String>(){
+        edad.valueProperty().addListener((InvalidationListener) new ChangeListener<String>(){
            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                eage.setText("");
                eage.setStyle("-fx-font: 1 Style");
