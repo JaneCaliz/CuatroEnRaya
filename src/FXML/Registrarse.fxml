@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -16,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="410.0" prefWidth="680.0" styleClass="primary-color" stylesheets="@../Img/lightmode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.RegistrarseController">
+<VBox fx:id="screen" alignment="CENTER" prefHeight="410.0" prefWidth="680.0" styleClass="primary-color" stylesheets="@../Img/lightmode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.RegistrarseController">
    <children>
       <HBox alignment="CENTER" prefHeight="300.0" prefWidth="650.0" spacing="25.0">
          <children>
@@ -24,7 +23,7 @@
                <children>
                   <HBox alignment="BOTTOM_LEFT" prefHeight="34.0" prefWidth="250.0">
                      <children>
-                        <Text focusTraversable="true" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Regístrate">
+                        <Text fx:id="title" focusTraversable="true" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Regístrate">
                            <font>
                               <Font name="System Bold" size="25.0" />
                            </font>
@@ -34,7 +33,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <TextField fx:id="usuario" maxWidth="315.0" prefWidth="315.0" promptText="Usuario" styleClass="text-field" stylesheets="@../Img/lightmode.css">
+                  <TextField fx:id="usuario" maxWidth="315.0" prefWidth="315.0" promptText="Usuario" styleClass="log-in-focus" stylesheets="@../Img/lightmode.css">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
@@ -46,7 +45,7 @@
                      <font>
                         <Font size="13.0" />
                      </font></Text>
-                  <TextField fx:id="email" maxWidth="315.0" prefWidth="315.0" promptText="Correo electrónico" styleClass="text-field" stylesheets="@../Img/lightmode.css">
+                  <TextField fx:id="email" maxWidth="315.0" prefWidth="315.0" promptText="Correo electrónico" styleClass="log-in-focus" stylesheets="@../Img/lightmode.css">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
@@ -55,17 +54,17 @@
                      <font>
                         <Font size="13.0" />
                      </font></Text>
-                  <PasswordField fx:id="password" maxWidth="315.0" prefWidth="315.0" promptText="Contraseña" styleClass="text-field" stylesheets="@../Img/lightmode.css" />
+                  <PasswordField fx:id="password" maxWidth="315.0" prefWidth="315.0" promptText="Contraseña" styleClass="log-in-focus" stylesheets="@../Img/lightmode.css" />
                   <Text fx:id="epassword" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="315.0" VBox.vgrow="ALWAYS">
                      <font>
                         <Font size="13.0" />
                      </font></Text>
-                  <PasswordField fx:id="cpassword" maxWidth="315.0" prefWidth="315.0" promptText="Confirmar contraseña" style="-fx-border-color: black;" stylesheets="@../Img/lightmode.css" />
+                  <PasswordField fx:id="cpassword" maxWidth="315.0" prefWidth="315.0" promptText="Confirmar contraseña" styleClass="log-in-focus" stylesheets="@../Img/lightmode.css" />
                   <Text fx:id="ecpassword" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
                      <font>
                         <Font size="13.0" />
                      </font></Text>
-                  <DatePicker fx:id="edad" maxWidth="315.0" prefWidth="315.0" promptText="Fecha de nacimiento" stylesheets="@../Img/lightmode.css" VBox.vgrow="ALWAYS">
+                  <DatePicker fx:id="edad" maxWidth="315.0" prefWidth="315.0" promptText="Fecha de nacimiento" styleClass="log-in-focus" stylesheets="@../Img/lightmode.css" VBox.vgrow="ALWAYS">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
@@ -101,9 +100,9 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="224.0">
                      <children>
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="70.0">
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="70.0" spacing="5.0">
                            <children>
-                              <Button fx:id="avatar1" mnemonicParsing="false" onAction="#avatar1" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: transparent;">
+                              <Button fx:id="avatar1" focusTraversable="false" maxHeight="54.0" maxWidth="64.0" minHeight="54.0" minWidth="64.0" mnemonicParsing="false" onAction="#avatar1" prefHeight="54.0" prefWidth="64.0" style="-fx-background-radius: 90 90 90 90; -fx-border-color: transparent;" styleClass="avatar-background" stylesheets="@../Img/lightmode.css" VBox.vgrow="ALWAYS">
                                  <graphic>
                                     <ImageView fx:id="iavatar1" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -115,7 +114,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="avatar4" mnemonicParsing="false" onAction="#avatar4" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: transparent;">
+                              <Button fx:id="avatar4" focusTraversable="false" maxHeight="54.0" maxWidth="64.0" minHeight="54.0" minWidth="64.0" mnemonicParsing="false" onAction="#avatar4" prefHeight="54.0" prefWidth="64.0" style="-fx-background-radius: 90 90 90 90; -fx-border-color: transparent;" styleClass="avatar-background" stylesheets="@../Img/lightmode.css" VBox.vgrow="ALWAYS">
                                  <graphic>
                                     <ImageView fx:id="iavatar4" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -129,9 +128,9 @@
                               </Button>
                            </children>
                         </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="70.0">
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="70.0" spacing="5.0">
                            <children>
-                              <Button fx:id="avatar2" mnemonicParsing="false" onAction="#avatar2" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: transparent;">
+                              <Button fx:id="avatar2" focusTraversable="false" maxHeight="54.0" maxWidth="64.0" minHeight="54.0" minWidth="64.0" mnemonicParsing="false" onAction="#avatar2" prefHeight="54.0" prefWidth="64.0" style="-fx-background-radius: 90 90 90 90; -fx-border-color: transparent;" styleClass="avatar-background" stylesheets="@../Img/lightmode.css" VBox.vgrow="ALWAYS">
                                  <graphic>
                                     <ImageView fx:id="iavatar2" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -143,7 +142,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="avatard" mnemonicParsing="false" onAction="#avatard" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: transparent;">
+                              <Button fx:id="avatard" focusTraversable="false" maxHeight="54.0" maxWidth="64.0" minHeight="54.0" minWidth="64.0" mnemonicParsing="false" onAction="#avatard" prefHeight="54.0" prefWidth="64.0" style="-fx-background-radius: 90 90 90 90; -fx-border-color: transparent;" styleClass="avatar-background" stylesheets="@../Img/lightmode.css" VBox.vgrow="ALWAYS">
                                  <graphic>
                                     <ImageView fx:id="iavatard" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -157,9 +156,9 @@
                               </Button>
                            </children>
                         </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="70.0">
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="70.0" spacing="5.0">
                            <children>
-                              <Button fx:id="avatar3" mnemonicParsing="false" onAction="#avatar3" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: transparent;">
+                              <Button fx:id="avatar3" focusTraversable="false" maxHeight="54.0" maxWidth="64.0" minHeight="54.0" minWidth="64.0" mnemonicParsing="false" onAction="#avatar3" prefHeight="54.0" prefWidth="64.0" style="-fx-background-radius: 90 90 90 90; -fx-border-color: transparent;" styleClass="avatar-background" stylesheets="@../Img/lightmode.css" VBox.vgrow="ALWAYS">
                                  <graphic>
                                     <ImageView fx:id="iavatar3" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -171,18 +170,18 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="upload" mnemonicParsing="false" onAction="#upload" prefHeight="45.0" prefWidth="55.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-background-radius: 5; -fx-border-radius: 5;">
+                              <Button fx:id="upload" focusTraversable="false" maxHeight="54.0" maxWidth="64.0" minHeight="54.0" minWidth="64.0" mnemonicParsing="false" onAction="#upload" prefHeight="54.0" prefWidth="64.0" style="-fx-background-radius: 90 90 90 90; -fx-border-color: black; -fx-border-radius: 90 90 90 90;" styleClass="avatar-background" stylesheets="@../Img/lightmode.css" VBox.vgrow="ALWAYS">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                                  <VBox.margin>
-                                    <Insets top="5.0" />
+                                    <Insets />
                                  </VBox.margin>
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                                  <graphic>
-                                    <ImageView fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="iupload" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../Img/upload.png" />
                                        </image>
@@ -202,23 +201,15 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="34.0" prefWidth="500.0" spacing="55.0">
          <children>
-            <Button fx:id="cancelar" cancelButton="true" mnemonicParsing="false" onAction="#cancelar" style="-fx-background-radius: 5; -fx-border-radius: 5;" stylesheets="@../Img/lightmode.css" text="Cancelar">
+            <Button fx:id="cancelar" cancelButton="true" focusTraversable="false" mnemonicParsing="false" onAction="#cancelar" style="-fx-background-radius: 5; -fx-border-radius: 5;" styleClass="log-in-button" stylesheets="@../Img/lightmode.css" text="Cancelar">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
-               <styleClass>
-                  <String fx:value="button-border-color" />
-                  <String fx:value="button-color" />
-               </styleClass>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="registrarse" defaultButton="true" mnemonicParsing="false" onAction="#registrarse" style="-fx-background-radius: 5; -fx-border-radius: 5;" stylesheets="@../Img/lightmode.css" text="Registrarse">
-               <styleClass>
-                  <String fx:value="button-border-color" />
-                  <String fx:value="button-color" />
-               </styleClass>
+            <Button fx:id="registrarse" defaultButton="true" focusTraversable="false" mnemonicParsing="false" onAction="#registrarse" style="-fx-background-radius: 5; -fx-border-radius: 5;" styleClass="log-in-button" stylesheets="@../Img/lightmode.css" text="Registrarse">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
