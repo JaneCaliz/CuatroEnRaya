@@ -65,13 +65,21 @@ public class PartidasController implements Initializable {
     
     private Player player1, player2;
     @FXML
-    private LineChart<String, Number> gradicaLineas;
-    @FXML
     private DatePicker fechaIniDP;
     @FXML
     private Button mostraGrafica;
     @FXML
     private DatePicker fechaFinDP;
+    @FXML
+    
+    
+    
+    final CategoryAxis xAxis = new CategoryAxis();
+    final NumberAxis yAxis = new NumberAxis();
+        //final LineChart<String,Number> lineChart = new LineChart<String,Number>(xAxis,yAxis);
+        //@FXML private LineChart<String, Number> lineChart;
+    @FXML private LineChart<String, Number> gradicaLineas = new LineChart<String,Number>(xAxis,yAxis);
+
 
     /**
      * Initializes the controller class.
@@ -79,6 +87,7 @@ public class PartidasController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        gradicaLineas.setAnimated(false);
     }  
     public void initPlayer1(Player p1){
         this.player1 = p1;
@@ -168,34 +177,37 @@ public class PartidasController implements Initializable {
        
        TreeMap<LocalDate, Integer> tree = db.getRoundCountsPerDay();
         
-       final CategoryAxis xAxis = new CategoryAxis();
-       final NumberAxis yAxis = new NumberAxis();
+       
        xAxis.setLabel("Date");
        yAxis.setLabel("Events");
-       gradicaLineas = new LineChart<>(xAxis, yAxis);
+//       gradicaLineas = new LineChart<>(xAxis, yAxis);
        gradicaLineas.setTitle("Events");
        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
        XYChart.Series<String,Number> series = new XYChart.Series<>();
        series.setName("Events this Year");
-       LocalDate fechaIni = fechaFinDP.getValue();
-       LocalDate fechafin = fechaIniDP.getValue();
+//       LocalDate fechaIni = fechaFinDP.getValue();
+//       LocalDate fechafin = fechaIniDP.getValue();
+       
        ArrayList<LocalDate> lista = new ArrayList<>();
        for(LocalDate ld : tree.keySet()){
            lista.add(ld);
        }
        //Esta es la lista a filtrar
-       for (Iterator<LocalDate> iter = lista.iterator(); iter.hasNext();) {
-           LocalDate aux = iter.next();
-           if (aux.compareTo(fechaIni) < 0 || aux.compareTo(fechafin) > 0 ) {
-               iter.remove();
-           }
-       }
+//       for (Iterator<LocalDate> iter = lista.iterator(); iter.hasNext();) {
+//           LocalDate aux = iter.next();
+//           if (aux.compareTo(fechaIni) < 0 || aux.compareTo(fechafin) > 0 ) {
+//               iter.remove();
+//           }
+//       }
        for(LocalDate ld: lista){
            series.getData().add(new XYChart.Data(
                    ld.format(formatter),
                    tree.get(ld)
            ));
        }
+       
+       gradicaLineas.getData().add(series);
+        System.out.println("Mostrando ");
        
 //            series.getData().add(new XYChart.Data(dateFormat.parse("11/Jan/2014"), 23));
 //            series.getData().add(new XYChart.Data(dateFormat.parse("09/Feb/2014"), 14));
