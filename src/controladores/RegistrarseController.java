@@ -1,9 +1,6 @@
 package controladores;
 
 import DBAccess.Connect4DAOException;
-import java.awt.AlphaComposite;
-import java.awt.Desktop;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -12,7 +9,6 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,11 +24,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javax.imageio.ImageIO;
 import model.Connect4;
 import model.Player;
 
@@ -88,6 +84,12 @@ public class RegistrarseController implements Initializable {
     private PasswordField cpassword;
     boolean modo, registrarP2;
     Player player1;
+    @FXML
+    private VBox screen;
+    @FXML
+    private Text title;
+    @FXML
+    private ImageView iupload;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -104,6 +106,39 @@ public class RegistrarseController implements Initializable {
     
     public void initMode(boolean b){
         modo = b;
+        
+        if(modo){ 
+            screen.getStylesheets().remove("/Img/lightmode.css");
+            screen.getStylesheets().add("/Img/darkmode.css");
+            usuario.getStylesheets().remove("/Img/lightmode.css");
+            usuario.getStylesheets().add("/Img/darkmode.css");
+            email.getStylesheets().remove("/Img/lightmode.css");
+            email.getStylesheets().add("/Img/darkmode.css");
+            password.getStylesheets().remove("/Img/lightmode.css");
+            password.getStylesheets().add("/Img/darkmode.css");
+            cpassword.getStylesheets().remove("/Img/lightmode.css");
+            cpassword.getStylesheets().add("/Img/darkmode.css");
+            edad.getStylesheets().remove("/Img/lightmode.css");
+            edad.getStylesheets().add("/Img/darkmode.css");
+            title.setStyle("-fx-fill: #ffffff;");
+            iupload.setImage(new Image(getClass().getResource("/Img/uploaddark.png").toExternalForm()));
+        }
+        else{
+            screen.getStylesheets().remove("/Img/darkmode.css");
+            screen.getStylesheets().add("/Img/lightmode.css");
+            usuario.getStylesheets().remove("/Img/darkmode.css");
+            usuario.getStylesheets().add("/Img/lightmode.css");
+            email.getStylesheets().remove("/Img/darkmode.css");
+            email.getStylesheets().add("/Img/lightmode.css");
+            password.getStylesheets().remove("/Img/darkmode.css");
+            password.getStylesheets().add("/Img/lightmode.css");
+            cpassword.getStylesheets().remove("/Img/darkmode.css");
+            cpassword.getStylesheets().add("/Img/lightmode.css");
+            edad.getStylesheets().remove("/Img/darkmode.css");
+            edad.getStylesheets().add("/Img/lightmode.css");
+            title.setStyle("-fx-fill: #000000;");
+            iupload.setImage(new Image(getClass().getResource("/Img/upload.png").toExternalForm()));
+        }
     }
 
     @FXML
@@ -176,6 +211,10 @@ public class RegistrarseController implements Initializable {
             stage.setMaximized(myStage.isMaximized());
             stage.setMinHeight(325);
             stage.setMinWidth(385);
+            
+            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+            stage.getIcons().add(image);
+            stage.setTitle("Conecta4");
             
             stage.setScene(scene);
             stage.show();
@@ -299,6 +338,10 @@ public class RegistrarseController implements Initializable {
                     stage.setMaximized(myStage.isMaximized());
                     stage.setMinHeight(325);
                     stage.setMinWidth(385);
+                    
+                    Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                    stage.getIcons().add(image);
+                    stage.setTitle("Conecta4");
 
                     stage.setScene(scene);
                     stage.show();

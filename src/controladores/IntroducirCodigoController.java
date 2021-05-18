@@ -25,6 +25,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -50,6 +52,8 @@ public class IntroducirCodigoController implements Initializable {
     Player player1;
     
     Stage stage2;
+    @FXML
+    private VBox screen;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -58,6 +62,27 @@ public class IntroducirCodigoController implements Initializable {
     
     public void initMode(boolean b){
         modo = b;
+        
+        if(modo){ 
+            screen.getStylesheets().remove("/Img/lightmode.css");
+            screen.getStylesheets().add("/Img/darkmode.css");
+            code.getStylesheets().remove("/Img/lightmode.css");
+            code.getStylesheets().add("/Img/darkmode.css");
+            cancelar.getStylesheets().remove("/Img/lightmode.css");
+            cancelar.getStylesheets().add("/Img/darkmode.css");
+            obtener.getStylesheets().remove("/Img/lightmode.css");
+            obtener.getStylesheets().add("/Img/darkmode.css");
+        }
+        else{
+            screen.getStylesheets().remove("/Img/darkmode.css");
+            screen.getStylesheets().add("/Img/lightmode.css");
+            code.getStylesheets().remove("/Img/darkmode.css");
+            code.getStylesheets().add("/Img/lightmode.css");
+            cancelar.getStylesheets().remove("/Img/darkmode.css");
+            cancelar.getStylesheets().add("/Img/lightmode.css");
+            obtener.getStylesheets().remove("/Img/darkmode.css");
+            obtener.getStylesheets().add("/Img/lightmode.css");
+        }
     }
     
     void initOldPlayer(Player p){
@@ -81,6 +106,10 @@ public class IntroducirCodigoController implements Initializable {
             stage2.setAlwaysOnTop(true);
             
             CodigoController controlador = loader2.getController();
+            
+            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+            stage2.getIcons().add(image);
+            stage2.setTitle("Conecta4");
             
             stage2.setScene(scene2);  
             stage2.initStyle(StageStyle.UNDECORATED);
@@ -126,6 +155,10 @@ public class IntroducirCodigoController implements Initializable {
         stage.setMaximized(myStage.isMaximized());
         stage.setMinHeight(325);
         stage.setMinWidth(385);
+        
+        Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+        stage.getIcons().add(image);
+        stage.setTitle("Conecta4");
 
         stage.setScene(scene);
         stage.show();
@@ -165,6 +198,10 @@ public class IntroducirCodigoController implements Initializable {
                     Scene scene = new Scene(root);
                     Stage stage = new Stage();
 
+                    Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                    stage.getIcons().add(image);
+                    stage.setTitle("Conecta4");
+                    
                     Stage myStage = (Stage) this.cancelar.getScene().getWindow();
                     stage.setMaximized(myStage.isMaximized());
                     stage.setMinHeight(325);

@@ -28,7 +28,6 @@
 }
 .text-field{
     -fx-background-color: #edf8ff;
-    -fx-border-color: black;
     -fx-prompt-text-fill: gray;
     -fx-text-fill: black;
 }
@@ -50,4 +49,17 @@
 }
 .opacity{
     -fx-opacity: 1;
+}
+.log-in-button{
+    -fx-background-color: #52cad9;
+    -fx-text-fill: black;
+    -fx-border-color: #2e7780;
+}
+.log-in-focus:focused{
+    -fx-border-width: 1.5;
+    -fx-border-color: #3eb5cf;
+}
+.avatar-background{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
 }

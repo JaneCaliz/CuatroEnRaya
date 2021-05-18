@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -109,6 +110,10 @@ public class RecordarPasswordController implements Initializable {
                 stage.setMaximized(myStage.isMaximized());
                 stage.setMinHeight(200);
                 stage.setMinWidth(360);
+                
+                Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                stage.getIcons().add(image);
+                stage.setTitle("Conecta4");
 
                 stage.setScene(scene);
                 stage.show();
@@ -155,6 +160,10 @@ public class RecordarPasswordController implements Initializable {
         stage.setMaximized(myStage.isMaximized());
         stage.setMinHeight(325);
         stage.setMinWidth(385);
+        
+        Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+        stage.getIcons().add(image);
+        stage.setTitle("Conecta4");
 
         stage.setScene(scene);
         stage.show();

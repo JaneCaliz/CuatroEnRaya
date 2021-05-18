@@ -156,6 +156,10 @@ public class PerfilController implements Initializable {
             stage.setMinHeight(520);
             stage.setMinWidth(460);
             
+            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+            stage.getIcons().add(image);
+            stage.setTitle("Conecta4");
+            
             stage.setScene(scene);
             stage.show();
             
@@ -343,6 +347,10 @@ public class PerfilController implements Initializable {
                     stage.setMaximized(myStage.isMaximized());
                     stage.setMinHeight(325);
                     stage.setMinWidth(385);
+                    
+                    Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                    stage.getIcons().add(image);
+                    stage.setTitle("Conecta4");
 
                     stage.setScene(scene);
                     stage.show();

@@ -17,6 +17,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -248,7 +249,6 @@ public class TableroController implements Initializable {
             barra.getStylesheets().add("/Img/lightmode.css");
             p1.styleProperty().bind(Bindings.concat("-fx-font-size: ", gPane.widthProperty().add(gPane.heightProperty()).divide(50).asString(), ";","-fx-fill: rgb(0,0,",0,");"));
             p2.styleProperty().bind(Bindings.concat("-fx-font-size: ", gPane.widthProperty().add(gPane.heightProperty()).divide(50).asString(), ";","-fx-fill: rgb(0,0,",0,");"));
-//            System.out.println("Modo claro tablero");
         }
     }
     
@@ -331,6 +331,10 @@ public class TableroController implements Initializable {
             
             stage.setMinHeight(235);
             stage.setMinWidth(Double.max(424, controlador.width() + 60.0));
+            
+            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+            stage.getIcons().add(image);
+            stage.setTitle("Conecta4");
 
             stage.setScene(scene);
             stage.show();
@@ -613,6 +617,10 @@ public class TableroController implements Initializable {
             stage.setMaximized(myStage.isMaximized());
             stage.setMinHeight(520);
             stage.setMinWidth(460);
+            
+            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+            stage.getIcons().add(image);
+            stage.setTitle("Conecta4");
 
             stage.setScene(scene);
             stage.show();
@@ -761,6 +769,10 @@ public class TableroController implements Initializable {
                 controlador2.closeWindow();
                 e.consume();
             });
+            
+            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+            stage2.getIcons().add(image);
+            stage2.setTitle("Conecta4");
 
             myStage2.close();
         } catch (IOException ex) {

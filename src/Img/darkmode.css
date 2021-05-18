@@ -27,8 +27,7 @@
 -fx-alignment: CENTER_LEFT;
 }
 .text-field{
-    -fx-background-color: #616161;
-    -fx-border-color: black;
+    -fx-background-color: #313131;
     -fx-prompt-text-fill: gray;
     -fx-text-fill: white;
 }
@@ -36,11 +35,11 @@
     -fx-text-fill: white;
 }
 .hyper{
-    -fx-text-fill: #E0E0E0;
+    -fx-text-fill: #3aa3b0;
 }
 .line{
-    -fx-stroke: #212121;
-    -fx-background-color: #212121;
+    -fx-stroke: #414141;
+    -fx-background-color: #414141;
 }
 .conecta4{
     -fx-background-color: #212121;
@@ -50,4 +49,17 @@
 }
 .opacity{
     -fx-opacity: 0.70;
+}
+.log-in-button{
+    -fx-background-color: #23798c;
+    -fx-text-fill: white;
+    -fx-border-color: #23798c;
+}
+.log-in-focus:focused{
+    -fx-border-width: 1.5;
+    -fx-border-color: #3eb5cf;
+}
+.avatar-background{
+    -fx-background-color: #313131;
+    -fx-border-color: transparent;
 }

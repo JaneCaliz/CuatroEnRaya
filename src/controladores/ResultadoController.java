@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -69,7 +70,7 @@ public class ResultadoController implements Initializable {
             replay.getStylesheets().remove("/Img/lightmode.css");
             replay.getStylesheets().add("/Img/darkmode.css");
             resultado.setStyle("-fx-fill: white;");
-            point.setStyle("-fx-fill: white;");
+            point.setStyle("-fx-fill: #ffffff;");
             
         }
         else{
@@ -79,8 +80,8 @@ public class ResultadoController implements Initializable {
             salir.getStylesheets().add("/Img/lightmode.css");
             replay.getStylesheets().remove("/Img/darkmode.css");
             replay.getStylesheets().add("/Img/lightmode.css");
-            resultado.setStyle("\"-fx-fill: #0e5c65");
-            point.setStyle("-fx-fill: white;");
+            resultado.setStyle("-fx-fill: #0e5c65");
+            point.setStyle("-fx-fill: #000000;");
             //#0e5c65
         }
     }
@@ -151,6 +152,10 @@ public class ResultadoController implements Initializable {
             stage.setMaximized(bool);
             stage.setMinHeight(520);
             stage.setMinWidth(460);
+            
+            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+            stage.getIcons().add(image);
+            stage.setTitle("Conecta4");
 
             stage.setScene(scene);
             stage.show();
@@ -189,6 +194,10 @@ public class ResultadoController implements Initializable {
         stage.setMaximized(bool);
         stage.setMinHeight(396);
         stage.setMinWidth(504);
+        
+        Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+        stage.getIcons().add(image);
+        stage.setTitle("Conecta4");
 
         stage.setScene(scene);
         stage.show();

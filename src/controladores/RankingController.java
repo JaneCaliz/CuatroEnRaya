@@ -237,6 +237,10 @@ public class RankingController implements Initializable {
                 controlador.initPlayer2(player2);
             stage.setMaximized(myStage.isMaximized());
             
+            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+            stage.getIcons().add(image);
+            stage.setTitle("Conecta4");
+            
             stage.setScene(scene);
             stage.show();
             
