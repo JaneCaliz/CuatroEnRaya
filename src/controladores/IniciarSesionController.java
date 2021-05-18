@@ -59,11 +59,13 @@ public class IniciarSesionController implements Initializable {
         usuario.textProperty().addListener(new ChangeListener<String>(){
            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                uerror.setText("");
+               uerror.setStyle("-fx-font: 10 Style");
            }
         });
         password.textProperty().addListener(new ChangeListener<String>(){
            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                perror.setText("");
+               perror.setStyle("-fx-font: 1 Style");
            }
         });
     }    
