@@ -1,9 +1,6 @@
 package controladores;
 
 import DBAccess.Connect4DAOException;
-import java.awt.AlphaComposite;
-import java.awt.Desktop;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -12,7 +9,6 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,7 +29,6 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javax.imageio.ImageIO;
 import model.Connect4;
 import model.Player;
 
@@ -126,7 +121,7 @@ public class RegistrarseController implements Initializable {
             edad.getStylesheets().remove("/Img/lightmode.css");
             edad.getStylesheets().add("/Img/darkmode.css");
             title.setStyle("-fx-fill: #ffffff;");
-            iupload.setImage(new Image(getClass().getResource("/Img/upload.png").toExternalForm()));
+            iupload.setImage(new Image(getClass().getResource("/Img/uploaddark.png").toExternalForm()));
         }
         else{
             screen.getStylesheets().remove("/Img/darkmode.css");
@@ -142,7 +137,7 @@ public class RegistrarseController implements Initializable {
             edad.getStylesheets().remove("/Img/darkmode.css");
             edad.getStylesheets().add("/Img/lightmode.css");
             title.setStyle("-fx-fill: #000000;");
-            iupload.setImage(new Image(getClass().getResource("/Img/uploaddark.png").toExternalForm()));
+            iupload.setImage(new Image(getClass().getResource("/Img/upload.png").toExternalForm()));
         }
     }
 
@@ -216,6 +211,10 @@ public class RegistrarseController implements Initializable {
             stage.setMaximized(myStage.isMaximized());
             stage.setMinHeight(325);
             stage.setMinWidth(385);
+            
+            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+            stage.getIcons().add(image);
+            stage.setTitle("Conecta4");
             
             stage.setScene(scene);
             stage.show();
@@ -339,6 +338,10 @@ public class RegistrarseController implements Initializable {
                     stage.setMaximized(myStage.isMaximized());
                     stage.setMinHeight(325);
                     stage.setMinWidth(385);
+                    
+                    Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                    stage.getIcons().add(image);
+                    stage.setTitle("Conecta4");
 
                     stage.setScene(scene);
                     stage.show();

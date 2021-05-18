@@ -1,7 +1,5 @@
 package controladores;
 
-import DBAccess.Connect4DAOException;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
@@ -214,6 +212,10 @@ public class MenuPrincipalController implements Initializable {
             stage.setMinHeight(396);
             stage.setMinWidth(504);
             
+            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+            stage.getIcons().add(image);
+            stage.setTitle("Conecta4");
+            
             stage.setScene(scene);
             controlador.initMode(modoOscuro);
             stage.show();
@@ -253,6 +255,10 @@ public class MenuPrincipalController implements Initializable {
                 stage.setMaximized(myStage.isMaximized());
                 stage.setMinHeight(325);
                 stage.setMinWidth(385);
+                
+                Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                stage.getIcons().add(image);
+                stage.setTitle("Conecta4");
 
                 stage.setScene(scene);
                 stage.show();
@@ -282,6 +288,10 @@ public class MenuPrincipalController implements Initializable {
                 stage.setMaximized(myStage.isMaximized());
                 stage.setMinHeight(396);
                 stage.setMinWidth(504);
+                
+                Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                stage.getIcons().add(image);
+                stage.setTitle("Conecta4");
 
                 stage.setScene(scene);
                 stage.show();
@@ -325,6 +335,10 @@ public class MenuPrincipalController implements Initializable {
                 Stage myStage = (Stage) this.jugarF.getScene().getWindow();
                 stage.setMaximized(myStage.isMaximized());
 
+                Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                stage.getIcons().add(image);
+                stage.setTitle("Conecta4");
+                
                 stage.setScene(scene);
                 stage.show();
                 
@@ -362,6 +376,10 @@ public class MenuPrincipalController implements Initializable {
                 stage.setMaximized(myStage.isMaximized());
                 stage.setMinHeight(520);
                 stage.setMinWidth(460);
+                
+                Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                stage.getIcons().add(image);
+                stage.setTitle("Conecta4");
 
                 stage.setScene(scene);
                 stage.show();
@@ -386,6 +404,10 @@ public class MenuPrincipalController implements Initializable {
                 stage.setMaximized(myStage.isMaximized());
                 stage.setMinHeight(300);
                 stage.setMinWidth(250);
+                
+                Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                stage.getIcons().add(image);
+                stage.setTitle("Conecta4");
 
                 stage.setScene(scene);
                 stage.show();
@@ -427,6 +449,10 @@ public class MenuPrincipalController implements Initializable {
                 stage.setMaximized(myStage.isMaximized());
                 stage.setMinHeight(520);
                 stage.setMinWidth(460);
+                
+                Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                stage.getIcons().add(image);
+                stage.setTitle("Conecta4");
 
                 stage.setScene(scene);
                 stage.show();
@@ -467,6 +493,9 @@ public class MenuPrincipalController implements Initializable {
             stage.setMinHeight(396);
             stage.setMinWidth(504);
             
+            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+            stage.getIcons().add(image);
+            stage.setTitle("Conecta4");
             
             stage.setScene(scene);
             
@@ -503,6 +532,10 @@ public class MenuPrincipalController implements Initializable {
 //            stage.setMinHeight(520);
 //            stage.setMinWidth(460);
             
+            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+            stage.getIcons().add(image);
+            stage.setTitle("Conecta4");
+
             stage.setScene(scene);
             stage.show();
             
@@ -536,6 +569,10 @@ public class MenuPrincipalController implements Initializable {
             stage.setMaximized(myStage.isMaximized());
 //            stage.setMinHeight(520);
 //            stage.setMinWidth(460);
+
+            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+            stage.getIcons().add(image);
+            stage.setTitle("Conecta4");
             
             stage.setScene(scene);
             stage.show();
@@ -691,17 +728,18 @@ public class MenuPrincipalController implements Initializable {
 //            controlador.initMode(modo);
             controlador.initPlayer2(player2);
             controlador.initPlayer1(player1);
-           
             
             stage.setMaximized(myStage.isMaximized());
             stage.setMinHeight(396);
             stage.setMinWidth(504);
             
+            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+            stage.getIcons().add(image);
+            stage.setTitle("Conecta4");
             
             stage.setScene(scene);
             
             stage.show();
-            
             
             myStage.close();
         } catch (IOException ex) {

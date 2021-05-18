@@ -25,6 +25,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
@@ -106,6 +107,10 @@ public class IntroducirCodigoController implements Initializable {
             
             CodigoController controlador = loader2.getController();
             
+            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+            stage2.getIcons().add(image);
+            stage2.setTitle("Conecta4");
+            
             stage2.setScene(scene2);  
             stage2.initStyle(StageStyle.UNDECORATED);
             stage2.show();
@@ -150,6 +155,10 @@ public class IntroducirCodigoController implements Initializable {
         stage.setMaximized(myStage.isMaximized());
         stage.setMinHeight(325);
         stage.setMinWidth(385);
+        
+        Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+        stage.getIcons().add(image);
+        stage.setTitle("Conecta4");
 
         stage.setScene(scene);
         stage.show();
@@ -189,6 +198,10 @@ public class IntroducirCodigoController implements Initializable {
                     Scene scene = new Scene(root);
                     Stage stage = new Stage();
 
+                    Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                    stage.getIcons().add(image);
+                    stage.setTitle("Conecta4");
+                    
                     Stage myStage = (Stage) this.cancelar.getScene().getWindow();
                     stage.setMaximized(myStage.isMaximized());
                     stage.setMinHeight(325);

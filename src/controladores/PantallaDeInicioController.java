@@ -45,8 +45,8 @@ public class PantallaDeInicioController implements Initializable {
             stage.setMinWidth(385);
             
             Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
-            myStage.getIcons().add(image);
-            myStage.setTitle("Conecta4");
+            stage.getIcons().add(image);
+            stage.setTitle("Conecta4");
                         
             stage.setScene(scene);
             stage.show();

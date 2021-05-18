@@ -18,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -125,6 +126,10 @@ public class IniciarSesionController implements Initializable {
                 stage.setMaximized(myStage.isMaximized());
                 stage.setMinHeight(520);
                 stage.setMinWidth(460);
+                
+                Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                stage.getIcons().add(image);
+                stage.setTitle("Conecta4");
 
                 stage.setScene(scene);
                 stage.show();
@@ -149,6 +154,10 @@ public class IniciarSesionController implements Initializable {
                 stage.setMaximized(myStage.isMaximized());
                 stage.setMinHeight(300);
                 stage.setMinWidth(250);
+                
+                Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                stage.getIcons().add(image);
+                stage.setTitle("Conecta4");
                 
                 stage.setScene(scene);
                 stage.show();
@@ -223,6 +232,10 @@ public class IniciarSesionController implements Initializable {
                     stage.setMaximized(myStage.isMaximized());
                     stage.setMinHeight(396);
                     stage.setMinWidth(504);
+                    
+                    Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                    stage.getIcons().add(image);
+                    stage.setTitle("Conecta4");
                                         
                     stage.setScene(scene);
                     stage.show();
@@ -254,6 +267,10 @@ public class IniciarSesionController implements Initializable {
                     controlador.initscene();
                     controlador.initPlayer(p1);
                     stage.setMaximized(myStage.isMaximized());
+                    
+                    Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                    stage.getIcons().add(image);
+                    stage.setTitle("Conecta4");
                     
                     stage.setScene(scene);
                     stage.show();
@@ -294,6 +311,10 @@ public class IniciarSesionController implements Initializable {
             stage.setMaximized(myStage.isMaximized());
             stage.setMinHeight(240);
             stage.setMinWidth(350);
+            
+            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+            stage.getIcons().add(image);
+            stage.setTitle("Conecta4");
             
             stage.setScene(scene);
             stage.show();
@@ -349,6 +370,10 @@ public class IniciarSesionController implements Initializable {
             if(p1 != null)
                 controlador.initPlayer(p1);
             
+            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+            stage.getIcons().add(image);
+            stage.setTitle("Conecta4");
+                
             stage.setScene(scene);
             stage.show();
             stage.setOnCloseRequest(e -> controlador.cerrar());
