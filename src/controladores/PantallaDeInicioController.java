@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
@@ -42,6 +43,10 @@ public class PantallaDeInicioController implements Initializable {
             stage.setMaximized(myStage.isMaximized());
             stage.setMinHeight(325);
             stage.setMinWidth(385);
+            
+            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+            myStage.getIcons().add(image);
+            myStage.setTitle("Conecta4");
                         
             stage.setScene(scene);
             stage.show();

@@ -292,7 +292,7 @@ public class IniciarSesionController implements Initializable {
                 controlador.initPlayer(p1);
             
             stage.setMaximized(myStage.isMaximized());
-            stage.setMinHeight(235);
+            stage.setMinHeight(240);
             stage.setMinWidth(350);
             
             stage.setScene(scene);

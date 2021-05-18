@@ -25,6 +25,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -50,6 +51,8 @@ public class IntroducirCodigoController implements Initializable {
     Player player1;
     
     Stage stage2;
+    @FXML
+    private VBox screen;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -58,6 +61,27 @@ public class IntroducirCodigoController implements Initializable {
     
     public void initMode(boolean b){
         modo = b;
+        
+        if(modo){ 
+            screen.getStylesheets().remove("/Img/lightmode.css");
+            screen.getStylesheets().add("/Img/darkmode.css");
+            code.getStylesheets().remove("/Img/lightmode.css");
+            code.getStylesheets().add("/Img/darkmode.css");
+            cancelar.getStylesheets().remove("/Img/lightmode.css");
+            cancelar.getStylesheets().add("/Img/darkmode.css");
+            obtener.getStylesheets().remove("/Img/lightmode.css");
+            obtener.getStylesheets().add("/Img/darkmode.css");
+        }
+        else{
+            screen.getStylesheets().remove("/Img/darkmode.css");
+            screen.getStylesheets().add("/Img/lightmode.css");
+            code.getStylesheets().remove("/Img/darkmode.css");
+            code.getStylesheets().add("/Img/lightmode.css");
+            cancelar.getStylesheets().remove("/Img/darkmode.css");
+            cancelar.getStylesheets().add("/Img/lightmode.css");
+            obtener.getStylesheets().remove("/Img/darkmode.css");
+            obtener.getStylesheets().add("/Img/lightmode.css");
+        }
     }
     
     void initOldPlayer(Player p){

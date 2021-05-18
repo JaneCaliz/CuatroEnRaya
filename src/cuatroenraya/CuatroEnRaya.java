@@ -12,6 +12,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import model.Connect4;
 
@@ -26,6 +27,11 @@ public class CuatroEnRaya extends Application {
         stage.setScene(scene);
         stage.setMinHeight(300);
         stage.setMinWidth(250);
+        
+        Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+        stage.getIcons().add(image);
+        stage.setTitle("Conecta4");
+        
         stage.show();
     }
 
