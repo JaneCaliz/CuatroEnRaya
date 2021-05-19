@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.StackedBarChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Tab?>
@@ -48,7 +50,7 @@
                         <DatePicker fx:id="fechaFinDP" />
                      </children>
                   </HBox>
-                  <LineChart fx:id="gradicaLineas">
+                  <LineChart fx:id="graficaLineas">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" fx:id="xAxis" />
                     </xAxis>
@@ -56,6 +58,35 @@
                       <NumberAxis fx:id="yAxis" side="LEFT" />
                     </yAxis>
                   </LineChart>
+               </children>
+            </VBox>
+         </content>
+      </Tab>
+      <Tab text="Untitled Tab">
+         <content>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#mostrarGraficasBarrasAct" text="Button" VBox.vgrow="ALWAYS" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <StackedBarChart fx:id="graficaBarrasApiladas">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" fx:id="xAxisBA" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis fx:id="yAxisBA" side="LEFT" />
+                          </yAxis>
+                        </StackedBarChart>
+                        <BarChart fx:id="graficaBarras">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" fx:id="xAxisB" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis fx:id="yAxisB" side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </content>

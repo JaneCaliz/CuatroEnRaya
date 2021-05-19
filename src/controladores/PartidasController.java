@@ -29,9 +29,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.StackedBarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -42,6 +44,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Connect4;
+import model.DayRank;
 import model.Player;
 import model.Round;
 
@@ -71,14 +74,24 @@ public class PartidasController implements Initializable {
     @FXML
     private DatePicker fechaFinDP;
     @FXML
-    
-    
-    
+
     final CategoryAxis xAxis = new CategoryAxis();
+    @FXML
     final NumberAxis yAxis = new NumberAxis();
-        //final LineChart<String,Number> lineChart = new LineChart<String,Number>(xAxis,yAxis);
-        //@FXML private LineChart<String, Number> lineChart;
-    @FXML private LineChart<String, Number> gradicaLineas = new LineChart<String,Number>(xAxis,yAxis);
+
+    @FXML private LineChart<String, Number> graficaLineas;
+    @FXML
+    private StackedBarChart<String, Number> graficaBarrasApiladas;
+    @FXML
+    private NumberAxis yAxisBA;
+    @FXML
+    private CategoryAxis xAxisBA;
+    @FXML
+    private NumberAxis yAxisB;
+    @FXML
+    private CategoryAxis xAxisB;
+    @FXML
+    private BarChart<String, Number> graficaBarras;
 
 
     /**
@@ -87,7 +100,9 @@ public class PartidasController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        gradicaLineas.setAnimated(false);
+        graficaLineas.setAnimated(false);
+        graficaBarrasApiladas.setAnimated(false);
+        graficaBarras.setAnimated(false);
     }  
     public void initPlayer1(Player p1){
         this.player1 = p1;
@@ -180,11 +195,10 @@ public class PartidasController implements Initializable {
        
        xAxis.setLabel("Date");
        yAxis.setLabel("Events");
-//       gradicaLineas = new LineChart<>(xAxis, yAxis);
-       gradicaLineas.setTitle("Events");
+       graficaLineas.setTitle("Número de partidas por día");
        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
        XYChart.Series<String,Number> series = new XYChart.Series<>();
-       series.setName("Events this Year");
+       series.setName("");
 //       LocalDate fechaIni = fechaFinDP.getValue();
 //       LocalDate fechafin = fechaIniDP.getValue();
        
@@ -206,24 +220,9 @@ public class PartidasController implements Initializable {
            ));
        }
        
-       gradicaLineas.getData().add(series);
+       graficaLineas.getData().add(series);
         System.out.println("Mostrando ");
-       
-//            series.getData().add(new XYChart.Data(dateFormat.parse("11/Jan/2014"), 23));
-//            series.getData().add(new XYChart.Data(dateFormat.parse("09/Feb/2014"), 14));
-//            series.getData().add(new XYChart.Data(dateFormat.parse("22/Mar/2014"), 15));
-//            series.getData().add(new XYChart.Data(dateFormat.parse("14/Apr/2014"), 24));
-//            series.getData().add(new XYChart.Data(dateFormat.parse("22/May/2014"), 34));
-//            series.getData().add(new XYChart.Data(dateFormat.parse("07/Jun/2014"), 36));
-//            series.getData().add(new XYChart.Data(dateFormat.parse("22/Jul/2014"), 22));
-//            series.getData().add(new XYChart.Data(dateFormat.parse("21/Aug/2014"), 45));
-//            series.getData().add(new XYChart.Data(dateFormat.parse("04/Sep/2014"), 43));
-//            series.getData().add(new XYChart.Data(dateFormat.parse("22/Oct/2014"), 17));
-//            series.getData().add(new XYChart.Data(dateFormat.parse("30/Nov/2014"), 29));
-//            series.getData().add(new XYChart.Data(dateFormat.parse("10/Dec/2014"), 25));
-//
-//
-//            
+               
 //            /**
 //             * Browsing through the Data and applying ToolTip
 //             * as well as the class on hover
@@ -250,6 +249,65 @@ public class PartidasController implements Initializable {
         } catch (Connect4DAOException ex) {
             Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    private void mostrarGraficasBarras(){
+        Connect4 db = null;
+        try {
+            db = Connect4.getSingletonConnect4();
+        } catch (Connect4DAOException ex) {
+            Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Player player = player1;
+        TreeMap<LocalDate, DayRank> tree = db.getDayRanksPlayer(player);
+        
+        xAxisBA.setLabel("Date");
+        yAxisBA.setLabel("Events");
+        graficaBarrasApiladas.setTitle("Número de partidas ganadas/perdidas");
+        graficaBarras.setTitle("Número de openentes distintos efrentados");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        XYChart.Series<String,Number> ganadas = new XYChart.Series<>();
+        ganadas.setName("Partidas Ganadas");
+        XYChart.Series<String,Number> perdidas = new XYChart.Series<>();
+        perdidas.setName("Partidas Perdidas");
+        XYChart.Series<String,Number> controcantesDistintos = new XYChart.Series<>();
+        controcantesDistintos.setName("Número de openentes");
+        
+       ArrayList<LocalDate> lista = new ArrayList<>();
+       for(LocalDate ld : tree.keySet()){
+           lista.add(ld);
+       }
+       //Esta es la lista a filtrar
+//       for (Iterator<LocalDate> iter = lista.iterator(); iter.hasNext();) {
+//           LocalDate aux = iter.next();
+//           if (aux.compareTo(fechaIni) < 0 || aux.compareTo(fechafin) > 0 ) {
+//               iter.remove();
+//           }
+//       }
+       for(LocalDate ld: lista){
+           ganadas.getData().add(new XYChart.Data(
+                   ld.format(formatter),
+                   tree.get(ld).getWinnedGames()
+           ));
+           perdidas.getData().add(new XYChart.Data(
+                   ld.format(formatter),
+                   tree.get(ld).getLostGames()
+           ));
+           controcantesDistintos.getData().add(new XYChart.Data(
+                   ld.format(formatter),
+                   tree.get(ld).getOponents()
+           ));
+       }
+      
+       graficaBarrasApiladas.getData().addAll(perdidas,ganadas);
+       graficaBarras.getData().addAll(controcantesDistintos);
+        
+        
+    }
+
+    @FXML
+    private void mostrarGraficasBarrasAct(ActionEvent event) {
+            mostrarGraficasBarras();
     }
     
 }
