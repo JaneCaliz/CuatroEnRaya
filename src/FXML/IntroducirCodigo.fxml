@@ -25,7 +25,7 @@
             <Insets />
          </VBox.margin>
          <font>
-            <Font name="SansSerif Regular" size="1.0" />
+            <Font size="1.0" />
          </font>
       </Text>
       <HBox alignment="CENTER" prefHeight="44.0" prefWidth="350.0">
@@ -56,7 +56,7 @@
             <Insets bottom="-10.0" top="10.0" />
          </VBox.margin>
          <font>
-            <Font name="SansSerif Regular" size="1.0" />
+            <Font name="System Regular" size="1.0" />
          </font>
       </Text>
    </children>

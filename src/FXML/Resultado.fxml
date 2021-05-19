@@ -13,7 +13,7 @@
    <children>
       <Text fx:id="resultado" fill="#0e5c65" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="¡Resultado!">
          <font>
-            <Font name="SansSerif Regular" size="50.0" />
+            <Font size="50.0" />
          </font>
       </Text>
       <HBox alignment="CENTER" prefHeight="7.0" prefWidth="448.0">
@@ -23,7 +23,7 @@
                   <Insets left="20.0" />
                </HBox.margin>
                <font>
-                  <Font name="SansSerif Regular" size="20.0" />
+                  <Font size="20.0" />
                </font>
             </Text>
          </children>

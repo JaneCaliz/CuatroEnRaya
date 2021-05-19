@@ -226,7 +226,7 @@ public class IntroducirCodigoController implements Initializable {
             }
         }
         else{
-            text.setStyle("-fx-font: 15 SansSerif");
+            text.setStyle("-fx-font: 15 Style");
             text.setText("Código incorrecto");
         }
     }
