@@ -244,7 +244,6 @@ public class PartidasController implements Initializable {
        }
        
        graficaLineas.getData().add(series);
-        System.out.println("Mostrando ");
                
 //            /**
 //             * Browsing through the Data and applying ToolTip
