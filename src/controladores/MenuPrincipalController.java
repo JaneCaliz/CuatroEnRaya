@@ -485,12 +485,12 @@ public class MenuPrincipalController implements Initializable {
             
             RankingController controlador = loader.getController();
             
-//            controlador.initMode(modo);
+            controlador.initMode(modoOscuro);
             controlador.initPlayer2(player2);
             controlador.initPlayer1(player1);
             
             stage.setMaximized(myStage.isMaximized());
-            stage.setMinHeight(396);
+            stage.setMinHeight(410);
             stage.setMinWidth(504);
             
             Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
@@ -501,6 +501,10 @@ public class MenuPrincipalController implements Initializable {
             
             stage.show();
             
+            stage.setOnCloseRequest(e -> {
+                controlador.closeWindow();
+                e.consume();
+            });
             
             myStage.close();
         } catch (IOException ex) {
