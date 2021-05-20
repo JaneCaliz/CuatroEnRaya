@@ -192,39 +192,54 @@ public class PartidasController implements Initializable {
        
        TreeMap<LocalDate, Integer> tree = db.getRoundCountsPerDay();
         
-       
-       xAxis.setLabel("Date");
-       yAxis.setLabel("Events");
+       graficaLineas.getData().clear();
+       xAxis.setLabel("Días");
+       yAxis.setLabel("Partidas");
        graficaLineas.setTitle("Número de partidas por día");
-       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+       
+       
+       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
        XYChart.Series<String,Number> series = new XYChart.Series<>();
        series.setName("");
-//       LocalDate fechaIni = fechaFinDP.getValue();
-//       LocalDate fechafin = fechaIniDP.getValue();
+       LocalDate fechaIni = fechaIniDP.getValue();
+       LocalDate fechafin = fechaFinDP.getValue();
+       if (fechaIni == null)
+           fechaIni = LocalDate.MIN;
+       if (fechafin == null)
+           fechafin = LocalDate.now();
        
        ArrayList<LocalDate> lista = new ArrayList<>();
        for(LocalDate ld : tree.keySet()){
            lista.add(ld);
        }
        //Esta es la lista a filtrar
-//       for (Iterator<LocalDate> iter = lista.iterator(); iter.hasNext();) {
-//           LocalDate aux = iter.next();
-//           if (aux.compareTo(fechaIni) < 0 || aux.compareTo(fechafin) > 0 ) {
-//               iter.remove();
-//           }
-//       }
-//       for(LocalDate ld = lista.get(0);
-//               ld.compareTo(lista.get(lista.size() - 1))< 0;
-//               ld.plusDays(1)){
-//           if(lista.contains(id)){
-//           
-//           }
-//       }
+       for (Iterator<LocalDate> iter = lista.iterator(); iter.hasNext();) {
+           LocalDate aux = iter.next();
+           if (aux.compareTo(fechaIni) < 0 || aux.compareTo(fechafin) > 0 ) {
+               iter.remove();
+           }
+       }
+       LocalDate fin = lista.get(lista.size()-1);
+       for(LocalDate ld = lista.get(0);
+               ld.compareTo(fin) < 0;
+               ld = ld.plusDays(1)){
+           if(!lista.contains(ld)){
+               lista.add(ld);
+           }
+       }
+       
+       Collections.sort(lista);
         
        for(LocalDate ld: lista){
+           if (tree.get(ld) != null)
            series.getData().add(new XYChart.Data(
                    ld.format(formatter),
                    tree.get(ld)
+           ));
+           else
+           series.getData().add(new XYChart.Data(
+                   ld.format(formatter),
+                   0
            ));
        }
        
