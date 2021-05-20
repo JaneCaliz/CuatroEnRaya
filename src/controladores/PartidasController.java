@@ -213,6 +213,14 @@ public class PartidasController implements Initializable {
 //               iter.remove();
 //           }
 //       }
+//       for(LocalDate ld = lista.get(0);
+//               ld.compareTo(lista.get(lista.size() - 1))< 0;
+//               ld.plusDays(1)){
+//           if(lista.contains(id)){
+//           
+//           }
+//       }
+        
        for(LocalDate ld: lista){
            series.getData().add(new XYChart.Data(
                    ld.format(formatter),

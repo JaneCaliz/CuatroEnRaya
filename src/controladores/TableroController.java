@@ -194,9 +194,13 @@ public class TableroController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        double size = gPane.widthProperty().add(gPane.heightProperty()).divide(50).getValue();
         tablero = new Conecta4();
         victoria = 0;
         binding();   
+        p2.setFont(Font.font("Style", FontWeight.SEMI_BOLD, size));
+        p1.setFont(Font.font("Style", FontWeight.BLACK, size));
+                
     }
     
     public void initializeIA(boolean IA){

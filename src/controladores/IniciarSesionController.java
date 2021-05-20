@@ -209,9 +209,9 @@ public class IniciarSesionController implements Initializable {
                 uerror.setStyle("-fx-font: 15 Style");
                 uerror.setText("Usuario no existente");
             }
-            else if(RegistrarP2  && BD.getPlayer(usu).getPassword() != pass){
+            else if(RegistrarP2  && !BD.getPlayer(usu).getPassword().equals(pass)){
                 perror.setStyle("-fx-font: 15 Style");
-                perror.setText("Contraseña incorrecta");
+                perror.setText("Contraseña incorrecta");  
             }
             else{
                 if(RegistrarP2){
