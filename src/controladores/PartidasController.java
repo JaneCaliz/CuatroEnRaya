@@ -37,10 +37,12 @@ import javafx.scene.chart.StackedBarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.RadioMenuItem;
 
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Connect4;
@@ -92,6 +94,18 @@ public class PartidasController implements Initializable {
     private CategoryAxis xAxisB;
     @FXML
     private BarChart<String, Number> graficaBarras;
+    @FXML
+    private RadioMenuItem ganYperRM;
+    @FXML
+    private RadioMenuItem ganRM;
+    @FXML
+    private RadioMenuItem perRM;
+    @FXML
+    private DatePicker pFechaIniDP;
+    @FXML
+    private DatePicker pFechaFinDP;
+    @FXML
+    private TextField pNombreTF;
 
 
     /**

@@ -7,10 +7,13 @@
 <?import javafx.scene.chart.StackedBarChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.RadioMenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
@@ -23,6 +26,16 @@
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Button mnemonicParsing="false" onAction="#mosratPartidasAct" text="Mostrar Partidas" />
+                        <MenuButton mnemonicParsing="false" text="MenuButton">
+                           <items>
+                              <RadioMenuItem fx:id="ganYperRM" mnemonicParsing="false" text="Ganadas y Perdidas" />
+                              <RadioMenuItem fx:id="ganRM" mnemonicParsing="false" text="Ganadas" />
+                              <RadioMenuItem fx:id="perRM" mnemonicParsing="false" text="Perdidas" />
+                           </items>
+                        </MenuButton>
+                        <DatePicker fx:id="pFechaIniDP" promptText="Fecha de Inicio" />
+                        <DatePicker fx:id="pFechaFinDP" promptText="Fecha de Fin" />
+                        <TextField fx:id="pNombreTF" promptText=" " />
                      </children>
                   </HBox>
                   <TableView fx:id="partidasTablero" prefHeight="294.0" prefWidth="600.0">
