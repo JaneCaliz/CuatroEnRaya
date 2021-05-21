@@ -13,14 +13,14 @@
    <children>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="350.0">
          <children>
-            <TextField fx:id="code" focusTraversable="false" prefHeight="33.0" prefWidth="290.0" promptText="Ingresa aquí el código" styleClass="log-in-focus" stylesheets="@../Img/lightmode.css">
+            <TextField fx:id="code" prefHeight="33.0" prefWidth="290.0" promptText="Ingresa aquí el código" styleClass="log-in-focus" stylesheets="@../Img/lightmode.css">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
          </children>
       </HBox>
-      <Text fx:id="text" fill="RED" focusTraversable="true" strokeType="OUTSIDE" strokeWidth="0.0">
+      <Text fx:id="text" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0">
          <VBox.margin>
             <Insets />
          </VBox.margin>
@@ -30,7 +30,7 @@
       </Text>
       <HBox alignment="CENTER" prefHeight="44.0" prefWidth="350.0">
          <children>
-            <Button fx:id="cancelar" cancelButton="true" mnemonicParsing="false" onAction="#cancelar" style="-fx-background-radius: 5; -fx-border-radius: 5;" styleClass="log-in-button" stylesheets="@../Img/lightmode.css" text="Cancelar">
+            <Button fx:id="cancelar" cancelButton="true" focusTraversable="false" mnemonicParsing="false" onAction="#cancelar" style="-fx-background-radius: 5; -fx-border-radius: 5;" styleClass="log-in-button" stylesheets="@../Img/lightmode.css" text="Cancelar">
                <HBox.margin>
                   <Insets left="25.0" right="30.0" />
                </HBox.margin>
@@ -38,7 +38,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="obtener" defaultButton="true" mnemonicParsing="false" onAction="#obtener" style="-fx-background-radius: 5; -fx-border-radius: 5;" styleClass="log-in-button" stylesheets="@../Img/lightmode.css" text="Obtener contraseña">
+            <Button fx:id="obtener" defaultButton="true" focusTraversable="false" mnemonicParsing="false" onAction="#obtener" style="-fx-background-radius: 5; -fx-border-radius: 5;" styleClass="log-in-button" stylesheets="@../Img/lightmode.css" text="Obtener contraseña">
                <HBox.margin>
                   <Insets left="30.0" right="25.0" />
                </HBox.margin>

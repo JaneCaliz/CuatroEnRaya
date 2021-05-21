@@ -23,7 +23,7 @@
                <children>
                   <HBox alignment="BOTTOM_LEFT" prefHeight="34.0" prefWidth="250.0">
                      <children>
-                        <Text fx:id="title" focusTraversable="true" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Regístrate">
+                        <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Regístrate">
                            <font>
                               <Font name="System Bold" size="25.0" />
                            </font>

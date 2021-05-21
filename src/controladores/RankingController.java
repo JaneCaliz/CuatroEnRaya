@@ -35,6 +35,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import model.Connect4;
@@ -60,16 +63,14 @@ public class RankingController implements Initializable {
     @FXML
     private Button volverB;
     @FXML
-    private TableView<Round> partidasTablero;
-    @FXML
-    private TableColumn<Round, LocalDateTime> FechYHolaC;
-    @FXML
-    private TableColumn<Round, Player> GanadorC;
-    @FXML
-    private TableColumn<Round, Player> PerdedorC;
-    @FXML
     private TextField nombreTF;
     boolean modoOscuro;
+    @FXML
+    private VBox screen;
+    @FXML
+    private Pane line;
+    @FXML
+    private GridPane head;
     
     public void initPlayer1(Player p1){
         this.player1 = p1;
@@ -81,6 +82,33 @@ public class RankingController implements Initializable {
     
     public void initMode(boolean b){
         modoOscuro = b;
+        
+        if(modoOscuro){ 
+            screen.getStylesheets().remove("/Img/lightmode.css");
+            screen.getStylesheets().add("/Img/darkmode.css");
+            tablero.getStylesheets().remove("/Img/lightmode.css");
+            tablero.getStylesheets().add("/Img/darkmode.css");
+            volverB.getStylesheets().remove("/Img/lightmode.css");
+            volverB.getStylesheets().add("/Img/darkmode.css");
+            nombreTF.getStylesheets().remove("/Img/lightmode.css");
+            nombreTF.getStylesheets().add("/Img/darkmode.css");
+            line.setStyle("-fx-stroke: #414141;" + "-fx-background-color: #414141;");
+            head.getStylesheets().remove("/Img/lightmode.css");
+            head.getStylesheets().add("/Img/darkmode.css");
+        }
+        else{
+            screen.getStylesheets().remove("/Img/darkmode.css");
+            screen.getStylesheets().add("/Img/lightmode.css");
+            tablero.getStylesheets().remove("/Img/darkmode.css");
+            tablero.getStylesheets().add("/Img/lightmode.css");
+            volverB.getStylesheets().remove("/Img/darkmode.css");
+            volverB.getStylesheets().add("/Img/lightmode.css");
+            nombreTF.getStylesheets().remove("/Img/darkmode.css");
+            nombreTF.getStylesheets().add("/Img/lightmode.css");
+            line.setStyle("-fx-stroke: black;" + "-fx-background-color: black;");
+            head.getStylesheets().remove("/Img/darkmode.css");
+            head.getStylesheets().add("/Img/lightmode.css");
+        }
     }
     
     @Override

@@ -491,7 +491,7 @@ public class MenuPrincipalController implements Initializable {
             
             stage.setMaximized(myStage.isMaximized());
             stage.setMinHeight(430);
-            stage.setMinWidth(504);
+            stage.setMinWidth(530);
             
             Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
             stage.getIcons().add(image);
