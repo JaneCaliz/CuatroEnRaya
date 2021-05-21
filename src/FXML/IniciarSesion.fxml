@@ -39,7 +39,7 @@
       <VBox alignment="BOTTOM_LEFT" maxWidth="240.0" prefHeight="326.0" prefWidth="240.0" HBox.hgrow="ALWAYS">
          <children>
             <Pane fx:id="idk" prefHeight="170.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-            <Text fx:id="title" focusTraversable="true" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Inicia sesión" textAlignment="CENTER">
+            <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Inicia sesión" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
@@ -106,7 +106,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="iniciar" defaultButton="true" mnemonicParsing="false" onAction="#inicio" style="-fx-background-radius: 5; -fx-border-radius: 5;" styleClass="log-in-button" stylesheets="@../Img/lightmode.css" text="Iniciar sesión">
+                  <Button fx:id="iniciar" defaultButton="true" focusTraversable="false" mnemonicParsing="false" onAction="#inicio" style="-fx-background-radius: 5; -fx-border-radius: 5;" styleClass="log-in-button" stylesheets="@../Img/lightmode.css" text="Iniciar sesión">
                      <HBox.margin>
                         <Insets left="15.0" />
                      </HBox.margin>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -16,11 +18,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.RankingController">
+<BorderPane prefHeight="590.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.RankingController">
    <center>
       <VBox fx:id="screen" alignment="TOP_CENTER" prefHeight="400.0" prefWidth="600.0" styleClass="primary-color" stylesheets="@../Img/lightmode.css">
          <children>
-            <Pane maxHeight="2.0" minHeight="2.0" prefHeight="2.0" prefWidth="200.0" style="-fx-background-color: black;" />
+            <Pane fx:id="line" maxHeight="2.0" minHeight="2.0" prefHeight="2.0" prefWidth="200.0" style="-fx-background-color: black;" />
             <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0" spacing="15.0">
                <children>
                   <Pane prefHeight="100.0" prefWidth="180.0" />
@@ -34,10 +36,10 @@
             </HBox>
             <TableView fx:id="tablero" fixedCellSize="0.0" maxHeight="900.0" maxWidth="1500.0" pickOnBounds="false" prefHeight="262.0" prefWidth="600.0" styleClass="tableview" stylesheets="@../Img/lightmode.css" VBox.vgrow="ALWAYS">
               <columns>
-                <TableColumn fx:id="rankingC" editable="false" prefWidth="75.0" resizable="false" text="Ranking " />
-                  <TableColumn fx:id="avatarC" editable="false" prefWidth="75.0" resizable="false" text="Avatar" />
-                <TableColumn fx:id="nombreC" editable="false" prefWidth="75.0" resizable="false" text="Nombre" />
-                  <TableColumn fx:id="puntosC" editable="false" prefWidth="75.0" resizable="false" text="Puntos" />
+                <TableColumn fx:id="rankingC" editable="false" prefWidth="75.0" resizable="false" sortable="false" text="Ranking " />
+                  <TableColumn fx:id="avatarC" editable="false" prefWidth="75.0" resizable="false" sortable="false" text="Avatar" />
+                <TableColumn fx:id="nombreC" editable="false" prefWidth="75.0" resizable="false" sortable="false" text="Nombre" />
+                  <TableColumn fx:id="puntosC" editable="false" prefWidth="75.0" resizable="false" sortable="false" text="Puntos" />
               </columns>
                <VBox.margin>
                   <Insets left="20.0" right="20.0" />
@@ -51,7 +53,7 @@
       </VBox>
    </center>
    <top>
-      <GridPane maxHeight="120.0" prefHeight="75.0" styleClass="secondary-color" stylesheets="@../Img/lightmode.css" BorderPane.alignment="CENTER">
+      <GridPane fx:id="head" maxHeight="120.0" prefHeight="75.0" styleClass="secondary-color" stylesheets="@../Img/lightmode.css" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
@@ -66,13 +68,21 @@
                   <Image url="@../Img/Ranking.png" />
                </image>
             </ImageView>
-            <Button fx:id="volverB" alignment="CENTER" mnemonicParsing="false" onAction="#volverMP" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: transparent;" styleClass="arrow" stylesheets="@../Img/style.css">
+            <Button fx:id="volverB" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#volverMP" prefHeight="40.0" prefWidth="50.0" style="-fx-background-color: transparent;">
                <GridPane.margin>
                   <Insets left="20.0" />
                </GridPane.margin>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <stylesheets>
+                  <URL value="@../Img/style.css" />
+                  <URL value="@../Img/lightmode.css" />
+               </stylesheets>
+               <styleClass>
+                  <String fx:value="arrow" />
+                  <String fx:value="opacity" />
+               </styleClass>
             </Button>
          </children>
       </GridPane>

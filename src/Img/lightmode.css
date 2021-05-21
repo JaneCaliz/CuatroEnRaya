@@ -81,8 +81,9 @@
    -fx-font-weight: bold;
 }
 .table-row-cell:selected {
-   -fx-background-color: #b2ebf2; 
-   -fx-text-background-color: #147a87;
+    -fx-background-color: #b2ebf2; 
+    -fx-text-background-color: #147a87;
+    -fx-table-cell-border-color: #ffffff;
 }
 .table-view .increment-button ,.table-view .decrement-button {
     -fx-background-color:transparent;

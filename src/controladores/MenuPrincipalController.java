@@ -490,8 +490,8 @@ public class MenuPrincipalController implements Initializable {
             controlador.initPlayer1(player1);
             
             stage.setMaximized(myStage.isMaximized());
-            stage.setMinHeight(410);
-            stage.setMinWidth(504);
+            stage.setMinHeight(430);
+            stage.setMinWidth(530);
             
             Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
             stage.getIcons().add(image);
@@ -533,8 +533,8 @@ public class MenuPrincipalController implements Initializable {
             controlador.initPlayer(player1);
             
             stage.setMaximized(myStage.isMaximized());
-//            stage.setMinHeight(520);
-//            stage.setMinWidth(460);
+            stage.setMinHeight(450);
+            stage.setMinWidth(560);
             
             Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
             stage.getIcons().add(image);
@@ -571,8 +571,8 @@ public class MenuPrincipalController implements Initializable {
             controlador.initPlayer(player2);
             
             stage.setMaximized(myStage.isMaximized());
-//            stage.setMinHeight(520);
-//            stage.setMinWidth(460);
+            stage.setMinHeight(450);
+            stage.setMinWidth(560);
 
             Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
             stage.getIcons().add(image);

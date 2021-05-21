@@ -290,10 +290,10 @@ public class PerfilController implements Initializable {
             
             if(passw && correo && age){
                 if(play == 1){
-                    if(!player1.getAvatar().equals(avatar)){
+                    if(!player1.getAvatar().equals(avatar.getImage())){
                         player1.setAvatar(avatar.getImage());
                     }
-                    if(!player1.getPassword().equals(password)){
+                    if(!player1.getPassword().equals(password.getText())){
                         player1.setPassword(password.getText());
                     }
                     if(!player1.getEmail().equals(email.getText())){
@@ -304,10 +304,10 @@ public class PerfilController implements Initializable {
                     }
                 }
                 if(play == 2){
-                    if(!player2.getAvatar().equals(avatar)){
+                    if(!player2.getAvatar().equals(avatar.getImage())){
                         player2.setAvatar(avatar.getImage());
                     }
-                    if(!player2.getPassword().equals(password)){
+                    if(!player2.getPassword().equals(password.getText())){
                         player2.setPassword(password.getText());
                     }
                     if(!player2.getEmail().equals(email.getText())){
@@ -345,8 +345,8 @@ public class PerfilController implements Initializable {
 
                     Stage myStage = (Stage) this.guardar.getScene().getWindow();
                     stage.setMaximized(myStage.isMaximized());
-                    stage.setMinHeight(325);
-                    stage.setMinWidth(385);
+                    stage.setMinHeight(520);
+                    stage.setMinWidth(460);
                     
                     Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
                     stage.getIcons().add(image);
@@ -355,9 +355,15 @@ public class PerfilController implements Initializable {
                     stage.setScene(scene);
                     stage.show();
 
-                    stage.setOnCloseRequest(e -> controlador.closeWindow());
+                    stage.setOnCloseRequest(e -> {
+                        controlador.closeWindow();
+                        e.consume();
+                    });
 
                     myStage.close();
+                    
+                    stage.setScene(scene);
+                    stage.show();
                 }
             }
         } catch (Connect4DAOException ex) {
