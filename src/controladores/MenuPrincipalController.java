@@ -732,6 +732,7 @@ public class MenuPrincipalController implements Initializable {
 //            controlador.initMode(modo);
             controlador.initPlayer2(player2);
             controlador.initPlayer1(player1);
+            controlador.mostrarPartidasAct(null);
             
             stage.setMaximized(myStage.isMaximized());
             stage.setMinHeight(396);

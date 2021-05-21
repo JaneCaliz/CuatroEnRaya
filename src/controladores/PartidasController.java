@@ -7,28 +7,27 @@ package controladores;
 
 import DBAccess.Connect4DAOException;
 import controladores.RankingController;
+import java.io.IOException;
 import java.net.URL;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
@@ -37,32 +36,29 @@ import javafx.scene.chart.StackedBarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.RadioMenuItem;
 
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
+import static javafx.scene.input.KeyCode.T;
 import model.Connect4;
 import model.DayRank;
 import model.Player;
 import model.Round;
 
+import org.controlsfx.control.textfield.AutoCompletionBinding;
+import org.controlsfx.control.textfield.TextFields;
 
-
-/**
- * FXML Controller class
- *
- * @author ydavpacat
- */
 public class PartidasController implements Initializable {
 
     @FXML
     private TableView<Round> partidasTablero;
     @FXML
-    private TableColumn<Round, LocalDateTime> FechYHolaC;
+    private TableColumn<Round, LocalDateTime> FechaYHoraC;
     @FXML
     private TableColumn<Round, Player> GanadorC;
     @FXML
@@ -106,17 +102,29 @@ public class PartidasController implements Initializable {
     private DatePicker pFechaFinDP;
     @FXML
     private TextField pNombreTF;
+    @FXML
+    private MenuButton resultado;
+    
+    private AutoCompletionBinding<String> autoCompletar;
 
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        graficaLineas.setAnimated(false);
-        graficaBarrasApiladas.setAnimated(false);
-        graficaBarras.setAnimated(false);
+        try {
+            // TODO
+            graficaLineas.setAnimated(false);
+            graficaBarrasApiladas.setAnimated(false);
+            graficaBarras.setAnimated(false);
+            
+            pFechaIniDP.prefWidthProperty().bind(Bindings.max(partidasTablero.widthProperty().divide(3).subtract(5), 220));
+            pFechaFinDP.prefWidthProperty().bind(Bindings.max(partidasTablero.widthProperty().divide(3).subtract(5), 220));
+            pNombreTF.prefWidthProperty().bind(Bindings.max(partidasTablero.widthProperty().divide(3).subtract(5), 220));
+            resultado.prefWidthProperty().bind(Bindings.max(partidasTablero.widthProperty().divide(3).subtract(5), 220));
+            
+            autoCompletar();
+        } catch (IOException ex) {
+            Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }  
     public void initPlayer1(Player p1){
         this.player1 = p1;
@@ -126,13 +134,10 @@ public class PartidasController implements Initializable {
         this.player2 = p2;
     }
 
-    @FXML
-    private void mosratPartidasAct(ActionEvent event) {
+    public void mostrarPartidasAct(ActionEvent event) {
         try {
             Connect4 connect4 = Connect4.getSingletonConnect4();
             ObservableList<Round> observablRounds;
-            
-            //observablePlayers = FXCollections.observableList(connect4.getConnect4Ranking());
             
             ArrayList<Player> listaJugadores = connect4.getConnect4Ranking();
             ArrayList<Round> listaPartidas = new ArrayList<>();
@@ -164,6 +169,7 @@ public class PartidasController implements Initializable {
                 }
             };
         });
+        GanadorC.prefWidthProperty().bind(partidasTablero.widthProperty().divide(3).subtract(7));
         
         PerdedorC.setCellValueFactory(new PropertyValueFactory<Round, Player>("loser"));
         PerdedorC.setCellFactory(columna -> {
@@ -179,9 +185,10 @@ public class PartidasController implements Initializable {
                 }
             };
         });
+        PerdedorC.prefWidthProperty().bind(partidasTablero.widthProperty().divide(3).subtract(7));
         
-        FechYHolaC.setCellValueFactory(new PropertyValueFactory<Round, LocalDateTime>("timeStamp"));
-        FechYHolaC.setCellFactory(columna -> {
+        FechaYHoraC.setCellValueFactory(new PropertyValueFactory<Round, LocalDateTime>("timeStamp"));
+        FechaYHoraC.setCellFactory(columna -> {
             return new TableCell<Round, LocalDateTime>() {
                 protected void updateItem(LocalDateTime item, boolean empty) {
                     super.updateItem(item, empty);
@@ -197,6 +204,7 @@ public class PartidasController implements Initializable {
         
             };
         });
+        FechaYHoraC.prefWidthProperty().bind(partidasTablero.widthProperty().divide(3).subtract(7));
         
     }
     
@@ -337,8 +345,6 @@ public class PartidasController implements Initializable {
       
        graficaBarrasApiladas.getData().addAll(perdidas,ganadas);
        graficaBarras.getData().addAll(controcantesDistintos);
-        
-        
     }
 
     @FXML
@@ -346,4 +352,26 @@ public class PartidasController implements Initializable {
             mostrarGraficasBarras();
     }
     
+    private void autoCompletar() throws IOException{
+        try {
+            Connect4 BD = Connect4.getSingletonConnect4();
+            List<Player> rankingList = BD.getConnect4Ranking();
+            
+            Player[] players = rankingList.toArray(new Player[0]);
+            
+            String[] listaPlayers = new String[players.length];
+            
+            for(int i = 0; i < players.length; i++){
+                listaPlayers[i] = players[i].getNickName();                
+            }
+//            
+            List<String> jugadores = Arrays.asList(listaPlayers);
+            Collections.sort(jugadores);
+                        
+            TextFields.bindAutoCompletion(pNombreTF,jugadores);
+            
+        } catch (Connect4DAOException ex) {
+            Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }    
 }

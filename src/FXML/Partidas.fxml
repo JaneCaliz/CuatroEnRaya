@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
@@ -17,36 +18,55 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<TabPane prefHeight="436.0" prefWidth="547.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.PartidasController">
+<TabPane prefHeight="631.0" prefWidth="787.0" styleClass="primary-color" stylesheets="@../Img/lightmode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.PartidasController">
    <tabs>
       <Tab text="Partidas">
          <content>
-            <VBox alignment="CENTER" prefHeight="388.0" prefWidth="397.0">
+            <VBox alignment="TOP_CENTER" prefHeight="388.0" prefWidth="397.0">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="450.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#mosratPartidasAct" text="Mostrar Partidas" />
-                        <MenuButton mnemonicParsing="false" text="MenuButton">
+                        <DatePicker fx:id="pFechaIniDP" maxWidth="300.0" prefWidth="220.0" promptText="Desde (fecha)" />
+                        <DatePicker fx:id="pFechaFinDP" maxWidth="300.0" prefWidth="220.0" promptText="Hasta (fecha)">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </DatePicker>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="20.0" right="20.0" top="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="475.0">
+                     <children>
+                        <TextField fx:id="pNombreTF" maxWidth="300.0" prefWidth="220.0" promptText="Jugador" />
+                        <MenuButton fx:id="resultado" maxWidth="300.0" mnemonicParsing="false" prefWidth="220.0" text="Resultado">
                            <items>
                               <RadioMenuItem fx:id="ganYperRM" mnemonicParsing="false" text="Ganadas y Perdidas" />
                               <RadioMenuItem fx:id="ganRM" mnemonicParsing="false" text="Ganadas" />
                               <RadioMenuItem fx:id="perRM" mnemonicParsing="false" text="Perdidas" />
                            </items>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
                         </MenuButton>
-                        <DatePicker fx:id="pFechaIniDP" promptText="Fecha de Inicio" />
-                        <DatePicker fx:id="pFechaFinDP" promptText="Fecha de Fin" />
-                        <TextField fx:id="pNombreTF" promptText=" " />
                      </children>
+                     <VBox.margin>
+                        <Insets bottom="30.0" left="20.0" right="20.0" top="5.0" />
+                     </VBox.margin>
                   </HBox>
-                  <TableView fx:id="partidasTablero" prefHeight="294.0" prefWidth="600.0">
+                  <TableView fx:id="partidasTablero" minWidth="450.0" prefHeight="294.0" prefWidth="747.0" VBox.vgrow="ALWAYS">
                      <columns>
-                        <TableColumn fx:id="FechYHolaC" editable="false" prefWidth="134.0" sortable="false" text="Fecha y hora " />
-                        <TableColumn fx:id="GanadorC" prefWidth="111.0" text="Ganador" />
-                        <TableColumn fx:id="PerdedorC" prefWidth="137.0" text="Perdedor " />
+                        <TableColumn fx:id="FechaYHoraC" editable="false" prefWidth="134.0" resizable="false" sortable="false" text="Fecha y hora " />
+                        <TableColumn fx:id="GanadorC" editable="false" prefWidth="111.0" resizable="false" sortable="false" text="Ganador" />
+                        <TableColumn fx:id="PerdedorC" editable="false" prefWidth="137.0" resizable="false" sortable="false" text="Perdedor " />
                      </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" />
+                     </VBox.margin>
                   </TableView>
                </children>
             </VBox>
