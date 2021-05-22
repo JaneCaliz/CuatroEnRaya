@@ -50,7 +50,7 @@
             <Pane maxHeight="10.0" prefHeight="10.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
             <VBox alignment="CENTER" maxWidth="240.0" prefHeight="76.0" prefWidth="600.0" VBox.vgrow="NEVER">
                <children>
-                  <TextField fx:id="usuario" maxHeight="-Infinity" maxWidth="240.0" prefHeight="33.0" prefWidth="230.0" promptText="Usuario" style="-fx-border-width: 1;" styleClass="log-in-focus" stylesheets="@../Img/lightmode.css">
+                  <TextField fx:id="usuario" maxHeight="-Infinity" maxWidth="240.0" prefHeight="33.0" prefWidth="230.0" promptText="Usuario" style="-fx-border-width: 1;" stylesheets="@../Img/lightmode.css">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -75,10 +75,6 @@
                      <VBox.margin>
                         <Insets bottom="3.0" />
                      </VBox.margin>
-                     <styleClass>
-                        <String fx:value="log-in-focus" />
-                        <String fx:value="text-field" />
-                     </styleClass>
                   </PasswordField>
                   <Text fx:id="perror" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
                      <VBox.margin>

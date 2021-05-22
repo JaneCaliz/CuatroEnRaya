@@ -30,6 +30,7 @@
     -fx-background-color: #313131;
     -fx-prompt-text-fill: gray;
     -fx-text-fill: white;
+    -fx-cursor: text;
 }
 .text{
     -fx-text-fill: white;
@@ -54,10 +55,6 @@
     -fx-background-color: #23798c;
     -fx-text-fill: white;
     -fx-border-color: #23798c;
-}
-.log-in-focus:focused{
-    -fx-border-width: 1.5;
-    -fx-border-color: #3eb5cf;
 }
 .avatar-background{
     -fx-background-color: #313131;

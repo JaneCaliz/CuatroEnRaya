@@ -13,7 +13,7 @@
    <children>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="350.0">
          <children>
-            <TextField fx:id="code" prefHeight="33.0" prefWidth="290.0" promptText="Ingresa aquí el código" styleClass="log-in-focus" stylesheets="@../Img/lightmode.css">
+            <TextField fx:id="code" prefHeight="33.0" prefWidth="290.0" promptText="Ingresa aquí el código" stylesheets="@../Img/lightmode.css">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor>

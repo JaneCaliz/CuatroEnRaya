@@ -33,7 +33,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <TextField fx:id="usuario" maxWidth="315.0" prefWidth="315.0" promptText="Usuario" styleClass="log-in-focus" stylesheets="@../Img/lightmode.css">
+                  <TextField fx:id="usuario" maxWidth="315.0" prefWidth="315.0" promptText="Usuario" stylesheets="@../Img/lightmode.css">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
@@ -45,7 +45,7 @@
                      <font>
                         <Font size="13.0" />
                      </font></Text>
-                  <TextField fx:id="email" maxWidth="315.0" prefWidth="315.0" promptText="Correo electrónico" styleClass="log-in-focus" stylesheets="@../Img/lightmode.css">
+                  <TextField fx:id="email" maxWidth="315.0" prefWidth="315.0" promptText="Correo electrónico" stylesheets="@../Img/lightmode.css">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
@@ -54,17 +54,17 @@
                      <font>
                         <Font size="13.0" />
                      </font></Text>
-                  <PasswordField fx:id="password" maxWidth="315.0" prefWidth="315.0" promptText="Contraseña" styleClass="log-in-focus" stylesheets="@../Img/lightmode.css" />
+                  <PasswordField fx:id="password" maxWidth="315.0" prefWidth="315.0" promptText="Contraseña" stylesheets="@../Img/lightmode.css" />
                   <Text fx:id="epassword" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="315.0" VBox.vgrow="ALWAYS">
                      <font>
                         <Font size="13.0" />
                      </font></Text>
-                  <PasswordField fx:id="cpassword" maxWidth="315.0" prefWidth="315.0" promptText="Confirmar contraseña" styleClass="log-in-focus" stylesheets="@../Img/lightmode.css" />
+                  <PasswordField fx:id="cpassword" maxWidth="315.0" prefWidth="315.0" promptText="Confirmar contraseña" stylesheets="@../Img/lightmode.css" />
                   <Text fx:id="ecpassword" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
                      <font>
                         <Font size="13.0" />
                      </font></Text>
-                  <DatePicker fx:id="edad" maxWidth="315.0" prefWidth="315.0" promptText="Fecha de nacimiento" styleClass="log-in-focus" stylesheets="@../Img/lightmode.css" VBox.vgrow="ALWAYS">
+                  <DatePicker fx:id="edad" maxWidth="315.0" prefWidth="315.0" promptText="Fecha de nacimiento" stylesheets="@../Img/lightmode.css" VBox.vgrow="ALWAYS">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
