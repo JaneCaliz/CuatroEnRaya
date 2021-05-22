@@ -47,6 +47,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import static javafx.scene.input.KeyCode.T;
+import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
 import model.Connect4;
 import model.DayRank;
 import model.Player;
@@ -198,9 +200,17 @@ public class PartidasController implements Initializable {
                     if (item == null || empty) {
                         setText(null);
                     } else {
+                        HBox hbox = new HBox();
+                        hbox.setAlignment(Pos.CENTER);
                         
-                        setGraphic(view);
-                        setText(item.getNickName()+"    ");
+//                        setGraphic(view);
+//                        setText(item.getNickName()+"    ");
+                        Text text = new Text(item.getNickName()+"    ");
+                        
+                        hbox.getChildren().add(text);
+                        hbox.getChildren().add(view);
+                        
+                        setGraphic(hbox);
                         
                         view.fitWidthProperty().bind(Bindings.min(
                             Bindings.when(columna.widthProperty().lessThan(item.getAvatar().getWidth() + 40))
@@ -218,8 +228,8 @@ public class PartidasController implements Initializable {
                         
                    
 //                        setPadding(new Insets(0, 0, 0, 50));
-                        
-                        styleProperty().bind(Bindings.concat("-fx-padding: 0 ",columna.widthProperty().divide(4)," 0 0;"));
+//                        
+//                        styleProperty().bind(Bindings.concat("-fx-padding: 0 ",columna.widthProperty().divide(4)," 0 0;"));
                     }
                 }
             };
