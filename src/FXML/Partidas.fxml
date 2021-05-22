@@ -15,8 +15,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
 <TabPane prefHeight="631.0" prefWidth="787.0" stylesheets="@../Img/lightmode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.PartidasController">
@@ -25,7 +25,6 @@
          <content>
             <VBox alignment="TOP_CENTER" prefHeight="388.0" prefWidth="397.0">
                <children>
-                  <Pane maxHeight="2.0" minHeight="2.0" prefHeight="2.0" prefWidth="200.0" styleClass="line" stylesheets="@../Img/lightmode.css" />
                   <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="450.0">
                      <children>
                         <DatePicker fx:id="pFechaIniDP" maxWidth="300.0" prefWidth="220.0" promptText="Desde (fecha)" />
@@ -44,9 +43,12 @@
                         <TextField fx:id="pNombreTF" maxWidth="300.0" prefWidth="220.0" promptText="Jugador" />
                         <MenuButton fx:id="resultado" maxWidth="300.0" mnemonicParsing="false" prefWidth="220.0" text="Resultado">
                            <items>
-                              <RadioMenuItem fx:id="ganYperRM" mnemonicParsing="false" text="Ganadas y Perdidas" />
-                              <RadioMenuItem fx:id="ganRM" mnemonicParsing="false" text="Ganadas" />
-                              <RadioMenuItem fx:id="perRM" mnemonicParsing="false" text="Perdidas" />
+                              <RadioMenuItem fx:id="ganYperRM" mnemonicParsing="false" text="Ganadas y Perdidas">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="result" />
+                                 </toggleGroup></RadioMenuItem>
+                              <RadioMenuItem fx:id="ganRM" mnemonicParsing="false" text="Ganadas" toggleGroup="$result" />
+                              <RadioMenuItem fx:id="perRM" mnemonicParsing="false" text="Perdidas" toggleGroup="$result" />
                            </items>
                            <HBox.margin>
                               <Insets left="10.0" />

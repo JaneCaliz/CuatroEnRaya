@@ -26,7 +26,7 @@
             <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0" spacing="15.0">
                <children>
                   <Pane prefHeight="100.0" prefWidth="180.0" />
-                  <TextField fx:id="nombreTF" maxWidth="500.0" minWidth="300.0" prefHeight="31.0" prefWidth="280.0" promptText="Buscar jugador" styleClass="log-in-focus" stylesheets="@../Img/lightmode.css" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="nombreTF" maxWidth="500.0" minWidth="300.0" prefHeight="31.0" prefWidth="280.0" promptText="Buscar jugador" stylesheets="@../Img/lightmode.css" HBox.hgrow="ALWAYS">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
