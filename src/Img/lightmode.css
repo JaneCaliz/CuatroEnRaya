@@ -51,6 +51,13 @@
 
 
 /*DatePicker*/
+.date-picker{
+    -fx-outer-border: 0;
+}
+.date-picker .arrow-button {
+    -fx-background-color: #edf8ff;
+    -fx-cursor: hand;
+}
 .date-picker-popup .month-year-pane {
     -fx-background-color: derive(#147a87,30%), 
         linear-gradient(to bottom, derive(#147a87,-3%), 
@@ -68,13 +75,6 @@
 .date-picker-popup > * > .spinner > .button:armed {
     -fx-color: transparent;
 }
-.date-picker-popup > * > .spinner > .button > .left-arrow,
-.date-picker-popup > * > .spinner > .button > .right-arrow {
-    -fx-background-color: white, derive(white,-45%);
-    -fx-background-insets: 1 0 -1 0, 0;
-    -fx-padding: 0.333333em 0.166667em 0.333333em 0.166667em;
-    -fx-effect: dropshadow(two-pass-box , white, 1, 0.0 , 0, 1.4);
-}
 .date-picker-popup > * > .spinner > .button:hover,
 .date-picker-popup > * > .spinner > .button:hover {
     -fx-background-color: transparent, derive(transparent,-50%);
@@ -84,12 +84,11 @@
 .date-picker-popup > * > .spinner > .button:armed {
     -fx-background-color: transparent, derive(transparent,-50%);
 }
-.date-picker .arrow-button {
-    -fx-background-color: #edf8ff;
+.date-picker-popup > * > .day-cell {
     -fx-cursor: hand;
 }
 
-
+/*text*/
 .text-field{
     -fx-background-color: #edf8ff;
     -fx-prompt-text-fill: gray;
@@ -106,6 +105,8 @@
 .hyperlink{
     -fx-text-fill: #156779;
 }
+
+/*Random*/
 .line{
     -fx-stroke: black;
     -fx-background-color: black;
@@ -186,6 +187,7 @@
 .tab-pane .tab{
     -fx-background-color: #8ed6de;
     -fx-background-radius: 5 5 0 0;
+    -fx-cursor: hand;
 }
 .tab-pane .tab:selected{
     -fx-background-color: #b2ebf2;
@@ -195,4 +197,26 @@
 }
 .radio-menu-item:checked > .left-container > .radio{
     -fx-background-color: #147a87;
+}
+
+/*Gráficas*/
+.chart-plot-background{
+    -fx-background-color: #c7f9ff;
+}
+.chart-horizontal-grid-lines {
+    -fx-stroke: gray;
+}
+.axis-tick-mark {
+    -fx-stroke: #000000;
+    -fx-stroke-width: 1; 
+}
+.axis-minor-tick-mark {
+    -fx-stroke: #000000;
+    -fx-stroke-width: 1; 
+}
+.axis:left {
+    -fx-border-color: transparent #000000 transparent transparent;
+}
+.axis:bottom{
+    -fx-border-color: transparent #000000 transparent transparent;
 }

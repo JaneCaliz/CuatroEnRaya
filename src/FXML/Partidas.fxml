@@ -21,7 +21,7 @@
 
 <TabPane prefHeight="631.0" prefWidth="787.0" stylesheets="@../Img/lightmode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.PartidasController">
    <tabs>
-      <Tab text="Partidas">
+      <Tab closable="false" text="Partidas">
          <content>
             <VBox alignment="TOP_CENTER" prefHeight="388.0" prefWidth="397.0">
                <children>
@@ -43,7 +43,7 @@
                         <TextField fx:id="pNombreTF" maxWidth="300.0" prefWidth="220.0" promptText="Jugador" />
                         <MenuButton fx:id="resultado" maxWidth="300.0" mnemonicParsing="false" prefWidth="220.0" text="Resultado">
                            <items>
-                              <RadioMenuItem fx:id="ganYperRM" mnemonicParsing="false" text="Ganadas y Perdidas">
+                              <RadioMenuItem fx:id="ganYperRM" mnemonicParsing="false" text="Ganadas y perdidas">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="result" />
                                  </toggleGroup></RadioMenuItem>
@@ -76,15 +76,15 @@
             </VBox>
          </content>
       </Tab>
-      <Tab text="Untitled Tab">
+      <Tab closable="false" text="Gráfica por tiempo">
          <content>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <DatePicker fx:id="fechaIniDP" />
+                        <DatePicker fx:id="fechaIniDP" promptText="Desde (fecha)" />
+                        <DatePicker fx:id="fechaFinDP" promptText="Hasta (fecha)" />
                         <Button fx:id="mostraGrafica" mnemonicParsing="false" onAction="#mostraGraficaAct" text="Button" />
-                        <DatePicker fx:id="fechaFinDP" />
                      </children>
                   </HBox>
                   <LineChart fx:id="graficaLineas">
@@ -94,12 +94,15 @@
                     <yAxis>
                       <NumberAxis fx:id="yAxis" side="LEFT" />
                     </yAxis>
+                     <VBox.margin>
+                        <Insets left="15.0" right="15.0" />
+                     </VBox.margin>
                   </LineChart>
                </children>
             </VBox>
          </content>
       </Tab>
-      <Tab text="Untitled Tab">
+      <Tab closable="false" text="Gráfica por resultado">
          <content>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
