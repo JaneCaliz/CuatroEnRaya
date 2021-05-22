@@ -27,6 +27,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
@@ -44,6 +45,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import static javafx.scene.input.KeyCode.T;
 import model.Connect4;
 import model.DayRank;
@@ -158,13 +160,29 @@ public class PartidasController implements Initializable {
         GanadorC.setCellValueFactory(new PropertyValueFactory<Round, Player>("winner"));
         GanadorC.setCellFactory(columna -> {
             return new TableCell<Round, Player>() {
+                private ImageView view = new ImageView();
                 protected void updateItem(Player item, boolean empty) {
                     super.updateItem(item, empty);
                     if (item == null || empty) {
                         setText(null);
                     } else {
-                        setText(item.getNickName());
-                        setAlignment(Pos.CENTER);
+                        view.fitWidthProperty().bind(Bindings.min(
+                            Bindings.when(columna.widthProperty().lessThan(item.getAvatar().getWidth() + 40))
+                                   .then(columna.widthProperty().subtract(40))
+                                   .otherwise(item.getAvatar().getWidth()), 60));
+                        view.fitHeightProperty().bind(Bindings.min(
+                            Bindings.when(columna.widthProperty().lessThan(item.getAvatar().getHeight()+ 30))
+                                   .then(columna.widthProperty().subtract(30))
+                                   .otherwise(item.getAvatar().getHeight()),70));
+                        view.setImage(item.getAvatar());
+                        setGraphic(view);
+                        setText("    "+item.getNickName());
+                        setAlignment(Pos.CENTER_LEFT);
+                   
+//                        setPadding(new Insets(0, 0, 0, 50));
+                        
+                        styleProperty().bind(Bindings.concat("-fx-padding: 0 0 0 ",columna.widthProperty().divide(4),";"));
+                        
                     }
                 }
             };
@@ -174,13 +192,34 @@ public class PartidasController implements Initializable {
         PerdedorC.setCellValueFactory(new PropertyValueFactory<Round, Player>("loser"));
         PerdedorC.setCellFactory(columna -> {
             return new TableCell<Round, Player>() {
+                private ImageView view = new ImageView();
                 protected void updateItem(Player item, boolean empty) {
                     super.updateItem(item, empty);
                     if (item == null || empty) {
                         setText(null);
                     } else {
-                        setText(item.getNickName());
-                        setAlignment(Pos.CENTER);
+                        
+                        setGraphic(view);
+                        setText(item.getNickName()+"    ");
+                        
+                        view.fitWidthProperty().bind(Bindings.min(
+                            Bindings.when(columna.widthProperty().lessThan(item.getAvatar().getWidth() + 40))
+                                   .then(columna.widthProperty().subtract(40))
+                                   .otherwise(item.getAvatar().getWidth()), 60));
+                        view.fitHeightProperty().bind(Bindings.min(
+                            Bindings.when(columna.widthProperty().lessThan(item.getAvatar().getHeight()+ 30))
+                                   .then(columna.widthProperty().subtract(30))
+                                   .otherwise(item.getAvatar().getHeight()),70));
+                        view.setImage(item.getAvatar());
+                        
+                        
+                        
+                        setAlignment(Pos.CENTER_RIGHT);
+                        
+                   
+//                        setPadding(new Insets(0, 0, 0, 50));
+                        
+                        styleProperty().bind(Bindings.concat("-fx-padding: 0 ",columna.widthProperty().divide(4)," 0 0;"));
                     }
                 }
             };
