@@ -21,7 +21,10 @@ import java.util.ResourceBundle;
 import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.InvalidationListener;
 import javafx.beans.binding.Bindings;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -126,6 +129,13 @@ public class PartidasController implements Initializable {
             resultado.prefWidthProperty().bind(Bindings.max(partidasTablero.widthProperty().divide(3).subtract(5), 220));
             
             autoCompletar();
+            mostraGraficaAct(null);
+            fechaFinDP.valueProperty().addListener((ov, oldValue, newValue) -> {
+                mostraGraficaAct(null);
+            });
+            fechaIniDP.valueProperty().addListener((ov, oldValue, newValue) -> {
+                mostraGraficaAct(null);
+            });
         } catch (IOException ex) {
             Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -168,6 +178,16 @@ public class PartidasController implements Initializable {
                     if (item == null || empty) {
                         setText(null);
                     } else {
+                        HBox hbox = new HBox();
+                        hbox.setAlignment(Pos.CENTER);
+                        
+                        Text text = new Text(item.getNickName()+"    ");
+                        
+                        hbox.getChildren().add(text);
+                        hbox.getChildren().add(view);
+                        
+                        setGraphic(hbox);
+                        
                         view.fitWidthProperty().bind(Bindings.min(
                             Bindings.when(columna.widthProperty().lessThan(item.getAvatar().getWidth() + 40))
                                    .then(columna.widthProperty().subtract(40))
@@ -176,15 +196,8 @@ public class PartidasController implements Initializable {
                             Bindings.when(columna.widthProperty().lessThan(item.getAvatar().getHeight()+ 30))
                                    .then(columna.widthProperty().subtract(30))
                                    .otherwise(item.getAvatar().getHeight()),70));
-                        view.setImage(item.getAvatar());
-                        setGraphic(view);
-                        setText("    "+item.getNickName());
-                        setAlignment(Pos.CENTER_LEFT);
-                   
-//                        setPadding(new Insets(0, 0, 0, 50));
-                        
-                        styleProperty().bind(Bindings.concat("-fx-padding: 0 0 0 ",columna.widthProperty().divide(4),";"));
-                        
+                        view.setImage(item.getAvatar());                       
+                        setAlignment(Pos.CENTER_RIGHT);
                     }
                 }
             };
@@ -271,7 +284,7 @@ public class PartidasController implements Initializable {
        
        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
        XYChart.Series<String,Number> series = new XYChart.Series<>();
-       series.setName("");
+       series.setName("Partidas en el sistema");
        LocalDate fechaIni = fechaIniDP.getValue();
        LocalDate fechafin = fechaFinDP.getValue();
        if (fechaIni == null)
