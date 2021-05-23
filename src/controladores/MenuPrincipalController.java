@@ -731,7 +731,7 @@ public class MenuPrincipalController implements Initializable {
             
             PartidasController controlador = loader.getController();
             
-//            controlador.initMode(modo);
+            controlador.initMode(modoOscuro);
             controlador.initPlayer2(player2);
             controlador.initPlayer1(player1);
             controlador.mostrarPartidasAct(null);
