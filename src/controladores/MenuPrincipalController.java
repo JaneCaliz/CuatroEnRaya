@@ -86,6 +86,8 @@ public class MenuPrincipalController implements Initializable {
     Image darkmode = null, lightmode = null;
     @FXML
     private Button partidas;
+    @FXML
+    private Button ranking;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -750,5 +752,10 @@ public class MenuPrincipalController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void verRankingAction(ActionEvent event) {
+        mostrarRanking(event);
     }
 }

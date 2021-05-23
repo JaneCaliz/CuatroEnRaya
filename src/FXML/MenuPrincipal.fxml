@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="screen" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="375.0" minWidth="468.0" prefHeight="470.0" prefWidth="698.0" styleClass="primary-color" stylesheets="@../Img/lightmode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.MenuPrincipalController">
+<VBox fx:id="screen" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="375.0" minWidth="468.0" prefHeight="562.0" prefWidth="698.0" styleClass="primary-color" stylesheets="@../Img/lightmode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.MenuPrincipalController">
    <children>
       <GridPane fx:id="barra" alignment="CENTER" maxHeight="120.0" minHeight="0.0" prefHeight="0.0" prefWidth="666.0" styleClass="secondary-color" stylesheets="@../Img/lightmode.css" VBox.vgrow="ALWAYS">
         <columnConstraints>
@@ -153,6 +153,26 @@
                      </VBox.margin>
                   </HBox>
                   <Pane maxHeight="40.0" minHeight="20.0" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="280.0" maxHeight="100.0" minHeight="70.0" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="ranking" maxHeight="100.0" maxWidth="250.0" minHeight="70.0" mnemonicParsing="false" onAction="#verRankingAction" prefHeight="70.0" prefWidth="230.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" stylesheets="@../Img/lightmode.css" text="Ranking">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <styleClass>
+                              <String fx:value="button-color" />
+                              <String fx:value="button-border-color" />
+                           </styleClass>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Pane layoutX="10.0" layoutY="221.0" maxHeight="40.0" minHeight="20.0" prefHeight="100.0" prefWidth="200.0" />
                   <HBox alignment="CENTER" maxHeight="100.0" minHeight="70.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                      <children>
                         <Button fx:id="partidas" maxHeight="100.0" maxWidth="250.0" minHeight="70.0" mnemonicParsing="false" onAction="#verPartidasAction" prefHeight="70.0" prefWidth="230.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" stylesheets="@../Img/lightmode.css" text="Partidas">
