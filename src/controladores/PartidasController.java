@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controladores;
 
 import DBAccess.Connect4DAOException;
@@ -27,6 +22,8 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -47,6 +44,7 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import static javafx.scene.input.KeyCode.T;
@@ -136,6 +134,12 @@ public class PartidasController implements Initializable {
             fechaIniDP.valueProperty().addListener((ov, oldValue, newValue) -> {
                 mostraGraficaAct(null);
             });
+            pFechaFinDP.valueProperty().addListener((ov, oldValue, newValue) -> {
+                mostrarPartidasAct(null);
+            });
+            pFechaIniDP.valueProperty().addListener((ov, oldValue, newValue) -> {
+                mostrarPartidasAct(null);
+            });
         } catch (IOException ex) {
             Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -149,6 +153,7 @@ public class PartidasController implements Initializable {
     }
 
     public void mostrarPartidasAct(ActionEvent event) {
+
         try {
             Connect4 connect4 = Connect4.getSingletonConnect4();
             ObservableList<Round> observablRounds;
@@ -160,10 +165,44 @@ public class PartidasController implements Initializable {
                 listTwoCopy.removeAll(listaPartidas);
                 listaPartidas.addAll(listTwoCopy);
             }
+              LocalDate fechafin = pFechaFinDP.getValue();
+              LocalDate fechaIni = pFechaIniDP.getValue();
+               if (fechaIni == null)
+                   fechaIni = LocalDate.MIN;
+               if (fechafin == null)
+                   fechafin = LocalDate.now();
+
+             for (Iterator<Round> iter = listaPartidas.iterator(); iter.hasNext();) {
+                   LocalDate aux = iter.next().getLocalDate();
+                   if (aux.compareTo(fechaIni) < 0 || aux.compareTo(fechafin) > 0 ) {
+                       iter.remove();
+                   }
+               }
+
             Collections.sort(listaPartidas);
             Collections.reverse(listaPartidas);
             observablRounds = FXCollections.observableList(listaPartidas);
-            partidasTablero.setItems(observablRounds);
+            FilteredList<Round> filteredData = new FilteredList<>(observablRounds, b -> true);
+            pNombreTF.textProperty().addListener((observable, oldValue, newValue) -> {
+			filteredData.setPredicate(employee -> {
+				if (newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+		
+				if (employee.getWinner().getNickName().equals(newValue)) {
+					return true; // Filter matches first name.
+				} else 
+                                if (employee.getLoser().getNickName().equals(newValue)) {
+					return true; 
+				} else   
+				    	 return false; 
+			});
+                        partidasTablero.refresh();
+		});
+                
+            SortedList<Round> sortedData = new SortedList<>(filteredData);
+            sortedData.comparatorProperty().bind(partidasTablero.comparatorProperty());
+            partidasTablero.setItems(sortedData);
             
         } catch (Connect4DAOException ex) {
             Logger.getLogger(RankingController.class.getName()).log(Level.SEVERE, null, ex);
@@ -181,10 +220,10 @@ public class PartidasController implements Initializable {
                         HBox hbox = new HBox();
                         hbox.setAlignment(Pos.CENTER);
                         
-                        Text text = new Text(item.getNickName()+"    ");
+                        Text text = new Text("    "+item.getNickName());
                         
-                        hbox.getChildren().add(text);
                         hbox.getChildren().add(view);
+                        hbox.getChildren().add(text);
                         
                         setGraphic(hbox);
                         
@@ -215,14 +254,12 @@ public class PartidasController implements Initializable {
                     } else {
                         HBox hbox = new HBox();
                         hbox.setAlignment(Pos.CENTER);
-                        
-//                        setGraphic(view);
-//                        setText(item.getNickName()+"    ");
+
                         Text text = new Text(item.getNickName()+"    ");
                         
                         hbox.getChildren().add(text);
                         hbox.getChildren().add(view);
-                        
+                               
                         setGraphic(hbox);
                         
                         view.fitWidthProperty().bind(Bindings.min(
@@ -234,15 +271,9 @@ public class PartidasController implements Initializable {
                                    .then(columna.widthProperty().subtract(30))
                                    .otherwise(item.getAvatar().getHeight()),70));
                         view.setImage(item.getAvatar());
-                        
-                        
-                        
+                     
                         setAlignment(Pos.CENTER_RIGHT);
                         
-                   
-//                        setPadding(new Insets(0, 0, 0, 50));
-//                        
-//                        styleProperty().bind(Bindings.concat("-fx-padding: 0 ",columna.widthProperty().divide(4)," 0 0;"));
                     }
                 }
             };
@@ -280,8 +311,7 @@ public class PartidasController implements Initializable {
        xAxis.setLabel("Días");
        yAxis.setLabel("Partidas");
        graficaLineas.setTitle("Número de partidas por día");
-       
-       
+             
        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
        XYChart.Series<String,Number> series = new XYChart.Series<>();
        series.setName("Partidas en el sistema");
@@ -296,7 +326,7 @@ public class PartidasController implements Initializable {
        for(LocalDate ld : tree.keySet()){
            lista.add(ld);
        }
-       //Esta es la lista a filtrar
+
        for (Iterator<LocalDate> iter = lista.iterator(); iter.hasNext();) {
            LocalDate aux = iter.next();
            if (aux.compareTo(fechaIni) < 0 || aux.compareTo(fechafin) > 0 ) {
@@ -329,23 +359,19 @@ public class PartidasController implements Initializable {
        
        graficaLineas.getData().add(series);
                
-//            /**
-//             * Browsing through the Data and applying ToolTip
-//             * as well as the class on hover
-//             */
-//            for (XYChart.Series<Number, Number> s : lineChart.getData()) {
-//                for (XYChart.Data<Number, Number> d : s.getData()) {
-//                    Tooltip.install(d.getNode(), new Tooltip(
-//                            d.getXValue().toString() + "\n" +
-//                                    "Number Of Events : " + d.getYValue()));
-//                    
-//                    //Adding class on hover
-//                    d.getNode().setOnMouseEntered(event -> d.getNode().getStyleClass().add("onHover"));
-//                    
-//                    //Removing class on exit
-//                    d.getNode().setOnMouseExited(event -> d.getNode().getStyleClass().remove("onHover"));
-//                }
-//            }
+            for (XYChart.Series<String, Number> s : graficaLineas.getData()) {
+                for (XYChart.Data<String, Number> d : s.getData()) {
+                    Tooltip.install(d.getNode(), new Tooltip(
+                            d.getXValue() + "\n" +
+                                    "Numero de partidas : " + d.getYValue()));
+                    
+                    //Adding class on hover
+                    d.getNode().setOnMouseEntered(event -> d.getNode().getStyleClass().add("onHover"));
+                    
+                    //Removing class on exit
+                    d.getNode().setOnMouseExited(event -> d.getNode().getStyleClass().remove("onHover"));
+                }
+            }
     }
 
     @FXML
