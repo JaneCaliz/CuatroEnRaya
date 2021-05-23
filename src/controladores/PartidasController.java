@@ -44,6 +44,7 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
@@ -111,6 +112,8 @@ public class PartidasController implements Initializable {
     private MenuButton resultado;
     
     private AutoCompletionBinding<String> autoCompletar;
+    @FXML
+    private ToggleGroup result;
 
 
     @Override
@@ -138,6 +141,10 @@ public class PartidasController implements Initializable {
                 mostrarPartidasAct(null);
             });
             pFechaIniDP.valueProperty().addListener((ov, oldValue, newValue) -> {
+                mostrarPartidasAct(null);
+            });
+            ganYperRM.setSelected(true);
+            ganYperRM.selectedProperty().addListener((ov, oldValue, newValue) -> {
                 mostrarPartidasAct(null);
             });
         } catch (IOException ex) {
@@ -189,10 +196,58 @@ public class PartidasController implements Initializable {
 					return true;
 				}
 		
-				if (employee.getWinner().getNickName().equals(newValue)) {
-					return true; // Filter matches first name.
+				if (employee.getWinner().getNickName().equals(newValue) && (ganYperRM.isSelected() || ganRM.isSelected())) {
+					return true; 
 				} else 
-                                if (employee.getLoser().getNickName().equals(newValue)) {
+                                if (employee.getLoser().getNickName().equals(newValue) && (ganYperRM.isSelected() || perRM.isSelected())) {
+					return true; 
+				} else   
+				    	 return false; 
+			});
+                        partidasTablero.refresh();
+		});
+            ganYperRM.selectedProperty().addListener((observable, oldValue, newValue) -> {
+			filteredData.setPredicate(employee -> {
+				if (pNombreTF.getText() == "") {
+					return true;
+				}
+		
+				if (employee.getWinner().getNickName().equals(pNombreTF.getText()) && (ganYperRM.isSelected() || ganRM.isSelected())) {
+					return true; 
+				} else 
+                                if (employee.getLoser().getNickName().equals(pNombreTF.getText()) && (ganYperRM.isSelected() || perRM.isSelected())) {
+					return true; 
+				} else   
+				    	 return false; 
+			});
+                        partidasTablero.refresh();
+		});
+            ganRM.selectedProperty().addListener((observable, oldValue, newValue) -> {
+			filteredData.setPredicate(employee -> {
+				if (pNombreTF.getText() == "") {
+					return true;
+				}
+		
+				if (employee.getWinner().getNickName().equals(pNombreTF.getText()) && (ganYperRM.isSelected() || ganRM.isSelected())) {
+					return true; 
+				} else 
+                                if (employee.getLoser().getNickName().equals(pNombreTF.getText()) && (ganYperRM.isSelected() || perRM.isSelected())) {
+					return true; 
+				} else   
+				    	 return false; 
+			});
+                        partidasTablero.refresh();
+		});
+            perRM.selectedProperty().addListener((observable, oldValue, newValue) -> {
+			filteredData.setPredicate(employee -> {
+				if (pNombreTF.getText() == "") {
+					return true;
+				}
+		
+				if (employee.getWinner().getNickName().equals(pNombreTF.getText()) && (ganYperRM.isSelected() || ganRM.isSelected())) {
+					return true; 
+				} else 
+                                if (employee.getLoser().getNickName().equals(pNombreTF.getText()) && (ganYperRM.isSelected() || perRM.isSelected())) {
 					return true; 
 				} else   
 				    	 return false; 
@@ -462,4 +517,19 @@ public class PartidasController implements Initializable {
             Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }    
+
+    @FXML
+    private void ganYper(ActionEvent event) {
+        resultado.setText("Ganadas y Perdidas");
+    }
+
+    @FXML
+    private void ganAct(ActionEvent event) {
+        resultado.setText("Ganadas");
+    }
+
+    @FXML
+    private void perAct(ActionEvent event) {
+        resultado.setText("Perdidas");
+    }
 }

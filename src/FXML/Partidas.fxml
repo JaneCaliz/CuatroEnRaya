@@ -43,12 +43,12 @@
                         <TextField fx:id="pNombreTF" maxWidth="300.0" prefWidth="220.0" promptText="Jugador" />
                         <MenuButton fx:id="resultado" maxWidth="300.0" mnemonicParsing="false" prefWidth="220.0" text="Resultado">
                            <items>
-                              <RadioMenuItem fx:id="ganYperRM" mnemonicParsing="false" text="Ganadas y perdidas">
+                              <RadioMenuItem fx:id="ganYperRM" mnemonicParsing="false" onAction="#ganYper" text="Ganadas y perdidas">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="result" />
                                  </toggleGroup></RadioMenuItem>
-                              <RadioMenuItem fx:id="ganRM" mnemonicParsing="false" text="Ganadas" toggleGroup="$result" />
-                              <RadioMenuItem fx:id="perRM" mnemonicParsing="false" text="Perdidas" toggleGroup="$result" />
+                              <RadioMenuItem fx:id="ganRM" mnemonicParsing="false" onAction="#ganAct" text="Ganadas" toggleGroup="$result" />
+                              <RadioMenuItem fx:id="perRM" mnemonicParsing="false" onAction="#perAct" text="Perdidas" toggleGroup="$result" />
                            </items>
                            <HBox.margin>
                               <Insets left="10.0" />
