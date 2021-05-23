@@ -9,6 +9,8 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.binding.Binding;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,6 +27,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -89,20 +93,70 @@ public class PerfilController implements Initializable {
     Player player1, player2;
     String passw;
     LocalDate year;
+    @FXML
+    private VBox screen;
+    @FXML
+    private HBox barra;
     int play;
-    boolean modo;
+    boolean modoOscuro;
+    @FXML
+    private Pane line;
+    @FXML
+    private Text utext;
+    @FXML
+    private Text ctext;
+    @FXML
+    private Text etext;
+    @FXML
+    private Text dtext;
+    @FXML
+    private ImageView iupload;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        volver.prefHeightProperty().bind(Bindings.min(barra.heightProperty().subtract(10), 50));
+        volver.prefWidthProperty().bind(Bindings.min(barra.heightProperty().subtract(10), 50));
     }    
 
+    public void initMode(boolean b){
+        modoOscuro = b;
+        if(modoOscuro){ 
+            
+            screen.getStylesheets().remove("/Img/lightmode.css");
+            screen.getStylesheets().add("/Img/darkmode.css");
+            barra.getStylesheets().remove("/Img/lightmode.css");
+            barra.getStylesheets().add("/Img/darkmode.css");
+            line.getStylesheets().remove("/Img/lightmode.css");
+            line.getStylesheets().add("/Img/darkmode.css");
+            utext.setStyle("-fx-fill: #ffffff;");
+            ctext.setStyle("-fx-fill: #ffffff;");
+            etext.setStyle("-fx-fill: #ffffff;");
+            dtext.setStyle("-fx-fill: #ffffff;");
+            iupload.setImage(new Image(getClass().getResource("/Img/uploaddark.png").toExternalForm()));
+        }
+        else{
+            
+            screen.getStylesheets().remove("/Img/darkmode.css");
+            screen.getStylesheets().add("/Img/lightmode.css");
+            barra.getStylesheets().remove("/Img/darkmode.css");
+            barra.getStylesheets().add("/Img/lightmode.css");
+            line.getStylesheets().remove("/Img/darkmode.css");
+            line.getStylesheets().add("/Img/lightmode.css");
+            utext.setStyle("-fx-fill: #000000;");
+            ctext.setStyle("-fx-fill: #000000;");
+            etext.setStyle("-fx-fill: #000000;");
+            dtext.setStyle("-fx-fill: #000000;");
+            iupload.setImage(new Image(getClass().getResource("/Img/upload.png").toExternalForm()));
+        }
+    }
+    
     @FXML
     private void volver(ActionEvent event) {
         cerrar();
     }
     
-    public void initPlayer(Player p){
+    public void initPlayer(Player p, int i){
+        play = i;
         if(player1 == null)
             player1 = p;
         else
@@ -112,7 +166,7 @@ public class PerfilController implements Initializable {
         usuario.setText(p.getNickName());
         String pass = "";
         passw = p.getPassword();
-        for(int i = 0; i < passw.length(); i++){
+        for(int j = 0; j < passw.length(); j++){
             pass += "•";
         }
         password.setText(pass);
@@ -130,10 +184,6 @@ public class PerfilController implements Initializable {
             player2 = p;
     }
     
-    public void initMode(boolean b){
-        modo = b;
-    }
-    
     public void cerrar(){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
@@ -146,7 +196,7 @@ public class PerfilController implements Initializable {
             Stage myStage = (Stage) this.volver.getScene().getWindow();
             
             MenuPrincipalController controlador = loader.getController();
-            controlador.initMode(modo);
+            controlador.initMode(modoOscuro);
             controlador.initscene();
             controlador.initPlayer(player1);
             if(player2 != null)
@@ -334,7 +384,7 @@ public class PerfilController implements Initializable {
                     Parent root = loader.load();
 
                     MenuPrincipalController controlador = loader.getController();
-                    controlador.initMode(modo);
+                    controlador.initMode(modoOscuro);
                     controlador.initscene();
                     controlador.initPlayer(player1);
                     if(player2 != null)

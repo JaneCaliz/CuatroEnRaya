@@ -74,8 +74,6 @@ public class PartidasController implements Initializable {
     @FXML
     private DatePicker fechaIniDP;
     @FXML
-    private Button mostraGrafica;
-    @FXML
     private DatePicker fechaFinDP;
     @FXML
 
@@ -429,7 +427,6 @@ public class PartidasController implements Initializable {
             }
     }
 
-    @FXML
     private void mostraGraficaAct(ActionEvent event) {
         try {
             graficaLineas();

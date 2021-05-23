@@ -530,7 +530,7 @@ public class MenuPrincipalController implements Initializable {
             controlador.initMode(modoOscuro);
             if(player2 != null)
                 controlador.initOtro(player2, 2);
-            controlador.initPlayer(player1);
+            controlador.initPlayer(player1, 1);
             
             stage.setMaximized(myStage.isMaximized());
             stage.setMinHeight(450);
@@ -568,7 +568,7 @@ public class MenuPrincipalController implements Initializable {
             PerfilController controlador = loader.getController();
             controlador.initMode(modoOscuro);
             controlador.initOtro(player1, 1);
-            controlador.initPlayer(player2);
+            controlador.initPlayer(player2, 2);
             
             stage.setMaximized(myStage.isMaximized());
             stage.setMinHeight(450);

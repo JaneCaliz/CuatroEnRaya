@@ -71,7 +71,6 @@ public class ResultadoController implements Initializable {
             replay.getStylesheets().add("/Img/darkmode.css");
             resultado.setStyle("-fx-fill: white;");
             point.setStyle("-fx-fill: #ffffff;");
-            
         }
         else{
             screen.getStylesheets().remove("/Img/darkmode.css");

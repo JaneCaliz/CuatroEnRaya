@@ -108,3 +108,52 @@
     -fx-text-fill: white;
     -fx-padding: 0.0em;
 }
+
+/*TabPane*/
+.tab-pane{
+    -fx-background-color: #b2ebf2;
+    -fx-border-width: 0;
+}
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #8ed6de;
+    -fx-border-color: #b2ebf2;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-insets: 0;
+    -fx-pref-height: 45px;  
+}
+.tab-pane .tab{
+    -fx-background-color: #8ed6de;
+    -fx-background-radius: 5 5 0 0;
+    -fx-cursor: hand;
+}
+.tab-pane .tab:selected{
+    -fx-background-color: #b2ebf2;
+}
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
+}
+.radio-menu-item:checked > .left-container > .radio{
+    -fx-background-color: #147a87;
+}
+
+/*Gráficas*/
+.chart-plot-background{
+    -fx-background-color: #c7f9ff;
+}
+.chart-horizontal-grid-lines {
+    -fx-stroke: gray;
+}
+.axis-tick-mark {
+    -fx-stroke: #000000;
+    -fx-stroke-width: 1; 
+}
+.axis-minor-tick-mark {
+    -fx-stroke: #000000;
+    -fx-stroke-width: 1; 
+}
+.axis:left {
+    -fx-border-color: transparent #000000 transparent transparent;
+}
+.axis:bottom{
+    -fx-border-color: transparent #000000 transparent transparent;
+}

@@ -1,4 +1,3 @@
-
 /*fondos*/
 .primary-color{
     -fx-background-color: #b2ebf2;
@@ -52,7 +51,7 @@
 
 /*DatePicker*/
 .date-picker{
-    -fx-outer-border: 0;
+    -fx-background-color: derive(transparent, -23%), -fx-inner-border, #edf8ff;
 }
 .date-picker .arrow-button {
     -fx-background-color: #edf8ff;
@@ -66,25 +65,25 @@
     -fx-background-insets: 0 0 0 0, 0 0 1 0;
     -fx-text-background-color: white;
 }
-.date-picker-popup > * > .spinner > .button {
+.date-picker-popup * .spinner .button {
     -fx-background-color: transparent, transparent, transparent;
     -fx-background-insets: 0, 1, 2;
     -fx-color: transparent;
     -fx-background-radius: 0;
 }
-.date-picker-popup > * > .spinner > .button:armed {
+.date-picker-popup * .spinner .button:armed {
     -fx-color: transparent;
 }
-.date-picker-popup > * > .spinner > .button:hover,
-.date-picker-popup > * > .spinner > .button:hover {
+.date-picker-popup * .spinner .button:hover,
+.date-picker-popup * .spinner .button:hover {
     -fx-background-color: transparent, derive(transparent,-50%);
     -fx-cursor: hand;
 }
-.date-picker-popup > * > .spinner > .button:armed,
-.date-picker-popup > * > .spinner > .button:armed {
+.date-picker-popup * .spinner .button:armed,
+.date-picker-popup * .spinner .button:armed {
     -fx-background-color: transparent, derive(transparent,-50%);
 }
-.date-picker-popup > * > .day-cell {
+.date-picker-popup * .day-cell {
     -fx-cursor: hand;
 }
 
