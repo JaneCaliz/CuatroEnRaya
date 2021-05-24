@@ -116,6 +116,12 @@ public class PartidasController implements Initializable {
     boolean modoOscuro;
     @FXML
     private TabPane screen;
+    @FXML
+    private TextField pNombreTF1;
+    @FXML
+    private DatePicker fechaIniDP1;
+    @FXML
+    private DatePicker fechaFinDP1;
 
 
     @Override
@@ -149,8 +155,41 @@ public class PartidasController implements Initializable {
             ganYperRM.selectedProperty().addListener((ov, oldValue, newValue) -> {
                 mostrarPartidasAct(null);
             });
+            pNombreTF1.textProperty().addListener((ov, oldValue, newValue) -> {
+                Connect4 db = null;
+                    try {
+                        db = Connect4.getSingletonConnect4();
+                    } catch (Connect4DAOException ex) {
+                        Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    if (db.getPlayer(newValue) != null){
+                        mostrarGraficasBarras();
+                    }
+            });
+            fechaFinDP1.valueProperty().addListener((ov, oldValue, newValue) -> {
+                Connect4 db = null;
+                    try {
+                        db = Connect4.getSingletonConnect4();
+                    } catch (Connect4DAOException ex) {
+                        Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    if (db.getPlayer(pNombreTF1.getText()) != null){
+                        mostrarGraficasBarras();
+                    }
+            });
+            fechaIniDP1.valueProperty().addListener((ov, oldValue, newValue) -> {
+                Connect4 db = null;
+                    try {
+                        db = Connect4.getSingletonConnect4();
+                    } catch (Connect4DAOException ex) {
+                        Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    if (db.getPlayer(pNombreTF1.getText()) != null){
+                        mostrarGraficasBarras();
+                    }
+            });
         } catch (IOException ex) {
-            Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }  
     public void initPlayer1(Player p1){
@@ -469,9 +508,10 @@ public class PartidasController implements Initializable {
         } catch (Connect4DAOException ex) {
             Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Player player = player1;
+        Player player = db.getPlayer(pNombreTF1.getText());
         TreeMap<LocalDate, DayRank> tree = db.getDayRanksPlayer(player);
-        
+        graficaBarras.getData().clear();
+        graficaBarrasApiladas.getData().clear();
         xAxisBA.setLabel("Date");
         yAxisBA.setLabel("Events");
         graficaBarrasApiladas.setTitle("Número de partidas ganadas/perdidas");
@@ -488,26 +528,43 @@ public class PartidasController implements Initializable {
        for(LocalDate ld : tree.keySet()){
            lista.add(ld);
        }
-       //Esta es la lista a filtrar
-//       for (Iterator<LocalDate> iter = lista.iterator(); iter.hasNext();) {
-//           LocalDate aux = iter.next();
-//           if (aux.compareTo(fechaIni) < 0 || aux.compareTo(fechafin) > 0 ) {
-//               iter.remove();
-//           }
-//       }
+       
+       LocalDate fechaIni = fechaIniDP1.getValue();
+       LocalDate fechafin = fechaFinDP1.getValue();
+       if (fechaIni == null)
+           fechaIni = LocalDate.MIN;
+       if (fechafin == null)
+           fechafin = LocalDate.now();
+
+       for (Iterator<LocalDate> iter = lista.iterator(); iter.hasNext();) {
+           LocalDate aux = iter.next();
+           if (aux.compareTo(fechaIni) < 0 || aux.compareTo(fechafin) > 0 ) {
+               iter.remove();
+           }
+       }
+       LocalDate fin = lista.get(lista.size()-1);
+       for(LocalDate ld = lista.get(0);
+               ld.compareTo(fin) < 0;
+               ld = ld.plusDays(1)){
+           if(!lista.contains(ld)){
+               lista.add(ld);
+           }
+       }
        for(LocalDate ld: lista){
-           ganadas.getData().add(new XYChart.Data(
-                   ld.format(formatter),
-                   tree.get(ld).getWinnedGames()
-           ));
-           perdidas.getData().add(new XYChart.Data(
-                   ld.format(formatter),
-                   tree.get(ld).getLostGames()
-           ));
-           controcantesDistintos.getData().add(new XYChart.Data(
-                   ld.format(formatter),
-                   tree.get(ld).getOponents()
-           ));
+           if (null != tree.get(ld)){
+                ganadas.getData().add(new XYChart.Data(
+                        ld.format(formatter),
+                        tree.get(ld).getWinnedGames()
+                ));
+                perdidas.getData().add(new XYChart.Data(
+                        ld.format(formatter),
+                        tree.get(ld).getLostGames()
+                ));
+                controcantesDistintos.getData().add(new XYChart.Data(
+                        ld.format(formatter),
+                        tree.get(ld).getOponents()
+                ));
+           }
        }
       
        graficaBarrasApiladas.getData().addAll(perdidas,ganadas);
@@ -536,6 +593,7 @@ public class PartidasController implements Initializable {
             Collections.sort(jugadores);
                         
             TextFields.bindAutoCompletion(pNombreTF,jugadores);
+            TextFields.bindAutoCompletion(pNombreTF1,jugadores);
             
         } catch (Connect4DAOException ex) {
             Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
