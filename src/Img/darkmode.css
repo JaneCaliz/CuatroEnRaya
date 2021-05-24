@@ -1,3 +1,4 @@
+/*Fondos*/
 .primary-color{
     -fx-background-color: #000000;
 }
@@ -7,6 +8,8 @@
 .tertiary-color{
     -fx-background-color: #212121;
 }
+
+/*Botones*/
 .button-color{
     -fx-background-color: #424242;
     -fx-text-fill: white;
@@ -15,22 +18,107 @@
     -fx-border-color: #000000;
 }
 .button-hover:hover {
-  -fx-background-color: #121212;
-  -fx-border-color: none;
-  -fx-cursor: hand;
-  -fx-text-fill: white;
+    -fx-background-color: #121212;
+    -fx-border-color: none;
+    -fx-cursor: hand;
+    -fx-text-fill: white;
 }
 .num-button {
--fx-background-color: #212121;
--fx-background-radius:  80 0 0 80;
--fx-text-fill: white;
--fx-alignment: CENTER_LEFT;
+    -fx-background-color: #212121;
+    -fx-background-radius:  80 0 0 80;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER_LEFT;
 }
+.log-in-button{
+    -fx-background-color: #23798c;
+    -fx-text-fill: white;
+    -fx-border-color: #23798c;
+}
+.menu-button{
+    -fx-background-color: #313131;
+    -fx-cursor: hand;
+}
+.menu-button .label{
+    -fx-text-fill: white;
+}
+.menu-button .arrow-button .arrow{
+    -fx-background-color: gray;
+}
+.context-menu{
+    -fx-background-color: #313131;
+}
+.radio-menu-item:hover{
+    -fx-cursor: hand;
+}
+.radio-menu-item:checked .left-container .radio{
+    -fx-background-color: #ffffff;
+}
+
+/*DatePicker*/
+.date-picker{
+    -fx-background-color: derive(#313131, -23%), linear-gradient(to bottom,
+                ladder(
+                    transparent,
+                    derive(transparent,30%) 0%,
+                    derive(transparent,20%) 40%,
+                    derive(transparent,25%) 60%,
+                    derive(transparent,55%) 80%,
+                    derive(transparent,55%) 90%,
+                    derive(transparent,75%) 100%
+                ),
+                ladder(
+                    transparent,
+                    derive(transparent,20%) 0%,
+                    derive(transparent,10%) 20%,
+                    derive(transparent,5%) 40%,
+                    derive(transparent,-2%) 60%,
+                    derive(transparent,-5%) 100%
+                )), #313131;
+}
+.date-picker .arrow-button {
+    -fx-background-color: #313131;
+    -fx-cursor: hand;
+}
+.date-picker-popup .month-year-pane {
+    -fx-background-color: derive(#414141,30%), 
+        linear-gradient(to bottom, derive(#414141,-3%), 
+                                   derive(#414141,5%) 50%, 
+                                   derive(#414141,-3%));
+    -fx-background-insets: 0 0 0 0, 0 0 1 0;
+    -fx-text-background-color: white;
+}
+.date-picker-popup * .spinner .button {
+    -fx-background-color: transparent, transparent, transparent;
+    -fx-background-insets: 0, 1, 2;
+    -fx-color: transparent;
+    -fx-background-radius: 0;
+}
+.date-picker-popup * .spinner .button:armed {
+    -fx-color: transparent;
+}
+.date-picker-popup * .spinner .button:hover,
+.date-picker-popup * .spinner .button:hover {
+    -fx-background-color: transparent, derive(transparent,-50%);
+    -fx-cursor: hand;
+}
+.date-picker-popup * .spinner .button:armed,
+.date-picker-popup * .spinner .button:armed {
+    -fx-background-color: transparent, derive(transparent,-50%);
+}
+.date-picker-popup * .day-cell {
+    -fx-cursor: hand;
+}
+
+/*Text*/
 .text-field{
     -fx-background-color: #313131;
     -fx-prompt-text-fill: gray;
     -fx-text-fill: white;
     -fx-cursor: text;
+}
+.text-field:focused{
+    -fx-border-width: 1.5;
+    -fx-border-color: #3eb5cf;
 }
 .text{
     -fx-text-fill: white;
@@ -38,6 +126,8 @@
 .hyper{
     -fx-text-fill: #3aa3b0;
 }
+
+/*Random*/
 .line{
     -fx-stroke: #414141;
     -fx-background-color: #414141;
@@ -50,11 +140,6 @@
 }
 .opacity{
     -fx-opacity: 0.70;
-}
-.log-in-button{
-    -fx-background-color: #23798c;
-    -fx-text-fill: white;
-    -fx-border-color: #23798c;
 }
 .avatar-background{
     -fx-background-color: #313131;
@@ -108,3 +193,72 @@
     -fx-text-fill: white;
     -fx-padding: 0.0em;
 }
+
+/*TabPane*/
+.tab-pane{
+    -fx-background-color: #414141;
+    -fx-border-width: 0;
+}
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #000000;
+    -fx-border-color: #414141;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-insets: 0;
+    -fx-pref-height: 45px;  
+}
+.tab-pane .tab{
+    -fx-background-color: #000000;
+    -fx-background-radius: 5 5 0 0;
+    -fx-cursor: hand;
+}
+.tab-pane .tab:selected{
+    -fx-background-color: #414141;
+}
+.tab-pane:focused .tab-header-area .headers-region .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
+}
+.tab-pane .tab-header-area .headers-region .tab .tab-container .tab-label {
+    -fx-text-fill: #ffffff;
+}
+
+/*Gráficas*/
+.chart-plot-background{
+    -fx-background-color: #313131;
+}
+.chart-horizontal-grid-lines {
+    -fx-stroke: gray;
+}
+.chart-vertical-grid-lines {
+    -fx-stroke: gray;
+}
+.axis-tick-mark {
+    -fx-stroke: #ffffff;
+    -fx-stroke-width: 1; 
+}
+.axis-minor-tick-mark {
+    -fx-stroke: #ffffff;
+    -fx-stroke-width: 1; 
+}
+.axis:left {
+    -fx-border-color: transparent #ffffff transparent transparent;
+    -fx-tick-label-fill: derive(#ffffff, 30%);
+}
+.axis:bottom{
+    -fx-border-color: #ffffff transparent transparent transparent;
+    -fx-tick-label-fill: derive(#ffffff, 30%);
+}
+.chart-legend, .chart-legend-item, .chart-title {
+   -fx-background-color:  transparent;
+   -fx-text-fill: #ffffff;
+}
+.default-color0.chart-series-line, .default-color0.chart-line-symbol, .chart-series-line { 
+    -fx-stroke: #147a87; 
+    -fx-background-color: #147a87, #147a87;
+    -fx-stroke-width: 5px;
+}
+/*.default-color0.chart-bar {
+    -fx-bar-fill: #000000; 
+}
+.default-color1.chart-bar { 
+    -fx-bar-fill: #00FFCC; 
+}*/

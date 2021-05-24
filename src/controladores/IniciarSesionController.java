@@ -68,7 +68,7 @@ public class IniciarSesionController implements Initializable {
                perror.setText("");
                perror.setStyle("-fx-font: 1 Style");
            }
-        });
+        });            
     }    
 
     public void initMode(boolean b){

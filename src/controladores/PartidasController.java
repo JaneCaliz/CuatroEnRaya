@@ -39,6 +39,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.RadioMenuItem;
+import javafx.scene.control.TabPane;
 
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -73,8 +74,6 @@ public class PartidasController implements Initializable {
     private Player player1, player2;
     @FXML
     private DatePicker fechaIniDP;
-    @FXML
-    private Button mostraGrafica;
     @FXML
     private DatePicker fechaFinDP;
     @FXML
@@ -114,6 +113,9 @@ public class PartidasController implements Initializable {
     private AutoCompletionBinding<String> autoCompletar;
     @FXML
     private ToggleGroup result;
+    boolean modoOscuro;
+    @FXML
+    private TabPane screen;
 
 
     @Override
@@ -157,6 +159,19 @@ public class PartidasController implements Initializable {
     
     public void initPlayer2(Player p2){
         this.player2 = p2;
+    }
+    
+    public void initMode(boolean b){
+        modoOscuro = b;
+        
+        if(modoOscuro){
+            screen.getStylesheets().remove("/Img/lightmode.css");
+            screen.getStylesheets().add("/Img/darkmode.css");
+        }
+        else{
+            screen.getStylesheets().remove("/Img/darkmode.css");
+            screen.getStylesheets().add("/Img/lightmode.css");
+        }
     }
 
     public void mostrarPartidasAct(ActionEvent event) {
@@ -276,7 +291,12 @@ public class PartidasController implements Initializable {
                         hbox.setAlignment(Pos.CENTER);
                         
                         Text text = new Text("    "+item.getNickName());
-                        
+                        if(modoOscuro){
+                            text.setStyle("-fx-fill: #ffffff;");
+                        }
+                        else{
+                            text.setStyle("-fx-fill: #000000;");
+                        }
                         hbox.getChildren().add(view);
                         hbox.getChildren().add(text);
                         
@@ -311,7 +331,12 @@ public class PartidasController implements Initializable {
                         hbox.setAlignment(Pos.CENTER);
 
                         Text text = new Text(item.getNickName()+"    ");
-                        
+                        if(modoOscuro){
+                            text.setStyle("-fx-fill: #ffffff;");
+                        }
+                        else{
+                            text.setStyle("-fx-fill: #000000;");
+                        }
                         hbox.getChildren().add(text);
                         hbox.getChildren().add(view);
                                
@@ -429,7 +454,6 @@ public class PartidasController implements Initializable {
             }
     }
 
-    @FXML
     private void mostraGraficaAct(ActionEvent event) {
         try {
             graficaLineas();

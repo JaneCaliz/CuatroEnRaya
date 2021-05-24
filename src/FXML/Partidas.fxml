@@ -19,13 +19,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<TabPane prefHeight="631.0" prefWidth="787.0" stylesheets="@../Img/lightmode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.PartidasController">
+<TabPane fx:id="screen" prefHeight="634.0" prefWidth="833.0" stylesheets="@../Img/darkmode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.PartidasController">
    <tabs>
       <Tab closable="false" text="Partidas">
          <content>
             <VBox alignment="TOP_CENTER" prefHeight="388.0" prefWidth="397.0">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="450.0">
+                  <HBox alignment="CENTER_LEFT" maxWidth="1300.0" prefHeight="31.0" prefWidth="450.0">
                      <children>
                         <DatePicker fx:id="pFechaIniDP" maxWidth="300.0" prefWidth="220.0" promptText="Desde (fecha)" />
                         <DatePicker fx:id="pFechaFinDP" maxWidth="300.0" prefWidth="220.0" promptText="Hasta (fecha)">
@@ -38,7 +38,7 @@
                         <Insets bottom="5.0" left="20.0" right="20.0" top="30.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="475.0">
+                  <HBox alignment="CENTER_LEFT" maxWidth="1300.0" prefHeight="31.0" prefWidth="475.0">
                      <children>
                         <TextField fx:id="pNombreTF" maxWidth="300.0" prefWidth="220.0" promptText="Jugador" />
                         <MenuButton fx:id="resultado" maxWidth="300.0" mnemonicParsing="false" prefWidth="220.0" text="Resultado">
@@ -59,7 +59,7 @@
                         <Insets bottom="30.0" left="20.0" right="20.0" top="5.0" />
                      </VBox.margin>
                   </HBox>
-                  <TableView fx:id="partidasTablero" minWidth="450.0" prefHeight="294.0" prefWidth="747.0" VBox.vgrow="ALWAYS">
+                  <TableView fx:id="partidasTablero" maxWidth="1300.0" minWidth="450.0" prefHeight="294.0" prefWidth="747.0" VBox.vgrow="ALWAYS">
                      <columns>
                         <TableColumn fx:id="FechaYHoraC" editable="false" prefWidth="134.0" resizable="false" sortable="false" text="Fecha y hora " />
                         <TableColumn fx:id="GanadorC" editable="false" prefWidth="111.0" resizable="false" sortable="false" text="Ganador" />
@@ -78,16 +78,24 @@
       </Tab>
       <Tab closable="false" text="Gráfica por tiempo">
          <content>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_LEFT" maxWidth="1238.0" prefHeight="31.0" prefWidth="200.0">
                      <children>
-                        <DatePicker fx:id="fechaIniDP" promptText="Desde (fecha)" />
-                        <DatePicker fx:id="fechaFinDP" promptText="Hasta (fecha)" />
-                        <Button fx:id="mostraGrafica" mnemonicParsing="false" onAction="#mostraGraficaAct" text="Button" />
+                        <DatePicker fx:id="fechaIniDP" promptText="Desde (fecha)">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin></DatePicker>
+                        <DatePicker fx:id="fechaFinDP" promptText="Hasta (fecha)">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin></DatePicker>
                      </children>
+                     <VBox.margin>
+                        <Insets bottom="25.0" left="62.0" right="30.0" top="30.0" />
+                     </VBox.margin>
                   </HBox>
-                  <LineChart fx:id="graficaLineas">
+                  <LineChart fx:id="graficaLineas" maxWidth="1300.0" VBox.vgrow="ALWAYS">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" fx:id="xAxis" />
                     </xAxis>
@@ -95,7 +103,7 @@
                       <NumberAxis fx:id="yAxis" side="LEFT" />
                     </yAxis>
                      <VBox.margin>
-                        <Insets left="15.0" right="15.0" />
+                        <Insets bottom="30.0" left="15.0" right="15.0" />
                      </VBox.margin>
                   </LineChart>
                </children>
@@ -106,26 +114,57 @@
          <content>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#mostrarGraficasBarrasAct" text="Button" VBox.vgrow="ALWAYS" />
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                  <HBox alignment="CENTER_LEFT" maxWidth="1238.0" prefHeight="31.0" prefWidth="200.0">
                      <children>
-                        <StackedBarChart fx:id="graficaBarrasApiladas">
+                        <TextField fx:id="pNombreTF1" maxWidth="300.0" prefWidth="220.0" promptText="Jugador">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <DatePicker fx:id="fechaIniDP1" promptText="Desde (fecha)">
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                        </DatePicker>
+                        <DatePicker fx:id="fechaFinDP1" promptText="Hasta (fecha)">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </DatePicker>
+                        <Button mnemonicParsing="false" onAction="#mostrarGraficasBarrasAct" text="Button" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="25.0" left="62.0" right="30.0" top="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <StackedBarChart fx:id="graficaBarrasApiladas" maxWidth="800.0" HBox.hgrow="ALWAYS">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" fx:id="xAxisBA" />
                           </xAxis>
                           <yAxis>
                             <NumberAxis fx:id="yAxisBA" side="LEFT" />
                           </yAxis>
+                           <HBox.margin>
+                              <Insets bottom="30.0" />
+                           </HBox.margin>
                         </StackedBarChart>
-                        <BarChart fx:id="graficaBarras">
+                        <BarChart fx:id="graficaBarras" maxWidth="800.0" HBox.hgrow="ALWAYS">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" fx:id="xAxisB" />
                           </xAxis>
                           <yAxis>
                             <NumberAxis fx:id="yAxisB" side="LEFT" />
                           </yAxis>
+                           <HBox.margin>
+                              <Insets bottom="30.0" />
+                           </HBox.margin>
                         </BarChart>
                      </children>
+                     <VBox.margin>
+                        <Insets left="15.0" right="15.0" />
+                     </VBox.margin>
                   </HBox>
                </children>
             </VBox>

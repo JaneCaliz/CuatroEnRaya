@@ -86,6 +86,8 @@ public class MenuPrincipalController implements Initializable {
     Image darkmode = null, lightmode = null;
     @FXML
     private Button partidas;
+    @FXML
+    private Button ranking;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -530,7 +532,7 @@ public class MenuPrincipalController implements Initializable {
             controlador.initMode(modoOscuro);
             if(player2 != null)
                 controlador.initOtro(player2, 2);
-            controlador.initPlayer(player1);
+            controlador.initPlayer(player1, 1);
             
             stage.setMaximized(myStage.isMaximized());
             stage.setMinHeight(450);
@@ -568,7 +570,7 @@ public class MenuPrincipalController implements Initializable {
             PerfilController controlador = loader.getController();
             controlador.initMode(modoOscuro);
             controlador.initOtro(player1, 1);
-            controlador.initPlayer(player2);
+            controlador.initPlayer(player2, 2);
             
             stage.setMaximized(myStage.isMaximized());
             stage.setMinHeight(450);
@@ -729,7 +731,7 @@ public class MenuPrincipalController implements Initializable {
             
             PartidasController controlador = loader.getController();
             
-//            controlador.initMode(modo);
+            controlador.initMode(modoOscuro);
             controlador.initPlayer2(player2);
             controlador.initPlayer1(player1);
             controlador.mostrarPartidasAct(null);
@@ -750,5 +752,10 @@ public class MenuPrincipalController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void verRankingAction(ActionEvent event) {
+        mostrarRanking(event);
     }
 }

@@ -1,4 +1,3 @@
-
 /*fondos*/
 .primary-color{
     -fx-background-color: #b2ebf2;
@@ -39,6 +38,9 @@
     -fx-background-color: #edf8ff;
     -fx-cursor: hand;
 }
+.menu-button .label{
+    -fx-text-fill: black;
+}
 .menu-button .arrow-button .arrow{
     -fx-background-color: #147a87;
 }
@@ -48,11 +50,31 @@
 .radio-menu-item:hover{
     -fx-cursor: hand;
 }
+.radio-menu-item:checked > .left-container > .radio{
+    -fx-background-color: #147a87;
+}
 
 
 /*DatePicker*/
 .date-picker{
-    -fx-outer-border: 0;
+    -fx-background-color: derive(transparent, -23%), linear-gradient(to bottom,
+                ladder(
+                    transparent,
+                    derive(transparent,30%) 0%,
+                    derive(transparent,20%) 40%,
+                    derive(transparent,25%) 60%,
+                    derive(transparent,55%) 80%,
+                    derive(transparent,55%) 90%,
+                    derive(transparent,75%) 100%
+                ),
+                ladder(
+                    transparent,
+                    derive(transparent,20%) 0%,
+                    derive(transparent,10%) 20%,
+                    derive(transparent,5%) 40%,
+                    derive(transparent,-2%) 60%,
+                    derive(transparent,-5%) 100%
+                )), #edf8ff;
 }
 .date-picker .arrow-button {
     -fx-background-color: #edf8ff;
@@ -66,25 +88,25 @@
     -fx-background-insets: 0 0 0 0, 0 0 1 0;
     -fx-text-background-color: white;
 }
-.date-picker-popup > * > .spinner > .button {
+.date-picker-popup * .spinner .button {
     -fx-background-color: transparent, transparent, transparent;
     -fx-background-insets: 0, 1, 2;
     -fx-color: transparent;
     -fx-background-radius: 0;
 }
-.date-picker-popup > * > .spinner > .button:armed {
+.date-picker-popup * .spinner .button:armed {
     -fx-color: transparent;
 }
-.date-picker-popup > * > .spinner > .button:hover,
-.date-picker-popup > * > .spinner > .button:hover {
+.date-picker-popup * .spinner .button:hover,
+.date-picker-popup * .spinner .button:hover {
     -fx-background-color: transparent, derive(transparent,-50%);
     -fx-cursor: hand;
 }
-.date-picker-popup > * > .spinner > .button:armed,
-.date-picker-popup > * > .spinner > .button:armed {
+.date-picker-popup * .spinner .button:armed,
+.date-picker-popup * .spinner .button:armed {
     -fx-background-color: transparent, derive(transparent,-50%);
 }
-.date-picker-popup > * > .day-cell {
+.date-picker-popup * .day-cell {
     -fx-cursor: hand;
 }
 
@@ -195,8 +217,8 @@
 .tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
     -fx-border-color: transparent;
 }
-.radio-menu-item:checked > .left-container > .radio{
-    -fx-background-color: #147a87;
+.tab-pane .tab-header-area .headers-region .tab .tab-container .tab-label {
+    -fx-text-fill: #000000;
 }
 
 /*Gráficas*/
@@ -216,7 +238,9 @@
 }
 .axis:left {
     -fx-border-color: transparent #000000 transparent transparent;
+    -fx-tick-label-fill: derive(#000000, 30%);
 }
 .axis:bottom{
-    -fx-border-color: transparent #000000 transparent transparent;
+    -fx-border-color: #000000 transparent transparent transparent;
+    -fx-tick-label-fill: derive(#000000, 30%);
 }
