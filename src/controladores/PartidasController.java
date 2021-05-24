@@ -26,9 +26,12 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
@@ -48,10 +51,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import static javafx.scene.input.KeyCode.T;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import model.Connect4;
 import model.DayRank;
 import model.Player;
@@ -122,6 +128,8 @@ public class PartidasController implements Initializable {
     private DatePicker fechaIniDP1;
     @FXML
     private DatePicker fechaFinDP1;
+    @FXML
+    private Button closeWindow;
 
 
     @Override
@@ -571,7 +579,6 @@ public class PartidasController implements Initializable {
        graficaBarras.getData().addAll(controcantesDistintos);
     }
 
-    @FXML
     private void mostrarGraficasBarrasAct(ActionEvent event) {
             mostrarGraficasBarras();
     }
@@ -588,7 +595,7 @@ public class PartidasController implements Initializable {
             for(int i = 0; i < players.length; i++){
                 listaPlayers[i] = players[i].getNickName();                
             }
-//            
+            
             List<String> jugadores = Arrays.asList(listaPlayers);
             Collections.sort(jugadores);
                         
@@ -613,5 +620,49 @@ public class PartidasController implements Initializable {
     @FXML
     private void perAct(ActionEvent event) {
         resultado.setText("Perdidas");
+    }
+    
+    public void close(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
+            
+            Parent root = loader.load();
+
+            MenuPrincipalController controlador = loader.getController();
+            controlador.initMode(modoOscuro);
+            controlador.initscene();
+            controlador.initPlayer(player1);
+
+            if (player2 != null)
+                controlador.initPlayer2(player2);
+            
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            
+            Stage myStage = (Stage) this.closeWindow.getScene().getWindow();
+            stage.setMaximized(myStage.isMaximized());
+            stage.setMinHeight(520);
+            stage.setMinWidth(460);
+            
+            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+            stage.getIcons().add(image);
+            stage.setTitle("Conecta4");
+
+            stage.setScene(scene);
+            stage.show();
+            stage.setOnCloseRequest(e -> {
+                controlador.closeWindow();
+                e.consume();
+            });
+            
+            myStage.close();
+        } catch (IOException ex) {
+            Logger.getLogger(RankingController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void closeWindow(ActionEvent event) {
+        close();
     }
 }

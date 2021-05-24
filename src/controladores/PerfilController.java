@@ -20,6 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.DialogPane;
@@ -111,6 +112,7 @@ public class PerfilController implements Initializable {
     private Text dtext;
     @FXML
     private ImageView iupload;
+    boolean modif = false;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -186,39 +188,89 @@ public class PerfilController implements Initializable {
     
     public void cerrar(){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
+            if(modif){
+                ButtonType devolver = new ButtonType("Ir al menú", ButtonBar.ButtonData.OK_DONE);
+                ButtonType quedarme = new ButtonType("Quedarme", ButtonBar.ButtonData.CANCEL_CLOSE);
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"", devolver, quedarme);
+                alert.setTitle("Volver al menú");
+                alert.setHeaderText(" ¿Está seguro de querer volver al menú?");  
+                alert.setContentText("Los cambios realizados no serán guardados");
+                alert.initStyle(StageStyle.UNDECORATED);
+                DialogPane dialogPane = alert.getDialogPane();
+                alert.getDialogPane().getStylesheets().add(getClass().getResource("/Img/alert.css").toExternalForm());
+                Optional<ButtonType> result = alert.showAndWait();
+
+                if(result.get() == devolver){
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
             
-            Parent root = loader.load();
-            
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            
-            Stage myStage = (Stage) this.volver.getScene().getWindow();
-            
-            MenuPrincipalController controlador = loader.getController();
-            controlador.initMode(modoOscuro);
-            controlador.initscene();
-            controlador.initPlayer(player1);
-            if(player2 != null)
-                controlador.initPlayer2(player2);
-            
-            stage.setMaximized(myStage.isMaximized());
-            stage.setMinHeight(520);
-            stage.setMinWidth(460);
-            
-            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
-            stage.getIcons().add(image);
-            stage.setTitle("Conecta4");
-            
-            stage.setScene(scene);
-            stage.show();
-            
-            stage.setOnCloseRequest(e -> {
-                controlador.closeWindow();
-                e.consume();
-            });
-            
-            myStage.close();
+                    Parent root = loader.load();
+
+                    Scene scene = new Scene(root);
+                    Stage stage = new Stage();
+
+                    Stage myStage = (Stage) this.volver.getScene().getWindow();
+
+                    MenuPrincipalController controlador = loader.getController();
+                    controlador.initMode(modoOscuro);
+                    controlador.initscene();
+                    controlador.initPlayer(player1);
+                    if(player2 != null)
+                        controlador.initPlayer2(player2);
+
+                    stage.setMaximized(myStage.isMaximized());
+                    stage.setMinHeight(520);
+                    stage.setMinWidth(460);
+
+                    Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                    stage.getIcons().add(image);
+                    stage.setTitle("Conecta4");
+
+                    stage.setScene(scene);
+                    stage.show();
+
+                    stage.setOnCloseRequest(e -> {
+                        controlador.closeWindow();
+                        e.consume();
+                    });
+
+                    myStage.close();
+                }
+            }
+            else{
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
+
+                Parent root = loader.load();
+
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+
+                Stage myStage = (Stage) this.volver.getScene().getWindow();
+
+                MenuPrincipalController controlador = loader.getController();
+                controlador.initMode(modoOscuro);
+                controlador.initscene();
+                controlador.initPlayer(player1);
+                if(player2 != null)
+                    controlador.initPlayer2(player2);
+
+                stage.setMaximized(myStage.isMaximized());
+                stage.setMinHeight(520);
+                stage.setMinWidth(460);
+
+                Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                stage.getIcons().add(image);
+                stage.setTitle("Conecta4");
+
+                stage.setScene(scene);
+                stage.show();
+
+                stage.setOnCloseRequest(e -> {
+                    controlador.closeWindow();
+                    e.consume();
+                });
+
+                myStage.close();
+            }
         } catch (IOException ex) {
             Logger.getLogger(PerfilController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -242,6 +294,7 @@ public class PerfilController implements Initializable {
         date.setStyle("-fx-control-inner-background: #edf8ff;");
         
         modificar.setVisible(false);
+        modif = true;
     }
 
     @FXML

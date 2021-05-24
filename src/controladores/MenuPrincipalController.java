@@ -318,7 +318,7 @@ public class MenuPrincipalController implements Initializable {
         try {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Salir del juego");
-            alert.setHeaderText("¿Está seguro de querer salir del juego?");  
+            alert.setHeaderText(" ¿Está seguro de querer salir del juego?");  
             String segundo = "";
             if(player2 != null){ segundo = " y de " + player2.getNickName();}
             alert.setContentText("Se cerrará la sesión de " + player1.getNickName() + segundo);

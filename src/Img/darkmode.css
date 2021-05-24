@@ -147,6 +147,9 @@
 }
 
 /*tableview*/
+.table-view .table-cell{
+    -fx-table-cell-border-color: #414141;
+}
 .table-view .column-header,
 .table-view .column-header-background .filler {
     -fx-background-color: #414141; 
@@ -156,10 +159,12 @@
    -fx-text-fill: #ffffff;
    -fx-font-weight: bold;
 }
+.table-view .column-header-background{
+    -fx-background-color: #414141;
+}
 .table-row-cell:selected {
    -fx-background-color: #515151; 
-   -fx-text-background-color: #ffffff;
-   -fx-table-cell-border-color: #ffffff;
+   -fx-table-cell-border-color: transparent;
 }
 .table-view .increment-button ,.table-view .decrement-button {
     -fx-background-color:transparent;
@@ -186,12 +191,19 @@
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em;
     -fx-text-background-color: white;
+    -fx-table-cell-border-color: white;
 }
 .table-row-cell:hover{
     -fx-background-color: #515151;    
     -fx-cursor: hand;
     -fx-text-fill: white;
     -fx-padding: 0.0em;
+    -fx-table-cell-border-color: transparent;
+}
+.table-row-cell:empty, .table-cell:empty:hover, .table-row-cell:empty .table-cell {
+    -fx-background-color: #313131;
+    -fx-cursor: default;
+    -fx-border-width: 0;
 }
 
 /*TabPane*/

@@ -148,6 +148,9 @@
 }
 
 /*tableview*/
+.table-view .table-cell{
+    -fx-table-cell-border-color: #ededed;
+}
 .table-view .column-header,
 .table-view .column-header-background .filler {
     -fx-background-color:  #147a87; 
@@ -157,9 +160,11 @@
    -fx-text-fill: #000000;
    -fx-font-weight: bold;
 }
+.table-view .column-header-background{
+    -fx-background-color: #ededed;
+}
 .table-row-cell:selected {
     -fx-background-color: #b2ebf2; 
-    -fx-text-background-color: #147a87;
     -fx-table-cell-border-color: #ffffff;
 }
 .table-view .increment-button ,.table-view .decrement-button {
@@ -186,12 +191,20 @@
     -fx-background-color: -fx-table-cell-border-color, #ffffff;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em;
+    -fx-text-background-color: black;
+    -fx-table-cell-border-color: gray;
 }
 .table-row-cell:hover{
     -fx-background-color: #b2ebf2;    
     -fx-cursor: hand;
     -fx-text-fill: white;
     -fx-padding: 0.0em;
+    -fx-table-cell-border-color: transparent;
+}
+.table-row-cell:empty, .table-cell:empty:hover, .table-row-cell:empty .table-cell {
+    -fx-background-color: white;
+    -fx-cursor: default;
+    -fx-border-width: 0;
 }
 
 /*TabPane*/
@@ -243,4 +256,13 @@
 .axis:bottom{
     -fx-border-color: #000000 transparent transparent transparent;
     -fx-tick-label-fill: derive(#000000, 30%);
+}
+.chart-legend, .chart-legend-item, .chart-title {
+   -fx-background-color:  transparent;
+   -fx-text-fill: #000000;
+}
+.default-color0.chart-series-line, .default-color0.chart-line-symbol, .chart-series-line { 
+    -fx-stroke: #147a87; 
+    -fx-background-color: #147a87, #147a87;
+    -fx-stroke-width: 5px;
 }
