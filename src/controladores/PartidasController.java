@@ -257,7 +257,17 @@ public class PartidasController implements Initializable {
 				if (newValue == null || newValue.isEmpty()) {
 					return true;
 				}
-		
+                                ///
+                                Connect4 db = null;
+                                try {
+                                    db = Connect4.getSingletonConnect4();
+                                } catch (Connect4DAOException ex) {
+                                    Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                                if (db.getPlayer(newValue) == null){
+                                   return true;
+                                }
+                                ///
 				if (employee.getWinner().getNickName().equals(newValue) && (ganYperRM.isSelected() || ganRM.isSelected())) {
 					return true; 
 				} else 
