@@ -216,6 +216,19 @@ public class PartidasController implements Initializable {
         } catch (IOException ex) {
                 Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        Mediator.getInstance().register(s -> {
+            switch (s) {
+                case "lines":
+                    screen.getSelectionModel().select(1);
+                    break;
+                case "bar":
+                    screen.getSelectionModel().select(2);
+                    break;
+                default:
+                    screen.getSelectionModel().select(0);
+            }
+        });
     }  
     public void initPlayer1(Player p1){
         this.player1 = p1;
@@ -654,46 +667,73 @@ public class PartidasController implements Initializable {
     }
     
     public void close(){
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
-            
-            Parent root = loader.load();
+        if(player1 != null){
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
 
-            MenuPrincipalController controlador = loader.getController();
-            controlador.initMode(modoOscuro);
-            controlador.initscene();
-            controlador.initPlayer(player1);
+                Parent root = loader.load();
 
-            if (player2 != null)
-                controlador.initPlayer2(player2);
-            
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            
-            Stage myStage = (Stage) this.closeWindow.getScene().getWindow();
-            stage.setMaximized(myStage.isMaximized());
-            stage.setMinHeight(520);
-            stage.setMinWidth(460);
-            
-            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
-            stage.getIcons().add(image);
-            stage.setTitle("Conecta4");
+                MenuPrincipalController controlador = loader.getController();
+                controlador.initMode(modoOscuro);
+                controlador.initscene();
+                controlador.initPlayer(player1);
 
-            stage.setScene(scene);
-            stage.show();
-            stage.setOnCloseRequest(e -> {
-                controlador.closeWindow();
-                e.consume();
-            });
-            
-            myStage.close();
-        } catch (IOException ex) {
-            Logger.getLogger(RankingController.class.getName()).log(Level.SEVERE, null, ex);
+                if (player2 != null)
+                    controlador.initPlayer2(player2);
+
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+
+                Stage myStage = (Stage) this.closeWindow.getScene().getWindow();
+                stage.setMaximized(myStage.isMaximized());
+                stage.setMinHeight(520);
+                stage.setMinWidth(460);
+
+                Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                stage.getIcons().add(image);
+                stage.setTitle("Conecta4");
+
+                stage.setScene(scene);
+                stage.show();
+                stage.setOnCloseRequest(e -> {
+                    controlador.closeWindow();
+                    e.consume();
+                });
+
+                myStage.close();
+            } catch (IOException ex) {
+                Logger.getLogger(RankingController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else{
+            try {
+                FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/FXML/PantallaDeInicio.fxml"));
+                
+                Parent root2 = loader2.load();
+                
+                Scene scene2 = new Scene(root2);
+                Stage stage2 = new Stage();
+                stage2.setScene(scene2);
+                stage2.setMinHeight(300);
+                stage2.setMinWidth(250);
+                
+                Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                stage2.getIcons().add(image);
+                stage2.setTitle("Conecta4");
+                
+                stage2.show();
+            } catch (IOException ex) {
+                Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 
     @FXML
     private void closeWindow(ActionEvent event) {
         close();
+    }
+    
+    public TabPane getTab(){
+        return screen;
     }
 }

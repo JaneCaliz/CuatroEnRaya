@@ -20,9 +20,125 @@ public class PantallaDeInicioController implements Initializable {
 
     @FXML
     private Button jugarButt;
+    @FXML
+    private Button ranking;
+    @FXML
+    private Button partidas;
+    @FXML
+    private Button lineas;
+    @FXML
+    private Button barras;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        partidas.setOnAction(event -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Partidas.fxml"));
+                
+                Parent root = loader.load();
+                
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+                
+                Stage myStage = (Stage) this.partidas.getScene().getWindow();
+                
+                PartidasController controlador = loader.getController();
+                
+                controlador.initMode(false);
+                controlador.mostrarPartidasAct(null);
+//                controlador.initPlayer1(null);
+                
+                stage.setMaximized(myStage.isMaximized());
+                stage.setMinHeight(396);
+                stage.setMinWidth(504);
+                
+                Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                stage.getIcons().add(image);
+                stage.setTitle("Conecta4");
+                
+                stage.setScene(scene);
+                
+                stage.show();
+                stage.setOnCloseRequest(e -> {
+                    controlador.close();
+//                    e.consume();
+                });
+                myStage.close();
+                Mediator.getInstance().fireEvent("plays");
+            } catch (IOException ex) {
+                Logger.getLogger(PantallaDeInicioController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                });
+        lineas.setOnAction(event -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Partidas.fxml"));
+                
+                Parent root = loader.load();
+                
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+                
+                Stage myStage = (Stage) this.partidas.getScene().getWindow();
+                
+                PartidasController controlador = loader.getController();
+                
+                controlador.initMode(false);
+                controlador.mostrarPartidasAct(null);
+                
+                Mediator.getInstance().fireEvent("plays");
+                stage.setMaximized(myStage.isMaximized());
+                stage.setMinHeight(396);
+                stage.setMinWidth(504);
+                
+                Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                stage.getIcons().add(image);
+                stage.setTitle("Conecta4");
+                
+                stage.setScene(scene);
+                
+                stage.show();
+                
+                myStage.close();
+                Mediator.getInstance().fireEvent("lines");
+            } catch (IOException ex) {
+                Logger.getLogger(PantallaDeInicioController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        barras.setOnAction(event -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Partidas.fxml"));
+                
+                Parent root = loader.load();
+                
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+                
+                Stage myStage = (Stage) this.partidas.getScene().getWindow();
+                
+                PartidasController controlador = loader.getController();
+                
+                controlador.initMode(false);
+                controlador.mostrarPartidasAct(null);
+                
+                Mediator.getInstance().fireEvent("plays");
+                stage.setMaximized(myStage.isMaximized());
+                stage.setMinHeight(396);
+                stage.setMinWidth(504);
+                
+                Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                stage.getIcons().add(image);
+                stage.setTitle("Conecta4");
+                
+                stage.setScene(scene);
+                
+                stage.show();
+                
+                myStage.close();
+                Mediator.getInstance().fireEvent("bar");
+            } catch (IOException ex) {
+                Logger.getLogger(PantallaDeInicioController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                });
     }    
 
     @FXML
@@ -59,4 +175,41 @@ public class PantallaDeInicioController implements Initializable {
             Logger.getLogger(PantallaDeInicioController.class.getName()).log(Level.SEVERE, null, ex);
         }   
     } 
+
+    @FXML
+    private void ranking(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Ranking.fxml"));
+            
+        Parent root = loader.load();
+
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+
+        Stage myStage = (Stage) this.ranking.getScene().getWindow();
+
+        RankingController controlador = loader.getController();
+
+        controlador.initMode(false);
+        
+        stage.setMaximized(myStage.isMaximized());
+        stage.setMinHeight(430);
+        stage.setMinWidth(530);
+
+        Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+        stage.getIcons().add(image);
+        stage.setTitle("Conecta4");
+
+        stage.setScene(scene);
+
+        stage.show();
+
+        stage.setOnCloseRequest(e -> {
+            controlador.closeWindow();
+            e.consume();
+        });
+
+        myStage.close();
+    }
+
+        
 }
