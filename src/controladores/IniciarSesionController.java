@@ -56,19 +56,30 @@ public class IniciarSesionController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        iniciar.setDisable(true);
         iniciar.setDefaultButton(true);
         usuario.textProperty().addListener(new ChangeListener<String>(){
            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                uerror.setText("");
                uerror.setStyle("-fx-font: 10 Style");
+               if(newValue.equals(""))
+                   iniciar.setDisable(true);
+               else if (!password.getText().equals("")){
+                   iniciar.setDisable(false);
+               }
            }
         });
         password.textProperty().addListener(new ChangeListener<String>(){
            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                perror.setText("");
                perror.setStyle("-fx-font: 1 Style");
+               if(newValue.equals(""))
+                   iniciar.setDisable(true);
+               else if (!usuario.getText().equals("")){
+                   iniciar.setDisable(false);
+               }
            }
-        });            
+        });           
     }    
 
     public void initMode(boolean b){

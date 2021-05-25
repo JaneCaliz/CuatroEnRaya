@@ -354,7 +354,7 @@ public class RegistrarseController implements Initializable {
 
                     IniciarSesionController controlador = loader.getController();
                     controlador.initMode(modo);
-                    controlador.initit2Player(false);
+                    controlador.initit2Player(registrarP2);
                     if(player1 != null)
                         controlador.inititPlayer1(player1);
 

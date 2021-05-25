@@ -266,3 +266,11 @@
     -fx-background-color: #147a87, #147a87;
     -fx-stroke-width: 5px;
 }
+
+/*color graficas*/
+.default-color0.chart-bar {
+    -fx-bar-fill:#de2852; 
+    }
+.default-color1.chart-bar { 
+    -fx-bar-fill: #2ae85d; 
+    }

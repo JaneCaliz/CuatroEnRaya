@@ -9,6 +9,9 @@ import DBAccess.Connect4DAOException;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,6 +46,7 @@ import javafx.util.Callback;
 import model.Connect4;
 import model.Player;
 import model.Round;
+import org.controlsfx.control.textfield.TextFields;
 
 public class RankingController implements Initializable {
 
@@ -114,6 +118,11 @@ public class RankingController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+        try {
+            autoCompletar();
+        } catch (IOException ex) {
+            Logger.getLogger(RankingController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         try {
             Connect4 connect4 = Connect4.getSingletonConnect4();
             ObservableList<Player> observablePlayers;
@@ -243,7 +252,6 @@ public class RankingController implements Initializable {
         nombreC.prefWidthProperty().bind(tablero.widthProperty().multiply(0.35).subtract(5));
         puntosC.prefWidthProperty().bind(tablero.widthProperty().multiply(0.25).subtract(5));
         
-        
     }
 
     @FXML
@@ -323,6 +331,29 @@ public class RankingController implements Initializable {
             Logger.getLogger(RankingController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    private void autoCompletar() throws IOException{
+        try {
+            Connect4 BD = Connect4.getSingletonConnect4();
+            List<Player> rankingList = BD.getConnect4Ranking();
+            
+            Player[] players = rankingList.toArray(new Player[0]);
+            
+            String[] listaPlayers = new String[players.length];
+            
+            for(int i = 0; i < players.length; i++){
+                listaPlayers[i] = players[i].getNickName();                
+            }
+            
+            List<String> jugadores = Arrays.asList(listaPlayers);
+            Collections.sort(jugadores);
+                        
+            TextFields.bindAutoCompletion(nombreTF,jugadores);
+            
+        } catch (Connect4DAOException ex) {
+            Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }  
 
 }
 

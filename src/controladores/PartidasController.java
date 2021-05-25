@@ -16,10 +16,7 @@ import java.util.ResourceBundle;
 import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.beans.InvalidationListener;
 import javafx.beans.binding.Bindings;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -28,7 +25,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -53,8 +49,6 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import static javafx.scene.input.KeyCode.T;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -140,6 +134,10 @@ public class PartidasController implements Initializable {
             graficaBarrasApiladas.setAnimated(false);
             graficaBarras.setAnimated(false);
             
+            resultado.setDisable(true);
+            fechaFinDP1.setDisable(true);
+            fechaIniDP1.setDisable(true);
+            
             pFechaIniDP.prefWidthProperty().bind(Bindings.max(partidasTablero.widthProperty().divide(3).subtract(5), 220));
             pFechaFinDP.prefWidthProperty().bind(Bindings.max(partidasTablero.widthProperty().divide(3).subtract(5), 220));
             pNombreTF.prefWidthProperty().bind(Bindings.max(partidasTablero.widthProperty().divide(3).subtract(5), 220));
@@ -172,8 +170,27 @@ public class PartidasController implements Initializable {
                     }
                     if (db.getPlayer(newValue) != null){
                         mostrarGraficasBarras();
+                        fechaFinDP1.setDisable(false);
+                        fechaIniDP1.setDisable(false);
+                    }else{
+                        fechaFinDP1.setDisable(true);
+                        fechaIniDP1.setDisable(true);
+                    }             
+            });
+            pNombreTF.textProperty().addListener((ov, oldValue, newValue) -> {
+                Connect4 db = null;
+                    try {
+                        db = Connect4.getSingletonConnect4();
+                    } catch (Connect4DAOException ex) {
+                        Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    if (db.getPlayer(newValue) != null){;
+                        resultado.setDisable(false);
+                    }else{
+                        resultado.setDisable(true);
                     }
             });
+            
             fechaFinDP1.valueProperty().addListener((ov, oldValue, newValue) -> {
                 Connect4 db = null;
                     try {
@@ -470,14 +487,16 @@ public class PartidasController implements Initializable {
                iter.remove();
            }
        }
-       LocalDate fin = lista.get(lista.size()-1);
-       for(LocalDate ld = lista.get(0);
-               ld.compareTo(fin) < 0;
-               ld = ld.plusDays(1)){
-           if(!lista.contains(ld)){
-               lista.add(ld);
-           }
-       }
+       try{
+            LocalDate fin = lista.get(lista.size()-1);
+            for(LocalDate ld = lista.get(0);
+                    ld.compareTo(fin) < 0;
+                    ld = ld.plusDays(1)){
+                if(!lista.contains(ld)){
+                    lista.add(ld);
+                }
+            }
+       }catch(Exception e){}
        
        Collections.sort(lista);
         
@@ -530,17 +549,17 @@ public class PartidasController implements Initializable {
         TreeMap<LocalDate, DayRank> tree = db.getDayRanksPlayer(player);
         graficaBarras.getData().clear();
         graficaBarrasApiladas.getData().clear();
-        xAxisBA.setLabel("Date");
-        yAxisBA.setLabel("Events");
+        xAxisBA.setLabel("");
+        yAxisBA.setLabel("");
         graficaBarrasApiladas.setTitle("Número de partidas ganadas/perdidas");
-        graficaBarras.setTitle("Número de openentes distintos efrentados");
+        graficaBarras.setTitle("Número de contrincantes efrentados");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         XYChart.Series<String,Number> ganadas = new XYChart.Series<>();
         ganadas.setName("Partidas Ganadas");
         XYChart.Series<String,Number> perdidas = new XYChart.Series<>();
         perdidas.setName("Partidas Perdidas");
         XYChart.Series<String,Number> controcantesDistintos = new XYChart.Series<>();
-        controcantesDistintos.setName("Número de openentes");
+        controcantesDistintos.setName("Contricantes enfrentados");
         
        ArrayList<LocalDate> lista = new ArrayList<>();
        for(LocalDate ld : tree.keySet()){
@@ -560,14 +579,16 @@ public class PartidasController implements Initializable {
                iter.remove();
            }
        }
-       LocalDate fin = lista.get(lista.size()-1);
-       for(LocalDate ld = lista.get(0);
-               ld.compareTo(fin) < 0;
-               ld = ld.plusDays(1)){
-           if(!lista.contains(ld)){
-               lista.add(ld);
-           }
-       }
+       try{
+            LocalDate fin = lista.get(lista.size()-1);
+            for(LocalDate ld = lista.get(0);
+                    ld.compareTo(fin) < 0;
+                    ld = ld.plusDays(1)){
+                if(!lista.contains(ld)){
+                    lista.add(ld);
+                }
+            }
+       }catch(Exception e){}
        for(LocalDate ld: lista){
            if (null != tree.get(ld)){
                 ganadas.getData().add(new XYChart.Data(
