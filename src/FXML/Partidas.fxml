@@ -83,7 +83,7 @@
                   </VBox>
                </content>
                <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="ipartidas" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Img/PartidasIcon.png" />
                      </image>
@@ -126,7 +126,7 @@
                   </VBox>
                </content>
                <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="ilineas" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Img/GraficaIconL.png" />
                      </image>
@@ -192,7 +192,7 @@
                   </VBox>
                </content>
                <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="ibarras" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Img/GraficaIconB.png" />
                      </image>

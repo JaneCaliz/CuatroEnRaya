@@ -27,6 +27,8 @@ import javafx.scene.control.DialogPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -56,7 +58,7 @@ public class PerfilController implements Initializable {
     @FXML
     private Button modificar;
     @FXML
-    private HBox avatares;
+    private FlowPane avatares;
     @FXML
     private Button avatar1;
     @FXML
@@ -95,7 +97,7 @@ public class PerfilController implements Initializable {
     String passw;
     LocalDate year;
     @FXML
-    private VBox screen;
+    private AnchorPane screen;
     @FXML
     private HBox barra;
     int play;
@@ -218,7 +220,7 @@ public class PerfilController implements Initializable {
                         controlador.initPlayer2(player2);
 
                     stage.setMaximized(myStage.isMaximized());
-                    stage.setMinHeight(520);
+                    stage.setMinHeight(600);
                     stage.setMinWidth(460);
 
                     Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
@@ -254,7 +256,7 @@ public class PerfilController implements Initializable {
                     controlador.initPlayer2(player2);
 
                 stage.setMaximized(myStage.isMaximized());
-                stage.setMinHeight(520);
+                stage.setMinHeight(600);
                 stage.setMinWidth(460);
 
                 Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
@@ -448,7 +450,7 @@ public class PerfilController implements Initializable {
 
                     Stage myStage = (Stage) this.guardar.getScene().getWindow();
                     stage.setMaximized(myStage.isMaximized());
-                    stage.setMinHeight(520);
+                    stage.setMinHeight(600);
                     stage.setMinWidth(460);
                     
                     Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());

@@ -47,9 +47,9 @@
       </VBox>
    </center>
    <top>
-      <ToolBar prefHeight="40.0" prefWidth="200.0" styleClass="secondary-color" stylesheets="@../Img/lightmode.css" BorderPane.alignment="CENTER">
+      <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #5bcbd9;" BorderPane.alignment="CENTER">
          <items>
-            <Button fx:id="ranking" mnemonicParsing="false" onAction="#ranking" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 10 10 10 10; -fx-border-color: transparent; -fx-background-color: #3196a3;" text="Ranking">
+            <Button fx:id="ranking" mnemonicParsing="false" onAction="#ranking" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 10 10 10 10; -fx-border-color: transparent; -fx-background-color: #8adce6;" text="Ranking">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -61,7 +61,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="partidas" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 10 10 10 10; -fx-border-color: transparent; -fx-background-color: #3196a3;" text="Partidas">
+            <Button fx:id="partidas" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-radius: 10 10 10 10; -fx-border-color: transparent; -fx-background-color: #8adce6;" text="Partidas">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -73,7 +73,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="lineas" mnemonicParsing="false" prefHeight="42.0" prefWidth="170.0" style="-fx-background-radius: 10 10 10 10; -fx-border-color: transparent; -fx-background-color: #3196a3;" text="Gráfica actividad">
+            <Button fx:id="lineas" mnemonicParsing="false" prefHeight="42.0" prefWidth="170.0" style="-fx-background-radius: 10 10 10 10; -fx-border-color: transparent; -fx-background-color: #8adce6;" text="Gráfica actividad">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -85,7 +85,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="barras" mnemonicParsing="false" prefHeight="42.0" prefWidth="180.0" style="-fx-background-radius: 10 10 10 10; -fx-border-color: transparent; -fx-background-color: #3196a3;" text="Gráficas resultado">
+            <Button fx:id="barras" mnemonicParsing="false" prefHeight="42.0" prefWidth="180.0" style="-fx-background-radius: 10 10 10 10; -fx-border-color: transparent; -fx-background-color: #8adce6;" text="Gráficas resultado">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>

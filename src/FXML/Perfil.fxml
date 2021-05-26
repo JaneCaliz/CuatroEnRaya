@@ -9,15 +9,17 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="screen" alignment="CENTER" prefHeight="452.0" prefWidth="620.0" styleClass="primary-color" stylesheets="@../Img/lightmode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.PerfilController">
+<AnchorPane fx:id="screen" styleClass="primary-color" stylesheets="@../Img/lightmode.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.PerfilController">
    <children>
-      <HBox fx:id="barra" alignment="CENTER" maxHeight="120.0" prefHeight="0.0" prefWidth="620.0" styleClass="secondary-color" stylesheets="@../Img/lightmode.css" VBox.vgrow="ALWAYS">
+      <HBox fx:id="barra" alignment="CENTER" maxHeight="120.0" prefHeight="0.0" prefWidth="620.0" styleClass="secondary-color" stylesheets="@../Img/lightmode.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
@@ -51,269 +53,258 @@
             <HBox prefHeight="80.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
-      <Pane fx:id="line" maxHeight="2.0" minHeight="2.0" prefHeight="2.0" prefWidth="200.0" styleClass="line" stylesheets="@../Img/lightmode.css" VBox.vgrow="ALWAYS" />
-      <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
+      <Pane fx:id="line" layoutY="77.0" maxHeight="67.0" minHeight="2.0" prefHeight="2.0" prefWidth="200.0" styleClass="line" stylesheets="@../Img/lightmode.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0" />
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="57.0">
          <children>
-            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0">
+            <Pane maxWidth="500.0" prefHeight="200.0" prefWidth="10.0" HBox.hgrow="ALWAYS" />
+            <VBox alignment="CENTER" maxWidth="430.0" prefHeight="350.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
-                  <VBox alignment="CENTER" prefHeight="350.0" prefWidth="176.0" HBox.hgrow="ALWAYS">
+                  <ImageView fx:id="avatar" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="-5.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <HBox alignment="CENTER" maxHeight="100.0" prefHeight="2.0" prefWidth="199.0">
                      <children>
-                        <ImageView fx:id="avatar" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
-                           <VBox.margin>
-                              <Insets top="-5.0" />
-                           </VBox.margin></ImageView>
-                        <HBox alignment="CENTER" maxHeight="100.0" prefHeight="2.0" prefWidth="199.0">
-                           <children>
-                              <Text fx:id="points" fill="#fcdc29" stroke="#917c00" strokeType="OUTSIDE" strokeWidth="0.4" text="Puntuación" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="System Bold" size="25.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets top="20.0" />
-                                 </HBox.margin>
-                              </Text>
-                           </children>
-                           <VBox.margin>
-                              <Insets top="-10.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox fx:id="avatares" alignment="CENTER" prefHeight="109.0" prefWidth="197.0" visible="false">
-                           <VBox.margin>
-                              <Insets bottom="-50.0" top="-15.0" />
-                           </VBox.margin>
-                           <children>
-                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="70.0" spacing="5.0">
-                                 <children>
-                                    <Button fx:id="avatar1" maxHeight="54.0" maxWidth="64.0" minHeight="54.0" minWidth="64.0" mnemonicParsing="false" onAction="#avatar1" prefHeight="54.0" prefWidth="64.0" style="-fx-background-radius: 90 90 90 90; -fx-border-color: transparent;" styleClass="avatar-background" stylesheets="@../Img/lightmode.css">
-                                       <graphic>
-                                          <ImageView fx:id="iavatar1" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../avatars/avatar1.png" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                    <Button fx:id="avatar4" maxHeight="54.0" maxWidth="64.0" minHeight="54.0" minWidth="64.0" mnemonicParsing="false" onAction="#avatar4" prefHeight="54.0" prefWidth="64.0" style="-fx-background-radius: 90 90 90 90; -fx-border-color: transparent;" styleClass="avatar-background" stylesheets="@../Img/lightmode.css">
-                                       <graphic>
-                                          <ImageView fx:id="iavatar4" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../avatars/avatar4.png" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                 </children>
-                              </VBox>
-                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="70.0" spacing="5.0">
-                                 <children>
-                                    <Button fx:id="avatar2" maxHeight="54.0" maxWidth="64.0" minHeight="54.0" minWidth="64.0" mnemonicParsing="false" onAction="#avatar2" prefHeight="54.0" prefWidth="64.0" style="-fx-background-radius: 90 90 90 90; -fx-border-color: transparent;" styleClass="avatar-background" stylesheets="@../Img/lightmode.css">
-                                       <graphic>
-                                          <ImageView fx:id="iavatar2" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../avatars/avatar2.png" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                    <Button fx:id="avatard" maxHeight="54.0" maxWidth="64.0" minHeight="54.0" minWidth="64.0" mnemonicParsing="false" onAction="#avatard" prefHeight="54.0" prefWidth="64.0" style="-fx-background-radius: 90 90 90 90; -fx-border-color: transparent;" styleClass="avatar-background" stylesheets="@../Img/lightmode.css">
-                                       <graphic>
-                                          <ImageView fx:id="iavatard" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../avatars/default.png" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                 </children>
-                              </VBox>
-                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="70.0" spacing="5.0">
-                                 <children>
-                                    <Button fx:id="avatar3" maxHeight="54.0" maxWidth="64.0" minHeight="54.0" minWidth="64.0" mnemonicParsing="false" onAction="#avatar3" prefHeight="54.0" prefWidth="64.0" style="-fx-background-radius: 90 90 90 90; -fx-border-color: transparent;" styleClass="avatar-background" stylesheets="@../Img/lightmode.css">
-                                       <graphic>
-                                          <ImageView fx:id="iavatar3" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../avatars/avatar3.png" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                    <Button fx:id="upload" maxHeight="54.0" maxWidth="64.0" minHeight="54.0" minWidth="64.0" mnemonicParsing="false" onAction="#upload" prefHeight="54.0" prefWidth="64.0" style="-fx-border-color: black; -fx-background-radius: 90 90 90 90; -fx-border-radius: 90 90 90 90;" styleClass="avatar-background" stylesheets="@../Img/lightmode.css">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                       <VBox.margin>
-                                          <Insets />
-                                       </VBox.margin>
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                       <graphic>
-                                          <ImageView fx:id="iupload" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../Img/upload.png" />
-                                             </image>
-                                          </ImageView>
-                                       </graphic>
-                                    </Button>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER" spacing="10.0" HBox.hgrow="ALWAYS">
-                     <children>
-                        <HBox alignment="CENTER_RIGHT" maxHeight="30.0" prefHeight="10300.0" prefWidth="380.0" VBox.vgrow="ALWAYS">
-                           <children>
-                              <Text fx:id="utext" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Usuario: " />
-                              <TextField fx:id="usuario" editable="false" prefWidth="230.0" styleClass="text-field" stylesheets="@../Img/lightmode.css">
-                                 <cursor>
-                                    <Cursor fx:constant="DEFAULT" />
-                                 </cursor></TextField>
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="5.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" maxHeight="30.0" prefHeight="10300.0" prefWidth="380.0" VBox.vgrow="ALWAYS">
-                           <children>
-                              <Text fx:id="ctext" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Contraseña: " />
-                              <TextField fx:id="password" editable="false" prefWidth="230.0" styleClass="text-field" stylesheets="@../Img/lightmode.css">
-                                 <cursor>
-                                    <Cursor fx:constant="DEFAULT" />
-                                 </cursor></TextField>
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="5.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox alignment="CENTER_RIGHT">
-                           <VBox.margin>
-                              <Insets bottom="-10.0" top="-15.0" />
-                           </VBox.margin>
-                           <children>
-                              <Text fx:id="epassword" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="230.0">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="110.0" maxHeight="30.0" prefHeight="10300.0" prefWidth="380.0" VBox.vgrow="ALWAYS">
-                           <children>
-                              <Text fx:id="etext" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Correo: " />
-                              <TextField fx:id="email" editable="false" prefWidth="230.0" styleClass="text-field" stylesheets="@../Img/lightmode.css">
-                                 <cursor>
-                                    <Cursor fx:constant="DEFAULT" />
-                                 </cursor></TextField>
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="5.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox alignment="CENTER_RIGHT">
-                           <children>
-                              <Text fx:id="eemail" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="230.0">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="-10.0" top="-15.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="210.0" maxHeight="30.0" prefHeight="10300.0" prefWidth="380.0" VBox.vgrow="ALWAYS">
-                           <children>
-                              <Text fx:id="dtext" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Fecha de nacimiento: " />
-                              <TextField fx:id="age" editable="false" prefWidth="230.0" styleClass="text-field" stylesheets="@../Img/lightmode.css">
-                                 <cursor>
-                                    <Cursor fx:constant="DEFAULT" />
-                                 </cursor></TextField>
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="5.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox fx:id="datepicker" alignment="CENTER_RIGHT" visible="false">
-                           <children>
-                              <DatePicker fx:id="date" prefWidth="230.0" style="-fx-border-color: black;">
-                                 <cursor>
-                                    <Cursor fx:constant="TEXT" />
-                                 </cursor></DatePicker>
-                           </children>
-                           <VBox.margin>
-                              <Insets top="-47.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox alignment="CENTER_RIGHT">
-                           <children>
-                              <Text fx:id="eage" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="230.0">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="-10.0" top="-15.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox alignment="CENTER" maxHeight="33.0" prefHeight="33.0" prefWidth="380.0" VBox.vgrow="ALWAYS">
-                           <children>
-                              <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <Button fx:id="modificar" mnemonicParsing="false" onAction="#modificar" style="-fx-background-radius: 5; -fx-border-radius: 5;" stylesheets="@../Img/lightmode.css" text="Modificar perfil">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                       <styleClass>
-                                          <String fx:value="button-border-color" />
-                                          <String fx:value="button-color" />
-                                       </styleClass>
-                                    </Button>
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER_RIGHT" HBox.hgrow="SOMETIMES">
-                                 <children>
-                                    <Button fx:id="guardar" mnemonicParsing="false" onAction="#guardar" style="-fx-background-radius: 5; -fx-border-radius: 5;" stylesheets="@../Img/lightmode.css" text="Guardar" visible="false">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                       <styleClass>
-                                          <String fx:value="button-border-color" />
-                                          <String fx:value="button-color" />
-                                       </styleClass>
-                                    </Button>
-                                 </children>
-                              </HBox>
-                           </children>
-                           <VBox.margin>
+                        <Text fx:id="points" fill="#fcdc29" stroke="#917c00" strokeType="OUTSIDE" strokeWidth="0.4" text="Puntuación" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                           <HBox.margin>
                               <Insets top="20.0" />
-                           </VBox.margin>
+                           </HBox.margin>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="-30.0" top="-10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <FlowPane fx:id="avatares" alignment="CENTER" columnHalignment="CENTER" visible="false">
+                     <children>
+                        <Button fx:id="avatar1" maxHeight="54.0" maxWidth="64.0" minHeight="54.0" minWidth="64.0" mnemonicParsing="false" onAction="#avatar1" prefHeight="54.0" prefWidth="64.0" style="-fx-background-radius: 90 90 90 90; -fx-border-color: transparent;" styleClass="avatar-background" stylesheets="@../Img/lightmode.css">
+                           <graphic>
+                              <ImageView fx:id="iavatar1" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../avatars/avatar1.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="avatar4" maxHeight="54.0" maxWidth="64.0" minHeight="54.0" minWidth="64.0" mnemonicParsing="false" onAction="#avatar4" prefHeight="54.0" prefWidth="64.0" style="-fx-background-radius: 90 90 90 90; -fx-border-color: transparent;" styleClass="avatar-background" stylesheets="@../Img/lightmode.css">
+                           <graphic>
+                              <ImageView fx:id="iavatar4" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../avatars/avatar4.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="avatar2" maxHeight="54.0" maxWidth="64.0" minHeight="54.0" minWidth="64.0" mnemonicParsing="false" onAction="#avatar2" prefHeight="54.0" prefWidth="64.0" style="-fx-background-radius: 90 90 90 90; -fx-border-color: transparent;" styleClass="avatar-background" stylesheets="@../Img/lightmode.css">
+                           <graphic>
+                              <ImageView fx:id="iavatar2" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../avatars/avatar2.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="avatard" maxHeight="54.0" maxWidth="64.0" minHeight="54.0" minWidth="64.0" mnemonicParsing="false" onAction="#avatard" prefHeight="54.0" prefWidth="64.0" style="-fx-background-radius: 90 90 90 90; -fx-border-color: transparent;" styleClass="avatar-background" stylesheets="@../Img/lightmode.css">
+                           <graphic>
+                              <ImageView fx:id="iavatard" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../avatars/default.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="avatar3" maxHeight="54.0" maxWidth="64.0" minHeight="54.0" minWidth="64.0" mnemonicParsing="false" onAction="#avatar3" prefHeight="54.0" prefWidth="64.0" style="-fx-background-radius: 90 90 90 90; -fx-border-color: transparent;" styleClass="avatar-background" stylesheets="@../Img/lightmode.css">
+                           <graphic>
+                              <ImageView fx:id="iavatar3" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../avatars/avatar3.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="upload" maxHeight="54.0" maxWidth="64.0" minHeight="54.0" minWidth="64.0" mnemonicParsing="false" onAction="#upload" prefHeight="54.0" prefWidth="64.0" style="-fx-border-color: black; -fx-background-radius: 90 90 90 90; -fx-border-radius: 90 90 90 90;" styleClass="avatar-background" stylesheets="@../Img/lightmode.css">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fx:id="iupload" fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Img/upload.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </FlowPane>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" maxHeight="40.0" prefHeight="10300.0" prefWidth="380.0">
+                     <children>
+                        <Text fx:id="utext" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Usuario: " />
+                        <TextField fx:id="usuario" editable="false" focusTraversable="false" prefWidth="230.0" styleClass="text-field" stylesheets="@../Img/lightmode.css">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" maxHeight="40.0" prefHeight="10300.0" prefWidth="380.0">
+                     <children>
+                        <Text fx:id="ctext" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Contraseña: " />
+                        <TextField fx:id="password" editable="false" prefWidth="230.0" styleClass="text-field" stylesheets="@../Img/lightmode.css">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" maxHeight="40.0">
+                     <VBox.margin>
+                        <Insets bottom="-10.0" top="-15.0" />
+                     </VBox.margin>
+                     <children>
+                        <Text fx:id="epassword" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="230.0">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="110.0" maxHeight="40.0" prefHeight="10300.0" prefWidth="380.0">
+                     <children>
+                        <Text fx:id="etext" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Correo: " />
+                        <TextField fx:id="email" editable="false" prefWidth="230.0" styleClass="text-field" stylesheets="@../Img/lightmode.css">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" maxHeight="40.0">
+                     <children>
+                        <Text fx:id="eemail" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="230.0">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="-10.0" top="-15.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="210.0" maxHeight="40.0" prefHeight="10300.0" prefWidth="380.0">
+                     <children>
+                        <Text fx:id="dtext" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Fecha de nacimiento: " />
+                        <TextField fx:id="age" editable="false" prefWidth="230.0" styleClass="text-field" stylesheets="@../Img/lightmode.css">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox fx:id="datepicker" alignment="CENTER_RIGHT" maxHeight="40.0" visible="false">
+                     <children>
+                        <DatePicker fx:id="date" prefWidth="230.0" style="-fx-border-color: black;">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </DatePicker>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="-47.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" maxHeight="40.0">
+                     <children>
+                        <Text fx:id="eage" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="230.0">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="-10.0" top="-15.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" maxHeight="33.0" prefHeight="33.0" prefWidth="380.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Button fx:id="modificar" mnemonicParsing="false" onAction="#modificar" style="-fx-background-radius: 5; -fx-border-radius: 5;" stylesheets="@../Img/lightmode.css" text="Modificar perfil">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <styleClass>
+                                    <String fx:value="button-border-color" />
+                                    <String fx:value="button-color" />
+                                 </styleClass>
+                              </Button>
+                           </children>
+                           <HBox.margin>
+                              <Insets right="30.0" />
+                           </HBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" HBox.hgrow="SOMETIMES">
+                           <children>
+                              <Button fx:id="guardar" mnemonicParsing="false" onAction="#guardar" style="-fx-background-radius: 5; -fx-border-radius: 5;" stylesheets="@../Img/lightmode.css" text="Guardar" visible="false">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <styleClass>
+                                    <String fx:value="button-border-color" />
+                                    <String fx:value="button-color" />
+                                 </styleClass>
+                              </Button>
+                           </children>
                         </HBox>
                      </children>
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                  </VBox>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </HBox>
                </children>
-            </HBox>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </VBox>
+            <Pane prefHeight="200.0" prefWidth="10.0" HBox.hgrow="ALWAYS" />
          </children>
-      </VBox>
+      </HBox>
    </children>
-</VBox>
+</AnchorPane>

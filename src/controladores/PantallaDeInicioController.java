@@ -48,8 +48,8 @@ public class PantallaDeInicioController implements Initializable {
                 controlador.mostrarPartidasAct(null);
                 
                 stage.setMaximized(myStage.isMaximized());
-                stage.setMinHeight(396);
-                stage.setMinWidth(504);
+                stage.setMinHeight(500);
+                stage.setMinWidth(600);
                 
                 Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
                 stage.getIcons().add(image);
@@ -86,8 +86,8 @@ public class PantallaDeInicioController implements Initializable {
                 
                 Mediator.getInstance().fireEvent("plays");
                 stage.setMaximized(myStage.isMaximized());
-                stage.setMinHeight(396);
-                stage.setMinWidth(504);
+                stage.setMinHeight(500);
+                stage.setMinWidth(600);
                 
                 Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
                 stage.getIcons().add(image);
@@ -125,8 +125,8 @@ public class PantallaDeInicioController implements Initializable {
                 
                 Mediator.getInstance().fireEvent("plays");
                 stage.setMaximized(myStage.isMaximized());
-                stage.setMinHeight(396);
-                stage.setMinWidth(504);
+                stage.setMinHeight(500);
+                stage.setMinWidth(600);
                 
                 Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
                 stage.getIcons().add(image);
@@ -165,7 +165,7 @@ public class PantallaDeInicioController implements Initializable {
             Stage myStage = (Stage) this.jugarButt.getScene().getWindow();
             stage.setMaximized(myStage.isMaximized());
             stage.setMinHeight(325);
-            stage.setMinWidth(385);
+            stage.setMinWidth(425);
             
             Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
             stage.getIcons().add(image);
@@ -200,7 +200,7 @@ public class PantallaDeInicioController implements Initializable {
         
         stage.setMaximized(myStage.isMaximized());
         stage.setMinHeight(430);
-        stage.setMinWidth(530);
+        stage.setMinWidth(560);
 
         Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
         stage.getIcons().add(image);

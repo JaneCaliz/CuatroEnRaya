@@ -124,6 +124,12 @@ public class PartidasController implements Initializable {
     private DatePicker fechaFinDP1;
     @FXML
     private Button closeWindow;
+    @FXML
+    private ImageView ipartidas;
+    @FXML
+    private ImageView ilineas;
+    @FXML
+    private ImageView ibarras;
 
 
     @Override
@@ -244,10 +250,16 @@ public class PartidasController implements Initializable {
         if(modoOscuro){
             screen.getStylesheets().remove("/Img/lightmode.css");
             screen.getStylesheets().add("/Img/darkmode.css");
+            ipartidas.setImage(new Image(getClass().getResource("/Img/PartidasIconD.png").toExternalForm()));
+            ilineas.setImage(new Image(getClass().getResource("/Img/GraficaIconLD.png").toExternalForm()));
+            ibarras.setImage(new Image(getClass().getResource("/Img/GraficaIconBD.png").toExternalForm()));
         }
         else{
             screen.getStylesheets().remove("/Img/darkmode.css");
             screen.getStylesheets().add("/Img/lightmode.css");
+            ipartidas.setImage(new Image(getClass().getResource("/Img/PartidasIcon.png").toExternalForm()));
+            ilineas.setImage(new Image(getClass().getResource("/Img/GraficaIconL.png").toExternalForm()));
+            ibarras.setImage(new Image(getClass().getResource("/Img/GraficaIconB.png").toExternalForm()));
         }
     }
 
@@ -564,13 +576,13 @@ public class PartidasController implements Initializable {
         graficaBarrasApiladas.getData().clear();
         xAxisBA.setLabel("");
         yAxisBA.setLabel("");
-        graficaBarrasApiladas.setTitle("Número de partidas ganadas/perdidas");
-        graficaBarras.setTitle("Número de contrincantes efrentados");
+        graficaBarrasApiladas.setTitle("Partidas ganadas/perdidas");
+        graficaBarras.setTitle("Contrincantes efrentados");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         XYChart.Series<String,Number> ganadas = new XYChart.Series<>();
-        ganadas.setName("Partidas Ganadas");
+        ganadas.setName("Partidas ganadas");
         XYChart.Series<String,Number> perdidas = new XYChart.Series<>();
-        perdidas.setName("Partidas Perdidas");
+        perdidas.setName("Partidas perdidas");
         XYChart.Series<String,Number> controcantesDistintos = new XYChart.Series<>();
         controcantesDistintos.setName("Contricantes enfrentados");
         
@@ -686,7 +698,7 @@ public class PartidasController implements Initializable {
 
                 Stage myStage = (Stage) this.closeWindow.getScene().getWindow();
                 stage.setMaximized(myStage.isMaximized());
-                stage.setMinHeight(520);
+                stage.setMinHeight(600);
                 stage.setMinWidth(460);
 
                 Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
@@ -715,8 +727,8 @@ public class PartidasController implements Initializable {
                 Scene scene2 = new Scene(root2);
                 Stage stage2 = new Stage();
                 stage2.setScene(scene2);
-                stage2.setMinHeight(300);
-                stage2.setMinWidth(250);
+                stage2.setMinHeight(500);
+                stage2.setMinWidth(620);
                 
                 Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
                 stage2.getIcons().add(image);

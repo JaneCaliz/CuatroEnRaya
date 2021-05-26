@@ -256,7 +256,7 @@ public class MenuPrincipalController implements Initializable {
                 controlador.inititPlayer1(player1);
                 stage.setMaximized(myStage.isMaximized());
                 stage.setMinHeight(325);
-                stage.setMinWidth(385);
+                stage.setMinWidth(425);
                 
                 Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
                 stage.getIcons().add(image);
@@ -336,6 +336,8 @@ public class MenuPrincipalController implements Initializable {
 
                 Stage myStage = (Stage) this.jugarF.getScene().getWindow();
                 stage.setMaximized(myStage.isMaximized());
+                stage.setMinHeight(500);
+                stage.setMinWidth(620);
 
                 Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
                 stage.getIcons().add(image);
@@ -376,7 +378,7 @@ public class MenuPrincipalController implements Initializable {
                 controlador.initMode(modoOscuro);
                 controlador.initPlayer(player2);
                 stage.setMaximized(myStage.isMaximized());
-                stage.setMinHeight(520);
+                stage.setMinHeight(600);
                 stage.setMinWidth(460);
                 
                 Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
@@ -404,8 +406,8 @@ public class MenuPrincipalController implements Initializable {
                 
                 Stage myStage = (Stage) this.jugarF.getScene().getWindow();
                 stage.setMaximized(myStage.isMaximized());
-                stage.setMinHeight(300);
-                stage.setMinWidth(250);
+                stage.setMinHeight(500);
+                stage.setMinWidth(620);
                 
                 Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
                 stage.getIcons().add(image);
@@ -449,7 +451,7 @@ public class MenuPrincipalController implements Initializable {
                 controlador.initPlayer(player1);
                 controlador.initMode(modoOscuro);
                 stage.setMaximized(myStage.isMaximized());
-                stage.setMinHeight(520);
+                stage.setMinHeight(600);
                 stage.setMinWidth(460);
                 
                 Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
@@ -493,7 +495,7 @@ public class MenuPrincipalController implements Initializable {
             
             stage.setMaximized(myStage.isMaximized());
             stage.setMinHeight(430);
-            stage.setMinWidth(530);
+            stage.setMinWidth(560);
             
             Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
             stage.getIcons().add(image);
@@ -536,7 +538,7 @@ public class MenuPrincipalController implements Initializable {
             
             stage.setMaximized(myStage.isMaximized());
             stage.setMinHeight(450);
-            stage.setMinWidth(560);
+            stage.setMinWidth(620);
             
             Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
             stage.getIcons().add(image);
@@ -574,7 +576,7 @@ public class MenuPrincipalController implements Initializable {
             
             stage.setMaximized(myStage.isMaximized());
             stage.setMinHeight(450);
-            stage.setMinWidth(560);
+            stage.setMinWidth(620);
 
             Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
             stage.getIcons().add(image);
@@ -737,8 +739,8 @@ public class MenuPrincipalController implements Initializable {
             controlador.mostrarPartidasAct(null);
             
             stage.setMaximized(myStage.isMaximized());
-            stage.setMinHeight(396);
-            stage.setMinWidth(504);
+            stage.setMinHeight(500);
+            stage.setMinWidth(600);
             
             Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
             stage.getIcons().add(image);

@@ -619,7 +619,7 @@ public class TableroController implements Initializable {
             
             Stage myStage = (Stage) this.exit.getScene().getWindow();
             stage.setMaximized(myStage.isMaximized());
-            stage.setMinHeight(520);
+            stage.setMinHeight(600);
             stage.setMinWidth(460);
             
             Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
@@ -764,7 +764,7 @@ public class TableroController implements Initializable {
 
             Stage myStage2 = (Stage) this.exit.getScene().getWindow();
             stage2.setMaximized(myStage2.isMaximized());
-            stage2.setMinHeight(520);
+            stage2.setMinHeight(600);
             stage2.setMinWidth(460);
 
             stage2.setScene(scene2);

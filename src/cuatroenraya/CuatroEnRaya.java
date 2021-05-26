@@ -25,8 +25,8 @@ public class CuatroEnRaya extends Application {
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
-        stage.setMinHeight(300);
-        stage.setMinWidth(250);
+        stage.setMinHeight(500);
+        stage.setMinWidth(620);
         
         Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
         stage.getIcons().add(image);
@@ -35,9 +35,6 @@ public class CuatroEnRaya extends Application {
         stage.show();
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         try {
             Connect4 bd = Connect4.getSingletonConnect4();

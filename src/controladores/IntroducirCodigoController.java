@@ -161,7 +161,7 @@ public class IntroducirCodigoController implements Initializable {
         Stage myStage = (Stage) this.cancelar.getScene().getWindow();
         stage.setMaximized(myStage.isMaximized());
         stage.setMinHeight(325);
-        stage.setMinWidth(385);
+        stage.setMinWidth(425);
         
         Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
         stage.getIcons().add(image);
@@ -212,7 +212,7 @@ public class IntroducirCodigoController implements Initializable {
                     Stage myStage = (Stage) this.cancelar.getScene().getWindow();
                     stage.setMaximized(myStage.isMaximized());
                     stage.setMinHeight(325);
-                    stage.setMinWidth(385);
+                    stage.setMinWidth(425);
 
                     stage.setScene(scene);
                     stage.show();

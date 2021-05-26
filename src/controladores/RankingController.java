@@ -279,7 +279,7 @@ public class RankingController implements Initializable {
 
                 Stage myStage = (Stage) this.volverB.getScene().getWindow();
                 stage.setMaximized(myStage.isMaximized());
-                stage.setMinHeight(520);
+                stage.setMinHeight(600);
                 stage.setMinWidth(460);
 
                 Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
@@ -308,8 +308,8 @@ public class RankingController implements Initializable {
                 Scene scene2 = new Scene(root2);
                 Stage stage2 = new Stage();
                 stage2.setScene(scene2);
-                stage2.setMinHeight(300);
-                stage2.setMinWidth(250);
+                stage2.setMinHeight(500);
+                stage2.setMinWidth(620);
                 
                 Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
                 stage2.getIcons().add(image);

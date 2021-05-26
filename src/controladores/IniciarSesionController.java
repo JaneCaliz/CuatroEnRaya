@@ -135,7 +135,7 @@ public class IniciarSesionController implements Initializable {
                 controlador.initPlayer(p1);
 
                 stage.setMaximized(myStage.isMaximized());
-                stage.setMinHeight(520);
+                stage.setMinHeight(600);
                 stage.setMinWidth(460);
                 
                 Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
@@ -163,8 +163,8 @@ public class IniciarSesionController implements Initializable {
                 Stage myStage = (Stage) this.iniciar.getScene().getWindow();
 
                 stage.setMaximized(myStage.isMaximized());
-                stage.setMinHeight(300);
-                stage.setMinWidth(250);
+                stage.setMinHeight(500);
+                stage.setMinWidth(620);
                 
                 Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
                 stage.getIcons().add(image);
@@ -270,7 +270,7 @@ public class IniciarSesionController implements Initializable {
                     Stage stage = new Stage();
                     
                     Stage myStage = (Stage) this.iniciar.getScene().getWindow();
-                    stage.setMinHeight(520);
+                    stage.setMinHeight(600);
                     stage.setMinWidth(460);
                     
                     MenuPrincipalController controlador = loader.getController();
@@ -373,8 +373,8 @@ public class IniciarSesionController implements Initializable {
             RegistrarseController controlador = loader.getController();
             Stage myStage = (Stage) this.iniciar.getScene().getWindow();
             stage.setMaximized(myStage.isMaximized());
-            stage.setMinHeight(235);
-            stage.setMinWidth(350);
+            stage.setMinHeight(435);
+            stage.setMinWidth(670);
             
             controlador.initMode(modo);
             controlador.initit2Player(RegistrarP2);

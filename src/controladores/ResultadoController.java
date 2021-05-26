@@ -149,7 +149,7 @@ public class ResultadoController implements Initializable {
             
             Stage myStage = (Stage) this.salir.getScene().getWindow();
             stage.setMaximized(bool);
-            stage.setMinHeight(520);
+            stage.setMinHeight(600);
             stage.setMinWidth(460);
             
             Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());

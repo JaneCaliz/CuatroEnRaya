@@ -273,4 +273,7 @@
     }
 .default-color1.chart-bar { 
     -fx-bar-fill: #2ae85d; 
-    }
+}
+.chart-legend{
+    -fx-font-size: 20;
+}
