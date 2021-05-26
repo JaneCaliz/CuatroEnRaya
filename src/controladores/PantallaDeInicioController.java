@@ -33,7 +33,7 @@ public class PantallaDeInicioController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         partidas.setOnAction(event -> {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("Partidas.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Partidas.fxml"));
                 
                 Parent root = loader.load();
                 
@@ -46,7 +46,6 @@ public class PantallaDeInicioController implements Initializable {
                 
                 controlador.initMode(false);
                 controlador.mostrarPartidasAct(null);
-//                controlador.initPlayer1(null);
                 
                 stage.setMaximized(myStage.isMaximized());
                 stage.setMinHeight(396);
@@ -61,7 +60,7 @@ public class PantallaDeInicioController implements Initializable {
                 stage.show();
                 stage.setOnCloseRequest(e -> {
                     controlador.close();
-//                    e.consume();
+                    e.consume();
                 });
                 myStage.close();
                 Mediator.getInstance().fireEvent("plays");
@@ -97,6 +96,10 @@ public class PantallaDeInicioController implements Initializable {
                 stage.setScene(scene);
                 
                 stage.show();
+                stage.setOnCloseRequest(e -> {
+                    controlador.close();
+                    e.consume();
+                });
                 
                 myStage.close();
                 Mediator.getInstance().fireEvent("lines");
@@ -132,6 +135,10 @@ public class PantallaDeInicioController implements Initializable {
                 stage.setScene(scene);
                 
                 stage.show();
+                stage.setOnCloseRequest(e -> {
+                    controlador.close();
+                    e.consume();
+                });
                 
                 myStage.close();
                 Mediator.getInstance().fireEvent("bar");

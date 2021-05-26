@@ -256,79 +256,70 @@ public class RankingController implements Initializable {
 
     @FXML
     private void volverMP(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
-            Parent root = loader.load();
-            
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            
-            Stage myStage = (Stage) this.volverB.getScene().getWindow();
-            stage.setMinHeight(520);
-            stage.setMinWidth(460);
-            
-            MenuPrincipalController controlador = loader.getController();
-            controlador.initscene();
-            controlador.initMode(modoOscuro);
-            controlador.initPlayer(player1);
-            if (player2 != null)
-                controlador.initPlayer2(player2);
-            stage.setMaximized(myStage.isMaximized());
-            
-            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
-            stage.getIcons().add(image);
-            stage.setTitle("Conecta4");
-            
-            stage.setScene(scene);
-            stage.show();
-            
-            stage.setOnCloseRequest(e -> {
-                controlador.closeWindow();
-                e.consume();
-            });
-            
-            myStage.close();
-        } catch (IOException ex) {
-            Logger.getLogger(RankingController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        closeWindow();
     }
     
     public void closeWindow(){
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
-            
-            Parent root = loader.load();
+        if(player1 != null){
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/MenuPrincipal.fxml"));
 
-            MenuPrincipalController controlador = loader.getController();
-            controlador.initMode(modoOscuro);
-            controlador.initscene();
-            controlador.initPlayer(player1);
+                Parent root = loader.load();
 
-            if (player2 != null)
-                controlador.initPlayer2(player2);
-            
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            
-            Stage myStage = (Stage) this.volverB.getScene().getWindow();
-            stage.setMaximized(myStage.isMaximized());
-            stage.setMinHeight(520);
-            stage.setMinWidth(460);
-            
-            Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
-            stage.getIcons().add(image);
-            stage.setTitle("Conecta4");
+                MenuPrincipalController controlador = loader.getController();
+                controlador.initMode(modoOscuro);
+                controlador.initscene();
+                controlador.initPlayer(player1);
 
-            stage.setScene(scene);
-            stage.show();
-            stage.setOnCloseRequest(e -> {
-                controlador.closeWindow();
-                e.consume();
-            });
-            
-            myStage.close();
-        } catch (IOException ex) {
-            Logger.getLogger(RankingController.class.getName()).log(Level.SEVERE, null, ex);
+                if (player2 != null)
+                    controlador.initPlayer2(player2);
+
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+
+                Stage myStage = (Stage) this.volverB.getScene().getWindow();
+                stage.setMaximized(myStage.isMaximized());
+                stage.setMinHeight(520);
+                stage.setMinWidth(460);
+
+                Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                stage.getIcons().add(image);
+                stage.setTitle("Conecta4");
+
+                stage.setScene(scene);
+                stage.show();
+                stage.setOnCloseRequest(e -> {
+                    controlador.closeWindow();
+                    e.consume();
+                });
+
+                myStage.close();
+            } catch (IOException ex) {
+                Logger.getLogger(RankingController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else{
+            try {
+                FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/FXML/PantallaDeInicio.fxml"));
+                
+                Parent root2 = loader2.load();
+                
+                Stage myStage = (Stage) this.volverB.getScene().getWindow();
+                Scene scene2 = new Scene(root2);
+                Stage stage2 = new Stage();
+                stage2.setScene(scene2);
+                stage2.setMinHeight(300);
+                stage2.setMinWidth(250);
+                
+                Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
+                stage2.getIcons().add(image);
+                stage2.setTitle("Conecta4");
+                
+                stage2.show();
+                myStage.close();
+            } catch (IOException ex) {
+                Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
     

@@ -711,6 +711,7 @@ public class PartidasController implements Initializable {
                 
                 Parent root2 = loader2.load();
                 
+                Stage myStage = (Stage) this.closeWindow.getScene().getWindow();
                 Scene scene2 = new Scene(root2);
                 Stage stage2 = new Stage();
                 stage2.setScene(scene2);
@@ -722,6 +723,7 @@ public class PartidasController implements Initializable {
                 stage2.setTitle("Conecta4");
                 
                 stage2.show();
+                myStage.close();
             } catch (IOException ex) {
                 Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
             }
