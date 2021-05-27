@@ -365,7 +365,7 @@ public class RegistrarseController implements Initializable {
                 ecpassword.setText("Campo obligatorio");
                 cpass = false;
             }
-            else if(!pass.equals(password.getText()) && Player.checkPassword(password.getText())){
+            else if(!pass.equals(cpassword.getText()) && Player.checkPassword(password.getText())){
                 ecpassword.setText("Las contraseñas no coinciden");
                 cpass = false;
             }
