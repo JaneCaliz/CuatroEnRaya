@@ -95,29 +95,81 @@ public class RegistrarseController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        registrarse.setDisable(true);
         usuario.textProperty().addListener(new ChangeListener<String>(){
            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                eusuario.setText("");
+               try{
+                    if(newValue.equals(""))
+                        registrarse.setDisable(true);
+                    else if (!email.getText().equals("")&& 
+                            !password.getText().equals("") &&
+                            !cpassword.getText().equals("")&&
+                            !edad.getValue().equals(null)){
+                        registrarse.setDisable(false);
+                    }
+               }catch(Exception e){ }
            }
         });
         email.textProperty().addListener(new ChangeListener<String>(){
            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                eemail.setText("");
+               try{
+                    if(newValue.equals(""))
+                        registrarse.setDisable(true);
+                    else if (!usuario.getText().equals("")&& 
+                            !password.getText().equals("") &&
+                            !cpassword.getText().equals("")&&
+                            !edad.getValue().equals(null)){
+                        registrarse.setDisable(false);
+                    }
+               }catch(Exception e){ }
            }
         });
         password.textProperty().addListener(new ChangeListener<String>(){
            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-               epassword.setText("");
+               try{
+                    epassword.setText("");
+                    if(newValue.equals(""))
+                        registrarse.setDisable(true);
+                    else if (!email.getText().equals("")&& 
+                            !usuario.getText().equals("") &&
+                            !cpassword.getText().equals("")&&
+                            !edad.getValue().equals(null)){
+                        registrarse.setDisable(false);
+                    }
+               }catch(Exception e){ }
            }
         });
         cpassword.textProperty().addListener(new ChangeListener<String>(){
            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                ecpassword.setText("");
+               try{
+                    if(newValue.equals(""))
+                        registrarse.setDisable(true);
+                    else if (!email.getText().equals("")&& 
+                            !password.getText().equals("") &&
+                            !usuario.getText().equals("")&&
+                            !edad.getValue().equals(null)){
+                        registrarse.setDisable(false);
+                    }
+               }catch(Exception e){ }
+               
            }
         });
         edad.valueProperty().addListener( new ChangeListener<LocalDate>(){
            public void changed(ObservableValue<? extends LocalDate> observable, LocalDate oldValue, LocalDate newValue) {
                eage.setText("");
+               try{
+               if(newValue.equals(""))
+                   registrarse.setDisable(true);
+               else if (!email.getText().equals("")&& 
+                       !password.getText().equals("") &&
+                       !cpassword.getText().equals("")&&
+                       !usuario.getText().equals("")){
+                   registrarse.setDisable(false);
+               }
+               }catch(Exception e){ }
            }
         });
     }    
