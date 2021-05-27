@@ -582,7 +582,7 @@ public class PartidasController implements Initializable {
         XYChart.Series<String,Number> ganadas = new XYChart.Series<>();
         ganadas.setName("Partidas ganadas");
         XYChart.Series<String,Number> perdidas = new XYChart.Series<>();
-        perdidas.setName("Partidas perdidas");
+        perdidas.setName("Partidas perdidas ");
         XYChart.Series<String,Number> controcantesDistintos = new XYChart.Series<>();
         controcantesDistintos.setName("Contricantes enfrentados");
         

@@ -271,8 +271,14 @@
 
 /*color graficas*/
 .default-color0.chart-bar {
-    -fx-bar-fill: #de2852; 
+    -fx-bar-fill:#e64c4c; 
     }
 .default-color1.chart-bar { 
-    -fx-bar-fill: #2ae85d; 
-    }
+    -fx-bar-fill: #58c058; 
+}
+.chart-legend{
+    -fx-font-size: 20;
+}
+#graficaBarras .default-color0.chart-bar{
+    -fx-bar-fill: #fd8060;
+}
