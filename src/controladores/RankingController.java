@@ -9,6 +9,7 @@ import DBAccess.Connect4DAOException;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -232,7 +233,8 @@ public class RankingController implements Initializable {
               @Override protected void updateItem(Player item, boolean empty) {
                 super.updateItem(item, empty);
                 if (this.getTableRow() != null && item != null) {
-                        setText(this.getTableRow().getIndex()+1+"");
+//                        setText(this.getTableRow().getIndex()+1+"");
+                        setText(getRankPos(item) + "");
                         setAlignment(Pos.CENTER);
 
                 } else {
@@ -345,6 +347,21 @@ public class RankingController implements Initializable {
             Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }  
+    
+    public static int getRankPos(Player p){
+        try {
+            Connect4 db = Connect4.getSingletonConnect4();
+            ArrayList<Player> list = db.getConnect4Ranking();
+            for (int i = 1; i <= list.size(); i++){
+                if (p.equals(list.get(i-1))){
+                    return i;
+                }
+            }
+        } catch (Connect4DAOException ex) {
+            Logger.getLogger(RankingController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;       
+    }
 
 }
 
