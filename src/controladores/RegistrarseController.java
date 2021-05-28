@@ -353,7 +353,7 @@ public class RegistrarseController implements Initializable {
                     epassword.setText("La contraseña debe contener: una mayúscula, una minúscula, un dígito, un carácter especial (!@#$%&*()-+=) y ningún espacio en blanco");
                 }
                 if(password.getText().length() < 8 || password.getText().length() > 20){
-                    epassword.setText("La contraseña debe tener entre 6 a 15 caracteres");
+                    epassword.setText("La contraseña debe tener entre 8 a 20 caracteres");
                 }
                 passw = false;
             }
