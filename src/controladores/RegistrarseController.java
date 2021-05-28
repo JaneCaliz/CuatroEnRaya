@@ -94,6 +94,7 @@ public class RegistrarseController implements Initializable {
     private ImageView iupload;
 
     @Override
+    @SuppressWarnings("Convert2Lambda")
     public void initialize(URL url, ResourceBundle rb) {
         registrarse.setDisable(true);
         usuario.textProperty().addListener(new ChangeListener<String>(){
@@ -105,7 +106,7 @@ public class RegistrarseController implements Initializable {
                     else if (!email.getText().equals("")&& 
                             !password.getText().equals("") &&
                             !cpassword.getText().equals("")&&
-                            !edad.getValue().equals(null)){
+                            !edad.editorProperty().get().getText().equals("")){
                         registrarse.setDisable(false);
                     }
                }catch(Exception e){ }
@@ -120,7 +121,7 @@ public class RegistrarseController implements Initializable {
                     else if (!usuario.getText().equals("")&& 
                             !password.getText().equals("") &&
                             !cpassword.getText().equals("")&&
-                            !edad.getValue().equals(null)){
+                            !edad.editorProperty().get().getText().equals("")){
                         registrarse.setDisable(false);
                     }
                }catch(Exception e){ }
@@ -135,7 +136,7 @@ public class RegistrarseController implements Initializable {
                     else if (!email.getText().equals("")&& 
                             !usuario.getText().equals("") &&
                             !cpassword.getText().equals("")&&
-                            !edad.getValue().equals(null)){
+                            !edad.editorProperty().get().getText().equals("")){
                         registrarse.setDisable(false);
                     }
                }catch(Exception e){ }
@@ -150,26 +151,26 @@ public class RegistrarseController implements Initializable {
                     else if (!email.getText().equals("")&& 
                             !password.getText().equals("") &&
                             !usuario.getText().equals("")&&
-                            !edad.getValue().equals(null)){
+                            !edad.editorProperty().get().getText().equals("")){
                         registrarse.setDisable(false);
                     }
                }catch(Exception e){ }
                
            }
         });
-        edad.valueProperty().addListener( new ChangeListener<LocalDate>(){
-           public void changed(ObservableValue<? extends LocalDate> observable, LocalDate oldValue, LocalDate newValue) {
-               eage.setText("");
+        edad.editorProperty().get().textProperty().addListener(new ChangeListener<String>(){
+           public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+               ecpassword.setText("");
                try{
-               if(newValue.equals(""))
-                   registrarse.setDisable(true);
-               else if (!email.getText().equals("")&& 
-                       !password.getText().equals("") &&
-                       !cpassword.getText().equals("")&&
-                       !usuario.getText().equals("")){
-                   registrarse.setDisable(false);
-               }
-               }catch(Exception e){ }
+                    if(newValue.equals(""))
+                        registrarse.setDisable(true);
+                    else if (!email.getText().equals("")&& 
+                            !password.getText().equals("") &&
+                            !usuario.getText().equals("")&&
+                            !cpassword.getText().equals("")){
+                        registrarse.setDisable(false);
+                    }
+               }catch(Exception e){ }              
            }
         });
     }    
@@ -433,5 +434,5 @@ public class RegistrarseController implements Initializable {
             Logger.getLogger(RegistrarseController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
 }

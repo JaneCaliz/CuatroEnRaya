@@ -411,7 +411,7 @@ public class PartidasController implements Initializable {
 				    	 return false; 
 			});
                         partidasTablero.refresh();
-		});
+            });
                 
             SortedList<Round> sortedData = new SortedList<>(filteredData);
             sortedData.comparatorProperty().bind(partidasTablero.comparatorProperty());
@@ -522,6 +522,9 @@ public class PartidasController implements Initializable {
         });
         FechaYHoraC.prefWidthProperty().bind(partidasTablero.widthProperty().divide(3).subtract(7));
         
+        String str = pNombreTF.getText();
+        pNombreTF.setText("");
+        pNombreTF.setText(str);     
     }
     
     public void graficaLineas() throws Connect4DAOException{
