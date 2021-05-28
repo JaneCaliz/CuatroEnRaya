@@ -38,8 +38,8 @@ public class CuatroEnRaya extends Application {
     public static void main(String[] args) {
         try {
             Connect4 bd = Connect4.getSingletonConnect4();
-            //bd.removeAllData();
-            //bd.createDemoData(15, 10, 10);
+            bd.removeAllData();
+            bd.createDemoData(15, 10, 10);
             launch(args);                      
         } catch (Connect4DAOException ex) {
             Logger.getLogger(CuatroEnRaya.class.getName()).log(Level.SEVERE, null, ex);
