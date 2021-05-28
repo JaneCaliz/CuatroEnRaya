@@ -41,13 +41,13 @@ public class PantallaDeInicioController implements Initializable {
                 Stage stage = new Stage();
                 
                 Stage myStage = (Stage) this.partidas.getScene().getWindow();
+                stage.setMaximized(myStage.isMaximized());
                 
                 PartidasController controlador = loader.getController();
                 
                 controlador.initMode(false);
                 controlador.mostrarPartidasAct(null);
-                
-                stage.setMaximized(myStage.isMaximized());
+
                 stage.setMinHeight(500);
                 stage.setMinWidth(600);
                 
@@ -78,6 +78,7 @@ public class PantallaDeInicioController implements Initializable {
                 Stage stage = new Stage();
                 
                 Stage myStage = (Stage) this.partidas.getScene().getWindow();
+                stage.setMaximized(myStage.isMaximized());
                 
                 PartidasController controlador = loader.getController();
                 
@@ -85,7 +86,6 @@ public class PantallaDeInicioController implements Initializable {
                 controlador.mostrarPartidasAct(null);
                 
                 Mediator.getInstance().fireEvent("plays");
-                stage.setMaximized(myStage.isMaximized());
                 stage.setMinHeight(500);
                 stage.setMinWidth(600);
                 
@@ -117,6 +117,7 @@ public class PantallaDeInicioController implements Initializable {
                 Stage stage = new Stage();
                 
                 Stage myStage = (Stage) this.partidas.getScene().getWindow();
+                stage.setMaximized(myStage.isMaximized());
                 
                 PartidasController controlador = loader.getController();
                 
@@ -124,7 +125,6 @@ public class PantallaDeInicioController implements Initializable {
                 controlador.mostrarPartidasAct(null);
                 
                 Mediator.getInstance().fireEvent("plays");
-                stage.setMaximized(myStage.isMaximized());
                 stage.setMinHeight(500);
                 stage.setMinWidth(600);
                 

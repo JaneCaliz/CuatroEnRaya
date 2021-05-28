@@ -773,6 +773,7 @@ public class PartidasController implements Initializable {
                 stage2.setScene(scene2);
                 stage2.setMinHeight(500);
                 stage2.setMinWidth(620);
+                stage2.setMaximized(myStage.isMaximized());
                 
                 Image image = new Image(getClass().getResource("/Img/Logo.png").toExternalForm());
                 stage2.getIcons().add(image);
