@@ -160,7 +160,7 @@ public class RegistrarseController implements Initializable {
         });
         edad.editorProperty().get().textProperty().addListener(new ChangeListener<String>(){
            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-               ecpassword.setText("");
+               eage.setText("");
                try{
                     if(newValue.equals(""))
                         registrarse.setDisable(true);
@@ -309,7 +309,7 @@ public class RegistrarseController implements Initializable {
     @FXML
     private void registrarse(ActionEvent event) throws IOException {
         try {
-            boolean usu = false, passw = false, cpass = false, correo = false, age = false;
+            boolean usu = false, passw = false, cpass = false, correo = false, age = false, format = true;
             String pass = "";
             Connect4 BD = Connect4.getSingletonConnect4();
             if(usuario.getText().length() == 0){
@@ -378,16 +378,24 @@ public class RegistrarseController implements Initializable {
                 eage.setText("Debes ser mayor de 12 años para jugar");
                 age = false;
             }
-            else if(edad.getValue() == null){
+            else if(edad.getValue() == null && edad.editorProperty().get().getText() == null){
                 eage.setText("Campo obligatorio");
                 age = false;
+            }
+            else if(edad.getValue() == null){
+                 try{
+                    edad.setValue(edad.getConverter().fromString(edad.getEditor().getText()));}
+                catch (Exception e) {
+                    eage.setText("Introduce un formato válido (dd/mm/aaaa)");
+                    format = false;
+                }
             }
             else{
                 eage.setText("");
                 age = true;
             }
             
-            if(usu && passw && cpass && correo && age){
+            if(usu && passw && cpass && correo && age && format){
                 BD.registerPlayer(usuario.getText(), email.getText(), password.getText(), avatar.getImage(), edad.getValue(), 0);
                 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
