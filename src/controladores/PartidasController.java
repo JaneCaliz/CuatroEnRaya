@@ -131,6 +131,8 @@ public class PartidasController implements Initializable {
     private ImageView ilineas;
     @FXML
     private ImageView ibarras;
+    
+    private Round primeraPartida;
 
 
     @Override
@@ -151,6 +153,17 @@ public class PartidasController implements Initializable {
             resultado.prefWidthProperty().bind(Bindings.max(partidasTablero.widthProperty().divide(3).subtract(5), 220));
             
             autoCompletar();
+            Connect4 connect4 = Connect4.getSingletonConnect4();
+            
+            ArrayList<Player> listaJugadores = connect4.getConnect4Ranking();
+            ArrayList<Round> listaPartidas = new ArrayList<>();
+            for(Player p : listaJugadores){
+                List <Round> listTwoCopy = new ArrayList<>(connect4.getRoundsPlayer(p));
+                listTwoCopy.removeAll(listaPartidas);
+                listaPartidas.addAll(listTwoCopy);
+            }
+            Collections.sort(listaPartidas);
+            primeraPartida = listaPartidas.get(0);
             mostraGraficaAct(null);
             fechaFinDP.valueProperty().addListener((ov, oldValue, newValue) -> {
                 mostraGraficaAct(null);
@@ -222,6 +235,8 @@ public class PartidasController implements Initializable {
             });
         } catch (IOException ex) {
                 Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Connect4DAOException ex) {
+            Logger.getLogger(PartidasController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         Mediator.getInstance().register(s -> {
@@ -241,42 +256,42 @@ public class PartidasController implements Initializable {
             @Override
             public void updateItem(LocalDate date, boolean empty) {
                 super.updateItem(date, empty);
-                setDisable(empty || date.compareTo(LocalDate.now()) > 0 );
+                setDisable(empty || date.compareTo(LocalDate.now()) > 0 || date.compareTo(primeraPartida.getLocalDate()) < 0);
             }
         });
         fechaFinDP.setDayCellFactory(param -> new DateCell() {
             @Override
             public void updateItem(LocalDate date, boolean empty) {
                 super.updateItem(date, empty);
-                setDisable(empty || date.compareTo(LocalDate.now()) > 0 );
+                setDisable(empty || date.compareTo(LocalDate.now()) > 0 || date.compareTo(primeraPartida.getLocalDate()) < 0);
             }
         });
         fechaIniDP1.setDayCellFactory(param -> new DateCell() {
             @Override
             public void updateItem(LocalDate date, boolean empty) {
                 super.updateItem(date, empty);
-                setDisable(empty || date.compareTo(LocalDate.now()) > 0 );
+                setDisable(empty || date.compareTo(LocalDate.now()) > 0|| date.compareTo(primeraPartida.getLocalDate()) < 0);
             }
         });
         fechaFinDP1.setDayCellFactory(param -> new DateCell() {
             @Override
             public void updateItem(LocalDate date, boolean empty) {
                 super.updateItem(date, empty);
-                setDisable(empty || date.compareTo(LocalDate.now()) > 0 );
+                setDisable(empty || date.compareTo(LocalDate.now()) > 0 || date.compareTo(primeraPartida.getLocalDate()) < 0);
             }
         });
        pFechaIniDP.setDayCellFactory(param -> new DateCell() {
             @Override
             public void updateItem(LocalDate date, boolean empty) {
                 super.updateItem(date, empty);
-                setDisable(empty || date.compareTo(LocalDate.now()) > 0 );
+                setDisable(empty || date.compareTo(LocalDate.now()) > 0 || date.compareTo(primeraPartida.getLocalDate()) < 0);
             }
         });
        pFechaFinDP.setDayCellFactory(param -> new DateCell() {
             @Override
             public void updateItem(LocalDate date, boolean empty) {
                 super.updateItem(date, empty);
-                setDisable(empty || date.compareTo(LocalDate.now()) > 0 );
+                setDisable(empty || date.compareTo(LocalDate.now()) > 0|| date.compareTo(primeraPartida.getLocalDate()) < 0 );
             }
         });
     }  
