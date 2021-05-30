@@ -384,7 +384,10 @@ public class RegistrarseController implements Initializable {
             }
             else if(edad.getValue() == null){
                  try{
-                    edad.setValue(edad.getConverter().fromString(edad.getEditor().getText()));}
+                    edad.setValue(edad.getConverter().fromString(edad.getEditor().getText()));
+                    format = true;
+                    age = true;
+                 }
                 catch (Exception e) {
                     eage.setText("Introduce un formato válido (dd/mm/aaaa)");
                     format = false;
@@ -393,6 +396,7 @@ public class RegistrarseController implements Initializable {
             else{
                 eage.setText("");
                 age = true;
+                format = true;
             }
             
             if(usu && passw && cpass && correo && age && format){
