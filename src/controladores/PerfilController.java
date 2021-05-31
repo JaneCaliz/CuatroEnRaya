@@ -282,6 +282,7 @@ public class PerfilController implements Initializable {
     private void modificar(ActionEvent event) {
         usuario.setStyle("-fx-text-inner-color: #6d6f73;");
         usuario.setStyle("-fx-control-inner-background: #edf8ff;");
+        usuario.disableProperty().setValue(true);
         password.setText(passw);
         password.setEditable(true);
         password.setCursor(Cursor.TEXT);
